@@ -16,7 +16,7 @@ Thing we need to do:
 * Data scarping for sites
 * Arrange the data in CSVs
 * Cleaning Data and outliers 
-* Analyze the data
-* Visually show the correlation between different variables
 * Using ML, with supervised and unsupervised learning to make models and clusters
-* Using our models make predictions
+* Analyze the data and the clusters
+* Visually show the correlation between different variables
+* Using our models make predictions for the future
