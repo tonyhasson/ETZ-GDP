@@ -9,8 +9,10 @@ from bs4 import BeautifulSoup
 # import matplotlib.pyplot as plt
 # import seaborn as sns
 # General
+import re
+#import os
 # import scipy as sc
-# import numpy as np
+#import numpy as np
 # from collections import Counter
 # # ML
 # import sklearn
@@ -36,42 +38,29 @@ def load_soup_object(year):
 def create_dataframe(page):
     cols = []      
     vals = []  
+    
+    # Get the table
     table = page.find('table',id='t2')
-    # getting table's cols
-    for th in table.findAll('th'):
-        cols.append(th.text)
     
+    row = 0
     for tr in table.findAll('tr'):
-        vals.append(tr.get_text().split())
-
-    # removing the cols
-    vals.pop(0)
-    cols.pop(0)
-    
-    # fixing the data
-    
-    #########################################################################
-    # If country's name got space inside need to make it one word as split  #
-    # func splits it to multiple words                                      #
-    #########################################################################
+        vals.append(tr.get_text().splitlines()) # just like split but for lines
+        while vals[row][0] == '':
+            vals[row].pop(0) # removing the blank spots ## usually just 2 blanks so its quite efficient
+        row += 1
+         
+    cols = vals.pop(0) # Table's cols at vals[0]
+    cols.pop(0) # poping out the rank cause its useless
     
     # Creating DataFrame to return
-    df = pd.DataFrame(columns=cols)
-    for row in vals:
-        df.add(row)
-    
-    return df
+    return pd.DataFrame(data = vals,columns=cols)
 
 if __name__ == "__main__":
     years = [ str(i) for i in range(2009,2021)]
     for year in years:
-        soup = load_soup_object(year)
-        # Get the table
-        table = soup.find("table", attrs={"id": "t2"})
-        #print (f"Got: {year}")
-        #print(table.thead.text) 
-        
-        # get cols
-        # print (year)
-        df = create_dataframe(soup)
+        # get an object and loading it
+        df = create_dataframe(load_soup_object(year))
+        print ("##########################")
+        print (year)
         print (df)
+        print ("##########################")
