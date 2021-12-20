@@ -1,6 +1,7 @@
 # ETZ-GDP
 
-![Logo](https://raw.githubusercontent.com/tonyhasson/ETZ-GDP/master/.github/logo.png)
+![Logo](.github/logo.png)
+
 # TO-DO List
 
 Thing we need to do:
