@@ -4,14 +4,77 @@
 
 # Ignored directories | Usually User-specific stuff
 .idea/
-.idea
+
+# Folder config file
+Desktop.ini
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
 
 # PyBuilder
 .pybuilder/
 target/
 
+# Distribution / packaging / PyInstaller
+.Python
+.Python build/ 
+build/
+develop-eggs/ 
+dist/ 
+downloads/ 
+eggs/ 
+.eggs/ 
+lib/ 
+lib64/ 
+parts/ 
+sdist/ 
+var/ 
+wheels/ 
+share/python-wheels/
+*.egg-info/ 
+.installed.cfg 
+*.egg 
+*.manifest 
+*.spec 
+MANIFEST
+
+# Log files
+pip-log.txt
+pip-delete-this-directory.txt
+*.log
+
+# Unit test / coverage reports 
+htmlcov/ 
+.tox/ 
+.nox/
+.coverage 
+.coverage.* 
+.cache 
+.pytest_cache/ 
+nosetests.xml 
+coverage.xml 
+*.cover 
+cover/
+.hypothesis/ 
+
 # Jupyter Notebook
 .ipynb_checkpoints
+
+# JetBrains PyCharm
+*.iml
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json 
+!.vscode/tasks.json 
+!.vscode/launch.json 
+!.vscode/extensions.json 
+.history
 
 # Environments Related
 .env
@@ -21,3 +84,16 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
