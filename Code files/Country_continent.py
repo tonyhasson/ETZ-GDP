@@ -1,11 +1,16 @@
 from imports import *
 
-#https://stackoverflow.com/questions/5815747/beautifulsoup-getting-href
-#https://realpython.com/beautiful-soup-web-scraper-python/
-#https://www.dataquest.io/blog/web-scraping-tutorial-python/
+# https://stackoverflow.com/questions/5815747/beautifulsoup-getting-href
+# https://realpython.com/beautiful-soup-web-scraper-python/
+# https://www.dataquest.io/blog/web-scraping-tutorial-python/
 # https://www.askpython.com/python/string/remove-character-from-string-python
 
-def load_soup_object():  
+def load_soup_object():
+    """load soup object from hardcoded url.
+
+    Returns:
+        soup: soup object for the hardcoded url.
+    """
     url = "https://en.wikipedia.org/w/index.php?title=List_of_countries_by_continent&oldid=251930515"
     resp = requests.get(url)
     soup = bs4.BeautifulSoup(resp.text, 'html.parser')
@@ -14,7 +19,14 @@ def load_soup_object():
 
 
 def beautiful_data(country):
-    # removing extras to get the name alone | start
+    """function to make the data better and more relevant.
+
+    Args:
+        country (string): giving dirty country string.
+
+    Returns:
+        string: clean country name.
+    """
     country_name, sep, capital = country.partition(" – ")
     country_name = country_name.replace("\xa0","")
     country_name = country_name.replace("[","")
@@ -26,11 +38,16 @@ def beautiful_data(country):
     country_name = re.sub("[0-9]","",country_name)
     country_name = country_name.split(", ")
     country_name[0] = country_name[0].split(" (")
-    # removing extras to get the name alone | end
+
     return country_name[0][0]
 
 
 def scrap_country():
+    """scrapper that gets each continent's country names.
+
+    Returns:
+        dictionary: dict containing country names and their corresponding continent.
+    """
     continents = []
     name_dict = {}
     
@@ -60,13 +77,7 @@ def scrap_country():
             if append_cnt == 7: break # stops the loop when finished looping through the continents
             name_dict[continents[append_cnt]] = countries_list
             append_cnt += 1
-
-    # # printing each key and value in dict
-    # for key,value in name_dict.items():
-    #     print("\n")
-    #     print(key, '\n', value)
-    #     print("\n")
-    
+   
     return name_dict
     
 scrap_country()

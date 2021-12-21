@@ -2,13 +2,30 @@ from imports import *
 
 
 def load_soup_object(URL,year):
+    """load soup object from givin url with specific year.
+
+    Returns:
+        soup: soup object for the url.
+    """
     url = URL + str(year)
     content = requests.get(url)
-    r =BeautifulSoup(content.text,'html.parser')
-    return r
+    soup =BeautifulSoup(content.text,'html.parser')
+    return soup
 
 
-def create_dataframe(URL,yearStart,yearEnd,drop_columns,CSV_name=None):
+def create_dataframe(URL,yearStart,yearEnd,drop_columns,CSV_name):
+    """Making a dataframe based on the parameters.
+
+    Args:
+        URL (string): URL to do scraping on.
+        yearStart (int): year to start format from.
+        yearEnd (int): year to end format at.
+        drop_columns (list): list that contain all the columns to drop.
+        CSV_name (string): The name to save the CSV file with.
+
+    Returns:
+        Dataframe: the newly created dataframe with the specified parameters.
+    """
     html_file = load_soup_object(URL,yearStart)
     column = []
     table = html_file.find('table', id='t2')
@@ -34,6 +51,7 @@ def create_dataframe(URL,yearStart,yearEnd,drop_columns,CSV_name=None):
 
     df.to_csv(r"..\CSV files\Scraping CSV\df"+str(CSV_name) +".csv")
     return df
+
 
 df1=create_dataframe("https://www.numbeo.com/quality-of-life/rankings_by_country.jsp?title=",2014,2021,['Cost of Living Index','Property Price to Income Ratio','Health Care Index'],1)
 df2=create_dataframe("https://www.numbeo.com/property-investment/rankings_by_country.jsp?title=",2009,2021,[],2)

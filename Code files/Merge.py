@@ -4,10 +4,17 @@ CSV_FILES=['Scraping CSV\df1','Scraping CSV\df2','Scraping CSV\df3','Scraping CS
 List_Of_Countries=['Aruba','Afghanistan','Albania','Algeria','Andorra','Angola','Antigua and Barbuda','Argentina','Armenia','Australia','Austria','Azerbaijan','Bahamas','Bahrain','Bangladesh','Barbados','Belarus','Belgium','Belize','Benin','Bhutan','Bolivia','Bosnia and Herzegovina','Botswana','Brazil','Brunei','Bulgaria','Burkina Faso','Burundi','Ivory Coast','Cabo Verde','Cambodia','Cameroon','Canada','Central African Republic','Chad','Chile','China','Colombia','Comoros','Congo (Congo-Brazzaville)','Costa Rica','Croatia','Cuba','Cyprus','Czechia (Czech Republic)','Democratic Republic of the Congo','Denmark','Djibouti','Dominica','Dominican Republic','Ecuador','Egypt','El Salvador','Equatorial Guinea','Eritrea','Estonia','Eswatini','Ethiopia','Fiji','Finland','France','Gabon','Gambia','Georgia','Germany','Ghana','Greece','Grenada','Guatemala','Guinea','Guinea-Bissau','Guyana','Haiti','Holy See','Honduras','Hungary','Iceland','India','Indonesia','Iran','Iraq','Ireland','Israel','Italy','Jamaica','Japan','Jordan','Kazakhstan','Kenya','Kiribati','Kuwait','Kyrgyzstan','Laos','Latvia','Lebanon','Lesotho','Liberia','Libya','Liechtenstein','Lithuania','Luxembourg','Madagascar','Malawi','Malaysia','Maldives','Mali','Malta','Marshall Islands','Mauritania','Mauritius','Mexico','Micronesia',',Moldova','Monaco','Mongolia','Montenegro','Morocco','Mozambique','Myanmar','Namibia','Nauru','Nepal','Netherlands','New Zealand','Nicaragua,','Niger','Nigeria','North Korea','North Macedonia','Norway','Oman','Pakistan','Palau','Palestine State','Panama','Papua New Guinea','Paraguay','Peru','Philippines','Poland','Portugal','Qatar','Romania','Russia','Rwanda','Saint Kitts and Nevis','Saint Lucia','Saint Vincent and the Grenadines','Samoa,','San Marino','Sao Tome and Principe','Saudi Arabia','Senegal','Serbia','Seychelles','Sierra Leone','Singapore','Slovakia','Slovenia','Solomon Islands','Somalia','South Africa','South Korea','South Sudan','Spain','Sri Lanka','Sudan','Suriname','Sweden','Switzerland','Syria','Tajik,istan','Tanza,nia','Thailand','Timor-Leste','Togo','Tonga','Trinidad and Tobago','Tunisia','Turkey','Turkmenistan','Tuvalu','Uganda','Ukraine','United Arab Emirates','United Kingdom','United States of America','Uruguay','Uzbekistan','Vanuatu','Venezuela','Vietnam','Yemen','Zambia','Zimbabwe']
 
 
-#Function to reformat existing dataframe to [Country, Year, Value] format
 def reformatCSV(CSV_location,CSV_name,Start_year,End_year):
+    """Function to reformat existing dataframe to [Country, Year, Value] format.
+
+    Args:
+        CSV_location (string): The path for the CSV file.
+        CSV_name (string): The Name for the CSV file.
+        Start_year (int): year to start format from.
+        End_year (int): year to end format at.
+    """
     columns=['Country','Year',CSV_name]
-    df = pd.read_csv(CSV_location + CSV_name + '.csv' , encoding="ISO-8859-1")
+    df = pd.read_csv(CSV_location + CSV_name + '.csv')
     newrow =[]
     for row in df.iterrows():
         for i in range(Start_year,End_year+1):
@@ -16,28 +23,41 @@ def reformatCSV(CSV_location,CSV_name,Start_year,End_year):
     reformated= pd.DataFrame(newrow,columns=columns)
     reformated.to_csv(r"..\CSV files\\" + CSV_name + 'REFORMAT.csv')
 
-#Merge all dataframes into one and clean it a bit.
-def merge_and_clean(arr_df):
 
-    ##merge
+def merge_and_clean(arr_df):
+    """Merge all dataframes into one and clean it a bit.
+
+    Args:
+        arr_df (array): array of dataframes to manipulate.add()
+
+    Returns:
+        Dataframe: Merged dataframe of all the dataframes from the givin array.
+    """
+
+    ## merge
     for i in range(len(arr_df)-1):
         arr_df[i+1] = arr_df[i].merge(arr_df[i+1], on=['Year', 'Country'], how='outer')
 
-    ##clean
+    ## clean
     df=arr_df[len(arr_df)-1]
     df.sort_values(['Country','Year'], axis=0, ascending=True, inplace=True)
     df.drop(['Unnamed: 0_x', 'Unnamed: 0_y'], axis=1, inplace=True)
-    #remove all rows where year<1960
+    # remove all rows where year<1960
     df=df[df['Year']>=1960]
-    #remove all unknown and irrelevant countries
+    # remove all unknown and irrelevant countries
     df=df[df['Country'].isin(List_Of_Countries)]
 
     print(df.isnull().sum().sum())
     print(df.shape[0])
     return df
 
-#Function to build Array of dataframes from CSV files
+
 def arr_df_builder():
+    """Function to build Array of dataframes from CSV files.
+
+    Returns:
+        DataFrame Array: array of dataframes to be manipulated in the future.
+    """
     path = os.path.dirname(__file__)
     arr_df=[]
     for i in range(len(CSV_FILES)):

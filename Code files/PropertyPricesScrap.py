@@ -1,5 +1,4 @@
 from imports import *
-#### tony did this
 
 ## create column names list
 def create_list(txt):

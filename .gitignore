@@ -4,6 +4,7 @@
 
 # Ignored directories | Usually User-specific stuff
 .idea/
+idea/*
 
 # Folder config file
 Desktop.ini
@@ -11,6 +12,7 @@ Desktop.ini
 # Byte-compiled / optimized / DLL files
 __pycache__/
 Code files/__pycache__/imports.cpython-310.pyc
+Code files/__pycache__/*
 .__pycache__
 *.__pycache__
 __pycache__

@@ -1,15 +1,16 @@
-import imports
+from imports import *
 
-import os
-
-from bs4 import BeautifulSoup
-import pandas
-import pandas as pd
-import requests
-#import imports
-# Made By Eytan
-
-
-#TODO:
-#1. Function For merging the dataframe by country and year
-#2. Function to reformat the CSV's to be in Year,Country format
+##############################################################################
+##################                TO DO LIST                ##################
+##############################################################################
+#   1. Clean the data                                                        #                       
+#   2. Analyze the data                                                      #                       
+#   3. Correlation between diffrent things                                   #                                           
+#   4. Make plots                                                            #                   
+#   5.                                                                       #       
+#   6.                                                                       #       
+#   7.                                                                       #
+#   8.                                                                       #
+#   9.                                                                       #
+#   10.                                                                      #       
+##############################################################################
