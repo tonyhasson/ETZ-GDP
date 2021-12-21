@@ -2,5 +2,22 @@
 /shelf/
 /workspace.xml
 
-# Ignored directories
+# Ignored directories | Usually User-specific stuff
 .idea/
+.idea
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environments Related
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
