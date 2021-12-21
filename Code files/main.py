@@ -48,7 +48,6 @@ df2=create_dataframe("https://www.numbeo.com/property-investment/rankings_by_cou
 df3=create_dataframe("https://www.numbeo.com/cost-of-living/rankings_by_country.jsp?title=",2009,2021,[])
 df4=create_dataframe("https://www.numbeo.com/health-care/rankings_by_country.jsp?title=",2014,2021,[])
 
-
 df5 =df1.merge(df2, on=['Year','Country'], how='outer')
 df6 =df3.merge(df4, on=['Year','Country'], how='outer')
 df_total=df5.merge(df6, on=['Year','Country'], how='outer')

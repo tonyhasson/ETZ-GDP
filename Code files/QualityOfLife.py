@@ -45,12 +45,23 @@ def create_dataframe(URL,yearStart,yearEnd,drop_columns,CSV_name):
 #create_dataframe("https://www.numbeo.com/quality-of-life/rankings_by_country.jsp?title=",2014,2021,['Cost of Living Index','Property Price to Income Ratio'], 'QualityOfLife')
 
 
-def reformatCSV(CSV_location,CSV_name):
+def reformatCSV(CSV_location,CSV_name,Start_year,End_year):
     columns=['Country','Year',CSV_name]
-    df = pd.read_csv(CSV_location+CSV_name+".csv")
-    for country in df['Country']:
-        print(country)
-    #reformated= pd.DataFrame(columns=columns)
+    df = pd.read_csv(CSV_location + CSV_name + '.csv')
+    newrow =[]
+    for row in df.iterrows():
+        for i in range(Start_year,End_year+1):
+            newrow.append([row[1]['Country'],i,row[1][str(i)]])
 
+    reformated= pd.DataFrame(newrow,columns=columns)
+    reformated.to_csv(CSV_location + CSV_name + 'REFORMAT.csv')
 
-reformatCSV(r'..\CSV files\Education Ranking\\','Education Ranking')
+#reformatCSV(r"..\CSV files\Education Ranking\\","Education Ranking",1990,2019)
+reformatCSV(r"..\CSV files\GDP\\","GDP Growth",1960,2020)
+reformatCSV(r"..\CSV files\GDP\\","GDP Total",1960,2020)
+reformatCSV(r"..\CSV files\Health\\","Life expectancy at birth",1960,2020)
+reformatCSV(r"..\CSV files\High-Tech\\","High Tech Exports(% of total)",2007,2020)
+reformatCSV(r"..\CSV files\High-Tech\\","High Tech Exports(total)",2007,2020)
+reformatCSV(r"..\CSV files\Household\\","Final consumption expenditure",1960,2020)
+reformatCSV(r"..\CSV files\Population\\","Population Growth pace",1960,2020)
+reformatCSV(r"..\CSV files\Population\\","Population Total",1960,2020)
