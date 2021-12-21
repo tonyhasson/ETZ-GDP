@@ -39,6 +39,18 @@ def create_dataframe(URL,yearStart,yearEnd,drop_columns,CSV_name):
     df = pd.DataFrame(items, columns=column)
     df.drop(drop_columns,axis=1,inplace=True)
     path = os.path.dirname(__file__)
-    df.to_csv(os.path.join( path,CSV_name))
+    df.to_csv(os.path.join( path,r"..\CSV files\\" + r"\\"+ CSV_name+".csv"))
 
-create_dataframe("https://www.numbeo.com/quality-of-life/rankings_by_country.jsp?title=",2014,2021,['Cost of Living Index','Property Price to Income Ratio'], 'QualityOfLife.csv')
+
+#create_dataframe("https://www.numbeo.com/quality-of-life/rankings_by_country.jsp?title=",2014,2021,['Cost of Living Index','Property Price to Income Ratio'], 'QualityOfLife')
+
+
+def reformatCSV(CSV_location,CSV_name):
+    columns=['Country','Year',CSV_name]
+    df = pd.read_csv(CSV_location+CSV_name+".csv")
+    for country in df['Country']:
+        print(country)
+    #reformated= pd.DataFrame(columns=columns)
+
+
+reformatCSV(r'..\CSV files\Education Ranking\\','Education Ranking')
