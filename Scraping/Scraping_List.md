@@ -7,3 +7,5 @@
 * [Property investment](https://www.numbeo.com/property-investment/rankings_by_country.jsp)
 
 * [Quality of Life](https://www.numbeo.com/quality-of-life/rankings_by_country.jsp?title=2021)
+
+* [Countries by Continent](https://en.wikipedia.org/w/index.php?title=List_of_countries_by_continent&oldid=251930515)

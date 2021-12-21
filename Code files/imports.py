@@ -11,7 +11,9 @@ from bs4 import BeautifulSoup
 #import seaborn as sns
 
 # General
-#import re
+import re
+from re import sub
+from typing import Pattern
 import os
 #import scipy as sc
 import numpy as np
