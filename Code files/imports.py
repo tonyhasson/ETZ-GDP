@@ -1,6 +1,5 @@
 # DataFrames
 import pandas as pd
-import os
 # Network, Crawlling and Scraping
 import requests
 import bs4
@@ -13,7 +12,7 @@ from bs4 import BeautifulSoup
 
 # General
 #import re
-#import os
+import os
 #import scipy as sc
 import numpy as np
 from collections import Counter
