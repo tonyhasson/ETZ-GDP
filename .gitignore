@@ -10,7 +10,7 @@ Desktop.ini
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
-/__pycache__/imports.*
+Code files/__pycache__/imports.cpython-310.pyc
 .__pycache__
 *.__pycache__
 __pycache__
