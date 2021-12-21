@@ -23,7 +23,7 @@ def create_dataframe(URL,yearStart,yearEnd,drop_columns,CSV_name=None):
         for tr in html_file.findAll('tbody'):
             for td in tr.findAll('td'):
                 if td.text !='':
-                    row.append(td.text)
+                    row.append(td.text.lstrip())
                     flag=1
                 elif flag==1:
                     row.insert(0,i)

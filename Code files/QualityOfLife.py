@@ -56,12 +56,4 @@ def reformatCSV(CSV_location,CSV_name,Start_year,End_year):
     reformated= pd.DataFrame(newrow,columns=columns)
     reformated.to_csv(CSV_location + CSV_name + 'REFORMAT.csv')
 
-#reformatCSV(r"..\CSV files\Education Ranking\\","Education Ranking",1990,2019)
-reformatCSV(r"..\CSV files\GDP\\","GDP Growth",1960,2020)
-reformatCSV(r"..\CSV files\GDP\\","GDP Total",1960,2020)
-reformatCSV(r"..\CSV files\Health\\","Life expectancy at birth",1960,2020)
-reformatCSV(r"..\CSV files\High-Tech\\","High Tech Exports(% of total)",2007,2020)
-reformatCSV(r"..\CSV files\High-Tech\\","High Tech Exports(total)",2007,2020)
-reformatCSV(r"..\CSV files\Household\\","Final consumption expenditure",1960,2020)
-reformatCSV(r"..\CSV files\Population\\","Population Growth pace",1960,2020)
-reformatCSV(r"..\CSV files\Population\\","Population Total",1960,2020)
+
