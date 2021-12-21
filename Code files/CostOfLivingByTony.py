@@ -1,7 +1,7 @@
 from imports import *
-####tony improved this for ziv
+#### tony improved this for ziv
 
-##create column names list
+## create column names list
 def create_list(txt):
     col_names=txt.splitlines()
     new_col = []
@@ -27,21 +27,21 @@ def list_split(listA, n):
 
 
 def parse_page():
-    ##first time getting col_names:
+    ## first time getting col_names:
     url="https://www.numbeo.com/cost-of-living/rankings_by_country.jsp?title=2009"
 
 
-    resp = requests.get(url) ##scrapping for col names
+    resp = requests.get(url) ## scrapping for col names
     soup = bs4.BeautifulSoup(resp.text, 'html.parser')
 
 
     table = soup.find("table", attrs={"id": "t2"})
 
     col_names=create_list(table.thead.text) ## get col_names
-    col_names.remove('Rank') ##doesn't download the data for it and not so important
+    col_names.remove('Rank') ## doesn't download the data for it and not so important
 
     arr_years=[date for date in range(2009,2022)] ##get years
-    total_data=[] ##here we save all of the data of the countries
+    total_data=[] ## here we save all of the data of the countries
 
     ## now running according to years
     for d in arr_years:
