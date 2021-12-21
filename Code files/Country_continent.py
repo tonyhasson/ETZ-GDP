@@ -22,13 +22,17 @@ def scrap_country():
     
     # Getting the continent Name
     continents_items = soup.find_all(class_ = "mw-headline")
+    
     for cnt,item in enumerate(continents_items):
         continents.append(item.get_text().strip())
-        countryy = continents_items.find_all("li")
-        for i in countryy: # Getting the countries List
-            print (i.get_text().strip()) 
-            #countries_list.append(i.get_text().strip())   
         if cnt == 8: break # Wiki start giving info we don't need after that
+
+    ul_list = soup.find_all("ul")
+
+    for cnt,i in enumerate(ul_list): # Getting the countries List
+        if cnt >= 13:
+            print (i.get_text()) 
+        #countries_list.append(i.get_text().strip())   
 
    
         
