@@ -33,12 +33,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Merge.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Clean.py" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.Merge">
-    <configuration name="Merge" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.Clean">
+    <configuration name="Clean" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Code files" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -50,7 +50,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Merge.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Clean.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -81,7 +81,7 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Merge" />
+      <item itemvalue="Python.Clean" />
       <item itemvalue="Python.Scraping" />
     </list>
     <recent_temporary>
