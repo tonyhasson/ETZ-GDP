@@ -1,6 +1,6 @@
 from imports import *
 
-CSV_FILES=['Education RankingREFORMAT','Final consumption expenditureREFORMAT','GDP GrowthREFORMAT','GDP TotalREFORMAT','Government ExpenditureREFORMAT','Government Expense(of total GDP)REFORMAT','High Tech Exports(% of total)REFORMAT','High Tech Exports(total)REFORMAT','Life expectancy at birthREFORMAT','Population Growth paceREFORMAT','Population TotalREFORMAT','Military Expenditure totalREFORMAT','Military Expenditure(% of GDP)REFORMAT']
+CSV_FILES=['Education RankingREFORMAT','Final consumption expenditureREFORMAT','GDP GrowthREFORMAT','GDP TotalREFORMAT','Government ExpenditureREFORMAT','Government Expense(of total GDP)REFORMAT','High Tech Exports(% of total)REFORMAT','High Tech Exports(total)REFORMAT','Life expectancy at birthREFORMAT','Population Growth paceREFORMAT','Population TotalREFORMAT','Military Expenditure totalREFORMAT','Military Expenditure(% of GDP)REFORMAT','df_Continent']
 List_Of_Countries=['Afghanistan','Albania','Algeria','Andorra','Angola','Antigua and Barbuda','Aruba','Argentina','Armenia','Australia','Austria','Azerbaijan','Bahrain','Bangladesh','Barbados','Belarus','Belgium','Belize','Benin','Bhutan','Bolivia','Bosnia and Herzegovina','Botswana','Brazil','Bulgaria','Burkina Faso','Burundi','Ivory Coast',r"Cote d'Ivoire",'Cabo Verde','Cambodia','Cameroon','Canada','Central African Republic','Chad','Chile','China','Colombia','Comoros','Congo (Congo-Brazzaville)','Costa Rica','Croatia','Cuba','Cyprus','Czechia (Czech Republic)','Democratic Republic of the Congo','Denmark','Djibouti','Dominica','Dominican Republic','Ecuador','Egypt','El Salvador','Equatorial Guinea','Eritrea','Estonia','Eswatini','Ethiopia','Fiji','Finland','France','Gabon','Georgia','Germany','Ghana','Greece','Grenada','Guatemala','Guinea','Guinea-Bissau','Guyana','Haiti','Holy See','Honduras','Hungary','Iceland','India','Indonesia','Iran','Iraq','Ireland','Israel','Italy','Jamaica','Japan','Jordan','Kazakhstan','Kenya','Kiribati','Kuwait','Kyrgyzstan','Laos','Latvia','Lebanon','Lesotho','Liberia','Libya','Liechtenstein','Lithuania','Luxembourg','Madagascar','Malawi','Malaysia','Maldives','Mali','Malta','Marshall Islands','Mauritania','Mauritius','Mexico','Micronesia',',Moldova','Monaco','Mongolia','Montenegro','Morocco','Mozambique','Myanmar','Namibia','Nauru','Nepal','Netherlands','New Zealand','Nicaragua,','Niger','Nigeria','North Korea','North Macedonia','Norway','Oman','Pakistan','Palau','Palestine State','Panama','Papua New Guinea','Paraguay','Peru','Philippines','Poland','Portugal','Qatar','Romania','Russia','Rwanda','Samoa,','San Marino','Sao Tome and Principe','Saudi Arabia','Senegal','Serbia','Seychelles','Sierra Leone','Singapore','Slovakia','Slovenia','Solomon Islands','Somalia','South Africa','South Korea','South Sudan','Spain','Sri Lanka','Sudan','Suriname','Sweden','Switzerland','Syria','Tajik,istan','Tanza,nia','Thailand','Timor-Leste','Togo','Tonga','Trinidad and Tobago','Tunisia','Turkey','Turkmenistan','Tuvalu','Uganda','Ukraine','United Arab Emirates','United Kingdom','United States','Uruguay','Uzbekistan','Vanuatu','Venezuela','Vietnam','Yemen','Zambia','Zimbabwe']
 
 
@@ -37,7 +37,13 @@ def merge_and_clean(arr_df,Name):
 
     ## merge
     for i in range(len(arr_df)-1):
-        arr_df[i+1] = arr_df[i].merge(arr_df[i+1], on=['Year', 'Country'], how='outer')
+        if i<len(arr_df)-2:
+            arr_df[i+1] = arr_df[i].merge(arr_df[i+1], on=['Year', 'Country'], how='outer')
+        else:##merge with the Continent CSV
+            arr_df[i + 1] = arr_df[i].merge(arr_df[i + 1], on=['Country'], how='outer')
+
+
+
 
     ## clean
     df=arr_df[len(arr_df)-1]
@@ -87,6 +93,6 @@ def arr_df_builder(CSV_FILES):
 # reformatCSV(r"..\CSV files\OLD\\","Population Total",1960,2002)
 
 arr_df=arr_df_builder(CSV_FILES)
-scrap_arr_df=arr_df_builder(['Scraping CSV\df1','Scraping CSV\df2','Scraping CSV\df3','Scraping CSV\df4'])
+scrap_arr_df=arr_df_builder(['Scraping CSV\df1','Scraping CSV\df2','Scraping CSV\df3','Scraping CSV\df4','df_Continent'])
 raw_data=merge_and_clean(arr_df,"df_Full_DataBase")
 scrap_raw_data=merge_and_clean(scrap_arr_df,"df_scrape")
