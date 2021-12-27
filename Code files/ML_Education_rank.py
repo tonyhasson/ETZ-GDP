@@ -26,10 +26,10 @@ def linear_regres(first_year,dataset,label_column):
 
 def check_year_lr(dataframe, country):
     country="Andorra"
-    for year in (1990,2019):
+    for year in range(1990,2020):
         data_year_country = dataframe[(dataframe["Year"] == year) & (dataframe["Country"] == country)]["Education Ranking"].values
 
-        if len(data_year_country) == 1 and type(data_year_country[0]) != float:
+        if not pd.isna(data_year_country[0]):
             return year
 
 
