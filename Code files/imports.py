@@ -21,7 +21,7 @@ import numpy as np
 from collections import Counter
 
 # ML
-import sklearn
+#import sklearn
 #from sklearn import linear_model, metrics, preprocessing
 #from sklearn.preprocessing import StandardScaler, MinMaxScaler
 #from sklearn.linear_model import LogisticRegression, LinearRegression
