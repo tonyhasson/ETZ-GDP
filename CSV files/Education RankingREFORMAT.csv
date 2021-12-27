@@ -89,16 +89,16 @@
 87,Algeria,2017,0.665
 88,Algeria,2018,0.668
 89,Algeria,2019,0.672
-90,Andorra,1990,..
-91,Andorra,1991,..
-92,Andorra,1992,..
-93,Andorra,1993,..
-94,Andorra,1994,..
-95,Andorra,1995,..
-96,Andorra,1996,..
-97,Andorra,1997,..
-98,Andorra,1998,..
-99,Andorra,1999,..
+90,Andorra,1990,
+91,Andorra,1991,
+92,Andorra,1992,
+93,Andorra,1993,
+94,Andorra,1994,
+95,Andorra,1995,
+96,Andorra,1996,
+97,Andorra,1997,
+98,Andorra,1998,
+99,Andorra,1999,
 100,Andorra,2000,0.63
 101,Andorra,2001,0.63
 102,Andorra,2002,0.636
@@ -119,15 +119,15 @@
 117,Andorra,2017,0.713
 118,Andorra,2018,0.72
 119,Andorra,2019,0.72
-120,Angola,1990,..
-121,Angola,1991,..
-122,Angola,1992,..
-123,Angola,1993,..
-124,Angola,1994,..
-125,Angola,1995,..
-126,Angola,1996,..
-127,Angola,1997,..
-128,Angola,1998,..
+120,Angola,1990,
+121,Angola,1991,
+122,Angola,1992,
+123,Angola,1993,
+124,Angola,1994,
+125,Angola,1995,
+126,Angola,1996,
+127,Angola,1997,
+128,Angola,1998,
 129,Angola,1999,0.276
 130,Angola,2000,0.288
 131,Angola,2001,0.3
@@ -149,21 +149,21 @@
 147,Angola,2017,0.498
 148,Angola,2018,0.5
 149,Angola,2019,0.5
-150,Antigua and Barbuda,1990,..
-151,Antigua and Barbuda,1991,..
-152,Antigua and Barbuda,1992,..
-153,Antigua and Barbuda,1993,..
-154,Antigua and Barbuda,1994,..
-155,Antigua and Barbuda,1995,..
-156,Antigua and Barbuda,1996,..
-157,Antigua and Barbuda,1997,..
-158,Antigua and Barbuda,1998,..
-159,Antigua and Barbuda,1999,..
-160,Antigua and Barbuda,2000,..
-161,Antigua and Barbuda,2001,..
-162,Antigua and Barbuda,2002,..
-163,Antigua and Barbuda,2003,..
-164,Antigua and Barbuda,2004,..
+150,Antigua and Barbuda,1990,
+151,Antigua and Barbuda,1991,
+152,Antigua and Barbuda,1992,
+153,Antigua and Barbuda,1993,
+154,Antigua and Barbuda,1994,
+155,Antigua and Barbuda,1995,
+156,Antigua and Barbuda,1996,
+157,Antigua and Barbuda,1997,
+158,Antigua and Barbuda,1998,
+159,Antigua and Barbuda,1999,
+160,Antigua and Barbuda,2000,
+161,Antigua and Barbuda,2001,
+162,Antigua and Barbuda,2002,
+163,Antigua and Barbuda,2003,
+164,Antigua and Barbuda,2004,
 165,Antigua and Barbuda,2005,0.673
 166,Antigua and Barbuda,2006,0.675
 167,Antigua and Barbuda,2007,0.676
@@ -299,11 +299,11 @@
 297,Austria,2017,0.865
 298,Austria,2018,0.866
 299,Austria,2019,0.865
-300,Azerbaijan,1990,..
-301,Azerbaijan,1991,..
-302,Azerbaijan,1992,..
-303,Azerbaijan,1993,..
-304,Azerbaijan,1994,..
+300,Azerbaijan,1990,
+301,Azerbaijan,1991,
+302,Azerbaijan,1992,
+303,Azerbaijan,1993,
+304,Azerbaijan,1994,
 305,Azerbaijan,1995,0.618
 306,Azerbaijan,1996,0.614
 307,Azerbaijan,1997,0.616
@@ -329,16 +329,16 @@
 327,Azerbaijan,2017,0.713
 328,Azerbaijan,2018,0.711
 329,Azerbaijan,2019,0.711
-330,Bahamas,1990,..
-331,Bahamas,1991,..
-332,Bahamas,1992,..
-333,Bahamas,1993,..
-334,Bahamas,1994,..
-335,Bahamas,1995,..
-336,Bahamas,1996,..
-337,Bahamas,1997,..
-338,Bahamas,1998,..
-339,Bahamas,1999,..
+330,Bahamas,1990,
+331,Bahamas,1991,
+332,Bahamas,1992,
+333,Bahamas,1993,
+334,Bahamas,1994,
+335,Bahamas,1995,
+336,Bahamas,1996,
+337,Bahamas,1997,
+338,Bahamas,1998,
+339,Bahamas,1999,
 340,Bahamas,2000,0.7
 341,Bahamas,2001,0.702
 342,Bahamas,2002,0.704
@@ -449,11 +449,11 @@
 447,Barbados,2017,0.773
 448,Barbados,2018,0.773
 449,Barbados,2019,0.782
-450,Belarus,1990,..
-451,Belarus,1991,..
-452,Belarus,1992,..
-453,Belarus,1993,..
-454,Belarus,1994,..
+450,Belarus,1990,
+451,Belarus,1991,
+452,Belarus,1992,
+453,Belarus,1993,
+454,Belarus,1994,
 455,Belarus,1995,0.63
 456,Belarus,1996,0.643
 457,Belarus,1997,0.648
@@ -569,21 +569,21 @@
 567,Benin,2017,0.472
 568,Benin,2018,0.476
 569,Benin,2019,0.478
-570,Bhutan,1990,..
-571,Bhutan,1991,..
-572,Bhutan,1992,..
-573,Bhutan,1993,..
-574,Bhutan,1994,..
-575,Bhutan,1995,..
-576,Bhutan,1996,..
-577,Bhutan,1997,..
-578,Bhutan,1998,..
-579,Bhutan,1999,..
-580,Bhutan,2000,..
-581,Bhutan,2001,..
-582,Bhutan,2002,..
-583,Bhutan,2003,..
-584,Bhutan,2004,..
+570,Bhutan,1990,
+571,Bhutan,1991,
+572,Bhutan,1992,
+573,Bhutan,1993,
+574,Bhutan,1994,
+575,Bhutan,1995,
+576,Bhutan,1996,
+577,Bhutan,1997,
+578,Bhutan,1998,
+579,Bhutan,1999,
+580,Bhutan,2000,
+581,Bhutan,2001,
+582,Bhutan,2002,
+583,Bhutan,2003,
+584,Bhutan,2004,
 585,Bhutan,2005,0.335
 586,Bhutan,2006,0.337
 587,Bhutan,2007,0.35
@@ -629,16 +629,16 @@
 627,Bolivia (Plurinational State of),2017,0.686
 628,Bolivia (Plurinational State of),2018,0.69
 629,Bolivia (Plurinational State of),2019,0.695
-630,Bosnia and Herzegovina,1990,..
-631,Bosnia and Herzegovina,1991,..
-632,Bosnia and Herzegovina,1992,..
-633,Bosnia and Herzegovina,1993,..
-634,Bosnia and Herzegovina,1994,..
-635,Bosnia and Herzegovina,1995,..
-636,Bosnia and Herzegovina,1996,..
-637,Bosnia and Herzegovina,1997,..
-638,Bosnia and Herzegovina,1998,..
-639,Bosnia and Herzegovina,1999,..
+630,Bosnia and Herzegovina,1990,
+631,Bosnia and Herzegovina,1991,
+632,Bosnia and Herzegovina,1992,
+633,Bosnia and Herzegovina,1993,
+634,Bosnia and Herzegovina,1994,
+635,Bosnia and Herzegovina,1995,
+636,Bosnia and Herzegovina,1996,
+637,Bosnia and Herzegovina,1997,
+638,Bosnia and Herzegovina,1998,
+639,Bosnia and Herzegovina,1999,
 640,Bosnia and Herzegovina,2000,0.557
 641,Bosnia and Herzegovina,2001,0.565
 642,Bosnia and Herzegovina,2002,0.574
@@ -779,16 +779,16 @@
 777,Bulgaria,2017,0.785
 778,Bulgaria,2018,0.779
 779,Bulgaria,2019,0.779
-780,Burkina Faso,1990,..
-781,Burkina Faso,1991,..
-782,Burkina Faso,1992,..
-783,Burkina Faso,1993,..
-784,Burkina Faso,1994,..
-785,Burkina Faso,1995,..
-786,Burkina Faso,1996,..
-787,Burkina Faso,1997,..
-788,Burkina Faso,1998,..
-789,Burkina Faso,1999,..
+780,Burkina Faso,1990,
+781,Burkina Faso,1991,
+782,Burkina Faso,1992,
+783,Burkina Faso,1993,
+784,Burkina Faso,1994,
+785,Burkina Faso,1995,
+786,Burkina Faso,1996,
+787,Burkina Faso,1997,
+788,Burkina Faso,1998,
+789,Burkina Faso,1999,
 790,Burkina Faso,2000,0.139
 791,Burkina Faso,2001,0.142
 792,Burkina Faso,2002,0.147
@@ -839,16 +839,16 @@
 837,Burundi,2017,0.422
 838,Burundi,2018,0.412
 839,Burundi,2019,0.417
-840,Cabo Verde,1990,..
-841,Cabo Verde,1991,..
-842,Cabo Verde,1992,..
-843,Cabo Verde,1993,..
-844,Cabo Verde,1994,..
-845,Cabo Verde,1995,..
-846,Cabo Verde,1996,..
-847,Cabo Verde,1997,..
-848,Cabo Verde,1998,..
-849,Cabo Verde,1999,..
+840,Cabo Verde,1990,
+841,Cabo Verde,1991,
+842,Cabo Verde,1992,
+843,Cabo Verde,1993,
+844,Cabo Verde,1994,
+845,Cabo Verde,1995,
+846,Cabo Verde,1996,
+847,Cabo Verde,1997,
+848,Cabo Verde,1998,
+849,Cabo Verde,1999,
 850,Cabo Verde,2000,0.436
 851,Cabo Verde,2001,0.435
 852,Cabo Verde,2002,0.451
@@ -989,16 +989,16 @@
 987,Central African Republic,2017,0.352
 988,Central African Republic,2018,0.353
 989,Central African Republic,2019,0.353
-990,Chad,1990,..
-991,Chad,1991,..
-992,Chad,1992,..
-993,Chad,1993,..
-994,Chad,1994,..
-995,Chad,1995,..
-996,Chad,1996,..
-997,Chad,1997,..
-998,Chad,1998,..
-999,Chad,1999,..
+990,Chad,1990,
+991,Chad,1991,
+992,Chad,1992,
+993,Chad,1993,
+994,Chad,1994,
+995,Chad,1995,
+996,Chad,1996,
+997,Chad,1997,
+998,Chad,1998,
+999,Chad,1999,
 1000,Chad,2000,0.18
 1001,Chad,2001,0.188
 1002,Chad,2002,0.196
@@ -1109,16 +1109,16 @@
 1107,Colombia,2017,0.678
 1108,Colombia,2018,0.678
 1109,Colombia,2019,0.682
-1110,Comoros,1990,..
-1111,Comoros,1991,..
-1112,Comoros,1992,..
-1113,Comoros,1993,..
-1114,Comoros,1994,..
-1115,Comoros,1995,..
-1116,Comoros,1996,..
-1117,Comoros,1997,..
-1118,Comoros,1998,..
-1119,Comoros,1999,..
+1110,Comoros,1990,
+1111,Comoros,1991,
+1112,Comoros,1992,
+1113,Comoros,1993,
+1114,Comoros,1994,
+1115,Comoros,1995,
+1116,Comoros,1996,
+1117,Comoros,1997,
+1118,Comoros,1998,
+1119,Comoros,1999,
 1120,Comoros,2000,0.328
 1121,Comoros,2001,0.338
 1122,Comoros,2002,0.348
@@ -1409,11 +1409,11 @@
 1407,Denmark,2017,0.919
 1408,Denmark,2018,0.921
 1409,Denmark,2019,0.92
-1410,Djibouti,1990,..
-1411,Djibouti,1991,..
-1412,Djibouti,1992,..
-1413,Djibouti,1993,..
-1414,Djibouti,1994,..
+1410,Djibouti,1990,
+1411,Djibouti,1991,
+1412,Djibouti,1992,
+1413,Djibouti,1993,
+1414,Djibouti,1994,
 1415,Djibouti,1995,0.171
 1416,Djibouti,1996,0.173
 1417,Djibouti,1997,0.178
@@ -1439,16 +1439,16 @@
 1437,Djibouti,2017,0.316
 1438,Djibouti,2018,0.322
 1439,Djibouti,2019,0.325
-1440,Dominica,1990,..
-1441,Dominica,1991,..
-1442,Dominica,1992,..
-1443,Dominica,1993,..
-1444,Dominica,1994,..
-1445,Dominica,1995,..
-1446,Dominica,1996,..
-1447,Dominica,1997,..
-1448,Dominica,1998,..
-1449,Dominica,1999,..
+1440,Dominica,1990,
+1441,Dominica,1991,
+1442,Dominica,1992,
+1443,Dominica,1993,
+1444,Dominica,1994,
+1445,Dominica,1995,
+1446,Dominica,1996,
+1447,Dominica,1997,
+1448,Dominica,1998,
+1449,Dominica,1999,
 1450,Dominica,2000,0.595
 1451,Dominica,2001,0.597
 1452,Dominica,2002,0.599
@@ -1589,16 +1589,16 @@
 1587,El Salvador,2017,0.562
 1588,El Salvador,2018,0.553
 1589,El Salvador,2019,0.555
-1590,Equatorial Guinea,1990,..
-1591,Equatorial Guinea,1991,..
-1592,Equatorial Guinea,1992,..
-1593,Equatorial Guinea,1993,..
-1594,Equatorial Guinea,1994,..
-1595,Equatorial Guinea,1995,..
-1596,Equatorial Guinea,1996,..
-1597,Equatorial Guinea,1997,..
-1598,Equatorial Guinea,1998,..
-1599,Equatorial Guinea,1999,..
+1590,Equatorial Guinea,1990,
+1591,Equatorial Guinea,1991,
+1592,Equatorial Guinea,1992,
+1593,Equatorial Guinea,1993,
+1594,Equatorial Guinea,1994,
+1595,Equatorial Guinea,1995,
+1596,Equatorial Guinea,1996,
+1597,Equatorial Guinea,1997,
+1598,Equatorial Guinea,1998,
+1599,Equatorial Guinea,1999,
 1600,Equatorial Guinea,2000,0.402
 1601,Equatorial Guinea,2001,0.407
 1602,Equatorial Guinea,2002,0.411
@@ -1619,21 +1619,21 @@
 1617,Equatorial Guinea,2017,0.441
 1618,Equatorial Guinea,2018,0.441
 1619,Equatorial Guinea,2019,0.467
-1620,Eritrea,1990,..
-1621,Eritrea,1991,..
-1622,Eritrea,1992,..
-1623,Eritrea,1993,..
-1624,Eritrea,1994,..
-1625,Eritrea,1995,..
-1626,Eritrea,1996,..
-1627,Eritrea,1997,..
-1628,Eritrea,1998,..
-1629,Eritrea,1999,..
-1630,Eritrea,2000,..
-1631,Eritrea,2001,..
-1632,Eritrea,2002,..
-1633,Eritrea,2003,..
-1634,Eritrea,2004,..
+1620,Eritrea,1990,
+1621,Eritrea,1991,
+1622,Eritrea,1992,
+1623,Eritrea,1993,
+1624,Eritrea,1994,
+1625,Eritrea,1995,
+1626,Eritrea,1996,
+1627,Eritrea,1997,
+1628,Eritrea,1998,
+1629,Eritrea,1999,
+1630,Eritrea,2000,
+1631,Eritrea,2001,
+1632,Eritrea,2002,
+1633,Eritrea,2003,
+1634,Eritrea,2004,
 1635,Eritrea,2005,0.272
 1636,Eritrea,2006,0.272
 1637,Eritrea,2007,0.271
@@ -1709,16 +1709,16 @@
 1707,Eswatini (Kingdom of),2017,0.545
 1708,Eswatini (Kingdom of),2018,0.553
 1709,Eswatini (Kingdom of),2019,0.557
-1710,Ethiopia,1990,..
-1711,Ethiopia,1991,..
-1712,Ethiopia,1992,..
-1713,Ethiopia,1993,..
-1714,Ethiopia,1994,..
-1715,Ethiopia,1995,..
-1716,Ethiopia,1996,..
-1717,Ethiopia,1997,..
-1718,Ethiopia,1998,..
-1719,Ethiopia,1999,..
+1710,Ethiopia,1990,
+1711,Ethiopia,1991,
+1712,Ethiopia,1992,
+1713,Ethiopia,1993,
+1714,Ethiopia,1994,
+1715,Ethiopia,1995,
+1716,Ethiopia,1996,
+1717,Ethiopia,1997,
+1718,Ethiopia,1998,
+1719,Ethiopia,1999,
 1720,Ethiopia,2000,0.169
 1721,Ethiopia,2001,0.187
 1722,Ethiopia,2002,0.2
@@ -1889,16 +1889,16 @@
 1887,Gambia,2017,0.381
 1888,Gambia,2018,0.39
 1889,Gambia,2019,0.406
-1890,Georgia,1990,..
-1891,Georgia,1991,..
-1892,Georgia,1992,..
-1893,Georgia,1993,..
-1894,Georgia,1994,..
-1895,Georgia,1995,..
-1896,Georgia,1996,..
-1897,Georgia,1997,..
-1898,Georgia,1998,..
-1899,Georgia,1999,..
+1890,Georgia,1990,
+1891,Georgia,1991,
+1892,Georgia,1992,
+1893,Georgia,1993,
+1894,Georgia,1994,
+1895,Georgia,1995,
+1896,Georgia,1996,
+1897,Georgia,1997,
+1898,Georgia,1998,
+1899,Georgia,1999,
 1900,Georgia,2000,0.717
 1901,Georgia,2001,0.721
 1902,Georgia,2002,0.724
@@ -2009,18 +2009,18 @@
 2007,Greece,2017,0.833
 2008,Greece,2018,0.833
 2009,Greece,2019,0.849
-2010,Grenada,1990,..
-2011,Grenada,1991,..
-2012,Grenada,1992,..
-2013,Grenada,1993,..
-2014,Grenada,1994,..
-2015,Grenada,1995,..
-2016,Grenada,1996,..
-2017,Grenada,1997,..
-2018,Grenada,1998,..
-2019,Grenada,1999,..
-2020,Grenada,2000,..
-2021,Grenada,2001,..
+2010,Grenada,1990,
+2011,Grenada,1991,
+2012,Grenada,1992,
+2013,Grenada,1993,
+2014,Grenada,1994,
+2015,Grenada,1995,
+2016,Grenada,1996,
+2017,Grenada,1997,
+2018,Grenada,1998,
+2019,Grenada,1999,
+2020,Grenada,2000,
+2021,Grenada,2001,
 2022,Grenada,2002,0.654
 2023,Grenada,2003,0.662
 2024,Grenada,2004,0.67
@@ -2099,21 +2099,21 @@
 2097,Guinea,2017,0.348
 2098,Guinea,2018,0.35
 2099,Guinea,2019,0.354
-2100,Guinea-Bissau,1990,..
-2101,Guinea-Bissau,1991,..
-2102,Guinea-Bissau,1992,..
-2103,Guinea-Bissau,1993,..
-2104,Guinea-Bissau,1994,..
-2105,Guinea-Bissau,1995,..
-2106,Guinea-Bissau,1996,..
-2107,Guinea-Bissau,1997,..
-2108,Guinea-Bissau,1998,..
-2109,Guinea-Bissau,1999,..
-2110,Guinea-Bissau,2000,..
-2111,Guinea-Bissau,2001,..
-2112,Guinea-Bissau,2002,..
-2113,Guinea-Bissau,2003,..
-2114,Guinea-Bissau,2004,..
+2100,Guinea-Bissau,1990,
+2101,Guinea-Bissau,1991,
+2102,Guinea-Bissau,1992,
+2103,Guinea-Bissau,1993,
+2104,Guinea-Bissau,1994,
+2105,Guinea-Bissau,1995,
+2106,Guinea-Bissau,1996,
+2107,Guinea-Bissau,1997,
+2108,Guinea-Bissau,1998,
+2109,Guinea-Bissau,1999,
+2110,Guinea-Bissau,2000,
+2111,Guinea-Bissau,2001,
+2112,Guinea-Bissau,2002,
+2113,Guinea-Bissau,2003,
+2114,Guinea-Bissau,2004,
 2115,Guinea-Bissau,2005,0.311
 2116,Guinea-Bissau,2006,0.325
 2117,Guinea-Bissau,2007,0.334
@@ -2669,16 +2669,16 @@
 2667,Kenya,2017,0.536
 2668,Kenya,2018,0.536
 2669,Kenya,2019,0.534
-2670,Kiribati,1990,..
-2671,Kiribati,1991,..
-2672,Kiribati,1992,..
-2673,Kiribati,1993,..
-2674,Kiribati,1994,..
-2675,Kiribati,1995,..
-2676,Kiribati,1996,..
-2677,Kiribati,1997,..
-2678,Kiribati,1998,..
-2679,Kiribati,1999,..
+2670,Kiribati,1990,
+2671,Kiribati,1991,
+2672,Kiribati,1992,
+2673,Kiribati,1993,
+2674,Kiribati,1994,
+2675,Kiribati,1995,
+2676,Kiribati,1996,
+2677,Kiribati,1997,
+2678,Kiribati,1998,
+2679,Kiribati,1999,
 2680,Kiribati,2000,0.516
 2681,Kiribati,2001,0.556
 2682,Kiribati,2002,0.556
@@ -2849,21 +2849,21 @@
 2847,Latvia,2017,0.876
 2848,Latvia,2018,0.883
 2849,Latvia,2019,0.883
-2850,Lebanon,1990,..
-2851,Lebanon,1991,..
-2852,Lebanon,1992,..
-2853,Lebanon,1993,..
-2854,Lebanon,1994,..
-2855,Lebanon,1995,..
-2856,Lebanon,1996,..
-2857,Lebanon,1997,..
-2858,Lebanon,1998,..
-2859,Lebanon,1999,..
-2860,Lebanon,2000,..
-2861,Lebanon,2001,..
-2862,Lebanon,2002,..
-2863,Lebanon,2003,..
-2864,Lebanon,2004,..
+2850,Lebanon,1990,
+2851,Lebanon,1991,
+2852,Lebanon,1992,
+2853,Lebanon,1993,
+2854,Lebanon,1994,
+2855,Lebanon,1995,
+2856,Lebanon,1996,
+2857,Lebanon,1997,
+2858,Lebanon,1998,
+2859,Lebanon,1999,
+2860,Lebanon,2000,
+2861,Lebanon,2001,
+2862,Lebanon,2002,
+2863,Lebanon,2003,
+2864,Lebanon,2004,
 2865,Lebanon,2005,0.619
 2866,Lebanon,2006,0.61
 2867,Lebanon,2007,0.623
@@ -2909,15 +2909,15 @@
 2907,Lesotho,2017,0.525
 2908,Lesotho,2018,0.528
 2909,Lesotho,2019,0.532
-2910,Liberia,1990,..
-2911,Liberia,1991,..
-2912,Liberia,1992,..
-2913,Liberia,1993,..
-2914,Liberia,1994,..
-2915,Liberia,1995,..
-2916,Liberia,1996,..
-2917,Liberia,1997,..
-2918,Liberia,1998,..
+2910,Liberia,1990,
+2911,Liberia,1991,
+2912,Liberia,1992,
+2913,Liberia,1993,
+2914,Liberia,1994,
+2915,Liberia,1995,
+2916,Liberia,1996,
+2917,Liberia,1997,
+2918,Liberia,1998,
 2919,Liberia,1999,0.354
 2920,Liberia,2000,0.408
 2921,Liberia,2001,0.407
@@ -2969,16 +2969,16 @@
 2967,Libya,2017,0.607
 2968,Libya,2018,0.607
 2969,Libya,2019,0.61
-2970,Liechtenstein,1990,..
-2971,Liechtenstein,1991,..
-2972,Liechtenstein,1992,..
-2973,Liechtenstein,1993,..
-2974,Liechtenstein,1994,..
-2975,Liechtenstein,1995,..
-2976,Liechtenstein,1996,..
-2977,Liechtenstein,1997,..
-2978,Liechtenstein,1998,..
-2979,Liechtenstein,1999,..
+2970,Liechtenstein,1990,
+2971,Liechtenstein,1991,
+2972,Liechtenstein,1992,
+2973,Liechtenstein,1993,
+2974,Liechtenstein,1994,
+2975,Liechtenstein,1995,
+2976,Liechtenstein,1996,
+2977,Liechtenstein,1997,
+2978,Liechtenstein,1998,
+2979,Liechtenstein,1999,
 2980,Liechtenstein,2000,0.716
 2981,Liechtenstein,2001,0.728
 2982,Liechtenstein,2002,0.739
@@ -3059,16 +3059,16 @@
 3057,Luxembourg,2017,0.802
 3058,Luxembourg,2018,0.802
 3059,Luxembourg,2019,0.806
-3060,Madagascar,1990,..
-3061,Madagascar,1991,..
-3062,Madagascar,1992,..
-3063,Madagascar,1993,..
-3064,Madagascar,1994,..
-3065,Madagascar,1995,..
-3066,Madagascar,1996,..
-3067,Madagascar,1997,..
-3068,Madagascar,1998,..
-3069,Madagascar,1999,..
+3060,Madagascar,1990,
+3061,Madagascar,1991,
+3062,Madagascar,1992,
+3063,Madagascar,1993,
+3064,Madagascar,1994,
+3065,Madagascar,1995,
+3066,Madagascar,1996,
+3067,Madagascar,1997,
+3068,Madagascar,1998,
+3069,Madagascar,1999,
 3070,Madagascar,2000,0.399
 3071,Madagascar,2001,0.404
 3072,Madagascar,2002,0.412
@@ -3149,11 +3149,11 @@
 3147,Malaysia,2017,0.724
 3148,Malaysia,2018,0.719
 3149,Malaysia,2019,0.726
-3150,Maldives,1990,..
-3151,Maldives,1991,..
-3152,Maldives,1992,..
-3153,Maldives,1993,..
-3154,Maldives,1994,..
+3150,Maldives,1990,
+3151,Maldives,1991,
+3152,Maldives,1992,
+3153,Maldives,1993,
+3154,Maldives,1994,
 3155,Maldives,1995,0.354
 3156,Maldives,1996,0.368
 3157,Maldives,1997,0.384
@@ -3239,33 +3239,33 @@
 3237,Malta,2017,0.816
 3238,Malta,2018,0.824
 3239,Malta,2019,0.825
-3240,Marshall Islands,1990,..
-3241,Marshall Islands,1991,..
-3242,Marshall Islands,1992,..
-3243,Marshall Islands,1993,..
-3244,Marshall Islands,1994,..
-3245,Marshall Islands,1995,..
-3246,Marshall Islands,1996,..
-3247,Marshall Islands,1997,..
-3248,Marshall Islands,1998,..
-3249,Marshall Islands,1999,..
-3250,Marshall Islands,2000,..
-3251,Marshall Islands,2001,..
-3252,Marshall Islands,2002,..
-3253,Marshall Islands,2003,..
-3254,Marshall Islands,2004,..
-3255,Marshall Islands,2005,..
-3256,Marshall Islands,2006,..
-3257,Marshall Islands,2007,..
-3258,Marshall Islands,2008,..
-3259,Marshall Islands,2009,..
-3260,Marshall Islands,2010,..
-3261,Marshall Islands,2011,..
-3262,Marshall Islands,2012,..
-3263,Marshall Islands,2013,..
-3264,Marshall Islands,2014,..
-3265,Marshall Islands,2015,..
-3266,Marshall Islands,2016,..
+3240,Marshall Islands,1990,
+3241,Marshall Islands,1991,
+3242,Marshall Islands,1992,
+3243,Marshall Islands,1993,
+3244,Marshall Islands,1994,
+3245,Marshall Islands,1995,
+3246,Marshall Islands,1996,
+3247,Marshall Islands,1997,
+3248,Marshall Islands,1998,
+3249,Marshall Islands,1999,
+3250,Marshall Islands,2000,
+3251,Marshall Islands,2001,
+3252,Marshall Islands,2002,
+3253,Marshall Islands,2003,
+3254,Marshall Islands,2004,
+3255,Marshall Islands,2005,
+3256,Marshall Islands,2006,
+3257,Marshall Islands,2007,
+3258,Marshall Islands,2008,
+3259,Marshall Islands,2009,
+3260,Marshall Islands,2010,
+3261,Marshall Islands,2011,
+3262,Marshall Islands,2012,
+3263,Marshall Islands,2013,
+3264,Marshall Islands,2014,
+3265,Marshall Islands,2015,
+3266,Marshall Islands,2016,
 3267,Marshall Islands,2017,0.707
 3268,Marshall Islands,2018,0.707
 3269,Marshall Islands,2019,0.707
@@ -3359,16 +3359,16 @@
 3357,Mexico,2017,0.681
 3358,Mexico,2018,0.694
 3359,Mexico,2019,0.703
-3360,Micronesia (Federated States of),1990,..
-3361,Micronesia (Federated States of),1991,..
-3362,Micronesia (Federated States of),1992,..
-3363,Micronesia (Federated States of),1993,..
-3364,Micronesia (Federated States of),1994,..
-3365,Micronesia (Federated States of),1995,..
-3366,Micronesia (Federated States of),1996,..
-3367,Micronesia (Federated States of),1997,..
-3368,Micronesia (Federated States of),1998,..
-3369,Micronesia (Federated States of),1999,..
+3360,Micronesia (Federated States of),1990,
+3361,Micronesia (Federated States of),1991,
+3362,Micronesia (Federated States of),1992,
+3363,Micronesia (Federated States of),1993,
+3364,Micronesia (Federated States of),1994,
+3365,Micronesia (Federated States of),1995,
+3366,Micronesia (Federated States of),1996,
+3367,Micronesia (Federated States of),1997,
+3368,Micronesia (Federated States of),1998,
+3369,Micronesia (Federated States of),1999,
 3370,Micronesia (Federated States of),2000,0.441
 3371,Micronesia (Federated States of),2001,0.453
 3372,Micronesia (Federated States of),2002,0.465
@@ -3449,19 +3449,19 @@
 3447,Mongolia,2017,0.733
 3448,Mongolia,2018,0.734
 3449,Mongolia,2019,0.736
-3450,Montenegro,1990,..
-3451,Montenegro,1991,..
-3452,Montenegro,1992,..
-3453,Montenegro,1993,..
-3454,Montenegro,1994,..
-3455,Montenegro,1995,..
-3456,Montenegro,1996,..
-3457,Montenegro,1997,..
-3458,Montenegro,1998,..
-3459,Montenegro,1999,..
-3460,Montenegro,2000,..
-3461,Montenegro,2001,..
-3462,Montenegro,2002,..
+3450,Montenegro,1990,
+3451,Montenegro,1991,
+3452,Montenegro,1992,
+3453,Montenegro,1993,
+3454,Montenegro,1994,
+3455,Montenegro,1995,
+3456,Montenegro,1996,
+3457,Montenegro,1997,
+3458,Montenegro,1998,
+3459,Montenegro,1999,
+3460,Montenegro,2000,
+3461,Montenegro,2001,
+3462,Montenegro,2002,
 3463,Montenegro,2003,0.693
 3464,Montenegro,2004,0.705
 3465,Montenegro,2005,0.718
@@ -3749,19 +3749,19 @@
 3747,Niger,2017,0.245
 3748,Niger,2018,0.247
 3749,Niger,2019,0.249
-3750,Nigeria,1990,..
-3751,Nigeria,1991,..
-3752,Nigeria,1992,..
-3753,Nigeria,1993,..
-3754,Nigeria,1994,..
-3755,Nigeria,1995,..
-3756,Nigeria,1996,..
-3757,Nigeria,1997,..
-3758,Nigeria,1998,..
-3759,Nigeria,1999,..
-3760,Nigeria,2000,..
-3761,Nigeria,2001,..
-3762,Nigeria,2002,..
+3750,Nigeria,1990,
+3751,Nigeria,1991,
+3752,Nigeria,1992,
+3753,Nigeria,1993,
+3754,Nigeria,1994,
+3755,Nigeria,1995,
+3756,Nigeria,1996,
+3757,Nigeria,1997,
+3758,Nigeria,1998,
+3759,Nigeria,1999,
+3760,Nigeria,2000,
+3761,Nigeria,2001,
+3762,Nigeria,2002,
 3763,Nigeria,2003,0.411
 3764,Nigeria,2004,0.424
 3765,Nigeria,2005,0.426
@@ -3779,16 +3779,16 @@
 3777,Nigeria,2017,0.484
 3778,Nigeria,2018,0.488
 3779,Nigeria,2019,0.499
-3780,North Macedonia,1990,..
-3781,North Macedonia,1991,..
-3782,North Macedonia,1992,..
-3783,North Macedonia,1993,..
-3784,North Macedonia,1994,..
-3785,North Macedonia,1995,..
-3786,North Macedonia,1996,..
-3787,North Macedonia,1997,..
-3788,North Macedonia,1998,..
-3789,North Macedonia,1999,..
+3780,North Macedonia,1990,
+3781,North Macedonia,1991,
+3782,North Macedonia,1992,
+3783,North Macedonia,1993,
+3784,North Macedonia,1994,
+3785,North Macedonia,1995,
+3786,North Macedonia,1996,
+3787,North Macedonia,1997,
+3788,North Macedonia,1998,
+3789,North Macedonia,1999,
 3790,North Macedonia,2000,0.544
 3791,North Macedonia,2001,0.557
 3792,North Macedonia,2002,0.569
@@ -3839,16 +3839,16 @@
 3837,Norway,2017,0.926
 3838,Norway,2018,0.928
 3839,Norway,2019,0.93
-3840,Oman,1990,..
-3841,Oman,1991,..
-3842,Oman,1992,..
-3843,Oman,1993,..
-3844,Oman,1994,..
-3845,Oman,1995,..
-3846,Oman,1996,..
-3847,Oman,1997,..
-3848,Oman,1998,..
-3849,Oman,1999,..
+3840,Oman,1990,
+3841,Oman,1991,
+3842,Oman,1992,
+3843,Oman,1993,
+3844,Oman,1994,
+3845,Oman,1995,
+3846,Oman,1996,
+3847,Oman,1997,
+3848,Oman,1998,
+3849,Oman,1999,
 3850,Oman,2000,0.475
 3851,Oman,2001,0.492
 3852,Oman,2002,0.51
@@ -3899,16 +3899,16 @@
 3897,Pakistan,2017,0.392
 3898,Pakistan,2018,0.392
 3899,Pakistan,2019,0.402
-3900,Palau,1990,..
-3901,Palau,1991,..
-3902,Palau,1992,..
-3903,Palau,1993,..
-3904,Palau,1994,..
-3905,Palau,1995,..
-3906,Palau,1996,..
-3907,Palau,1997,..
-3908,Palau,1998,..
-3909,Palau,1999,..
+3900,Palau,1990,
+3901,Palau,1991,
+3902,Palau,1992,
+3903,Palau,1993,
+3904,Palau,1994,
+3905,Palau,1995,
+3906,Palau,1996,
+3907,Palau,1997,
+3908,Palau,1998,
+3909,Palau,1999,
 3910,Palau,2000,0.761
 3911,Palau,2001,0.762
 3912,Palau,2002,0.763
@@ -3929,20 +3929,20 @@
 3927,Palau,2017,0.853
 3928,Palau,2018,0.848
 3929,Palau,2019,0.855
-3930,"Palestine, State of",1990,..
-3931,"Palestine, State of",1991,..
-3932,"Palestine, State of",1992,..
-3933,"Palestine, State of",1993,..
-3934,"Palestine, State of",1994,..
-3935,"Palestine, State of",1995,..
-3936,"Palestine, State of",1996,..
-3937,"Palestine, State of",1997,..
-3938,"Palestine, State of",1998,..
-3939,"Palestine, State of",1999,..
-3940,"Palestine, State of",2000,..
-3941,"Palestine, State of",2001,..
-3942,"Palestine, State of",2002,..
-3943,"Palestine, State of",2003,..
+3930,"Palestine, State of",1990,
+3931,"Palestine, State of",1991,
+3932,"Palestine, State of",1992,
+3933,"Palestine, State of",1993,
+3934,"Palestine, State of",1994,
+3935,"Palestine, State of",1995,
+3936,"Palestine, State of",1996,
+3937,"Palestine, State of",1997,
+3938,"Palestine, State of",1998,
+3939,"Palestine, State of",1999,
+3940,"Palestine, State of",2000,
+3941,"Palestine, State of",2001,
+3942,"Palestine, State of",2002,
+3943,"Palestine, State of",2003,
 3944,"Palestine, State of",2004,0.607
 3945,"Palestine, State of",2005,0.611
 3946,"Palestine, State of",2006,0.62
@@ -4289,21 +4289,21 @@
 4287,Rwanda,2017,0.462
 4288,Rwanda,2018,0.462
 4289,Rwanda,2019,0.458
-4290,Saint Kitts and Nevis,1990,..
-4291,Saint Kitts and Nevis,1991,..
-4292,Saint Kitts and Nevis,1992,..
-4293,Saint Kitts and Nevis,1993,..
-4294,Saint Kitts and Nevis,1994,..
-4295,Saint Kitts and Nevis,1995,..
-4296,Saint Kitts and Nevis,1996,..
-4297,Saint Kitts and Nevis,1997,..
-4298,Saint Kitts and Nevis,1998,..
-4299,Saint Kitts and Nevis,1999,..
-4300,Saint Kitts and Nevis,2000,..
-4301,Saint Kitts and Nevis,2001,..
-4302,Saint Kitts and Nevis,2002,..
-4303,Saint Kitts and Nevis,2003,..
-4304,Saint Kitts and Nevis,2004,..
+4290,Saint Kitts and Nevis,1990,
+4291,Saint Kitts and Nevis,1991,
+4292,Saint Kitts and Nevis,1992,
+4293,Saint Kitts and Nevis,1993,
+4294,Saint Kitts and Nevis,1994,
+4295,Saint Kitts and Nevis,1995,
+4296,Saint Kitts and Nevis,1996,
+4297,Saint Kitts and Nevis,1997,
+4298,Saint Kitts and Nevis,1998,
+4299,Saint Kitts and Nevis,1999,
+4300,Saint Kitts and Nevis,2000,
+4301,Saint Kitts and Nevis,2001,
+4302,Saint Kitts and Nevis,2002,
+4303,Saint Kitts and Nevis,2003,
+4304,Saint Kitts and Nevis,2004,
 4305,Saint Kitts and Nevis,2005,0.553
 4306,Saint Kitts and Nevis,2006,0.564
 4307,Saint Kitts and Nevis,2007,0.575
@@ -4319,16 +4319,16 @@
 4317,Saint Kitts and Nevis,2017,0.658
 4318,Saint Kitts and Nevis,2018,0.661
 4319,Saint Kitts and Nevis,2019,0.673
-4320,Saint Lucia,1990,..
-4321,Saint Lucia,1991,..
-4322,Saint Lucia,1992,..
-4323,Saint Lucia,1993,..
-4324,Saint Lucia,1994,..
-4325,Saint Lucia,1995,..
-4326,Saint Lucia,1996,..
-4327,Saint Lucia,1997,..
-4328,Saint Lucia,1998,..
-4329,Saint Lucia,1999,..
+4320,Saint Lucia,1990,
+4321,Saint Lucia,1991,
+4322,Saint Lucia,1992,
+4323,Saint Lucia,1993,
+4324,Saint Lucia,1994,
+4325,Saint Lucia,1995,
+4326,Saint Lucia,1996,
+4327,Saint Lucia,1997,
+4328,Saint Lucia,1998,
+4329,Saint Lucia,1999,
 4330,Saint Lucia,2000,0.593
 4331,Saint Lucia,2001,0.592
 4332,Saint Lucia,2002,0.592
@@ -4349,16 +4349,16 @@
 4347,Saint Lucia,2017,0.681
 4348,Saint Lucia,2018,0.673
 4349,Saint Lucia,2019,0.672
-4350,Saint Vincent and the Grenadines,1990,..
-4351,Saint Vincent and the Grenadines,1991,..
-4352,Saint Vincent and the Grenadines,1992,..
-4353,Saint Vincent and the Grenadines,1993,..
-4354,Saint Vincent and the Grenadines,1994,..
-4355,Saint Vincent and the Grenadines,1995,..
-4356,Saint Vincent and the Grenadines,1996,..
-4357,Saint Vincent and the Grenadines,1997,..
-4358,Saint Vincent and the Grenadines,1998,..
-4359,Saint Vincent and the Grenadines,1999,..
+4350,Saint Vincent and the Grenadines,1990,
+4351,Saint Vincent and the Grenadines,1991,
+4352,Saint Vincent and the Grenadines,1992,
+4353,Saint Vincent and the Grenadines,1993,
+4354,Saint Vincent and the Grenadines,1994,
+4355,Saint Vincent and the Grenadines,1995,
+4356,Saint Vincent and the Grenadines,1996,
+4357,Saint Vincent and the Grenadines,1997,
+4358,Saint Vincent and the Grenadines,1998,
+4359,Saint Vincent and the Grenadines,1999,
 4360,Saint Vincent and the Grenadines,2000,0.606
 4361,Saint Vincent and the Grenadines,2001,0.613
 4362,Saint Vincent and the Grenadines,2002,0.616
@@ -4529,16 +4529,16 @@
 4527,Serbia,2017,0.778
 4528,Serbia,2018,0.783
 4529,Serbia,2019,0.783
-4530,Seychelles,1990,..
-4531,Seychelles,1991,..
-4532,Seychelles,1992,..
-4533,Seychelles,1993,..
-4534,Seychelles,1994,..
-4535,Seychelles,1995,..
-4536,Seychelles,1996,..
-4537,Seychelles,1997,..
-4538,Seychelles,1998,..
-4539,Seychelles,1999,..
+4530,Seychelles,1990,
+4531,Seychelles,1991,
+4532,Seychelles,1992,
+4533,Seychelles,1993,
+4534,Seychelles,1994,
+4535,Seychelles,1995,
+4536,Seychelles,1996,
+4537,Seychelles,1997,
+4538,Seychelles,1998,
+4539,Seychelles,1999,
 4540,Seychelles,2000,0.588
 4541,Seychelles,2001,0.576
 4542,Seychelles,2002,0.588
@@ -4679,15 +4679,15 @@
 4677,Slovenia,2017,0.893
 4678,Slovenia,2018,0.899
 4679,Slovenia,2019,0.91
-4680,Solomon Islands,1990,..
-4681,Solomon Islands,1991,..
-4682,Solomon Islands,1992,..
-4683,Solomon Islands,1993,..
-4684,Solomon Islands,1994,..
-4685,Solomon Islands,1995,..
-4686,Solomon Islands,1996,..
-4687,Solomon Islands,1997,..
-4688,Solomon Islands,1998,..
+4680,Solomon Islands,1990,
+4681,Solomon Islands,1991,
+4682,Solomon Islands,1992,
+4683,Solomon Islands,1993,
+4684,Solomon Islands,1994,
+4685,Solomon Islands,1995,
+4686,Solomon Islands,1996,
+4687,Solomon Islands,1997,
+4688,Solomon Islands,1998,
 4689,Solomon Islands,1999,0.35
 4690,Solomon Islands,2000,0.336
 4691,Solomon Islands,2001,0.357
@@ -4739,26 +4739,26 @@
 4737,South Africa,2017,0.718
 4738,South Africa,2018,0.721
 4739,South Africa,2019,0.724
-4740,South Sudan,1990,..
-4741,South Sudan,1991,..
-4742,South Sudan,1992,..
-4743,South Sudan,1993,..
-4744,South Sudan,1994,..
-4745,South Sudan,1995,..
-4746,South Sudan,1996,..
-4747,South Sudan,1997,..
-4748,South Sudan,1998,..
-4749,South Sudan,1999,..
-4750,South Sudan,2000,..
-4751,South Sudan,2001,..
-4752,South Sudan,2002,..
-4753,South Sudan,2003,..
-4754,South Sudan,2004,..
-4755,South Sudan,2005,..
-4756,South Sudan,2006,..
-4757,South Sudan,2007,..
-4758,South Sudan,2008,..
-4759,South Sudan,2009,..
+4740,South Sudan,1990,
+4741,South Sudan,1991,
+4742,South Sudan,1992,
+4743,South Sudan,1993,
+4744,South Sudan,1994,
+4745,South Sudan,1995,
+4746,South Sudan,1996,
+4747,South Sudan,1997,
+4748,South Sudan,1998,
+4749,South Sudan,1999,
+4750,South Sudan,2000,
+4751,South Sudan,2001,
+4752,South Sudan,2002,
+4753,South Sudan,2003,
+4754,South Sudan,2004,
+4755,South Sudan,2005,
+4756,South Sudan,2006,
+4757,South Sudan,2007,
+4758,South Sudan,2008,
+4759,South Sudan,2009,
 4760,South Sudan,2010,0.297
 4761,South Sudan,2011,0.333
 4762,South Sudan,2012,0.325
@@ -4859,20 +4859,20 @@
 4857,Sudan,2017,0.337
 4858,Sudan,2018,0.339
 4859,Sudan,2019,0.345
-4860,Suriname,1990,..
-4861,Suriname,1991,..
-4862,Suriname,1992,..
-4863,Suriname,1993,..
-4864,Suriname,1994,..
-4865,Suriname,1995,..
-4866,Suriname,1996,..
-4867,Suriname,1997,..
-4868,Suriname,1998,..
-4869,Suriname,1999,..
-4870,Suriname,2000,..
-4871,Suriname,2001,..
-4872,Suriname,2002,..
-4873,Suriname,2003,..
+4860,Suriname,1990,
+4861,Suriname,1991,
+4862,Suriname,1992,
+4863,Suriname,1993,
+4864,Suriname,1994,
+4865,Suriname,1995,
+4866,Suriname,1996,
+4867,Suriname,1997,
+4868,Suriname,1998,
+4869,Suriname,1999,
+4870,Suriname,2000,
+4871,Suriname,2001,
+4872,Suriname,2002,
+4873,Suriname,2003,
 4874,Suriname,2004,0.57
 4875,Suriname,2005,0.572
 4876,Suriname,2006,0.576
@@ -5069,16 +5069,16 @@
 5067,Thailand,2017,0.665
 5068,Thailand,2018,0.675
 5069,Thailand,2019,0.682
-5070,Timor-Leste,1990,..
-5071,Timor-Leste,1991,..
-5072,Timor-Leste,1992,..
-5073,Timor-Leste,1993,..
-5074,Timor-Leste,1994,..
-5075,Timor-Leste,1995,..
-5076,Timor-Leste,1996,..
-5077,Timor-Leste,1997,..
-5078,Timor-Leste,1998,..
-5079,Timor-Leste,1999,..
+5070,Timor-Leste,1990,
+5071,Timor-Leste,1991,
+5072,Timor-Leste,1992,
+5073,Timor-Leste,1993,
+5074,Timor-Leste,1994,
+5075,Timor-Leste,1995,
+5076,Timor-Leste,1996,
+5077,Timor-Leste,1997,
+5078,Timor-Leste,1998,
+5079,Timor-Leste,1999,
 5080,Timor-Leste,2000,0.364
 5081,Timor-Leste,2001,0.364
 5082,Timor-Leste,2002,0.37
@@ -5249,26 +5249,26 @@
 5247,Turkey,2017,0.722
 5248,Turkey,2018,0.727
 5249,Turkey,2019,0.731
-5250,Turkmenistan,1990,..
-5251,Turkmenistan,1991,..
-5252,Turkmenistan,1992,..
-5253,Turkmenistan,1993,..
-5254,Turkmenistan,1994,..
-5255,Turkmenistan,1995,..
-5256,Turkmenistan,1996,..
-5257,Turkmenistan,1997,..
-5258,Turkmenistan,1998,..
-5259,Turkmenistan,1999,..
-5260,Turkmenistan,2000,..
-5261,Turkmenistan,2001,..
-5262,Turkmenistan,2002,..
-5263,Turkmenistan,2003,..
-5264,Turkmenistan,2004,..
-5265,Turkmenistan,2005,..
-5266,Turkmenistan,2006,..
-5267,Turkmenistan,2007,..
-5268,Turkmenistan,2008,..
-5269,Turkmenistan,2009,..
+5250,Turkmenistan,1990,
+5251,Turkmenistan,1991,
+5252,Turkmenistan,1992,
+5253,Turkmenistan,1993,
+5254,Turkmenistan,1994,
+5255,Turkmenistan,1995,
+5256,Turkmenistan,1996,
+5257,Turkmenistan,1997,
+5258,Turkmenistan,1998,
+5259,Turkmenistan,1999,
+5260,Turkmenistan,2000,
+5261,Turkmenistan,2001,
+5262,Turkmenistan,2002,
+5263,Turkmenistan,2003,
+5264,Turkmenistan,2004,
+5265,Turkmenistan,2005,
+5266,Turkmenistan,2006,
+5267,Turkmenistan,2007,
+5268,Turkmenistan,2008,
+5269,Turkmenistan,2009,
 5270,Turkmenistan,2010,0.624
 5271,Turkmenistan,2011,0.625
 5272,Turkmenistan,2012,0.626
@@ -5459,16 +5459,16 @@
 5457,Uruguay,2017,0.759
 5458,Uruguay,2018,0.763
 5459,Uruguay,2019,0.765
-5460,Uzbekistan,1990,..
-5461,Uzbekistan,1991,..
-5462,Uzbekistan,1992,..
-5463,Uzbekistan,1993,..
-5464,Uzbekistan,1994,..
-5465,Uzbekistan,1995,..
-5466,Uzbekistan,1996,..
-5467,Uzbekistan,1997,..
-5468,Uzbekistan,1998,..
-5469,Uzbekistan,1999,..
+5460,Uzbekistan,1990,
+5461,Uzbekistan,1991,
+5462,Uzbekistan,1992,
+5463,Uzbekistan,1993,
+5464,Uzbekistan,1994,
+5465,Uzbekistan,1995,
+5466,Uzbekistan,1996,
+5467,Uzbekistan,1997,
+5468,Uzbekistan,1998,
+5469,Uzbekistan,1999,
 5470,Uzbekistan,2000,0.601
 5471,Uzbekistan,2001,0.614
 5472,Uzbekistan,2002,0.627
@@ -5489,21 +5489,21 @@
 5487,Uzbekistan,2017,0.724
 5488,Uzbekistan,2018,0.726
 5489,Uzbekistan,2019,0.729
-5490,Vanuatu,1990,..
-5491,Vanuatu,1991,..
-5492,Vanuatu,1992,..
-5493,Vanuatu,1993,..
-5494,Vanuatu,1994,..
-5495,Vanuatu,1995,..
-5496,Vanuatu,1996,..
-5497,Vanuatu,1997,..
-5498,Vanuatu,1998,..
-5499,Vanuatu,1999,..
-5500,Vanuatu,2000,..
-5501,Vanuatu,2001,..
-5502,Vanuatu,2002,..
-5503,Vanuatu,2003,..
-5504,Vanuatu,2004,..
+5490,Vanuatu,1990,
+5491,Vanuatu,1991,
+5492,Vanuatu,1992,
+5493,Vanuatu,1993,
+5494,Vanuatu,1994,
+5495,Vanuatu,1995,
+5496,Vanuatu,1996,
+5497,Vanuatu,1997,
+5498,Vanuatu,1998,
+5499,Vanuatu,1999,
+5500,Vanuatu,2000,
+5501,Vanuatu,2001,
+5502,Vanuatu,2002,
+5503,Vanuatu,2003,
+5504,Vanuatu,2004,
 5505,Vanuatu,2005,0.512
 5506,Vanuatu,2006,0.514
 5507,Vanuatu,2007,0.516
@@ -5670,35 +5670,35 @@
 5668,Zimbabwe,2018,0.57
 5669,Zimbabwe,2019,0.587
 5670,Human Development,1990,
-5671,Human Development,1991,..
-5672,Human Development,1992,..
-5673,Human Development,1993,..
-5674,Human Development,1994,..
-5675,Human Development,1995,..
-5676,Human Development,1996,..
-5677,Human Development,1997,..
-5678,Human Development,1998,..
-5679,Human Development,1999,..
-5680,Human Development,2000,..
-5681,Human Development,2001,..
-5682,Human Development,2002,..
-5683,Human Development,2003,..
-5684,Human Development,2004,..
-5685,Human Development,2005,..
-5686,Human Development,2006,..
-5687,Human Development,2007,..
-5688,Human Development,2008,..
-5689,Human Development,2009,..
-5690,Human Development,2010,..
-5691,Human Development,2011,..
-5692,Human Development,2012,..
-5693,Human Development,2013,..
-5694,Human Development,2014,..
-5695,Human Development,2015,..
-5696,Human Development,2016,..
-5697,Human Development,2017,..
-5698,Human Development,2018,..
-5699,Human Development,2019,..
+5671,Human Development,1991,
+5672,Human Development,1992,
+5673,Human Development,1993,
+5674,Human Development,1994,
+5675,Human Development,1995,
+5676,Human Development,1996,
+5677,Human Development,1997,
+5678,Human Development,1998,
+5679,Human Development,1999,
+5680,Human Development,2000,
+5681,Human Development,2001,
+5682,Human Development,2002,
+5683,Human Development,2003,
+5684,Human Development,2004,
+5685,Human Development,2005,
+5686,Human Development,2006,
+5687,Human Development,2007,
+5688,Human Development,2008,
+5689,Human Development,2009,
+5690,Human Development,2010,
+5691,Human Development,2011,
+5692,Human Development,2012,
+5693,Human Development,2013,
+5694,Human Development,2014,
+5695,Human Development,2015,
+5696,Human Development,2016,
+5697,Human Development,2017,
+5698,Human Development,2018,
+5699,Human Development,2019,
 5700,Very high human development,1990,0.679
 5701,Very high human development,1991,0.687
 5702,Very high human development,1992,0.68
@@ -5850,35 +5850,35 @@
 5848,Developing Countries,2018,0.584
 5849,Developing Countries,2019,0.59
 5850,Regions,1990,
-5851,Regions,1991,..
-5852,Regions,1992,..
-5853,Regions,1993,..
-5854,Regions,1994,..
-5855,Regions,1995,..
-5856,Regions,1996,..
-5857,Regions,1997,..
-5858,Regions,1998,..
-5859,Regions,1999,..
-5860,Regions,2000,..
-5861,Regions,2001,..
-5862,Regions,2002,..
-5863,Regions,2003,..
-5864,Regions,2004,..
-5865,Regions,2005,..
-5866,Regions,2006,..
-5867,Regions,2007,..
-5868,Regions,2008,..
-5869,Regions,2009,..
-5870,Regions,2010,..
-5871,Regions,2011,..
-5872,Regions,2012,..
-5873,Regions,2013,..
-5874,Regions,2014,..
-5875,Regions,2015,..
-5876,Regions,2016,..
-5877,Regions,2017,..
-5878,Regions,2018,..
-5879,Regions,2019,..
+5851,Regions,1991,
+5852,Regions,1992,
+5853,Regions,1993,
+5854,Regions,1994,
+5855,Regions,1995,
+5856,Regions,1996,
+5857,Regions,1997,
+5858,Regions,1998,
+5859,Regions,1999,
+5860,Regions,2000,
+5861,Regions,2001,
+5862,Regions,2002,
+5863,Regions,2003,
+5864,Regions,2004,
+5865,Regions,2005,
+5866,Regions,2006,
+5867,Regions,2007,
+5868,Regions,2008,
+5869,Regions,2009,
+5870,Regions,2010,
+5871,Regions,2011,
+5872,Regions,2012,
+5873,Regions,2013,
+5874,Regions,2014,
+5875,Regions,2015,
+5876,Regions,2016,
+5877,Regions,2017,
+5878,Regions,2018,
+5879,Regions,2019,
 5880,Arab States,1990,0.358
 5881,Arab States,1991,0.363
 5882,Arab States,1992,0.37
