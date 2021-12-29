@@ -1,7 +1,7 @@
 # DataFrames
 import pandas as pd
 
-# Network, Crawlling and Scraping
+# Network, Crawling and Scraping
 import requests
 import bs4
 from bs4 import BeautifulSoup
@@ -15,10 +15,12 @@ from bs4 import BeautifulSoup
 import re
 from re import sub
 from typing import Pattern
-import os
 #import scipy as sc
-import numpy as np
 from collections import Counter
+import numpy as np
+import math
+import os
+from subprocess import Popen
 
 # ML
 import sklearn
