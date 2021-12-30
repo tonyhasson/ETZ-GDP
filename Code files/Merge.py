@@ -81,8 +81,6 @@ def merge_and_clean(arr_df,Name):
             arr_df[i + 1] = arr_df[i].merge(arr_df[i + 1], on=['Country'], how='outer')
 
 
-
-
     ## clean
     df=arr_df[len(arr_df)-1]
     df.sort_values(['Country','Year'], axis=0, ascending=True, inplace=True)
@@ -115,8 +113,6 @@ def arr_df_builder(CSV_FILES):
         text+=".csv"
         arr_df.append(pd.read_csv(os.path.join(path, text)))
     return arr_df
-
-
 
 
 # reformatCSV(r"..\CSV files\OLD","Education Ranking",1990,2019)

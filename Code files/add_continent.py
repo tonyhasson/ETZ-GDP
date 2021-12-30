@@ -1,4 +1,4 @@
-from imports import *
+from Country_continent import *
 
 arr_countries=scrap_country()
 

@@ -1,5 +1,5 @@
 from imports import *
-from subprocess import Popen
+
 
 def load_dataset(df, label_column):
     """Loading the data set and return the Traning features and target for the model.
@@ -46,7 +46,6 @@ def linear_regres(arr_year_data,dataset,label_column):
         #arr_year.append([2020])
 
     #check if every number in y <0
-
 
 
     #if label_column=='Final consumption expenditure' or 'GDP Total' or 'Military expenditure (1914-2007, real prices) (Correlates of War: National Material Capabilities (v4.0))':
