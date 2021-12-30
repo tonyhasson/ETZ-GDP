@@ -54,7 +54,7 @@ def linear_regres(arr_year_data,dataset,label_column):
     #else:
     #    arr_data.append(m.predict(arr_year))
     arr_data.append(m.predict(arr_year))
-    
+
 
     return arr_data
 

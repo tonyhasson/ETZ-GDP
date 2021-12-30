@@ -12,6 +12,7 @@ from bs4 import BeautifulSoup
 #import seaborn as sns
 
 # General
+import sys
 import re
 from re import sub
 from typing import Pattern
