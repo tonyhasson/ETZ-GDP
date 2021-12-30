@@ -15,6 +15,7 @@ from bs4 import BeautifulSoup
 import re
 from re import sub
 from typing import Pattern
+import sys
 import os
 #import scipy as sc
 import numpy as np
