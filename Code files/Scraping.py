@@ -49,7 +49,7 @@ def create_dataframe(URL,yearStart,yearEnd,drop_columns,CSV_name):
     df = pd.DataFrame(items, columns=column)
     df.drop(drop_columns,axis=1,inplace=True)
 
-    df.to_csv(r"..\CSV files\Scraping CSV\df"+str(CSV_name) +".csv")
+    df.to_csv(r"..\CSV files\Scraping CSV\df"+str(CSV_name) +".csv", index=False)
     return df
 
 

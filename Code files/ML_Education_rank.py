@@ -1,5 +1,6 @@
 from imports import *
 
+CANT_BE_NEG = ['Education Ranking', 'Government expenditure (% of GDP)', 'Total government Expenses (% of GDP)', 'Total consumption ($)']
 
 def load_dataset(df, label_column):
     """Loading the data set and return the Traning features and target for the model.
@@ -40,18 +41,6 @@ def linear_regres(arr_year_data,dataset,label_column):
         if year not in arr_year_data:
             arr_year.append([year])
 
-    #arr_year = [[year] for year in range(1960, min(arr_year_data))]
-
-    #if (label_column == "Education Ranking"):
-        #arr_year.append([2020])
-
-    #check if every number in y <0
-
-
-    #if label_column=='Final consumption expenditure' or 'GDP Total' or 'Military expenditure (1914-2007, real prices) (Correlates of War: National Material Capabilities (v4.0))':
-    #    arr_data.append(np.minimum(sys.maxsize, np.maximum(0., m.predict(arr_year))))
-    #else:
-    #    arr_data.append(m.predict(arr_year))
     arr_data.append(m.predict(arr_year))
 
 
@@ -68,12 +57,6 @@ def check_year_lr(dataframe, country,label_col):
         year: the corresponding year
     """
 
-    # for year in range(1990,2020):
-    #     data_year_country = dataframe[(dataframe["Year"] == year) & (dataframe["Country"] == country)]["Education Ranking"].values
-    #
-    #     if data_year_country[0]!=0:
-    #         return year
-
     arr_year=[]
     for year in range(1960,2021):
         data_year_country = dataframe[(dataframe["Year"] == year) & (dataframe["Country"] == country)][label_col].values
@@ -85,7 +68,7 @@ def check_year_lr(dataframe, country,label_col):
 def find_and_regres(dataset):
 
     dataset_columns =list(dataset.columns)
-    columns_to_remove=["Country","Year","Continent"]
+    columns_to_remove=["Country","Year","Continent","Third_world"]
 
     dataset_columns =[c for c in dataset_columns if c not in columns_to_remove]
     for label_column in dataset_columns:
@@ -102,13 +85,14 @@ def find_and_regres(dataset):
                     NO_INFO_countries.append(country)
                 elif 0 in Dataframe:
                     arr_year = check_year_lr(dataset,country,label_column)
-                    first_year=min(arr_year)
+                    first_year = min(arr_year)
 
-                    arr_data=linear_regres(arr_year,dataset[dataset['Country']==country],label_column)
-                    arr_data=list(arr_data[0])
-                    for i in range(len(arr_data)):
-                        if arr_data[i] < 0:
-                            arr_data[i] = 0
+                    arr_data = linear_regres(arr_year,dataset[dataset['Country']==country],label_column)
+                    arr_data = list(arr_data[0])
+                    if label_column in ['Education Ranking', 'Government expenditure (% of GDP)', 'Total government Expenses (% of GDP)', 'Total consumption ($)']:
+                        for i in range(len(arr_data)):
+                            if arr_data[i] < 0:
+                                arr_data[i] = 0
 
                     arr_final_data = []
                     indx = 0
@@ -123,7 +107,7 @@ def find_and_regres(dataset):
                     arr_data = arr_final_data
                     #arr_data.append(float(year_2020))
 
-                    dataset.loc[(dataset['Country']==country) & (dataset['Year']>=1960) & (dataset['Year']<=2020),label_column]+=arr_data
+                    dataset.loc[(dataset['Country'] == country) & (dataset['Year'] >= 1960) & (dataset['Year']<=2020), label_column]+=arr_data
 
                 else:
                     continue
@@ -135,20 +119,11 @@ def find_and_regres(dataset):
                 NO_INFO_countries.append(country)
 
     # Fill in countries with no information with the minimum value for that year
-        if label_column=="Education Ranking":
+        if label_column in CANT_BE_NEG:
             for country in NO_INFO_countries:
                 for year in range(1960, 2021):
                     dataset.loc[(dataset['Country'] == country) & (dataset['Year'] == year), label_column] = min(i for i in dataset[(dataset['Year'] == year)][label_column] if i > 0)
 
-    # If Military expenditure
-        if label_column == "Military Expenditure":
-            pass
-    # If GDP Total
-        if label_column == "GDP Total":
-            pass
-    # If GDP Growth
-        if label_column == "GDP Growth":
-            pass
 
     dataset.to_csv(r"../CSV files/df_Full_DataBase.csv", index=False)
     Popen("../CSV files/df_Full_DataBase.csv",shell=True)
@@ -157,3 +132,4 @@ def find_and_regres(dataset):
 def Run():
     df=pd.read_csv(r"../CSV files/df_Full_DataBase.csv")
     find_and_regres(df)
+    return df

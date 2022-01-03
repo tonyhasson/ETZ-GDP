@@ -1,7 +1,17 @@
 from imports import *
 
-CSV_FILES=['Education RankingREFORMAT','Final consumption expenditureREFORMAT','GDP GrowthREFORMAT','GDP TotalREFORMAT','Government ExpenditureREFORMAT','Government Expense(of total GDP)REFORMAT','High Tech Exports(% of total)REFORMAT','High Tech Exports(total)REFORMAT','Life expectancy at birthREFORMAT','Population Growth paceREFORMAT','Population TotalREFORMAT','Military Expenditure totalREFORMAT','Military Expenditure(% of GDP)REFORMAT','df_Continent']
+CSV_FILES=['Education RankingREFORMAT','Final consumption expenditureREFORMAT','GDP GrowthREFORMAT','GDP TotalREFORMAT','Government ExpenditureREFORMAT','Government Expense(of total GDP)REFORMAT','Life expectancy at birthREFORMAT','Population Growth paceREFORMAT','Population TotalREFORMAT','Military Expenditure totalREFORMAT','Military Expenditure(% of GDP)REFORMAT','df_Continent']
+SCRAP_CSV_FILES=['High Tech Exports(% of total)REFORMAT','High Tech Exports(total)REFORMAT','Scraping CSV\df2','Scraping CSV\df3','Scraping CSV\df4','df_Continent']
 List_Of_Countries=['Republic of the Congo','Democratic Republic of the Congo','Afghanistan','Albania','Algeria','Andorra','Angola','Antigua and Barbuda','Aruba','Argentina','Armenia','Australia','Austria','Azerbaijan','Bahrain','Bangladesh','Barbados','Belarus','Belgium','Belize','Benin','Bhutan','Bolivia','Bosnia and Herzegovina','Botswana','Brazil','Bulgaria','Burkina Faso','Burundi','Ivory Coast',r"Cote d'Ivoire",'Cabo Verde','Cambodia','Cameroon','Canada','Central African Republic','Chad','Chile','China','Colombia','Comoros','Congo','Costa Rica','Croatia','Cuba','Cyprus','Czech Republic','Democratic Republic of the Congo','Denmark','Djibouti','Dominica','Dominican Republic','Ecuador','Egypt','El Salvador','Equatorial Guinea','Eritrea','Estonia','Eswatini','Ethiopia','Fiji','Finland','France','Gabon','Georgia','Germany','Ghana','Greece','Grenada','Guatemala','Guinea','Guinea-Bissau','Guyana','Haiti','Holy See','Honduras','Hungary','Iceland','India','Indonesia','Iran','Iraq','Ireland','Israel','Italy','Jamaica','Japan','Jordan','Kazakhstan','Kenya','Kiribati','Kuwait','Laos','Latvia','Lebanon','Lesotho','Liberia','Libya','Liechtenstein','Lithuania','Luxembourg','Madagascar','Malawi','Malaysia','Maldives','Mali','Malta','Marshall Islands','Mauritania','Mauritius','Mexico','Micronesia',',Moldova','Monaco','Mongolia','Montenegro','Morocco','Mozambique','Myanmar','Namibia','Nauru','Nepal','Netherlands','New Zealand','Nicaragua,','Niger','Nigeria','North Macedonia','Norway','Oman','Pakistan','Palau','Palestine State','Panama','Papua New Guinea','Paraguay','Peru','Philippines','Poland','Portugal','Qatar','Romania','Russia','Rwanda','Samoa,','San Marino','Sao Tome and Principe','Saudi Arabia','Senegal','Serbia','Seychelles','Sierra Leone','Singapore','Slovakia','Slovenia','Solomon Islands','Somalia','South Africa','South Korea','South Sudan','Spain','Sri Lanka','Sudan','Suriname','Sweden','Switzerland','Syria','Tajik,istan','Tanza,nia','Thailand','Timor-Leste','Togo','Tonga','Trinidad and Tobago','Tunisia','Turkey','Turkmenistan','Tuvalu','Uganda','Ukraine','United Arab Emirates','United Kingdom','United States','Uruguay','Uzbekistan','Vanuatu','Venezuela','Vietnam','Yemen','Zambia','Zimbabwe']
+
+
+def merge_third_world(df):
+    df_third=pd.read_csv(r"..\CSV files\Scraping CSV\third_world_countries.csv")
+    arr_c=[c for c in df_third['Country']]
+    df["Third_world"]=0
+    for c in arr_c:
+        df.loc[df["Country"]==c, "Third_world"] = 1
+    return df
 
 
 def reformatCSV(CSV_location,CSV_name,Start_year,End_year):
@@ -85,16 +95,26 @@ def merge_and_clean(arr_df,Name):
     df=arr_df[len(arr_df)-1]
     df.sort_values(['Country','Year'], axis=0, ascending=True, inplace=True)
 
-    #df.drop(['Unnamed: 0_x', 'Unnamed: 0_y'], axis=1, inplace=True)
-
+    df = merge_third_world(df)
 
     # remove all rows where year<1960
-    df=df[df['Year']>=1960]
+    if Name=='df_scrape':
+        df = df[df['Year']>=2009]
+
+    else: df=df[df['Year']>=1960]
 
     # remove all unknown and irrelevant countries
     df=df[df['Country'].isin(List_Of_Countries)]
 
 
+
+    # Nirmul Arahim High & Change Columns names for full database
+    if Name=='df_Full_DataBase':
+        df['Final consumption expenditure']=df['Final consumption expenditure']/1000000
+        df['GDP Total']=df['GDP Total']/1000000
+        df['Population Total']=df['Population Total']/1000000
+        df['Military expenditure (1914-2007, real prices) (Correlates of War: National Material Capabilities (v4.0))']=df['Military expenditure (1914-2007, real prices) (Correlates of War: National Material Capabilities (v4.0))']/1000000
+        df = df.rename(columns={'Final consumption expenditure': 'Total consumption ($)', 'Government Expenditure (IMF based on Mauro et al. (2015))':'Government expenditure (% of GDP)','Military expenditure (1914-2007, real prices) (Correlates of War: National Material Capabilities (v4.0))':'Military Spendings ($)' , 'Expense (% of GDP)':'Total government Expenses (% of GDP)' })
     df.to_csv(r"..\CSV files\\"+ Name +".csv" ,  index=False)
     return df
 
@@ -127,6 +147,6 @@ def arr_df_builder(CSV_FILES):
 
 def Run():
     arr_df=arr_df_builder(CSV_FILES)
-    scrap_arr_df=arr_df_builder(['Scraping CSV\df1','Scraping CSV\df2','Scraping CSV\df3','Scraping CSV\df4','df_Continent'])
+    scrap_arr_df=arr_df_builder(SCRAP_CSV_FILES)
     raw_data=merge_and_clean(arr_df,"df_Full_DataBase")
     scrap_raw_data=merge_and_clean(scrap_arr_df,"df_scrape")
