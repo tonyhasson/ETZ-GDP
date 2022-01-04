@@ -5,19 +5,24 @@
 # Ignored directories | Usually User-specific stuff
 .idea/
 idea/*
+*.pyc
+
 
 # Folder config file
 Desktop.ini
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
-Code files/__pycache__/imports.cpython-310.pyc
 Code files/__pycache__/*
 .__pycache__
 *.__pycache__
 __pycache__
 *.py[cod]
 *$py.class
+Code files/__pycache__/*.pyc
+Code files/__pycache__/*.xml
+Code files/__pycache__/*.name
+Code files/__pycache__/*.iml
 
 # C extensions
 *.so
@@ -103,11 +108,3 @@ ehthumbs.db
 
 # Windows shortcuts
 *.lnk
-Code files/__pycache__/imports.cpython-310.pyc
-*.pyc
-Code files/__pycache__/imports.cpython-310.pyc
-Code files/__pycache__/imports.cpython-39.pyc
-Code files/.idea/workspace.xml
-Code files/.idea/misc.xml
-Code files/.idea/Code files.iml
-Code files/.idea/.name

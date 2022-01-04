@@ -1,5 +1,6 @@
 from imports import *
 
+
 CSV_FILES = [
     "Education RankingREFORMAT",
     "Final consumption expenditureREFORMAT",
@@ -14,7 +15,8 @@ CSV_FILES = [
     "Military Expenditure(% of GDP)REFORMAT",
     "df_Continent",
 ]
-SCRAP_CSV_FILES = ["High Tech Exports(% of total)REFORMAT",
+SCRAP_CSV_FILES = [
+    "High Tech Exports(% of total)REFORMAT",
     "High Tech Exports(total)REFORMAT",
     "Scraping CSV\df2",
     "Scraping CSV\df3",
