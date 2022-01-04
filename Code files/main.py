@@ -18,5 +18,5 @@ from ML_Education_rank import Run as Run_ML_Education_rank
 
 if __name__ == "__main__":
     MergeRun()
-    df=Run_ML_Education_rank()
+    df_full,df_scrap=Run_ML_Education_rank()
     #df= pd.read_csv('../CSV files/df_Full_DataBase.csv')

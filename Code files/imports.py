@@ -22,7 +22,7 @@ import numpy as np
 import math
 import os
 from subprocess import Popen
-
+from tqdm import tqdm
 # ML
 import sklearn
 from sklearn import linear_model, metrics, preprocessing

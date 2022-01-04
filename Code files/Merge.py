@@ -14,8 +14,7 @@ CSV_FILES = [
     "Military Expenditure(% of GDP)REFORMAT",
     "df_Continent",
 ]
-SCRAP_CSV_FILES = [
-    "High Tech Exports(% of total)REFORMAT",
+SCRAP_CSV_FILES = ["High Tech Exports(% of total)REFORMAT",
     "High Tech Exports(total)REFORMAT",
     "Scraping CSV\df2",
     "Scraping CSV\df3",
@@ -218,11 +217,19 @@ List_Of_Countries = [
 
 
 def merge_third_world(df):
+    """Function To merge {0 if not in third world else 1} to df
+
+    Args:
+        df (DataFrame): DataFrame to be merged
+    Returns:
+        df with another columns of third world
+    """
+
     df_third = pd.read_csv(r"..\CSV files\Scraping CSV\third_world_countries.csv")
     arr_c = [c for c in df_third["Country"]]
-    df["Third_world"] = 0
+    df["Third World"] = 0
     for c in arr_c:
-        df.loc[df["Country"] == c, "Third_world"] = 1
+        df.loc[df["Country"] == c, "Third World"] = 1
     return df
 
 
@@ -247,6 +254,11 @@ def reformatCSV(CSV_location, CSV_name, Start_year, End_year):
 
 
 def weird_names(arr_df):
+    """Function to correct to names of countries
+
+    Args:
+        arr_df (list): list of dataframes to be corrected
+    """
     for DataFrameIterator in arr_df:
         DataFrameIterator.loc[
             DataFrameIterator["Country"] == "Cote d'Ivoire", "Country"
@@ -358,9 +370,9 @@ def merge_and_clean(arr_df, Name):
         arr_df (array): array of dataframes to manipulate.add()
 
     Returns:
-        Dataframe: Merged dataframe of all the dataframes from the givin array.
+        Dataframe: Merged dataframe of all the dataframes from the given array.
     """
-    ## change name of wired countries
+    ## change name of weird countries
     weird_names(arr_df)
 
     ## merge
@@ -372,23 +384,29 @@ def merge_and_clean(arr_df, Name):
         else:  ##merge with the Continent CSV
             arr_df[i + 1] = arr_df[i].merge(arr_df[i + 1], on=["Country"], how="outer")
 
-    ## clean
+    # Assign the last position of arr_df to df (the merged dataframe)
     df = arr_df[len(arr_df) - 1]
+
+    # Sort The DF (for the sake of the visualization)
     df.sort_values(["Country", "Year"], axis=0, ascending=True, inplace=True)
 
+    ## Add third world column to df
     df = merge_third_world(df)
 
-    # remove all rows where year<1960
-    if Name == "df_scrape":
-        df = df[df["Year"] >= 2009]
-    else:
-        df = df[df["Year"] >= 1960]
-
-    # remove all unknown and irrelevant countries
+    ## remove all unknown and irrelevant countries
     df = df[df["Country"].isin(List_Of_Countries)]
 
+    # Keep only the relevant data according to DF
+    if Name == "df_scrape":
+        df = df[df["Year"] >= 2009]
+        SCRAP_Countries = pd.read_csv("..\CSV files\Scraping CSV\df3.csv")
+
+        df = df[df["Country"].isin(SCRAP_Countries["Country"].unique())]
+
     # Nirmul Arahim High & Change Columns names for full database
-    if Name == "df_Full_DataBase":
+    else:
+
+        df = df[df["Year"] >= 1960]
         df["Final consumption expenditure"] = (
             df["Final consumption expenditure"] / 1000000
         )
