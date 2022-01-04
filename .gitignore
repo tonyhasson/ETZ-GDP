@@ -104,3 +104,5 @@ ehthumbs.db
 # Windows shortcuts
 *.lnk
 Code files/__pycache__/imports.cpython-310.pyc
+*.pyc
+Code files/__pycache__/imports.cpython-310.pyc

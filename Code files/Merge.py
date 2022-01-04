@@ -79,9 +79,8 @@ def merge_and_clean(arr_df,Name):
     Returns:
         Dataframe: Merged dataframe of all the dataframes from the givin array.
     """
-    ## change name of wierd countries
+    ## change name of wired countries
     weird_names(arr_df)
-
 
     ## merge
     for i in range(len(arr_df)-1):
@@ -89,7 +88,6 @@ def merge_and_clean(arr_df,Name):
             arr_df[i+1] = arr_df[i].merge(arr_df[i+1], on=['Year', 'Country'], how='outer')
         else:##merge with the Continent CSV
             arr_df[i + 1] = arr_df[i].merge(arr_df[i + 1], on=['Country'], how='outer')
-
 
     ## clean
     df=arr_df[len(arr_df)-1]
@@ -100,13 +98,10 @@ def merge_and_clean(arr_df,Name):
     # remove all rows where year<1960
     if Name=='df_scrape':
         df = df[df['Year']>=2009]
-
     else: df=df[df['Year']>=1960]
 
     # remove all unknown and irrelevant countries
     df=df[df['Country'].isin(List_Of_Countries)]
-
-
 
     # Nirmul Arahim High & Change Columns names for full database
     if Name=='df_Full_DataBase':
@@ -144,6 +139,7 @@ def arr_df_builder(CSV_FILES):
 # reformatCSV(r"..\CSV files\OLD","Final consumption expenditure",1960,2020)
 # reformatCSV(r"..\CSV files\OLD","Population Growth pace",1960,2020)
 # reformatCSV(r"..\CSV files\OLD","Population Total",1960,2002)
+
 
 def Run():
     arr_df=arr_df_builder(CSV_FILES)

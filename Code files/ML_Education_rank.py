@@ -1,6 +1,7 @@
 from imports import *
 
 CANT_BE_NEG = ['Education Ranking', 'Government expenditure (% of GDP)', 'Total government Expenses (% of GDP)', 'Total consumption ($)']
+FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 
 def load_dataset(df, label_column):
     """Loading the data set and return the Traning features and target for the model.
@@ -125,11 +126,12 @@ def find_and_regres(dataset):
                     dataset.loc[(dataset['Country'] == country) & (dataset['Year'] == year), label_column] = min(i for i in dataset[(dataset['Year'] == year)][label_column] if i > 0)
 
 
-    dataset.to_csv(r"../CSV files/df_Full_DataBase.csv", index=False)
-    Popen("../CSV files/df_Full_DataBase.csv",shell=True)
+    dataset.to_csv(FULL_DB_PATH, index=False)
+    # Automated CSV opener for faster validation
+    Popen(FULL_DB_PATH,shell=True)
 
 
 def Run():
-    df=pd.read_csv(r"../CSV files/df_Full_DataBase.csv")
+    df=pd.read_csv(FULL_DB_PATH)
     find_and_regres(df)
     return df
