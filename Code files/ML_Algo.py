@@ -6,7 +6,7 @@ CANT_BE_NEG = [
     "Total government Expenses (% of GDP)",
     "Total consumption ($)",
     "Health Care Index",
-    "Health CareExp. Index"
+    "Health CareExp. Index",
 ]
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
@@ -45,7 +45,7 @@ def linear_regres(arr_year_data, dataset, label_column, Type):
     # Set The start and last year
     StartYear = 1960
     LastYear = 2021
-    if Type == 'scrape':  # if we are on scrape dataset change the start and last year
+    if Type == "scrape":  # if we are on scrape dataset change the start and last year
         StartYear = 2009
         LastYear = 2021
     arr_year = []
@@ -54,7 +54,7 @@ def linear_regres(arr_year_data, dataset, label_column, Type):
         dataset[
             (dataset["Year"] >= min(arr_year_data))
             & (dataset["Year"] <= max(arr_year_data))
-            ],
+        ],
         label_column,
     )
     # Create the linear regression object
@@ -85,7 +85,7 @@ def check_year_lr(dataframe, country, label_col):
     for year in range(StartYear, LastYear + 1):
         data_year_country = dataframe[
             (dataframe["Year"] == year) & (dataframe["Country"] == country)
-            ][label_col].values
+        ][label_col].values
         if data_year_country[0] != 0:
             arr_year.append(year)
     return arr_year
@@ -196,6 +196,6 @@ def find_and_regres(PATH, Type):
 
 
 def Run():
-    df_fulldata = find_and_regres(FULL_DB_PATH, 'full')
-    df_scrap = find_and_regres(SCRAP_DB_PATH, 'scrape')
+    df_fulldata = find_and_regres(FULL_DB_PATH, "full")
+    df_scrap = find_and_regres(SCRAP_DB_PATH, "scrape")
     return df_fulldata, df_scrap
