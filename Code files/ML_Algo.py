@@ -1,11 +1,12 @@
 from imports import *
 
-
 CANT_BE_NEG = [
     "Education Ranking",
     "Government expenditure (% of GDP)",
     "Total government Expenses (% of GDP)",
     "Total consumption ($)",
+    "Health Care Index",
+    "Health CareExp. Index"
 ]
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
@@ -30,7 +31,7 @@ def load_dataset(df, label_column):
     return X, y
 
 
-def linear_regres(arr_year_data, dataset, label_column):
+def linear_regres(arr_year_data, dataset, label_column, Type):
     """Linear Regression for training.
 
     Args:
@@ -41,18 +42,25 @@ def linear_regres(arr_year_data, dataset, label_column):
     Returns:
         arr_data: Array with new data used by the regression model.
     """
+    # Set The start and last year
+    StartYear = 1960
+    LastYear = 2021
+    if Type == 'scrape':  # if we are on scrape dataset change the start and last year
+        StartYear = 2009
+        LastYear = 2021
     arr_year = []
     dataset = dataset[["Year", label_column]]
     X, y = load_dataset(
         dataset[
             (dataset["Year"] >= min(arr_year_data))
             & (dataset["Year"] <= max(arr_year_data))
-        ],
+            ],
         label_column,
     )
+    # Create the linear regression object
     m = linear_model.LinearRegression().fit(X.values, y)
     arr_data = []
-    for year in range(1960, 2021):
+    for year in range(StartYear, LastYear + 1):
         if year not in arr_year_data:
             arr_year.append([year])
 
@@ -62,34 +70,46 @@ def linear_regres(arr_year_data, dataset, label_column):
 
 
 def check_year_lr(dataframe, country, label_col):
-    """Checking for the first year we got data from.
+    """Check which years we got data from.
 
     Args:
         dataframe ([type]): the main dataframe.
         country (String): the current country to check.
-
+        label_col(String): the label column to check.
     Returns:
-        year: the corresponding year
+        arr_year: arr containing the year we have data on
     """
-
     arr_year = []
-    for year in range(1960, 2021):
+    StartYear = int((min(dataframe[dataframe["Country"] == country]["Year"])))
+    LastYear = int((max(dataframe[dataframe["Country"] == country]["Year"])))
+    for year in range(StartYear, LastYear + 1):
         data_year_country = dataframe[
             (dataframe["Year"] == year) & (dataframe["Country"] == country)
-        ][label_col].values
+            ][label_col].values
         if data_year_country[0] != 0:
             arr_year.append(year)
     return arr_year
 
 
-def find_and_regres(PATH):
+def find_and_regres(PATH, Type):
+    """Function to replace missing values with the linear regression.
+    Args:
+        PATH (String): the path to the dataset.(Also the path the save the new dataset)
+        Type (String): the type of dataset we are working with.(full or scrape)
+    Returns:
+        None(Open CSV in Excel)
+    """
+
+    # Loading the dataset
     dataset = pd.read_csv(PATH)
+
     dataset_columns = list(dataset.columns)
     columns_to_remove = ["Country", "Year", "Continent", "Third World"]
 
     dataset_columns = [c for c in dataset_columns if c not in columns_to_remove]
 
     for label_column in dataset_columns:
+        # Array contining all countries we dont have info on in the column (save for later)
         NO_INFO_countries = []
         dataset[label_column].fillna(0, inplace=True)
 
@@ -104,66 +124,63 @@ def find_and_regres(PATH):
         pbar_country.set_description(f"Processing '{label_column}'")
 
         for country in dataset.Country.unique():
+            # Years To Work on
+            StartYear = int((min(dataset[dataset["Country"] == country]["Year"])))
+            LastYear = int((max(dataset[dataset["Country"] == country]["Year"])))
+
+            # Progress bar
             pbar_country.update()
-            try:
-                Dataframe = list(dataset[(dataset["Country"] == country)][label_column])
-                if all(x == 0 for x in Dataframe):
-                    NO_INFO_countries.append(country)
-                elif 0 in Dataframe:
-                    arr_year = check_year_lr(dataset, country, label_column)
 
-                    arr_data = linear_regres(
-                        arr_year, dataset[dataset["Country"] == country], label_column
-                    )
-                    arr_data = list(arr_data[0])
-                    if label_column in [
-                        "Education Ranking",
-                        "Government expenditure (% of GDP)",
-                        "Total government Expenses (% of GDP)",
-                        "Total consumption ($)",
-                    ]:
-                        for i in range(len(arr_data)):
-                            if arr_data[i] < 0:
-                                arr_data[i] = 0
+            Dataframe = list(dataset[(dataset["Country"] == country)][label_column])
 
-                    arr_final_data = []
-                    indx = 0
+            """3 Possible cases:
+            1.We Have Data on all the years
+            2.We Have Data on some years
+            3.We Dont have any data."""
+            # 3
+            if all(x == 0 for x in Dataframe):
+                NO_INFO_countries.append(country)
+            # 2
+            elif 0 in Dataframe:
+                arr_year = check_year_lr(dataset, country, label_column)
 
-                    for i in range(1960, 2021):
-                        if i in arr_year:
-                            arr_final_data.append(0)
-                        else:
-                            arr_final_data.append(arr_data[indx])
-                            indx += 1
+                arr_data = linear_regres(
+                    arr_year, dataset[dataset["Country"] == country], label_column, Type
+                )
+                arr_data = list(arr_data[0])
+                if label_column in CANT_BE_NEG:
+                    for i in range(len(arr_data)):
+                        if arr_data[i] < 0:
+                            arr_data[i] = 0
 
-                    arr_data = arr_final_data
+                arr_final_data = []
+                indx = 0
 
-                    dataset.loc[
-                        (dataset["Country"] == country)
-                        & (dataset["Year"] >= 1960)
-                        & (dataset["Year"] <= 2020),
-                        label_column,
-                    ] += arr_data
+                for i in range(StartYear, LastYear + 1):
+                    if i in arr_year:
+                        arr_final_data.append(0)
+                    else:
+                        arr_final_data.append(arr_data[indx])
+                        indx += 1
 
-                else:
-                    continue
+                arr_data = arr_final_data
 
-            except Exception as e:
                 dataset.loc[
                     (dataset["Country"] == country)
-                    & (dataset["Year"] >= 1960)
-                    & (dataset["Year"] <= 2020),
+                    & (dataset["Year"] >= StartYear)
+                    & (dataset["Year"] <= LastYear),
                     label_column,
-                ] = sys.maxsize  # Explain pls
-                print(e, country)
-                NO_INFO_countries.append(country)
+                ] += arr_data
+            # 1
+            else:
+                continue
 
         pbar_country.close()
 
-        # Fill in countries with no information with the minimum value for that year
+        # Fill in countries with no information with the minimum value for that year (later)
         if label_column in CANT_BE_NEG:
             for country in NO_INFO_countries:
-                for year in range(1960, 2021):
+                for year in range(StartYear, LastYear + 1):
                     dataset.loc[
                         (dataset["Country"] == country) & (dataset["Year"] == year),
                         label_column,
@@ -179,6 +196,6 @@ def find_and_regres(PATH):
 
 
 def Run():
-    df_fulldata = find_and_regres(FULL_DB_PATH)
-    df_scrap = find_and_regres(SCRAP_DB_PATH)
+    df_fulldata = find_and_regres(FULL_DB_PATH, 'full')
+    df_scrap = find_and_regres(SCRAP_DB_PATH, 'scrape')
     return df_fulldata, df_scrap

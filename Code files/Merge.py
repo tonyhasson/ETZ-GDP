@@ -400,9 +400,14 @@ def merge_and_clean(arr_df, Name):
 
     # Keep only the relevant data according to DF
     if Name == "df_scrape":
+
+        # Keep year 2009 onward
         df = df[df["Year"] >= 2009]
+
+        # load df to take countries from
         SCRAP_Countries = pd.read_csv("..\CSV files\Scraping CSV\df3.csv")
 
+        # Keep only the countries that are in the df
         df = df[df["Country"].isin(SCRAP_Countries["Country"].unique())]
 
     # Nirmul Arahim High & Change Columns names for full database
@@ -465,5 +470,6 @@ def arr_df_builder(CSV_FILES):
 def Run():
     arr_df = arr_df_builder(CSV_FILES)
     scrap_arr_df = arr_df_builder(SCRAP_CSV_FILES)
-    raw_data = merge_and_clean(arr_df, "df_Full_DataBase")
-    scrap_raw_data = merge_and_clean(scrap_arr_df, "df_scrape")
+    DF_FULL = merge_and_clean(arr_df, "df_Full_DataBase")
+    DF_SCRAPE = merge_and_clean(scrap_arr_df, "df_scrape")
+    return DF_FULL, DF_SCRAPE

@@ -1,6 +1,6 @@
 from imports import *
-from Merge import Run as MergeRun
-from ML_Education_rank import Run as Run_ML_Education_rank
+from Merge import Run as Run_Merge
+from ML_Algo import Run as Run_ML
 
 
 ##############################################################################
@@ -8,7 +8,7 @@ from ML_Education_rank import Run as Run_ML_Education_rank
 ##############################################################################
 #   1. Clean the data                                                        #
 #   2. Analyze the data                                                      #
-#   3. Correlation between different things                                   #
+#   3. Correlation between different things                                  #
 #   4. Make plots                                                            #
 #   5.                                                                       #
 #   6.                                                                       #
@@ -19,6 +19,6 @@ from ML_Education_rank import Run as Run_ML_Education_rank
 ##############################################################################
 
 if __name__ == "__main__":
-    MergeRun()
-    df_full, df_scrap = Run_ML_Education_rank()
+    DF_FULL,DF_SCRAPE=Run_Merge()
+    DF_FULL,DF_SCRAPE =Run_ML()
     # df= pd.read_csv('../CSV files/df_Full_DataBase.csv')
