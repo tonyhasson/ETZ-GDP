@@ -109,7 +109,7 @@ def find_and_regres(PATH, Type):
     dataset_columns = [c for c in dataset_columns if c not in columns_to_remove]
 
     for label_column in dataset_columns:
-        # Array contining all countries we dont have info on in the column (save for later)
+        # Array containing all countries we don't have info on in the column (save for later)
         NO_INFO_countries = []
         dataset[label_column].fillna(0, inplace=True)
 
