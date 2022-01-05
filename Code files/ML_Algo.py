@@ -97,7 +97,7 @@ def find_and_regres(PATH, Type):
         PATH (String): the path to the dataset.(Also the path the save the new dataset)
         Type (String): the type of dataset we are working with.(full or scrape)
     Returns:
-        None(Open CSV in Excel)
+        None (Open CSV in Excel)
     """
 
     # Loading the dataset
@@ -136,7 +136,7 @@ def find_and_regres(PATH, Type):
             """3 Possible cases:
             1.We Have Data on all the years
             2.We Have Data on some years
-            3.We Dont have any data."""
+            3.We Don't have any data."""
             # 3
             if all(x == 0 for x in Dataframe):
                 NO_INFO_countries.append(country)

@@ -263,7 +263,7 @@ def weird_names(arr_df):
     """
     for DataFrameIterator in arr_df:
         DataFrameIterator.loc[
-            DataFrameIterator["Country"] == "Cote d'Ivoire", "Country"
+            DataFrameIterator["Country"] == r"Cote d'Ivoire", "Country"
         ] = "Ivory Coast"
         DataFrameIterator.loc[
             DataFrameIterator["Country"] == "Slovak Republic", "Country"
@@ -313,7 +313,7 @@ def weird_names(arr_df):
             "Country",
         ] = "Democratic Republic of the Congo"
         DataFrameIterator.loc[
-            DataFrameIterator["Country"] == "C׳₪te d'Ivoire", "Country"
+            DataFrameIterator["Country"] == r"C׳₪te d'Ivoire", "Country"
         ] = "Ivory Coast"
         DataFrameIterator.loc[
             DataFrameIterator["Country"] == "Eswatini (Kingdom of)", "Country"
