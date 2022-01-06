@@ -7,12 +7,12 @@ import bs4
 from bs4 import BeautifulSoup
 
 # Visualization
-# import matplotlib as mpl
-# import matplotlib.pyplot as plt
-# import seaborn as sns
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # General
-# import scipy as sc
+import scipy as sc
 import sys
 import re
 from re import sub
