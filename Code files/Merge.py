@@ -217,14 +217,15 @@ List_Of_Countries = [
     "Zimbabwe",
 ]
 
-def merge_extra_df(df,col_name,path):
+
+def merge_extra_df(df, col_name, path):
     """Function To merge {0 if not in subject else 1} to df
 
-       Args:
-           df (DataFrame): DataFrame to be merged
-       Returns:
-           df with another columns of third world
-       """
+    Args:
+        df (DataFrame): DataFrame to be merged
+    Returns:
+        df with another columns of third world
+    """
 
     df_extra = pd.read_csv(path)
     arr_c = [c for c in df_extra["Country"]]
@@ -232,6 +233,7 @@ def merge_extra_df(df,col_name,path):
     for c in arr_c:
         df.loc[df["Country"] == c, col_name] = 1
     return df
+
 
 def merge_third_world(df):
     """Function To merge {0 if not in third world else 1} to df
@@ -249,21 +251,26 @@ def merge_third_world(df):
         df.loc[df["Country"] == c, "Third World"] = 1
     return df
 
+
 def merge_least_dev_countries(df):
     """Function To merge {0 if not in least developed country else 1} to df
 
-        Args:
-            df (DataFrame): DataFrame to be merged
-        Returns:
-            df with another columns of least developed countries
-        """
+    Args:
+        df (DataFrame): DataFrame to be merged
+    Returns:
+        df with another columns of least developed countries
+    """
 
-    df_least = pd.read_csv(r"..\CSV files\Scraping CSV\df_least_developed_countries.csv")
+    df_least = pd.read_csv(
+        r"..\CSV files\Scraping CSV\df_least_developed_countries.csv"
+    )
     arr_c = [c for c in df_least["Country"]]
     df["Least Developed Country"] = 0
     for c in arr_c:
         df.loc[df["Country"] == c, "Least Developed Country"] = 1
     return df
+
+
 def reformatCSV(CSV_location, CSV_name, Start_year, End_year):
     """Function to reformat existing dataframe to [Country, Year, Value] format.
 
@@ -422,9 +429,15 @@ def merge_and_clean(arr_df, Name):
     df.sort_values(["Country", "Year"], axis=0, ascending=True, inplace=True)
 
     ## Add third world column to df
-    #df = merge_third_world(df)
-    df = merge_extra_df(df,"Third World",r"..\CSV files\Scraping CSV\third_world_countries.csv")
-    df = merge_extra_df(df,"Least Developed Country",r"..\CSV files\Scraping CSV\df_least_developed_countries.csv")
+    # df = merge_third_world(df)
+    df = merge_extra_df(
+        df, "Third World", r"..\CSV files\Scraping CSV\third_world_countries.csv"
+    )
+    df = merge_extra_df(
+        df,
+        "Least Developed Country",
+        r"..\CSV files\Scraping CSV\df_least_developed_countries.csv",
+    )
 
     ## remove all unknown and irrelevant countries
     df = df[df["Country"].isin(List_Of_Countries)]
