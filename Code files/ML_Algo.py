@@ -5,6 +5,7 @@ CANT_BE_NEG = [
     "Government expenditure (% of GDP)",
     "Total government Expenses (% of GDP)",
     "Total consumption ($)",
+    "Life expectancy at birth",
     "Health Care Index",
     "Health CareExp. Index",
 ]

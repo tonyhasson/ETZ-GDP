@@ -23,6 +23,9 @@ SCRAP_CSV_FILES = [
     "Scraping CSV\df4",
     "df_Continent",
 ]
+# Deleted:
+#  "Marshall Islands", #  "Palau",
+# North Korea
 List_Of_Countries = [
     "Republic of the Congo",
     "Democratic Republic of the Congo",
@@ -131,12 +134,11 @@ List_Of_Countries = [
     "Maldives",
     "Mali",
     "Malta",
-    "Marshall Islands",
     "Mauritania",
     "Mauritius",
     "Mexico",
     "Micronesia",
-    ",Moldova",
+    "Moldova",
     "Monaco",
     "Mongolia",
     "Montenegro",
@@ -155,7 +157,6 @@ List_Of_Countries = [
     "Norway",
     "Oman",
     "Pakistan",
-    "Palau",
     "Palestine State",
     "Panama",
     "Papua New Guinea",
@@ -191,8 +192,8 @@ List_Of_Countries = [
     "Sweden",
     "Switzerland",
     "Syria",
-    "Tajik,istan",
-    "Tanza,nia",
+    "Tajikistan",
+    "Tanzania",
     "Thailand",
     "Timor-Leste",
     "Togo",

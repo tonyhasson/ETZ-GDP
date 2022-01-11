@@ -27,3 +27,10 @@ Thing we need to do:
 - pandas
 - scipy
 - tqdm (Progress Bar)
+
+## Visualizations (per year per continent)
+
+- Education ranking
+- Total consumption
+- GDP total
+-
