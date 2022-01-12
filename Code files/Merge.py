@@ -23,6 +23,9 @@ SCRAP_CSV_FILES = [
     "Scraping CSV\df4",
     "df_Continent",
 ]
+# Deleted:
+# "Marshall Islands", #"Palau", #"Nauru", #"Tuvalu", #"Dominica",
+# North Korea
 List_Of_Countries = [
     "Republic of the Congo",
     "Democratic Republic of the Congo",
@@ -74,7 +77,6 @@ List_Of_Countries = [
     "Democratic Republic of the Congo",
     "Denmark",
     "Djibouti",
-    "Dominica",
     "Dominican Republic",
     "Ecuador",
     "Egypt",
@@ -131,12 +133,11 @@ List_Of_Countries = [
     "Maldives",
     "Mali",
     "Malta",
-    "Marshall Islands",
     "Mauritania",
     "Mauritius",
     "Mexico",
     "Micronesia",
-    ",Moldova",
+    "Moldova",
     "Monaco",
     "Mongolia",
     "Montenegro",
@@ -144,7 +145,6 @@ List_Of_Countries = [
     "Mozambique",
     "Myanmar",
     "Namibia",
-    "Nauru",
     "Nepal",
     "Netherlands",
     "New Zealand",
@@ -155,7 +155,6 @@ List_Of_Countries = [
     "Norway",
     "Oman",
     "Pakistan",
-    "Palau",
     "Palestine State",
     "Panama",
     "Papua New Guinea",
@@ -191,8 +190,8 @@ List_Of_Countries = [
     "Sweden",
     "Switzerland",
     "Syria",
-    "Tajik,istan",
-    "Tanza,nia",
+    "Tajikistan",
+    "Tanzania",
     "Thailand",
     "Timor-Leste",
     "Togo",
@@ -201,7 +200,6 @@ List_Of_Countries = [
     "Tunisia",
     "Turkey",
     "Turkmenistan",
-    "Tuvalu",
     "Uganda",
     "Ukraine",
     "United Arab Emirates",
@@ -479,8 +477,9 @@ def merge_and_clean(arr_df, Name):
                 "Expense (% of GDP)": "Total government Expenses (% of GDP)",
             }
         )
+
+    ## To CSV:
     df.to_csv(r"..\CSV files\\" + Name + ".csv", index=False)
-    return df
 
 
 def arr_df_builder(CSV_FILES):
@@ -514,6 +513,5 @@ def arr_df_builder(CSV_FILES):
 def Run():
     arr_df = arr_df_builder(CSV_FILES)
     scrap_arr_df = arr_df_builder(SCRAP_CSV_FILES)
-    DF_FULL = merge_and_clean(arr_df, "df_Full_DataBase")
-    DF_SCRAPE = merge_and_clean(scrap_arr_df, "df_scrape")
-    return DF_FULL, DF_SCRAPE
+    merge_and_clean(arr_df, "df_Full_DataBase")
+    merge_and_clean(scrap_arr_df, "df_scrape")

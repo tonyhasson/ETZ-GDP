@@ -4720,7 +4720,7 @@ France,1980,74.05121951
 France,1981,74.3
 France,1982,74.5
 France,1983,74.8
-France,1984,75.0
+France,1984,75
 France,1985,75.3
 France,1986,75.6
 France,1987,75.8
@@ -5200,7 +5200,7 @@ Guinea,1972,37.255
 Guinea,1973,37.624
 Guinea,1974,38.041
 Guinea,1975,38.502
-Guinea,1976,39.0
+Guinea,1976,39
 Guinea,1977,39.527
 Guinea,1978,40.082
 Guinea,1979,40.667
@@ -5628,7 +5628,7 @@ Guatemala,1973,54.181
 Guatemala,1974,54.676
 Guatemala,1975,55.14
 Guatemala,1976,55.577
-Guatemala,1977,56.0
+Guatemala,1977,56
 Guatemala,1978,56.418
 Guatemala,1979,56.84
 Guatemala,1980,57.272
@@ -6102,7 +6102,7 @@ Croatia,2020,
 Haiti,1960,41.762
 Haiti,1961,42.182
 Haiti,1962,42.591
-Haiti,1963,43.0
+Haiti,1963,43
 Haiti,1964,43.414
 Haiti,1965,43.837
 Haiti,1966,44.267
@@ -7013,13 +7013,13 @@ Iceland,2016,82.20487805
 Iceland,2017,82.66097561
 Iceland,2018,82.86097561
 Iceland,2019,82.56097561
-Iceland,2020,
-Israel,1960,
-Israel,1961,72.00658537
-Israel,1962,72.11219512
-Israel,1963,
-Israel,1964,
-Israel,1965,
+Iceland,2020,71.95000001
+Israel,1960,71.90150407
+Israel,1961,71.85300814
+Israel,1962,71.8045122
+Israel,1963,71.75601627
+Israel,1964,71.70752033
+Israel,1965,71.65902439
 Israel,1966,72.28560976
 Israel,1967,71.5097561
 Israel,1968,71.05658537
@@ -7051,7 +7051,7 @@ Israel,1993,77.15365854
 Israel,1994,77.40243902
 Israel,1995,77.45121951
 Israel,1996,78.10487805
-Israel,1997,78.0
+Israel,1997,78
 Israel,1998,78.14878049
 Israel,1999,78.65853659
 Israel,2000,78.95365854
@@ -7074,7 +7074,7 @@ Israel,2016,82.40731707
 Israel,2017,82.55121951
 Israel,2018,82.80243902
 Israel,2019,82.80487805
-Israel,2020,
+Israel,2020,83.41167454
 Italy,1960,69.12390244
 Italy,1961,69.7602439
 Italy,1962,69.1497561
@@ -7356,7 +7356,7 @@ Kazakhstan,1993,65.4
 Kazakhstan,1994,64.9
 Kazakhstan,1995,63.5
 Kazakhstan,1996,63.6
-Kazakhstan,1997,64.0
+Kazakhstan,1997,64
 Kazakhstan,1998,64.5
 Kazakhstan,1999,65.63
 Kazakhstan,2000,65.45
@@ -8628,7 +8628,7 @@ Lesotho,1984,58.91
 Lesotho,1985,59.309
 Lesotho,1986,59.632
 Lesotho,1987,59.868
-Lesotho,1988,60.0
+Lesotho,1988,60
 Lesotho,1989,60.003
 Lesotho,1990,59.837
 Lesotho,1991,59.464
@@ -10766,7 +10766,7 @@ Netherlands,1987,76.70512195
 Netherlands,1988,76.8902439
 Netherlands,1989,76.73414634
 Netherlands,1990,76.87804878
-Netherlands,1991,77.0
+Netherlands,1991,77
 Netherlands,1992,77.21707317
 Netherlands,1993,76.91658537
 Netherlands,1994,77.37512195
@@ -11310,7 +11310,7 @@ Panama,1982,70.858
 Panama,1983,71.163
 Panama,1984,71.453
 Panama,1985,71.732
-Panama,1986,72.0
+Panama,1986,72
 Panama,1987,72.257
 Panama,1988,72.506
 Panama,1989,72.747
@@ -11612,7 +11612,7 @@ Poland,1979,70.75121951
 Poland,1980,70.09756098
 Poland,1981,71.05121951
 Poland,1982,71.10243902
-Poland,1983,71.0
+Poland,1983,71
 Poland,1984,70.8
 Poland,1985,70.54878049
 Poland,1986,70.84878049
@@ -11642,7 +11642,7 @@ Poland,2009,75.69512195
 Poland,2010,76.24634146
 Poland,2011,76.69512195
 Poland,2012,76.74634146
-Poland,2013,77.0
+Poland,2013,77
 Poland,2014,77.60243902
 Poland,2015,77.45121951
 Poland,2016,77.85121951
@@ -12900,7 +12900,7 @@ El Salvador,1986,60.025
 El Salvador,1987,61.024
 El Salvador,1988,62.044
 El Salvador,1989,63.05
-El Salvador,1990,64.0
+El Salvador,1990,64
 El Salvador,1991,64.858
 El Salvador,1992,65.617
 El Salvador,1993,66.273
@@ -14588,7 +14588,7 @@ Tonga,1966,62.387
 Tonga,1967,62.811
 Tonga,1968,63.224
 Tonga,1969,63.621
-Tonga,1970,64.0
+Tonga,1970,64
 Tonga,1971,64.357
 Tonga,1972,64.696
 Tonga,1973,65.017
@@ -15086,7 +15086,7 @@ Uganda,1976,49.826
 Uganda,1977,49.886
 Uganda,1978,49.943
 Uganda,1979,49.988
-Uganda,1980,50.0
+Uganda,1980,50
 Uganda,1981,49.955
 Uganda,1982,49.831
 Uganda,1983,49.615
@@ -15999,7 +15999,7 @@ Kosovo,2020,
 "Yemen, Rep.",1975,42.364
 "Yemen, Rep.",1976,43.54
 "Yemen, Rep.",1977,44.753
-"Yemen, Rep.",1978,46.0
+"Yemen, Rep.",1978,46
 "Yemen, Rep.",1979,47.265
 "Yemen, Rep.",1980,48.532
 "Yemen, Rep.",1981,49.778
@@ -16143,7 +16143,7 @@ Zambia,1996,43.735
 Zambia,1997,43.461
 Zambia,1998,43.413
 Zambia,1999,43.594
-Zambia,2000,44.0
+Zambia,2000,44
 Zambia,2001,44.615
 Zambia,2002,45.4
 Zambia,2003,46.322

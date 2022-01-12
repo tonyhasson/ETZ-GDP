@@ -2,6 +2,7 @@ from imports import *
 
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
+YEARS = [i for i in range(1960, 2021)]
 
 # function to print plot 2 columns
 def Plot(df, col1, col2):
@@ -24,8 +25,6 @@ def Correlations(df):
 
 #  in RUSS_CHINA_USA
 # Edu rank (1990+) | Total Consumption | GDP total | Life Expectancy | Population total |
-
-
 def USA_RUSS_CHINA(df, label):
     plt.plot(
         df[df["Country"] == "United States"]["Year"],
@@ -50,27 +49,32 @@ def USA_RUSS_CHINA(df, label):
 
 def Continent_VS(df, label):
 
-    years = [i for i in range(1960, 2021)]
     year_Asia = [
         df[(df["Continent"] == "Asia") & (df["Year"] == i)][label].values.mean()
-        for i in range(1960, 2021)
-    ]
-    year_Europe = [
-        df[(df["Continent"] == "Europe") & (df["Year"] == i)][label].values.mean()
         for i in range(1960, 2021)
     ]
     year_Africa = [
         df[(df["Continent"] == "Africa") & (df["Year"] == i)][label].values.mean()
         for i in range(1960, 2021)
     ]
-    year_SouthAmerica = [
-        df[(df["Continent"] == "South America") & (df["Year"] == i)][
-            label
-        ].values.mean()
+    year_Europe = [
+        df[(df["Continent"] == "Europe") & (df["Year"] == i)][label].values.mean()
         for i in range(1960, 2021)
     ]
     year_NorthAmerica = [
         df[(df["Continent"] == "North America") & (df["Year"] == i)][
+            label
+        ].values.mean()
+        for i in range(1960, 2021)
+    ]
+    year_CentAmerica = [
+        df[(df["Continent"] == "Central America") & (df["Year"] == i)][
+            label
+        ].values.mean()
+        for i in range(1960, 2021)
+    ]
+    year_SouthAmerica = [
+        df[(df["Continent"] == "South America") & (df["Year"] == i)][
             label
         ].values.mean()
         for i in range(1960, 2021)
@@ -81,32 +85,37 @@ def Continent_VS(df, label):
     ]
 
     plt.plot(
-        years,
+        YEARS,
         year_Asia,
         label="Asia",
     )
     plt.plot(
-        years,
-        year_Europe,
-        label="Europe",
-    )
-    plt.plot(
-        years,
+        YEARS,
         year_Africa,
         label="Africa",
     )
     plt.plot(
-        years,
-        year_SouthAmerica,
-        label="South America",
+        YEARS,
+        year_Europe,
+        label="Europe",
     )
     plt.plot(
-        years,
+        YEARS,
         year_NorthAmerica,
         label="North America",
     )
     plt.plot(
-        years,
+        YEARS,
+        year_CentAmerica,
+        label="Central America",
+    )
+    plt.plot(
+        YEARS,
+        year_SouthAmerica,
+        label="South America",
+    )
+    plt.plot(
+        YEARS,
         year_Oceania,
         label="Oceania",
     )
@@ -117,7 +126,7 @@ def Continent_VS(df, label):
 
 
 # Tarbot bizbuz west VS east
-def Big_Spender(df):
+def Big_spender(df):
     # https://stackabuse.com/seaborn-scatter-plot-tutorial-and-examples/
     WEST = ["Europe", "North America", "South America"]
     EAST = ["Asia", "Oceania"]
@@ -141,7 +150,53 @@ def Big_Spender(df):
     #     "Government expenditure (% of GDP)",   # Y
     # )
     # grid.add_legend()
+    # ocan_list = df[df["Continent"] == "Oceania"]["Country"].unique()
 
+
+def world_leaders(df, label, country_list):
+    for c in country_list:
+        plt.plot(
+            YEARS,
+            df[df["Country"] == c][label],
+            label=c,
+        )
+
+    plt.xlabel("Year")
+    plt.ylabel(label)
+    plt.legend()
+    plt.show()
+
+
+def pop_show(df):
+    countries_name = df["Country"].unique()
+    above_100 = below_100 = 0
+    for c in countries_name:
+        if (
+            float(df[(df["Country"] == c) & (df["Year"] == 2020)]["Population Total"])
+            > 0.1
+        ):
+            above_100 += 1
+        else:
+            below_100 += 1
+
+    plt.pie([above_100, below_100], labels=["Above", "Below"])
+    plt.show()
+
+
+def Cont_expectancy(df, cont):
+    ocan_list = df[df["Continent"] == cont]["Country"].unique()
+    for indx, c in enumerate(ocan_list):
+        plt.plot(
+            YEARS,
+            df[df["Country"] == c]["Life expectancy at birth"],
+            label=c,
+        )
+        if indx % 5 == 0:
+            plt.xlabel("Year")
+            plt.ylabel("Life expectancy")
+            plt.legend()
+            plt.show()
+    plt.legend()
     plt.show()
 
 
@@ -153,7 +208,7 @@ labels = df_full.columns
 # for label in labels:
 #     USA_RUSS_CHINA(df_full,label
 
-## Continent mean values:
+# Continent mean values:
 # for label in labels:
 #     if label in [
 #         "Country",
@@ -167,3 +222,38 @@ labels = df_full.columns
 #     ]:
 #         continue
 #     Continent_VS(df_full, label)
+
+## LIFE expectancy
+# Cont_expectancy(df_full, "North America")
+
+## Pop show
+pop_show(df_full)
+
+# leaders_list = [
+#     "United States",
+#     "Russia",
+#     "United Kingdom",
+#     "Germany",
+#     "China",
+#     "Israel",
+# ]
+# world leaders
+# for label in labels:
+#     if label in [
+#         "Country",
+#         "Year",
+#         "Continent",
+#         "Government expenditure (% of GDP)",
+#         "Total government Expenses (% of GDP)",
+#         "Total consumption ($)",
+#         "Least Developed Country",
+#         "Third World",
+#     ]:
+#         continue
+#     world_leaders(df_full, label, leaders_list)
+
+## TODO: Spikes in aaaaaa asia and oceania
+## TODO: Idea: show country at war in years | Genocide
+## TODO: Comparison between strong contries and WEST vs EAST
+## ! life expectancy does problems in and north america (Israel got 3 years fucked upp)
+## !North america is Shady with the numbers, must check her
