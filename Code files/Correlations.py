@@ -55,16 +55,16 @@ def Continent_VS(df, label):
         df[(df["Continent"] == "Asia") & (df["Year"] == i)][label].values.mean()
         for i in range(1960, 2021)
     ]
-    year_Europe = [
-        df[(df["Continent"] == "Europe") & (df["Year"] == i)][label].values.mean()
-        for i in range(1960, 2021)
-    ]
     year_Africa = [
         df[(df["Continent"] == "Africa") & (df["Year"] == i)][label].values.mean()
         for i in range(1960, 2021)
     ]
-    year_SouthAmerica = [
-        df[(df["Continent"] == "South America") & (df["Year"] == i)][
+    year_Europe = [
+        df[(df["Continent"] == "Europe") & (df["Year"] == i)][label].values.mean()
+        for i in range(1960, 2021)
+    ]
+    year_NorthAmerica = [
+        df[(df["Continent"] == "North America") & (df["Year"] == i)][
             label
         ].values.mean()
         for i in range(1960, 2021)
@@ -75,8 +75,8 @@ def Continent_VS(df, label):
         ].values.mean()
         for i in range(1960, 2021)
     ]
-    year_NorthAmerica = [
-        df[(df["Continent"] == "North America") & (df["Year"] == i)][
+    year_SouthAmerica = [
+        df[(df["Continent"] == "South America") & (df["Year"] == i)][
             label
         ].values.mean()
         for i in range(1960, 2021)
@@ -93,18 +93,18 @@ def Continent_VS(df, label):
     )
     plt.plot(
         YEARS,
-        year_Europe,
-        label="Europe",
-    )
-    plt.plot(
-        YEARS,
         year_Africa,
         label="Africa",
     )
     plt.plot(
         YEARS,
-        year_SouthAmerica,
-        label="South America",
+        year_Europe,
+        label="Europe",
+    )
+    plt.plot(
+        YEARS,
+        year_NorthAmerica,
+        label="North America",
     )
     plt.plot(
         YEARS,
@@ -113,8 +113,8 @@ def Continent_VS(df, label):
     )
     plt.plot(
         YEARS,
-        year_NorthAmerica,
-        label="North America",
+        year_SouthAmerica,
+        label="South America",
     )
     plt.plot(
         YEARS,
