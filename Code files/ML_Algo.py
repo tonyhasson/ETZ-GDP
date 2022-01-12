@@ -105,7 +105,7 @@ def find_and_regres(PATH, Type):
     dataset = pd.read_csv(PATH)
 
     dataset_columns = list(dataset.columns)
-    columns_to_remove = ["Country", "Year", "Continent", "Third World"]
+    columns_to_remove = ["Country", "Year", "Continent", "Third World", "Least Developed Country"]
 
     dataset_columns = [c for c in dataset_columns if c not in columns_to_remove]
 
@@ -190,9 +190,9 @@ def find_and_regres(PATH, Type):
 
     dataset.to_csv(PATH, index=False)
     # Automated CSV opener for faster validation
-    #Popen(PATH, shell=True)
+    # Popen(PATH, shell=True)
 
 
 def Run():
-    df_fulldata = find_and_regres(FULL_DB_PATH, "full")
-    df_scrap = find_and_regres(SCRAP_DB_PATH, "scrape")
+    find_and_regres(FULL_DB_PATH, "full")
+    find_and_regres(SCRAP_DB_PATH, "scrape")
