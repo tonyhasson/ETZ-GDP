@@ -208,26 +208,26 @@ labels = df_full.columns
 # for label in labels:
 #     USA_RUSS_CHINA(df_full,label
 
-# Continent mean values:
-# for label in labels:
-#     if label in [
-#         "Country",
-#         "Year",
-#         "Continent",
-#         "GDP Growth",
-#         "Government expenditure (% of GDP)",
-#         "Total government Expenses (% of GDP)",
-#         "Military expenditure (% of GDP)",
-#         "Population Growth pace",
-#     ]:
-#         continue
-#     Continent_VS(df_full, label)
+## Continent mean values:
+for label in labels:
+    if label in [
+        "Country",
+        "Year",
+        "Continent",
+        "GDP Growth",
+        "Government expenditure (% of GDP)",
+        "Total government Expenses (% of GDP)",
+        "Military expenditure (% of GDP)",
+        "Population Growth pace",
+    ]:
+        continue
+    Continent_VS(df_full, label)
 
 ## LIFE expectancy
 # Cont_expectancy(df_full, "North America")
 
 ## Pop show
-pop_show(df_full)
+# pop_show(df_full)
 
 # leaders_list = [
 #     "United States",

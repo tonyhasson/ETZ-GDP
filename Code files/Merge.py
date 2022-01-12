@@ -226,46 +226,10 @@ def merge_extra_df(df, col_name, path):
     """
 
     df_extra = pd.read_csv(path)
-    arr_c = [c for c in df_extra["Country"]]
+    arr_c = df_extra["Country"].unique()  # [c for c in df_extra["Country"]]
     df[col_name] = 0
     for c in arr_c:
         df.loc[df["Country"] == c, col_name] = 1
-    return df
-
-
-def merge_third_world(df):
-    """Function To merge {0 if not in third world else 1} to df
-
-    Args:
-        df (DataFrame): DataFrame to be merged
-    Returns:
-        df with another columns of third world
-    """
-
-    df_third = pd.read_csv(r"..\CSV files\Scraping CSV\third_world_countries.csv")
-    arr_c = [c for c in df_third["Country"]]
-    df["Third World"] = 0
-    for c in arr_c:
-        df.loc[df["Country"] == c, "Third World"] = 1
-    return df
-
-
-def merge_least_dev_countries(df):
-    """Function To merge {0 if not in least developed country else 1} to df
-
-    Args:
-        df (DataFrame): DataFrame to be merged
-    Returns:
-        df with another columns of least developed countries
-    """
-
-    df_least = pd.read_csv(
-        r"..\CSV files\Scraping CSV\df_least_developed_countries.csv"
-    )
-    arr_c = [c for c in df_least["Country"]]
-    df["Least Developed Country"] = 0
-    for c in arr_c:
-        df.loc[df["Country"] == c, "Least Developed Country"] = 1
     return df
 
 
@@ -427,7 +391,6 @@ def merge_and_clean(arr_df, Name):
     df.sort_values(["Country", "Year"], axis=0, ascending=True, inplace=True)
 
     ## Add third world column to df
-    # df = merge_third_world(df)
     df = merge_extra_df(
         df, "Third World", r"..\CSV files\Scraping CSV\third_world_countries.csv"
     )
