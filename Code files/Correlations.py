@@ -25,8 +25,6 @@ def Correlations(df):
 
 #  in RUSS_CHINA_USA
 # Edu rank (1990+) | Total Consumption | GDP total | Life Expectancy | Population total |
-
-
 def USA_RUSS_CHINA(df, label):
     plt.plot(
         df[df["Country"] == "United States"]["Year"],
@@ -155,6 +153,36 @@ def Big_spender(df):
     # ocan_list = df[df["Continent"] == "Oceania"]["Country"].unique()
 
 
+def world_leaders(df, label, country_list):
+    for c in country_list:
+        plt.plot(
+            YEARS,
+            df[df["Country"] == c][label],
+            label=c,
+        )
+
+    plt.xlabel("Year")
+    plt.ylabel(label)
+    plt.legend()
+    plt.show()
+
+
+def pop_show(df):
+    countries_name = df["Country"].unique()
+    above_100 = below_100 = 0
+    for c in countries_name:
+        if (
+            float(df[(df["Country"] == c) & (df["Year"] == 2020)]["Population Total"])
+            > 0.1
+        ):
+            above_100 += 1
+        else:
+            below_100 += 1
+
+    plt.pie([above_100, below_100], labels=["Above", "Below"])
+    plt.show()
+
+
 def Cont_expectancy(df, cont):
     ocan_list = df[df["Continent"] == cont]["Country"].unique()
     for indx, c in enumerate(ocan_list):
@@ -181,22 +209,48 @@ labels = df_full.columns
 #     USA_RUSS_CHINA(df_full,label
 
 # Continent mean values:
-for label in labels:
-    if label in [
-        "Country",
-        "Year",
-        "Continent",
-        "GDP Growth",
-        "Government expenditure (% of GDP)",
-        "Total government Expenses (% of GDP)",
-        "Military expenditure (% of GDP)",
-        "Population Growth pace",
-    ]:
-        continue
-    Continent_VS(df_full, label)
+# for label in labels:
+#     if label in [
+#         "Country",
+#         "Year",
+#         "Continent",
+#         "GDP Growth",
+#         "Government expenditure (% of GDP)",
+#         "Total government Expenses (% of GDP)",
+#         "Military expenditure (% of GDP)",
+#         "Population Growth pace",
+#     ]:
+#         continue
+#     Continent_VS(df_full, label)
 
 ## LIFE expectancy
-# Cont_expectancy(df_full, "Asia")
+# Cont_expectancy(df_full, "North America")
+
+## Pop show
+pop_show(df_full)
+
+# leaders_list = [
+#     "United States",
+#     "Russia",
+#     "United Kingdom",
+#     "Germany",
+#     "China",
+#     "Israel",
+# ]
+# world leaders
+# for label in labels:
+#     if label in [
+#         "Country",
+#         "Year",
+#         "Continent",
+#         "Government expenditure (% of GDP)",
+#         "Total government Expenses (% of GDP)",
+#         "Total consumption ($)",
+#         "Least Developed Country",
+#         "Third World",
+#     ]:
+#         continue
+#     world_leaders(df_full, label, leaders_list)
 
 ## TODO: Spikes in aaaaaa asia and oceania
 ## TODO: Idea: show country at war in years | Genocide

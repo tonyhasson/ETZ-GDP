@@ -117,7 +117,7 @@ def find_and_regres(PATH, Type):
         # Progress bar
         pbar_country = tqdm(
             total=len(dataset.Country.unique()),
-            smoothing=0.5,
+            smoothing=0.8,
             ncols=120,
             unit=" Operations",
         )
@@ -176,27 +176,23 @@ def find_and_regres(PATH, Type):
             else:
                 continue
 
-        pbar_country.close()
-
         # Fill in countries with no information with the minimum value for that year (later)
-        if label_column in CANT_BE_NEG:
-            for country in NO_INFO_countries:
-                for year in range(StartYear, LastYear + 1):
-                    dataset.loc[
-                        (dataset["Country"] == country) & (dataset["Year"] == year),
-                        label_column,
-                    ] = min(
-                        i
-                        for i in dataset[(dataset["Year"] == year)][label_column]
-                        if i > 0
-                    )
+        for country in NO_INFO_countries:
+            for year in range(StartYear, LastYear + 1):
+                dataset.loc[
+                    (dataset["Country"] == country) & (dataset["Year"] == year),
+                    label_column,
+                ] = min(
+                    i for i in dataset[(dataset["Year"] == year)][label_column] if i > 0
+                )
+
+        pbar_country.close()
 
     dataset.to_csv(PATH, index=False)
     # Automated CSV opener for faster validation
-    Popen(PATH, shell=True)
+    #Popen(PATH, shell=True)
 
 
 def Run():
     df_fulldata = find_and_regres(FULL_DB_PATH, "full")
     df_scrap = find_and_regres(SCRAP_DB_PATH, "scrape")
-    return df_fulldata, df_scrap
