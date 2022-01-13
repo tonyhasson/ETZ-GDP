@@ -31,11 +31,10 @@ import sklearn
 from sklearn import linear_model, metrics, preprocessing
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.linear_model import LogisticRegression, LinearRegression
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, silhouette_score
 from sklearn.metrics import r2_score, f1_score
 from sklearn import metrics
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
-

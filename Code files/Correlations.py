@@ -169,8 +169,10 @@ def Continent_VS(df, label):
 # Tarbot bizbuz west VS east
 def Big_spender(df):
     # https://stackabuse.com/seaborn-scatter-plot-tutorial-and-examples/
+    # EU/ASIA -> minus russia
     WEST = ["Europe", "North America", "Central America", "Oceania"]
     EAST = ["Asia"]
+    USELESS = ["Africa", "South America"]
     # grid = sns.FacetGrid(df, col="Continent", hue="Continent", col_wrap=2)
     ## East VS West
     # grid.map(
@@ -258,9 +260,10 @@ def Ussr(df, label):
     plt.legend()
     plt.show()
 
+
 def Genocide(df, label):
     country_list = df[df["Country"].isin(GENOCIDE_list)]["Country"].unique()
-    for i,c in enumerate(country_list):
+    for i, c in enumerate(country_list):
         plt.plot(
             YEARS,
             df[df["Country"] == c][label],
@@ -276,6 +279,7 @@ def Genocide(df, label):
     plt.ylabel(label)
     plt.legend()
     plt.show()
+
 
 df_full = pd.read_csv(FULL_DB_PATH)
 df_scrap = pd.read_csv(SCRAP_DB_PATH)
@@ -347,4 +351,3 @@ labels = df_full.columns
 #     world_leaders(df_full, label, leaders_list)
 
 ## TODO: Comparison between strong contries and WEST vs EAST
-## !North america is Shady with the numbers, must check her
