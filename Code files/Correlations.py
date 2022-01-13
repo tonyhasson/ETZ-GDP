@@ -396,6 +396,7 @@ comp(df_full,df_scrap)
 #     ]:
 #         continue
 #     world_leaders(df_full, label, leaders_list)
+<<<<<<< HEAD
 
 
 ##
@@ -404,3 +405,5 @@ comp(df_full,df_scrap)
 
 
 ## TODO: Comparison between strong contries and WEST vs EAST
+=======
+>>>>>>> 5d5d7f2466a312d856d8326f5b61c11e578470d8

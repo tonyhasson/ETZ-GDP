@@ -4,6 +4,7 @@ from ML_Algo import Run as Run_ML
 
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 
+
 def clean_DF(df):
     arr_not = df[(df["Year"] == 2019) & (df["Population Total"] >= 0.1)][
         "Country"
