@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.cm as cm
 
 # General
 import scipy as sc
@@ -38,3 +39,4 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
+
