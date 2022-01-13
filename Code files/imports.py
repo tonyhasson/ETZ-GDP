@@ -22,6 +22,7 @@ import numpy as np
 import math
 import os
 import time
+import time
 from subprocess import Popen
 from tqdm import tqdm
 
@@ -32,3 +33,9 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.linear_model import LogisticRegression, LinearRegression
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import r2_score, f1_score
+from sklearn import metrics
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+
