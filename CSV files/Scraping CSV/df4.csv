@@ -1,664 +1,664 @@
-Year,Country,Health Care Index,Health CareExp. Index
-2014,Denmark,85.62,159.20
-2014,Thailand,85.44,158.07
-2014,Japan,85.03,156.04
-2014,France,82.28,152.30
-2014,Austria,79.67,147.29
-2014,South Korea,79.17,146.12
-2014,Taiwan,78.33,142.66
-2014,Belgium,78.04,143.12
-2014,New Zealand,77.83,142.32
-2014,Argentina,76.75,141.40
-2014,Sri Lanka,76.67,141.62
-2014,Estonia,76.34,140.18
-2014,Norway,75.71,139.79
-2014,Israel,75.43,138.81
-2014,Germany,75.26,138.28
-2014,Sweden,75.22,138.43
-2014,Spain,75.17,139.63
-2014,Jordan,74.10,136.02
-2014,Australia,73.55,134.54
-2014,United Kingdom,73.52,135.28
-2014,Canada,71.94,133.08
-2014,Hong Kong,71.83,131.53
-2014,Mexico,70.64,127.50
-2014,Philippines,69.84,125.55
-2014,Malaysia,69.35,126.15
-2014,Lithuania,69.26,126.66
-2014,Cyprus,68.73,122.93
-2014,Finland,68.69,123.65
-2014,United States,68.58,127.73
-2014,Colombia,68.52,122.72
-2014,Switzerland,67.95,128.08
-2014,Czech Republic,66.27,123.40
-2014,Kuwait,66.20,122.87
-2014,Netherlands,66.17,121.85
-2014,China,65.12,117.91
-2014,Italy,65.05,119.20
-2014,Latvia,65.00,122.21
-2014,Portugal,64.80,118.98
-2014,India,64.62,115.29
-2014,Costa Rica,63.89,114.54
-2014,Slovakia,63.52,115.65
-2014,Singapore,61.82,117.09
-2014,Albania,61.44,111.45
-2014,Slovenia,61.31,114.70
-2014,Egypt,61.30,109.45
-2014,United Arab Emirates,60.65,113.43
-2014,Indonesia,60.23,107.28
-2014,Kazakhstan,60.19,114.05
-2014,Puerto Rico,59.93,113.56
-2014,Uruguay,59.58,108.17
-2014,South Africa,59.44,107.66
-2014,Ecuador,59.39,110.52
-2014,Morocco,59.29,108.70
-2014,Greece,59.02,105.45
-2014,Chile,58.68,104.98
-2014,Bulgaria,58.04,106.14
-2014,Peru,57.64,103.69
-2014,Turkey,57.54,101.18
-2014,Montenegro,56.94,103.74
-2014,Croatia,55.94,103.38
-2014,Lebanon,55.36,101.49
-2014,Poland,54.83,100.16
-2014,Bosnia And Herzegovina,54.42,97.78
-2014,Serbia,54.35,97.28
-2014,Cambodia,53.84,97.44
-2014,Brazil,53.72,97.24
-2014,Bolivia,51.52,90.69
-2014,Saudi Arabia,50.42,90.34
-2014,Nigeria,50.42,93.24
-2014,Pakistan,50.40,88.49
-2014,Iran,48.60,85.27
-2014,Oman,48.15,87.23
-2014,Belarus,48.02,85.01
-2014,Romania,47.27,83.74
-2014,Ukraine,47.10,83.12
-2014,Hungary,46.58,83.76
-2014,Russia,43.45,74.96
-2014,Ireland,42.57,79.14
-2014,Venezuela,41.05,70.52
-2014,North Macedonia,33.12,61.07
-2014,Iraq,28.47,46.44
-2015,Japan,87.07,160.36
-2015,Bahrain,84.44,155.52
-2015,Taiwan,84.29,155.00
-2015,France,82.58,152.42
-2015,Thailand,82.47,151.67
-2015,Malta,82.18,151.90
-2015,Panama,82.14,151.16
-2015,Hong Kong,80.60,148.14
-2015,Denmark,79.28,147.69
-2015,Dominican Republic,78.70,142.95
-2015,Austria,78.42,144.87
-2015,Cyprus,78.36,142.35
-2015,South Korea,78.15,142.55
-2015,Belgium,77.86,142.95
-2015,Turkmenistan,77.22,141.22
-2015,Israel,76.35,139.90
-2015,Sweden,76.29,140.32
-2015,Luxembourg,76.11,141.03
-2015,Qatar,75.86,141.20
-2015,Germany,75.61,138.94
-2015,Norway,75.46,139.19
-2015,Argentina,75.18,137.31
-2015,Sri Lanka,74.29,135.14
-2015,Cuba,74.03,137.82
-2015,Turkey,74.00,133.75
-2015,United Kingdom,73.88,135.74
-2015,Spain,73.21,135.58
-2015,Estonia,73.08,134.89
-2015,New Zealand,72.61,131.98
-2015,Australia,71.85,130.92
-2015,Philippines,71.66,129.15
-2015,Tunisia,71.02,128.87
-2015,Lithuania,70.11,127.23
-2015,Jordan,69.71,127.49
-2015,Canada,69.60,128.41
-2015,Finland,69.37,125.51
-2015,Malaysia,69.14,125.68
-2015,Colombia,68.92,123.58
-2015,Uruguay,67.92,123.87
-2015,Mexico,67.79,121.36
-2015,United States,67.75,126.19
-2015,Albania,67.41,122.47
-2015,Czech Republic,67.24,124.57
-2015,Netherlands,67.23,124.20
-2015,Latvia,67.13,125.45
-2015,India,66.86,119.75
-2015,Kuwait,66.57,124.45
-2015,Switzerland,66.31,125.22
-2015,Singapore,66.14,123.70
-2015,Indonesia,66.09,119.27
-2015,Italy,65.78,120.39
-2015,Lebanon,65.78,120.22
-2015,Portugal,65.62,118.87
-2015,Peru,64.68,119.32
-2015,Nepal,63.38,114.00
-2015,Ecuador,63.08,115.10
-2015,Kenya,62.70,113.97
-2015,Georgia,62.59,111.44
-2015,Costa Rica,61.95,110.75
-2015,South Africa,60.09,107.88
-2015,Saudi Arabia,59.02,108.00
-2015,Kazakhstan,58.86,110.26
-2015,Puerto Rico,58.74,110.15
-2015,China,58.74,105.71
-2015,Chile,58.55,106.46
-2015,Bulgaria,58.47,105.84
-2015,Iceland,58.43,108.69
-2015,Poland,58.03,105.49
-2015,Morocco,57.76,102.60
-2015,Slovakia,57.34,102.77
-2015,Croatia,57.26,105.30
-2015,Algeria,57.22,103.95
-2015,Montenegro,56.94,103.74
-2015,Greece,56.73,100.23
-2015,United Arab Emirates,55.60,103.82
-2015,Egypt,54.69,96.77
-2015,Paraguay,54.44,105.11
-2015,Trinidad And Tobago,54.35,98.68
-2015,Cambodia,54.17,97.62
-2015,Serbia,54.12,95.97
-2015,Slovenia,53.93,98.58
-2015,Moldova,52.69,102.37
-2015,Brazil,52.15,92.94
-2015,Bosnia And Herzegovina,52.08,93.16
-2015,Russia,51.80,90.23
-2015,Hungary,51.58,92.77
-2015,Pakistan,51.16,88.34
-2015,Iran,50.12,88.72
-2015,Bolivia,49.75,85.52
-2015,Ireland,49.53,90.03
-2015,Armenia,48.33,87.88
-2015,Oman,48.15,87.23
-2015,Romania,46.57,82.19
-2015,Belarus,45.39,80.73
-2015,Ukraine,44.27,77.47
-2015,Bangladesh,43.25,76.99
-2015,Guam,39.86,72.50
-2015,Venezuela,38.52,66.47
-2015,Nigeria,38.40,68.27
-2015,North Macedonia,35.12,66.23
-2015,Vietnam,34.26,60.20
-2015,Iraq,30.00,51.46
-2015,Mongolia,28.29,55.02
-2015,Azerbaijan,23.94,44.99
-2016,Taiwan,86.43,159.12
-2016,France,82.25,151.29
-2016,Denmark,81.89,152.13
-2016,Thailand,80.80,147.95
-2016,Japan,80.42,146.98
-2016,South Korea,78.97,143.37
-2016,Belgium,78.06,142.84
-2016,Austria,77.78,143.35
-2016,Israel,76.07,139.59
-2016,Spain,75.89,140.08
-2016,Germany,75.85,138.96
-2016,Finland,74.36,135.21
-2016,Sweden,74.33,136.58
-2016,Hong Kong,74.30,136.83
-2016,Iceland,74.26,135.40
-2016,Norway,74.23,136.12
-2016,United Kingdom,74.03,135.73
-2016,Argentina,73.73,134.46
-2016,Australia,73.71,134.21
-2016,Colombia,73.22,132.54
-2016,Turkey,73.03,131.69
-2016,Cyprus,72.93,131.61
-2016,New Zealand,72.60,131.52
-2016,Czech Republic,72.35,133.07
-2016,Philippines,72.25,130.36
-2016,Netherlands,70.43,128.88
-2016,Estonia,69.91,129.11
-2016,Jordan,69.27,125.93
-2016,Singapore,69.06,127.52
-2016,Portugal,69.03,124.97
-2016,Switzerland,68.88,128.63
-2016,Canada,68.62,126.24
-2016,Mexico,68.13,121.84
-2016,Italy,67.76,123.65
-2016,United States,67.76,125.75
-2016,Lithuania,67.38,121.31
-2016,India,66.47,118.88
-2016,Malaysia,66.45,119.78
-2016,Ecuador,65.69,118.53
-2016,Saudi Arabia,65.09,117.74
-2016,Indonesia,62.56,111.60
-2016,Pakistan,61.27,108.52
-2016,China,61.20,109.05
-2016,Chile,61.05,110.37
-2016,Bosnia And Herzegovina,60.52,109.15
-2016,Poland,60.01,108.31
-2016,North Macedonia,59.99,106.52
-2016,Croatia,59.96,110.36
-2016,South Africa,59.58,106.67
-2016,Greece,59.17,104.67
-2016,Slovakia,58.58,104.92
-2016,Slovenia,58.47,107.05
-2016,United Arab Emirates,58.20,107.00
-2016,Puerto Rico,56.99,106.56
-2016,Serbia,55.88,100.89
-2016,Russia,54.15,94.66
-2016,Hungary,52.07,92.65
-2016,Romania,51.43,90.66
-2016,Brazil,51.09,90.40
-2016,Bulgaria,50.93,91.00
-2016,Ireland,50.38,91.67
-2016,Iran,49.83,88.55
-2016,Ukraine,49.69,87.00
-2016,Egypt,46.58,80.71
-2017,South Korea,83.20,152.14
-2017,Netherlands,82.50,151.34
-2017,Taiwan,81.14,148.12
-2017,Austria,80.91,148.90
-2017,Thailand,80.66,147.46
-2017,Sri Lanka,80.04,146.12
-2017,Belgium,78.92,144.43
-2017,Japan,78.63,143.27
-2017,France,78.62,144.00
-2017,Germany,76.74,140.31
-2017,Spain,76.65,141.24
-2017,Malta,76.18,139.03
-2017,Denmark,75.45,139.21
-2017,Finland,74.85,136.08
-2017,Israel,74.78,136.91
-2017,United Kingdom,74.28,135.95
-2017,Australia,74.25,135.08
-2017,Norway,74.19,135.78
-2017,Czech Republic,74.09,136.05
-2017,Argentina,73.30,133.68
-2017,Jordan,71.92,131.35
-2017,Turkey,71.68,129.20
-2017,Estonia,71.30,130.71
-2017,Switzerland,71.04,133.06
-2017,Sweden,70.64,129.58
-2017,New Zealand,70.58,127.90
-2017,Portugal,70.31,127.45
-2017,Mexico,70.11,125.70
-2017,Singapore,69.87,129.40
-2017,Ecuador,69.24,124.87
-2017,Canada,69.23,127.13
-2017,India,69.18,124.52
-2017,Philippines,69.16,124.10
-2017,Lithuania,68.74,123.71
-2017,United States,68.22,125.94
-2017,Hong Kong,67.99,124.21
-2017,Uruguay,67.11,120.67
-2017,Italy,66.31,120.46
-2017,Qatar,66.14,119.54
-2017,Malaysia,65.99,118.63
-2017,Colombia,65.79,117.82
-2017,Tunisia,65.73,117.37
-2017,Iceland,65.64,119.12
-2017,Croatia,65.49,121.03
-2017,Indonesia,64.80,115.88
-2017,Slovenia,64.35,117.51
-2017,Lebanon,64.28,118.54
-2017,North Macedonia,63.46,113.28
-2017,Slovakia,62.63,113.35
-2017,China,62.25,111.03
-2017,South Africa,61.72,110.65
-2017,Bosnia And Herzegovina,61.49,110.37
-2017,Poland,61.46,110.68
-2017,Chile,60.97,109.82
-2017,United Arab Emirates,60.49,111.23
-2017,Saudi Arabia,60.41,108.26
-2017,Costa Rica,60.19,107.67
-2017,Pakistan,59.05,104.36
-2017,Peru,58.46,104.83
-2017,Kuwait,57.60,105.95
-2017,Russia,56.40,99.19
-2017,Puerto Rico,56.28,103.88
-2017,Cyprus,54.23,94.54
-2017,Bulgaria,54.03,96.67
-2017,Greece,53.92,94.91
-2017,Serbia,53.86,97.42
-2017,Belarus,53.76,94.69
-2017,Hungary,53.46,95.40
-2017,Ireland,53.33,96.26
-2017,Romania,53.11,93.55
-2017,Nigeria,52.33,91.41
-2017,Brazil,51.70,91.48
-2017,Iran,51.55,91.37
-2017,Ukraine,49.81,86.74
-2017,Vietnam,47.87,81.70
-2017,Iraq,45.92,79.04
-2017,Morocco,44.50,75.42
-2017,Egypt,43.73,75.36
-2017,Bangladesh,43.49,75.19
-2018,South Korea,83.40,152.57
-2018,Taiwan,82.00,149.84
-2018,Japan,81.72,149.41
-2018,Netherlands,81.08,148.53
-2018,Thailand,80.87,147.68
-2018,Belgium,80.43,147.44
-2018,Austria,78.80,144.68
-2018,France,78.03,142.77
-2018,Sri Lanka,77.94,141.66
-2018,Spain,77.49,142.81
-2018,Denmark,77.07,142.18
-2018,Australia,76.21,138.78
-2018,Germany,75.44,137.58
-2018,Finland,75.40,137.04
-2018,Czech Republic,75.36,138.42
-2018,Norway,74.66,136.37
-2018,United Kingdom,74.19,135.82
-2018,Israel,74.05,135.62
-2018,New Zealand,71.95,130.38
-2018,Switzerland,71.73,134.81
-2018,Estonia,71.35,130.34
-2018,Argentina,71.31,129.71
-2018,Canada,70.58,129.59
-2018,Qatar,70.50,127.95
-2018,Sweden,70.42,129.31
-2018,Turkey,70.42,126.58
-2018,Singapore,69.61,129.37
-2018,Portugal,69.50,125.92
-2018,Mexico,68.62,122.68
-2018,United States,68.38,126.08
-2018,Philippines,68.22,122.05
-2018,Italy,68.01,123.63
-2018,Colombia,67.80,121.80
-2018,India,67.39,120.97
-2018,Lithuania,66.81,120.36
-2018,Indonesia,65.95,118.26
-2018,Malaysia,65.64,117.74
-2018,Iceland,65.51,119.08
-2018,Slovenia,64.69,118.78
-2018,Slovakia,64.42,116.83
-2018,Croatia,63.83,117.88
-2018,Hong Kong,63.81,115.85
-2018,United Arab Emirates,63.48,117.30
-2018,South Africa,62.96,113.14
-2018,China,62.88,112.31
-2018,North Macedonia,62.73,111.93
-2018,Poland,62.08,111.74
-2018,Chile,61.90,112.43
-2018,Uruguay,60.41,108.64
-2018,Saudi Arabia,60.19,107.31
-2018,Pakistan,57.47,101.05
-2018,Russia,56.77,99.92
-2018,Puerto Rico,56.34,103.51
-2018,Bosnia And Herzegovina,55.90,100.90
-2018,Cyprus,55.06,96.16
-2018,Romania,54.56,96.08
-2018,Greece,54.18,95.49
-2018,Serbia,53.42,96.82
-2018,Ireland,53.02,96.44
-2018,Brazil,52.65,93.08
-2018,Vietnam,52.45,90.51
-2018,Bulgaria,52.11,92.67
-2018,Iran,51.22,90.18
-2018,Hungary,51.09,91.72
-2018,Ukraine,50.11,87.37
-2018,Bangladesh,44.56,76.47
-2018,Egypt,44.42,76.45
-2018,Morocco,41.00,69.00
-2019,Taiwan,86.22,158.61
-2019,South Korea,84.51,155.06
-2019,Japan,80.40,146.82
-2019,Belgium,79.44,145.30
-2019,Denmark,79.41,146.57
-2019,Austria,79.19,145.27
-2019,Thailand,79.06,144.26
-2019,France,78.55,143.94
-2019,Netherlands,77.81,142.09
-2019,Spain,77.77,143.15
-2019,Australia,76.38,139.07
-2019,Czech Republic,74.71,137.23
-2019,United Kingdom,74.71,137.00
-2019,Germany,74.32,135.49
-2019,Norway,74.14,135.36
-2019,New Zealand,73.62,133.67
-2019,Finland,73.49,133.32
-2019,Israel,73.44,134.36
-2019,Switzerland,72.68,137.01
-2019,Ecuador,72.47,130.50
-2019,Qatar,72.41,131.39
-2019,Sri Lanka,72.30,130.37
-2019,Estonia,72.12,131.83
-2019,Canada,70.99,130.34
-2019,Sweden,70.95,130.34
-2019,Portugal,70.72,128.33
-2019,Singapore,70.30,130.73
-2019,Mexico,69.72,124.92
-2019,United States,69.41,127.73
-2019,Argentina,69.39,126.20
-2019,Turkey,69.36,124.63
-2019,India,68.32,122.95
-2019,United Arab Emirates,67.99,125.47
-2019,Malaysia,67.61,121.63
-2019,Lithuania,67.58,122.06
-2019,Colombia,67.51,121.14
-2019,Hong Kong,67.35,122.11
-2019,Italy,67.14,121.79
-2019,Iceland,66.44,121.02
-2019,Jordan,66.12,119.60
-2019,Lebanon,65.90,122.48
-2019,Philippines,65.87,117.36
-2019,Chile,65.50,118.91
-2019,Uruguay,64.29,115.87
-2019,Croatia,64.14,117.76
-2019,China,64.03,114.89
-2019,Slovenia,62.81,115.44
-2019,South Africa,62.56,112.48
-2019,Costa Rica,62.56,112.32
-2019,Poland,62.15,111.65
-2019,Indonesia,61.98,110.23
-2019,Panama,61.41,109.15
-2019,Pakistan,60.58,107.11
-2019,Slovakia,60.06,108.38
-2019,Latvia,59.71,107.04
-2019,Tunisia,59.59,105.36
-2019,Saudi Arabia,59.07,105.25
-2019,North Macedonia,58.98,105.41
-2019,Belarus,58.01,103.50
-2019,Russia,57.63,101.62
-2019,Nepal,57.03,99.85
-2019,Kuwait,56.33,101.44
-2019,Nigeria,55.33,97.48
-2019,Greece,55.16,97.42
-2019,Peru,54.97,97.17
-2019,Brazil,54.64,97.02
-2019,Vietnam,54.54,94.51
-2019,Romania,54.49,95.83
-2019,Algeria,54.12,100.22
-2019,Bulgaria,54.04,95.60
-2019,Puerto Rico,54.00,98.66
-2019,Bosnia And Herzegovina,53.20,95.05
-2019,Serbia,52.56,94.84
-2019,Georgia,51.29,88.13
-2019,Kazakhstan,51.27,90.97
-2019,Iran,51.18,89.37
-2019,Ukraine,50.95,88.86
-2019,Cyprus,50.17,86.44
-2019,Ireland,48.58,87.46
-2019,Hungary,48.24,87.38
-2019,Egypt,44.22,75.59
-2019,Venezuela,41.24,71.86
-2019,Bangladesh,40.33,68.51
-2020,Taiwan,86.71,159.66
-2020,South Korea,81.97,149.94
-2020,Japan,81.14,148.24
-2020,Denmark,80.00,147.47
-2020,France,79.99,146.81
-2020,Spain,78.88,145.24
-2020,Austria,78.73,144.24
-2020,Thailand,77.95,142.04
-2020,Australia,77.38,140.97
-2020,Finland,75.79,138.01
-2020,Netherlands,74.65,136.05
-2020,Czech Republic,74.62,136.97
-2020,United Kingdom,74.46,136.57
-2020,Norway,74.36,135.67
-2020,Belgium,74.34,134.81
-2020,New Zealand,73.81,133.94
-2020,Germany,73.32,133.56
-2020,Qatar,73.30,133.07
-2020,Israel,73.29,134.31
-2020,Estonia,72.67,132.90
-2020,Sri Lanka,72.53,131.07
-2020,Switzerland,72.44,136.25
-2020,Portugal,71.88,130.79
-2020,Canada,71.58,131.44
-2020,Singapore,70.84,131.52
-2020,Ecuador,70.59,126.98
-2020,Mexico,70.12,125.71
-2020,Turkey,69.80,125.57
-2020,Lithuania,69.49,125.61
-2020,United States,69.27,127.30
-2020,Argentina,69.25,125.67
-2020,Sweden,69.23,126.86
-2020,Malta,68.81,123.37
-2020,Malaysia,68.10,122.52
-2020,Guatemala,67.75,121.19
-2020,Philippines,67.47,120.67
-2020,Colombia,67.24,120.65
-2020,India,67.13,120.50
-2020,United Arab Emirates,67.04,123.91
-2020,Italy,66.59,120.66
-2020,Uruguay,66.28,119.62
-2020,Hong Kong,66.08,119.75
-2020,Iceland,65.92,120.30
-2020,Chile,65.44,118.89
-2020,Jordan,64.60,116.14
-2020,Slovenia,64.58,118.92
-2020,China,64.48,115.53
-2020,Lebanon,64.38,120.05
-2020,South Africa,64.14,115.76
-2020,Latvia,62.91,113.01
-2020,Croatia,62.68,115.03
-2020,Costa Rica,62.42,112.66
-2020,Poland,61.01,109.36
-2020,Pakistan,60.59,107.33
-2020,Indonesia,60.48,107.29
-2020,Slovakia,60.02,108.64
-2020,Panama,59.93,106.08
-2020,Saudi Arabia,59.11,105.18
-2020,Belarus,59.04,105.39
-2020,Oman,58.15,103.73
-2020,Vietnam,57.70,100.69
-2020,Russia,57.59,101.55
-2020,Tunisia,57.18,100.55
-2020,Nepal,56.88,99.67
-2020,North Macedonia,56.38,100.54
-2020,Brazil,56.29,100.08
-2020,Greece,56.21,99.67
-2020,Kuwait,56.21,100.47
-2020,Peru,56.15,98.50
-2020,Puerto Rico,55.73,101.76
-2020,Kenya,55.59,98.02
-2020,Bulgaria,55.40,98.03
-2020,Romania,55.06,96.89
-2020,Algeria,54.86,99.61
-2020,Trinidad And Tobago,54.73,100.89
-2020,Dominican Republic,54.67,95.61
-2020,Albania,53.05,92.72
-2020,Ukraine,52.33,91.33
-2020,Bosnia And Herzegovina,52.26,93.30
-2020,Ireland,51.89,94.23
-2020,Cyprus,51.75,89.36
-2020,Iran,51.70,90.06
-2020,Nigeria,51.59,89.88
-2020,Serbia,51.27,92.17
-2020,Georgia,51.24,88.33
-2020,Kazakhstan,50.70,88.95
-2020,Hungary,47.80,86.17
-2020,Egypt,45.84,78.61
-2020,Morocco,45.72,77.88
-2020,Azerbaijan,43.18,74.96
-2020,Bangladesh,42.80,73.17
-2020,Iraq,41.36,70.20
-2021,Taiwan,86.39,158.95
-2021,South Korea,82.34,150.68
-2021,France,80.99,148.63
-2021,Japan,80.68,147.35
-2021,Denmark,79.96,147.26
-2021,Spain,78.80,145.11
-2021,Austria,78.40,143.50
-2021,Thailand,78.08,142.37
-2021,Australia,77.71,141.60
-2021,Finland,76.40,139.22
-2021,Netherlands,75.76,138.16
-2021,Norway,75.50,137.92
-2021,Czech Republic,75.37,138.45
-2021,Belgium,75.20,136.55
-2021,United Kingdom,74.93,137.50
-2021,Switzerland,74.47,139.38
-2021,Germany,73.77,134.44
-2021,Israel,73.76,135.17
-2021,New Zealand,73.58,133.70
-2021,Qatar,73.00,132.65
-2021,Estonia,72.83,133.24
-2021,Sri Lanka,72.63,131.41
-2021,Mexico,72.51,130.72
-2021,Portugal,71.93,130.84
-2021,Canada,71.80,131.90
-2021,Lithuania,70.97,128.58
-2021,Singapore,70.88,131.44
-2021,Turkey,70.71,127.32
-2021,Malaysia,69.59,125.39
-2021,United States,69.03,126.90
-2021,Ecuador,68.81,123.41
-2021,Sweden,68.80,125.95
-2021,Argentina,68.58,124.21
-2021,United Arab Emirates,68.02,125.68
-2021,Uruguay,67.66,122.21
-2021,Malta,67.12,119.99
-2021,Philippines,67.09,119.95
-2021,Italy,66.77,121.01
-2021,Colombia,66.72,119.60
-2021,China,66.38,119.01
-2021,Hong Kong,66.34,120.37
-2021,India,66.25,118.68
-2021,Guatemala,65.94,117.60
-2021,Iceland,65.69,119.84
-2021,Jordan,65.38,117.61
-2021,Slovenia,65.28,120.28
-2021,Croatia,64.23,117.80
-2021,South Africa,63.89,115.23
-2021,Chile,63.72,115.66
-2021,Lebanon,63.29,118.05
-2021,Costa Rica,62.92,113.58
-2021,Latvia,62.18,111.77
-2021,Slovakia,60.89,110.10
-2021,Saudi Arabia,60.71,108.14
-2021,Pakistan,60.52,107.22
-2021,Indonesia,60.49,107.30
-2021,Panama,60.43,107.07
-2021,Kazakhstan,60.09,106.07
-2021,Kuwait,58.97,105.35
-2021,Russia,58.44,103.15
-2021,Oman,58.42,103.84
-2021,Vietnam,58.28,101.79
-2021,Poland,58.25,103.88
-2021,Nepal,57.94,101.78
-2021,Brazil,57.33,102.04
-2021,Greece,56.96,101.12
-2021,North Macedonia,56.49,100.79
-2021,Peru,56.38,98.73
-2021,Tunisia,56.16,98.37
-2021,Bulgaria,56.13,99.54
-2021,Romania,56.09,98.86
-2021,Kenya,55.83,98.56
-2021,Puerto Rico,55.57,101.20
-2021,Algeria,55.01,99.74
-2021,Dominican Republic,54.97,95.92
-2021,Georgia,53.83,93.28
-2021,Trinidad And Tobago,53.76,99.00
-2021,Bosnia And Herzegovina,53.48,95.76
-2021,Ukraine,53.43,93.38
-2021,Ireland,52.78,96.03
-2021,Cyprus,52.71,91.34
-2021,Iran,52.25,90.95
-2021,Hungary,51.64,92.85
-2021,Serbia,51.62,92.66
-2021,Albania,50.66,88.13
-2021,Nigeria,48.89,84.53
-2021,Egypt,46.21,79.28
-2021,Morocco,45.81,78.19
-2021,Iraq,44.57,75.85
-2021,Belarus,44.44,78.40
-2021,Azerbaijan,44.02,76.18
-2021,Bangladesh,42.70,73.04
+Year,Country,Health Care Index
+2014,Denmark,85.62
+2014,Thailand,85.44
+2014,Japan,85.03
+2014,France,82.28
+2014,Austria,79.67
+2014,South Korea,79.17
+2014,Taiwan,78.33
+2014,Belgium,78.04
+2014,New Zealand,77.83
+2014,Argentina,76.75
+2014,Sri Lanka,76.67
+2014,Estonia,76.34
+2014,Norway,75.71
+2014,Israel,75.43
+2014,Germany,75.26
+2014,Sweden,75.22
+2014,Spain,75.17
+2014,Jordan,74.1
+2014,Australia,73.55
+2014,United Kingdom,73.52
+2014,Canada,71.94
+2014,Hong Kong,71.83
+2014,Mexico,70.64
+2014,Philippines,69.84
+2014,Malaysia,69.35
+2014,Lithuania,69.26
+2014,Cyprus,68.73
+2014,Finland,68.69
+2014,United States,68.58
+2014,Colombia,68.52
+2014,Switzerland,67.95
+2014,Czech Republic,66.27
+2014,Kuwait,66.2
+2014,Netherlands,66.17
+2014,China,65.12
+2014,Italy,65.05
+2014,Latvia,65
+2014,Portugal,64.8
+2014,India,64.62
+2014,Costa Rica,63.89
+2014,Slovakia,63.52
+2014,Singapore,61.82
+2014,Albania,61.44
+2014,Slovenia,61.31
+2014,Egypt,61.3
+2014,United Arab Emirates,60.65
+2014,Indonesia,60.23
+2014,Kazakhstan,60.19
+2014,Puerto Rico,59.93
+2014,Uruguay,59.58
+2014,South Africa,59.44
+2014,Ecuador,59.39
+2014,Morocco,59.29
+2014,Greece,59.02
+2014,Chile,58.68
+2014,Bulgaria,58.04
+2014,Peru,57.64
+2014,Turkey,57.54
+2014,Montenegro,56.94
+2014,Croatia,55.94
+2014,Lebanon,55.36
+2014,Poland,54.83
+2014,Bosnia And Herzegovina,54.42
+2014,Serbia,54.35
+2014,Cambodia,53.84
+2014,Brazil,53.72
+2014,Bolivia,51.52
+2014,Saudi Arabia,50.42
+2014,Nigeria,50.42
+2014,Pakistan,50.4
+2014,Iran,48.6
+2014,Oman,48.15
+2014,Belarus,48.02
+2014,Romania,47.27
+2014,Ukraine,47.1
+2014,Hungary,46.58
+2014,Russia,43.45
+2014,Ireland,42.57
+2014,Venezuela,41.05
+2014,North Macedonia,33.12
+2014,Iraq,28.47
+2015,Japan,87.07
+2015,Bahrain,84.44
+2015,Taiwan,84.29
+2015,France,82.58
+2015,Thailand,82.47
+2015,Malta,82.18
+2015,Panama,82.14
+2015,Hong Kong,80.6
+2015,Denmark,79.28
+2015,Dominican Republic,78.7
+2015,Austria,78.42
+2015,Cyprus,78.36
+2015,South Korea,78.15
+2015,Belgium,77.86
+2015,Turkmenistan,77.22
+2015,Israel,76.35
+2015,Sweden,76.29
+2015,Luxembourg,76.11
+2015,Qatar,75.86
+2015,Germany,75.61
+2015,Norway,75.46
+2015,Argentina,75.18
+2015,Sri Lanka,74.29
+2015,Cuba,74.03
+2015,Turkey,74
+2015,United Kingdom,73.88
+2015,Spain,73.21
+2015,Estonia,73.08
+2015,New Zealand,72.61
+2015,Australia,71.85
+2015,Philippines,71.66
+2015,Tunisia,71.02
+2015,Lithuania,70.11
+2015,Jordan,69.71
+2015,Canada,69.6
+2015,Finland,69.37
+2015,Malaysia,69.14
+2015,Colombia,68.92
+2015,Uruguay,67.92
+2015,Mexico,67.79
+2015,United States,67.75
+2015,Albania,67.41
+2015,Czech Republic,67.24
+2015,Netherlands,67.23
+2015,Latvia,67.13
+2015,India,66.86
+2015,Kuwait,66.57
+2015,Switzerland,66.31
+2015,Singapore,66.14
+2015,Indonesia,66.09
+2015,Italy,65.78
+2015,Lebanon,65.78
+2015,Portugal,65.62
+2015,Peru,64.68
+2015,Nepal,63.38
+2015,Ecuador,63.08
+2015,Kenya,62.7
+2015,Georgia,62.59
+2015,Costa Rica,61.95
+2015,South Africa,60.09
+2015,Saudi Arabia,59.02
+2015,Kazakhstan,58.86
+2015,Puerto Rico,58.74
+2015,China,58.74
+2015,Chile,58.55
+2015,Bulgaria,58.47
+2015,Iceland,58.43
+2015,Poland,58.03
+2015,Morocco,57.76
+2015,Slovakia,57.34
+2015,Croatia,57.26
+2015,Algeria,57.22
+2015,Montenegro,56.94
+2015,Greece,56.73
+2015,United Arab Emirates,55.6
+2015,Egypt,54.69
+2015,Paraguay,54.44
+2015,Trinidad And Tobago,54.35
+2015,Cambodia,54.17
+2015,Serbia,54.12
+2015,Slovenia,53.93
+2015,Moldova,52.69
+2015,Brazil,52.15
+2015,Bosnia And Herzegovina,52.08
+2015,Russia,51.8
+2015,Hungary,51.58
+2015,Pakistan,51.16
+2015,Iran,50.12
+2015,Bolivia,49.75
+2015,Ireland,49.53
+2015,Armenia,48.33
+2015,Oman,48.15
+2015,Romania,46.57
+2015,Belarus,45.39
+2015,Ukraine,44.27
+2015,Bangladesh,43.25
+2015,Guam,39.86
+2015,Venezuela,38.52
+2015,Nigeria,38.4
+2015,North Macedonia,35.12
+2015,Vietnam,34.26
+2015,Iraq,30
+2015,Mongolia,28.29
+2015,Azerbaijan,23.94
+2016,Taiwan,86.43
+2016,France,82.25
+2016,Denmark,81.89
+2016,Thailand,80.8
+2016,Japan,80.42
+2016,South Korea,78.97
+2016,Belgium,78.06
+2016,Austria,77.78
+2016,Israel,76.07
+2016,Spain,75.89
+2016,Germany,75.85
+2016,Finland,74.36
+2016,Sweden,74.33
+2016,Hong Kong,74.3
+2016,Iceland,74.26
+2016,Norway,74.23
+2016,United Kingdom,74.03
+2016,Argentina,73.73
+2016,Australia,73.71
+2016,Colombia,73.22
+2016,Turkey,73.03
+2016,Cyprus,72.93
+2016,New Zealand,72.6
+2016,Czech Republic,72.35
+2016,Philippines,72.25
+2016,Netherlands,70.43
+2016,Estonia,69.91
+2016,Jordan,69.27
+2016,Singapore,69.06
+2016,Portugal,69.03
+2016,Switzerland,68.88
+2016,Canada,68.62
+2016,Mexico,68.13
+2016,Italy,67.76
+2016,United States,67.76
+2016,Lithuania,67.38
+2016,India,66.47
+2016,Malaysia,66.45
+2016,Ecuador,65.69
+2016,Saudi Arabia,65.09
+2016,Indonesia,62.56
+2016,Pakistan,61.27
+2016,China,61.2
+2016,Chile,61.05
+2016,Bosnia And Herzegovina,60.52
+2016,Poland,60.01
+2016,North Macedonia,59.99
+2016,Croatia,59.96
+2016,South Africa,59.58
+2016,Greece,59.17
+2016,Slovakia,58.58
+2016,Slovenia,58.47
+2016,United Arab Emirates,58.2
+2016,Puerto Rico,56.99
+2016,Serbia,55.88
+2016,Russia,54.15
+2016,Hungary,52.07
+2016,Romania,51.43
+2016,Brazil,51.09
+2016,Bulgaria,50.93
+2016,Ireland,50.38
+2016,Iran,49.83
+2016,Ukraine,49.69
+2016,Egypt,46.58
+2017,South Korea,83.2
+2017,Netherlands,82.5
+2017,Taiwan,81.14
+2017,Austria,80.91
+2017,Thailand,80.66
+2017,Sri Lanka,80.04
+2017,Belgium,78.92
+2017,Japan,78.63
+2017,France,78.62
+2017,Germany,76.74
+2017,Spain,76.65
+2017,Malta,76.18
+2017,Denmark,75.45
+2017,Finland,74.85
+2017,Israel,74.78
+2017,United Kingdom,74.28
+2017,Australia,74.25
+2017,Norway,74.19
+2017,Czech Republic,74.09
+2017,Argentina,73.3
+2017,Jordan,71.92
+2017,Turkey,71.68
+2017,Estonia,71.3
+2017,Switzerland,71.04
+2017,Sweden,70.64
+2017,New Zealand,70.58
+2017,Portugal,70.31
+2017,Mexico,70.11
+2017,Singapore,69.87
+2017,Ecuador,69.24
+2017,Canada,69.23
+2017,India,69.18
+2017,Philippines,69.16
+2017,Lithuania,68.74
+2017,United States,68.22
+2017,Hong Kong,67.99
+2017,Uruguay,67.11
+2017,Italy,66.31
+2017,Qatar,66.14
+2017,Malaysia,65.99
+2017,Colombia,65.79
+2017,Tunisia,65.73
+2017,Iceland,65.64
+2017,Croatia,65.49
+2017,Indonesia,64.8
+2017,Slovenia,64.35
+2017,Lebanon,64.28
+2017,North Macedonia,63.46
+2017,Slovakia,62.63
+2017,China,62.25
+2017,South Africa,61.72
+2017,Bosnia And Herzegovina,61.49
+2017,Poland,61.46
+2017,Chile,60.97
+2017,United Arab Emirates,60.49
+2017,Saudi Arabia,60.41
+2017,Costa Rica,60.19
+2017,Pakistan,59.05
+2017,Peru,58.46
+2017,Kuwait,57.6
+2017,Russia,56.4
+2017,Puerto Rico,56.28
+2017,Cyprus,54.23
+2017,Bulgaria,54.03
+2017,Greece,53.92
+2017,Serbia,53.86
+2017,Belarus,53.76
+2017,Hungary,53.46
+2017,Ireland,53.33
+2017,Romania,53.11
+2017,Nigeria,52.33
+2017,Brazil,51.7
+2017,Iran,51.55
+2017,Ukraine,49.81
+2017,Vietnam,47.87
+2017,Iraq,45.92
+2017,Morocco,44.5
+2017,Egypt,43.73
+2017,Bangladesh,43.49
+2018,South Korea,83.4
+2018,Taiwan,82
+2018,Japan,81.72
+2018,Netherlands,81.08
+2018,Thailand,80.87
+2018,Belgium,80.43
+2018,Austria,78.8
+2018,France,78.03
+2018,Sri Lanka,77.94
+2018,Spain,77.49
+2018,Denmark,77.07
+2018,Australia,76.21
+2018,Germany,75.44
+2018,Finland,75.4
+2018,Czech Republic,75.36
+2018,Norway,74.66
+2018,United Kingdom,74.19
+2018,Israel,74.05
+2018,New Zealand,71.95
+2018,Switzerland,71.73
+2018,Estonia,71.35
+2018,Argentina,71.31
+2018,Canada,70.58
+2018,Qatar,70.5
+2018,Sweden,70.42
+2018,Turkey,70.42
+2018,Singapore,69.61
+2018,Portugal,69.5
+2018,Mexico,68.62
+2018,United States,68.38
+2018,Philippines,68.22
+2018,Italy,68.01
+2018,Colombia,67.8
+2018,India,67.39
+2018,Lithuania,66.81
+2018,Indonesia,65.95
+2018,Malaysia,65.64
+2018,Iceland,65.51
+2018,Slovenia,64.69
+2018,Slovakia,64.42
+2018,Croatia,63.83
+2018,Hong Kong,63.81
+2018,United Arab Emirates,63.48
+2018,South Africa,62.96
+2018,China,62.88
+2018,North Macedonia,62.73
+2018,Poland,62.08
+2018,Chile,61.9
+2018,Uruguay,60.41
+2018,Saudi Arabia,60.19
+2018,Pakistan,57.47
+2018,Russia,56.77
+2018,Puerto Rico,56.34
+2018,Bosnia And Herzegovina,55.9
+2018,Cyprus,55.06
+2018,Romania,54.56
+2018,Greece,54.18
+2018,Serbia,53.42
+2018,Ireland,53.02
+2018,Brazil,52.65
+2018,Vietnam,52.45
+2018,Bulgaria,52.11
+2018,Iran,51.22
+2018,Hungary,51.09
+2018,Ukraine,50.11
+2018,Bangladesh,44.56
+2018,Egypt,44.42
+2018,Morocco,41
+2019,Taiwan,86.22
+2019,South Korea,84.51
+2019,Japan,80.4
+2019,Belgium,79.44
+2019,Denmark,79.41
+2019,Austria,79.19
+2019,Thailand,79.06
+2019,France,78.55
+2019,Netherlands,77.81
+2019,Spain,77.77
+2019,Australia,76.38
+2019,Czech Republic,74.71
+2019,United Kingdom,74.71
+2019,Germany,74.32
+2019,Norway,74.14
+2019,New Zealand,73.62
+2019,Finland,73.49
+2019,Israel,73.44
+2019,Switzerland,72.68
+2019,Ecuador,72.47
+2019,Qatar,72.41
+2019,Sri Lanka,72.3
+2019,Estonia,72.12
+2019,Canada,70.99
+2019,Sweden,70.95
+2019,Portugal,70.72
+2019,Singapore,70.3
+2019,Mexico,69.72
+2019,United States,69.41
+2019,Argentina,69.39
+2019,Turkey,69.36
+2019,India,68.32
+2019,United Arab Emirates,67.99
+2019,Malaysia,67.61
+2019,Lithuania,67.58
+2019,Colombia,67.51
+2019,Hong Kong,67.35
+2019,Italy,67.14
+2019,Iceland,66.44
+2019,Jordan,66.12
+2019,Lebanon,65.9
+2019,Philippines,65.87
+2019,Chile,65.5
+2019,Uruguay,64.29
+2019,Croatia,64.14
+2019,China,64.03
+2019,Slovenia,62.81
+2019,South Africa,62.56
+2019,Costa Rica,62.56
+2019,Poland,62.15
+2019,Indonesia,61.98
+2019,Panama,61.41
+2019,Pakistan,60.58
+2019,Slovakia,60.06
+2019,Latvia,59.71
+2019,Tunisia,59.59
+2019,Saudi Arabia,59.07
+2019,North Macedonia,58.98
+2019,Belarus,58.01
+2019,Russia,57.63
+2019,Nepal,57.03
+2019,Kuwait,56.33
+2019,Nigeria,55.33
+2019,Greece,55.16
+2019,Peru,54.97
+2019,Brazil,54.64
+2019,Vietnam,54.54
+2019,Romania,54.49
+2019,Algeria,54.12
+2019,Bulgaria,54.04
+2019,Puerto Rico,54
+2019,Bosnia And Herzegovina,53.2
+2019,Serbia,52.56
+2019,Georgia,51.29
+2019,Kazakhstan,51.27
+2019,Iran,51.18
+2019,Ukraine,50.95
+2019,Cyprus,50.17
+2019,Ireland,48.58
+2019,Hungary,48.24
+2019,Egypt,44.22
+2019,Venezuela,41.24
+2019,Bangladesh,40.33
+2020,Taiwan,86.71
+2020,South Korea,81.97
+2020,Japan,81.14
+2020,Denmark,80
+2020,France,79.99
+2020,Spain,78.88
+2020,Austria,78.73
+2020,Thailand,77.95
+2020,Australia,77.38
+2020,Finland,75.79
+2020,Netherlands,74.65
+2020,Czech Republic,74.62
+2020,United Kingdom,74.46
+2020,Norway,74.36
+2020,Belgium,74.34
+2020,New Zealand,73.81
+2020,Germany,73.32
+2020,Qatar,73.3
+2020,Israel,73.29
+2020,Estonia,72.67
+2020,Sri Lanka,72.53
+2020,Switzerland,72.44
+2020,Portugal,71.88
+2020,Canada,71.58
+2020,Singapore,70.84
+2020,Ecuador,70.59
+2020,Mexico,70.12
+2020,Turkey,69.8
+2020,Lithuania,69.49
+2020,United States,69.27
+2020,Argentina,69.25
+2020,Sweden,69.23
+2020,Malta,68.81
+2020,Malaysia,68.1
+2020,Guatemala,67.75
+2020,Philippines,67.47
+2020,Colombia,67.24
+2020,India,67.13
+2020,United Arab Emirates,67.04
+2020,Italy,66.59
+2020,Uruguay,66.28
+2020,Hong Kong,66.08
+2020,Iceland,65.92
+2020,Chile,65.44
+2020,Jordan,64.6
+2020,Slovenia,64.58
+2020,China,64.48
+2020,Lebanon,64.38
+2020,South Africa,64.14
+2020,Latvia,62.91
+2020,Croatia,62.68
+2020,Costa Rica,62.42
+2020,Poland,61.01
+2020,Pakistan,60.59
+2020,Indonesia,60.48
+2020,Slovakia,60.02
+2020,Panama,59.93
+2020,Saudi Arabia,59.11
+2020,Belarus,59.04
+2020,Oman,58.15
+2020,Vietnam,57.7
+2020,Russia,57.59
+2020,Tunisia,57.18
+2020,Nepal,56.88
+2020,North Macedonia,56.38
+2020,Brazil,56.29
+2020,Greece,56.21
+2020,Kuwait,56.21
+2020,Peru,56.15
+2020,Puerto Rico,55.73
+2020,Kenya,55.59
+2020,Bulgaria,55.4
+2020,Romania,55.06
+2020,Algeria,54.86
+2020,Trinidad And Tobago,54.73
+2020,Dominican Republic,54.67
+2020,Albania,53.05
+2020,Ukraine,52.33
+2020,Bosnia And Herzegovina,52.26
+2020,Ireland,51.89
+2020,Cyprus,51.75
+2020,Iran,51.7
+2020,Nigeria,51.59
+2020,Serbia,51.27
+2020,Georgia,51.24
+2020,Kazakhstan,50.7
+2020,Hungary,47.8
+2020,Egypt,45.84
+2020,Morocco,45.72
+2020,Azerbaijan,43.18
+2020,Bangladesh,42.8
+2020,Iraq,41.36
+2021,Taiwan,86.39
+2021,South Korea,82.34
+2021,France,80.99
+2021,Japan,80.68
+2021,Denmark,79.96
+2021,Spain,78.8
+2021,Austria,78.4
+2021,Thailand,78.08
+2021,Australia,77.71
+2021,Finland,76.4
+2021,Netherlands,75.76
+2021,Norway,75.5
+2021,Czech Republic,75.37
+2021,Belgium,75.2
+2021,United Kingdom,74.93
+2021,Switzerland,74.47
+2021,Germany,73.77
+2021,Israel,73.76
+2021,New Zealand,73.58
+2021,Qatar,73
+2021,Estonia,72.83
+2021,Sri Lanka,72.63
+2021,Mexico,72.51
+2021,Portugal,71.93
+2021,Canada,71.8
+2021,Lithuania,70.97
+2021,Singapore,70.88
+2021,Turkey,70.71
+2021,Malaysia,69.59
+2021,United States,69.03
+2021,Ecuador,68.81
+2021,Sweden,68.8
+2021,Argentina,68.58
+2021,United Arab Emirates,68.02
+2021,Uruguay,67.66
+2021,Malta,67.12
+2021,Philippines,67.09
+2021,Italy,66.77
+2021,Colombia,66.72
+2021,China,66.38
+2021,Hong Kong,66.34
+2021,India,66.25
+2021,Guatemala,65.94
+2021,Iceland,65.69
+2021,Jordan,65.38
+2021,Slovenia,65.28
+2021,Croatia,64.23
+2021,South Africa,63.89
+2021,Chile,63.72
+2021,Lebanon,63.29
+2021,Costa Rica,62.92
+2021,Latvia,62.18
+2021,Slovakia,60.89
+2021,Saudi Arabia,60.71
+2021,Pakistan,60.52
+2021,Indonesia,60.49
+2021,Panama,60.43
+2021,Kazakhstan,60.09
+2021,Kuwait,58.97
+2021,Russia,58.44
+2021,Oman,58.42
+2021,Vietnam,58.28
+2021,Poland,58.25
+2021,Nepal,57.94
+2021,Brazil,57.33
+2021,Greece,56.96
+2021,North Macedonia,56.49
+2021,Peru,56.38
+2021,Tunisia,56.16
+2021,Bulgaria,56.13
+2021,Romania,56.09
+2021,Kenya,55.83
+2021,Puerto Rico,55.57
+2021,Algeria,55.01
+2021,Dominican Republic,54.97
+2021,Georgia,53.83
+2021,Trinidad And Tobago,53.76
+2021,Bosnia And Herzegovina,53.48
+2021,Ukraine,53.43
+2021,Ireland,52.78
+2021,Cyprus,52.71
+2021,Iran,52.25
+2021,Hungary,51.64
+2021,Serbia,51.62
+2021,Albania,50.66
+2021,Nigeria,48.89
+2021,Egypt,46.21
+2021,Morocco,45.81
+2021,Iraq,44.57
+2021,Belarus,44.44
+2021,Azerbaijan,44.02
+2021,Bangladesh,42.7

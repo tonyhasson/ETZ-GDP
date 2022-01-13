@@ -10,6 +10,7 @@ CANT_BE_NEG = [
     "Health Care Index",
     "Health CareExp. Index",
 ]
+
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
 
@@ -106,7 +107,13 @@ def find_and_regres(PATH, Type):
     dataset = pd.read_csv(PATH)
 
     dataset_columns = list(dataset.columns)
-    columns_to_remove = ["Country", "Year", "Continent", "Third World", "Least Developed Country"]
+    columns_to_remove = [
+        "Country",
+        "Year",
+        "Continent",
+        "Third World",
+        "Least Developed Country",
+    ]
 
     dataset_columns = [c for c in dataset_columns if c not in columns_to_remove]
 
