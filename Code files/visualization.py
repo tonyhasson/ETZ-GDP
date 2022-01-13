@@ -113,6 +113,6 @@ def mix_plot(df):
 if __name__ == "__main__":
 
     df = pd.read_csv(r"..\CSV files\df_Full_DataBase.csv")
-    df=df.fillna(0)
+    df = df.fillna(0)
     line_plot(df)
     mix_plot(df)

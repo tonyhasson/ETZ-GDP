@@ -10,6 +10,7 @@ CANT_BE_NEG = [
     "Health Care Index",
     "Health CareExp. Index",
 ]
+
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
 
@@ -106,9 +107,11 @@ def find_and_regres(PATH, Type):
     dataset = pd.read_csv(PATH)
 
     dataset_columns = list(dataset.columns)
-    columns_to_remove = ["Country", "Year", "Continent", "Third World", "Least Developed Country"]
+    columns_to_remove = ["Country", "Year", "Continent",
+                         "Third World", "Least Developed Country"]
 
-    dataset_columns = [c for c in dataset_columns if c not in columns_to_remove]
+    dataset_columns = [
+        c for c in dataset_columns if c not in columns_to_remove]
 
     for label_column in dataset_columns:
         # Array containing all countries we don't have info on in the column (save for later)
@@ -127,13 +130,16 @@ def find_and_regres(PATH, Type):
 
         for country in dataset.Country.unique():
             # Years To Work on
-            StartYear = int((min(dataset[dataset["Country"] == country]["Year"])))
-            LastYear = int((max(dataset[dataset["Country"] == country]["Year"])))
+            StartYear = int(
+                (min(dataset[dataset["Country"] == country]["Year"])))
+            LastYear = int(
+                (max(dataset[dataset["Country"] == country]["Year"])))
 
             # Progress bar
             pbar_country.update()
 
-            Dataframe = list(dataset[(dataset["Country"] == country)][label_column])
+            Dataframe = list(
+                dataset[(dataset["Country"] == country)][label_column])
 
             """3 Possible cases:
             1.We Have Data on all the years
@@ -147,7 +153,8 @@ def find_and_regres(PATH, Type):
                 arr_year = check_year_lr(dataset, country, label_column)
 
                 arr_data = linear_regres(
-                    arr_year, dataset[dataset["Country"] == country], label_column, Type
+                    arr_year, dataset[dataset["Country"]
+                                      == country], label_column, Type
                 )
                 arr_data = list(arr_data[0])
                 if label_column in CANT_BE_NEG:
@@ -181,7 +188,8 @@ def find_and_regres(PATH, Type):
         for country in NO_INFO_countries:
             for year in range(StartYear, LastYear + 1):
                 dataset.loc[
-                    (dataset["Country"] == country) & (dataset["Year"] == year),
+                    (dataset["Country"] == country) & (
+                        dataset["Year"] == year),
                     label_column,
                 ] = min(
                     i for i in dataset[(dataset["Year"] == year)][label_column] if i > 0
