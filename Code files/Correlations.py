@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+
 from imports import *
 
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
@@ -46,22 +49,24 @@ GENOCIDE_list = [
 
 
 # function to print plot 2 columns
-def Plot(df, col1, col2):
+def Plot(df, col1, col2,data_title):
     plt.scatter(df[col1], df[col2])
     plt.xlabel(col1)
     plt.ylabel(col2)
+    plt.title('Correlations: %f' %data_title)
     plt.show()
 
 
 # function to check which columns are correlated
 def Correlations(df):
-    df.drop(["Country", "Year", "Continent"], axis=1, inplace=True)
+    #df.drop(["Country", "Year", "Continent"], axis=1, inplace=True)
+    df.drop("Country",axis=1,inplace=True)
     cols = df.columns
     df_corr = df.corr().values
     for i in range(len(df_corr)):
         for j in range(len(df_corr[i])):
             if (df_corr[i][j] > 0.4 or df_corr[i][j] < -0.3) and i != j:
-                Plot(df, cols[i], cols[j])
+                Plot(df, cols[i], cols[j],df_corr[i][j])
 
 
 #  in RUSS_CHINA_USA
@@ -281,10 +286,52 @@ def Genocide(df, label):
     plt.show()
 
 
+def comp(df_full,df_scrap):
+    col_full=list(df_full.columns[(df_full.columns != "Country") &(df_full.columns != "Year")&(df_full.columns != "Continent")])
+
+    col_scrap = list(df_scrap.columns[(df_scrap.columns != "Country") &(df_scrap.columns != "Year")&(df_scrap.columns != "Continent")])
+
+
+    for i in col_full:
+        for j in col_scrap:
+            countries_scrap = df_scrap["Country"].unique()
+
+            ser1_countries = \
+            df_full[(df_full["Year"] >= 2009) & (df_full["Year"] <= 2020) & (df_full["Country"].isin(countries_scrap))][
+                "Country"]
+
+            ser1 = df_full[(df_full["Year"] >= 2009) & (df_full["Year"] <= 2020) & (df_full["Country"].isin(countries_scrap))][
+                i]
+            ser2 = \
+            df_scrap[(df_scrap["Year"] >= 2009) & (df_scrap["Year"] <= 2020) & (df_scrap["Country"].isin(ser1_countries.unique()))][
+                j]
+
+            details = {
+                "Country": list(ser1_countries.values),
+                 i: list(ser1.values),
+                 j: list(ser2.values),
+            }
+
+            new_df = pd.DataFrame(details)
+            Correlations(new_df)
+
+
+
+        # plt.scatter(ser1, ser2)
+        # plt.xlabel(col1)
+        # plt.ylabel(col2)
+        # plt.show()
+
+
 df_full = pd.read_csv(FULL_DB_PATH)
 df_scrap = pd.read_csv(SCRAP_DB_PATH)
 
 labels = df_full.columns
+
+comp(df_full,df_scrap)
+
+
+
 ## USA Russ China code:
 # for label in labels:
 #     USA_RUSS_CHINA(df_full,label
@@ -349,5 +396,11 @@ labels = df_full.columns
 #     ]:
 #         continue
 #     world_leaders(df_full, label, leaders_list)
+
+
+##
+
+
+
 
 ## TODO: Comparison between strong contries and WEST vs EAST
