@@ -6,6 +6,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
 
 ARR_COLOR = ["red", "black", "orange", "grey", "green", "yellow", "blue"]
+
 # TODO check life expectancy at 1960 and 2020 calc diff
 # TODO
 
@@ -112,6 +113,6 @@ def mix_plot(df):
 if __name__ == "__main__":
 
     df = pd.read_csv(r"..\CSV files\df_Full_DataBase.csv")
-    # df=df.fillna(0)
-    # line_plot(df)
-    # mix_plot(df)
+    df=df.fillna(0)
+    line_plot(df)
+    mix_plot(df)

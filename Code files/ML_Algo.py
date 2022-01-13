@@ -2,6 +2,7 @@ from imports import *
 
 CANT_BE_NEG = [
     "Education Ranking",
+    "GDP Total",
     "Government expenditure (% of GDP)",
     "Total government Expenses (% of GDP)",
     "Total consumption ($)",
