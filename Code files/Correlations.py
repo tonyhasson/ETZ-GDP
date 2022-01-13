@@ -349,5 +349,3 @@ labels = df_full.columns
 #     ]:
 #         continue
 #     world_leaders(df_full, label, leaders_list)
-
-## TODO: Comparison between strong contries and WEST vs EAST
