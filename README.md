@@ -25,4 +25,3 @@ E.T.Z GDP Prediction is a project in Python using ML, aiming to predict the GDP 
 - Education ranking
 - Total consumption
 - GDP total
--
