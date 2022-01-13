@@ -4,6 +4,47 @@ FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
 YEARS = [i for i in range(1960, 2021)]
 
+USSR_list = [
+    "Armenia",
+    "Azerbaijan",
+    "Belarus",
+    "Estonia",
+    "Georgia",
+    "Kazakhstan",
+    "Kyrgyzstan",
+    "Latvia",
+    "Lithuania",
+    "Moldova",
+    "Russia",
+    "Tajikistan",
+    "Turkmenistan",
+    "Ukraine",
+    "Uzbekistan",
+]
+
+GENOCIDE_list = [
+    "Democratic Republic of the Congo",
+    "Vietnam",
+    "Nigeria",
+    "Sudan",
+    "Afghanistan",
+    "Timor-Leste",
+    "Ethiopia",
+    "Eritrea",
+    "Bangladesh",
+    "Angola",
+    "Iraq",
+    "Yemen",
+    "Uganda",
+    "Lebanon",
+    "Sierra Leone",
+    "Cambodia",
+    "Guatemala",
+    "Myanmar",
+    "Bosnia and Herzegovina",
+]
+
+
 # function to print plot 2 columns
 def Plot(df, col1, col2):
     plt.scatter(df[col1], df[col2])
@@ -128,8 +169,8 @@ def Continent_VS(df, label):
 # Tarbot bizbuz west VS east
 def Big_spender(df):
     # https://stackabuse.com/seaborn-scatter-plot-tutorial-and-examples/
-    WEST = ["Europe", "North America", "South America"]
-    EAST = ["Asia", "Oceania"]
+    WEST = ["Europe", "North America", "Central America", "Oceania"]
+    EAST = ["Asia"]
     # grid = sns.FacetGrid(df, col="Continent", hue="Continent", col_wrap=2)
     ## East VS West
     # grid.map(
@@ -185,6 +226,7 @@ def pop_show(df):
 
 def Cont_expectancy(df, cont):
     ocan_list = df[df["Continent"] == cont]["Country"].unique()
+
     for indx, c in enumerate(ocan_list):
         plt.plot(
             YEARS,
@@ -196,9 +238,44 @@ def Cont_expectancy(df, cont):
             plt.ylabel("Life expectancy")
             plt.legend()
             plt.show()
+    plt.xlabel("Year")
+    plt.ylabel("Life expectancy")
     plt.legend()
     plt.show()
 
+
+def Ussr(df, label):
+    country_list = df[df["Country"].isin(USSR_list)]["Country"].unique()
+    for c in country_list:
+        plt.plot(
+            YEARS,
+            df[df["Country"] == c][label],
+            label=c,
+        )
+
+    plt.xlabel("Year")
+    plt.ylabel(label)
+    plt.legend()
+    plt.show()
+
+def Genocide(df, label):
+    country_list = df[df["Country"].isin(GENOCIDE_list)]["Country"].unique()
+    for i,c in enumerate(country_list):
+        plt.plot(
+            YEARS,
+            df[df["Country"] == c][label],
+            label=c,
+        )
+        if i % 5 == 0:
+            plt.xlabel("Year")
+            plt.ylabel(label)
+            plt.legend()
+            plt.show()
+
+    plt.xlabel("Year")
+    plt.ylabel(label)
+    plt.legend()
+    plt.show()
 
 df_full = pd.read_csv(FULL_DB_PATH)
 df_scrap = pd.read_csv(SCRAP_DB_PATH)
@@ -209,22 +286,39 @@ labels = df_full.columns
 #     USA_RUSS_CHINA(df_full,label
 
 ## Continent mean values:
-for label in labels:
-    if label in [
-        "Country",
-        "Year",
-        "Continent",
-        "GDP Growth",
-        "Government expenditure (% of GDP)",
-        "Total government Expenses (% of GDP)",
-        "Military expenditure (% of GDP)",
-        "Population Growth pace",
-    ]:
-        continue
-    Continent_VS(df_full, label)
+# for label in labels:
+#     if label in [
+#         "Country",
+#         "Year",
+#         "Continent",
+#         "GDP Growth",
+#         "Government expenditure (% of GDP)",
+#         "Total government Expenses (% of GDP)",
+#         "Military expenditure (% of GDP)",
+#         "Population Growth pace",
+#     ]:
+#         continue
+#     Continent_VS(df_full, label)
 
 ## LIFE expectancy
-# Cont_expectancy(df_full, "North America")
+# Cont_expectancy(df_full, "Europe")
+
+# USSR | Genocide
+# for label in labels:
+#     if label in [
+#         "Country",
+#         "Education Ranking",
+#         "Year",
+#         "Continent",
+#         "Government expenditure (% of GDP)",
+#         "Total government Expenses (% of GDP)",
+#         "Total consumption ($)",
+#         "Least Developed Country",
+#         "Third World",
+#     ]:
+#         continue
+#     #Ussr(df_full, label)
+#     Genocide(df_full, label)
 
 ## Pop show
 # pop_show(df_full)
@@ -252,8 +346,5 @@ for label in labels:
 #         continue
 #     world_leaders(df_full, label, leaders_list)
 
-## TODO: Spikes in aaaaaa asia and oceania
-## TODO: Idea: show country at war in years | Genocide
 ## TODO: Comparison between strong contries and WEST vs EAST
-## ! life expectancy does problems in and north america (Israel got 3 years fucked upp)
 ## !North america is Shady with the numbers, must check her
