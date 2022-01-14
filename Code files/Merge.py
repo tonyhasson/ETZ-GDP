@@ -250,7 +250,9 @@ def reformatCSV(CSV_location, CSV_name, Start_year, End_year):
             newrow.append([row[1]["Country"].lstrip(), i, row[1][str(i)]])
 
     reformated = pd.DataFrame(newrow, columns=columns)
-    reformated.to_csv(r"..\CSV files\REFORMAT\\" + CSV_name + "REFORMAT.csv", index=False)
+    reformated.to_csv(
+        r"..\CSV files\REFORMAT\\" + CSV_name + "REFORMAT.csv", index=False
+    )
 
 
 def weird_names(arr_df):
