@@ -1,14 +1,8 @@
-import matplotlib as mpl
-import matplotlib.pyplot as plt
-import pandas as pd
-import numpy as np
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import confusion_matrix
+from imports import *
 
 ARR_COLOR = ["red", "black", "orange", "grey", "green", "yellow", "blue"]
 
 # TODO check life expectancy at 1960 and 2020 calc diff
-# TODO
 
 # def plot_frequent_elements(df, df_in_params):
 #     col_amount = df_in_params.shape[0]
