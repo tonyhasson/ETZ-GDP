@@ -1,15 +1,34 @@
 from imports import *
 
-CANT_BE_NEG = [
+CANT_BE_NEG_FULL = [
     "Education Ranking",
     "GDP Total",
     "Government expenditure (% of GDP)",
     "Total government Expenses (% of GDP)",
     "Total consumption ($)",
-    "Life expectancy at birth",
-    "Health Care Index",
-    "Health CareExp. Index",
+    "Life expectancy at birth"
 ]
+
+CANT_BE_NEG_SCRAP=[
+    "Health Care Index",
+    "High Tech Exports(% of total)",
+    "High Tech Exports(total)",
+    "Price To Income Ratio",
+    "Gross Rental Yield City Centre",
+    "Gross Rental Yield Outside of Centre",
+    "Price To Rent Ratio City Centre",
+    "Price To Rent Ratio Outside Of City Centre",
+    "Mortgage As A Percentage Of Income",
+    "Affordability Index",
+    "Cost of Living Index",
+    "Rent Index",
+    "Groceries Index",
+    "Restaurant Price Index",
+    "Local Purchasing Power Index",
+
+
+]
+
 
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
@@ -102,6 +121,11 @@ def find_and_regres(PATH, Type):
     Returns:
         None (Open CSV in Excel)
     """
+
+    if Type=="full":
+        CANT_BE_NEG=CANT_BE_NEG_FULL
+    elif Type=="scrape":
+        CANT_BE_NEG = CANT_BE_NEG_SCRAP
 
     # Loading the dataset
     dataset = pd.read_csv(PATH)
