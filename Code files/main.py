@@ -6,7 +6,7 @@ FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 
 
 def clean_DF(df):
-    arr_not = df[(df["Year"] == 2019) & (df["Population Total"] >= 0.1)][
+    arr_not = df[(df["Year"] == 2019) & (df["Population Total"] >= 100000)][
         "Country"
     ].unique()
     df = df[df["Country"].isin(arr_not)]
