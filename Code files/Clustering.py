@@ -1,7 +1,3 @@
-import random
-
-import pandas as pd
-
 from imports import *
 
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
@@ -40,43 +36,94 @@ def Kmeans_clustering(data, num_clusters):
     data["Cluster"] = kmeans.labels_
     return data
 
-def Cluster_Graphs():
-    data = pd.read_csv(FULL_DB_PATH)
-    columns = [
-        ["Population Total", "GDP Total"],
-        ["Population Total", "Life expectancy at birth"],
-        ["Education Ranking", "GDP Total"],
-        ["Total consumption ($)", "GDP Total"],
-        ["Military Spendings ($)", "GDP Total"],
-        ["Government expenditure (% of GDP)", "Education Ranking"],
-    ]
+def Cluster_Graphs(name):
 
-    for i in columns:
-        data = data[data["Year"] == 2020]
-        data1 = data[i].copy()
+    if name=="full":
+        data = pd.read_csv(FULL_DB_PATH)
+        columns = [
+            ["Population Total", "GDP Total"],
+            ["Population Total", "Life expectancy at birth"],
+            ["Education Ranking", "GDP Total"],
+            ["Total consumption ($)", "GDP Total"],
+            ["Military Spendings ($)", "GDP Total"],
+            ["Government expenditure (% of GDP)", "Education Ranking"],
+        ]
 
-        score, num_clusters = get_best_num_of_clusters_for_k_means(
-            data1.loc[:, data1.columns != "Continent"],
-            [
-                4,
+        for i in columns:
+            data = data[data["Year"] == 2020]
+            data1 = data[i].copy()
+
+            score, num_clusters = get_best_num_of_clusters_for_k_means(
+                data1.loc[:, data1.columns != "Continent"],
+                [
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                ],
+                "k-means++",
+                15,
                 5,
-                6,
-                7,
-                8,
-                9,
-                10,
-            ],
-            "k-means++",
-            15,
-            5,
-        )
+            )
 
-        datanew = Kmeans_clustering(data1[i], num_clusters)
-        # scatter plot
-        plt.scatter(datanew[i[0]], datanew[i[1]], c=datanew["Cluster"], s=50, cmap="plasma")
-        plt.xlabel(i[0])
-        plt.ylabel(i[1])
-        plt.show()
+            datanew = Kmeans_clustering(data1[i], num_clusters)
+
+            fig, axes = plt.subplots(1, 2, figsize=(20, 5))
+            axes[0].set_title("World Clusters")
+            axes[0].scatter(datanew[i[0]], datanew[i[1]], c=datanew["Cluster"], s=50, cmap="plasma")
+            axes[0].set_xlabel(i[0])
+            axes[0].set_ylabel(i[1])
+            axes[1].set_title("World Continents")
+            for con in data["Continent"].unique():
+                axes[1].scatter(datanew[data["Continent"]==con][i[0]], datanew[data["Continent"]==con][i[1]], label=con, cmap="plasma")
+            axes[1].legend()
+            plt.show()
+
+
+
+    elif name=="scrape":
+        data = pd.read_csv(SCRAP_DB_PATH)
+        columns = [
+            ["Cost of Living Index", "Affordability Index"],
+        ]
+
+        for i in columns:
+            data = data[data["Year"] == 2020]
+            data1 = data[i].copy()
+
+            score, num_clusters = get_best_num_of_clusters_for_k_means(
+                data1.loc[:, data1.columns != "Continent"],
+                [
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                ],
+                "k-means++",
+                15,
+                5,
+            )
+
+            datanew = Kmeans_clustering(data1[i], num_clusters)
+
+
+            fig, axes = plt.subplots(1, 2, figsize=(20, 5))
+            axes[0].set_title("World Clusters")
+            axes[0].scatter(datanew[i[0]], datanew[i[1]], c=datanew["Cluster"], s=50, cmap="plasma")
+            axes[0].set_xlabel(i[0])
+            axes[0].set_ylabel(i[1])
+            axes[1].set_title("World Continents")
+            for con in data["Continent"].unique():
+                axes[1].scatter(datanew[data["Continent"] == con][i[0]], datanew[data["Continent"] == con][i[1]],
+                                label=con, cmap="plasma")
+            axes[1].legend()
+            plt.show()
 
 
 
@@ -121,9 +168,15 @@ def PCA_Total_graph(data):
     #     plt.show()
     return data
 
+#Cluster_Graphs("full")
+#Cluster_Graphs("scrape")
 
-data= pd.read_csv(FULL_DB_PATH)
-data= PCA_Total_graph(data)
+FULL_data= pd.read_csv(FULL_DB_PATH)
+SCRAP_data= pd.read_csv(SCRAP_DB_PATH)
+
+FULL_data= PCA_Total_graph(FULL_data)
+SCRAP_data= PCA_Total_graph(SCRAP_data)
+
 
 def PCA_Cluster_Graph(data):
     score, num_clusters = get_best_num_of_clusters_for_k_means(
@@ -142,6 +195,9 @@ def PCA_Cluster_Graph(data):
         5,
     )
     datanew = Kmeans_clustering(data[["principal component 1", "principal component 2"]], num_clusters)
+
+    data["Cluster"] = datanew["Cluster"]
+
     # World scatter plot
     # plt.scatter(datanew["principal component 1"], datanew["principal component 2"], c=datanew["Cluster"], s=50, cmap="plasma")
     # plt.title("World")
@@ -165,16 +221,27 @@ def PCA_Cluster_Graph(data):
     for con in data["Continent"].unique():
         axes[1].scatter(datanew[data["Continent"]==con]["principal component 1"], datanew[data["Continent"]==con]["principal component 2"],label=con, cmap="plasma")
     axes[1].legend()
-    plt.show()
+    # plt.show()
 
-    for continent in data["Continent"].unique():
-        countries= data[data["Continent"] == continent]["Country"].unique()
-        for i in datanew[data["Continent"] == continent]["Cluster"].unique():
-            plt.scatter(datanew[(data["Continent"] == continent) & (datanew["Cluster"]==i)]["principal component 1"],
-                    datanew[(data["Continent"] == continent) & (datanew["Cluster"]==i)]["principal component 2"],
-                     cmap='rainbow', label=i)
-        plt.title(continent)
-        plt.legend()
-        plt.show()
+    # for continent in data["Continent"].unique():
+    #     countries= data[data["Continent"] == continent]["Country"].unique()
+    #     for i in datanew[data["Continent"] == continent]["Cluster"].unique():
+    #         plt.scatter(datanew[(data["Continent"] == continent) & (datanew["Cluster"]==i)]["principal component 1"],
+    #                 datanew[(data["Continent"] == continent) & (datanew["Cluster"]==i)]["principal component 2"],
+    #                  cmap='rainbow', label=i)
+    #     plt.title(continent)
+    #     plt.legend()
+    #     plt.show()
+    return data
 
-PCA_Cluster_Graph(data)
+FULL_data= PCA_Cluster_Graph(FULL_data)
+SCRAP_data=PCA_Cluster_Graph(SCRAP_data)
+
+for data in [SCRAP_data]:
+    item = []
+    for clu in data["Cluster"].unique():
+        item.append(data[data["Cluster"] == clu]["Country"].unique())
+    dp = pd.DataFrame(item)
+
+print(dp.transpose())
+dp.to_csv("cluster_data.csv")
