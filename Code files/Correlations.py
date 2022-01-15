@@ -4,23 +4,66 @@ FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
 YEARS = [i for i in range(1960, 2021)]
 
+USSR_list = [
+    "Armenia",
+    "Azerbaijan",
+    "Belarus",
+    "Estonia",
+    "Georgia",
+    "Kazakhstan",
+    "Kyrgyzstan",
+    "Latvia",
+    "Lithuania",
+    "Moldova",
+    "Russia",
+    "Tajikistan",
+    "Turkmenistan",
+    "Ukraine",
+    "Uzbekistan",
+]
+
+GENOCIDE_list = [
+    "Democratic Republic of the Congo",
+    "Vietnam",
+    "Nigeria",
+    "Sudan",
+    "Afghanistan",
+    "Timor-Leste",
+    "Ethiopia",
+    "Eritrea",
+    "Bangladesh",
+    "Angola",
+    "Iraq",
+    "Yemen",
+    "Uganda",
+    "Lebanon",
+    "Sierra Leone",
+    "Cambodia",
+    "Guatemala",
+    "Myanmar",
+    "Bosnia and Herzegovina",
+]
+
+
 # function to print plot 2 columns
-def Plot(df, col1, col2):
+def Plot(df, col1, col2, data_title):
     plt.scatter(df[col1], df[col2])
     plt.xlabel(col1)
     plt.ylabel(col2)
+    plt.title("Correlations: %f" % data_title)
     plt.show()
 
 
 # function to check which columns are correlated
 def Correlations(df):
-    df.drop(["Country", "Year", "Continent"], axis=1, inplace=True)
+    # df.drop(["Country", "Year", "Continent"], axis=1, inplace=True)
+    df.drop("Country", axis=1, inplace=True)
     cols = df.columns
     df_corr = df.corr().values
     for i in range(len(df_corr)):
         for j in range(len(df_corr[i])):
             if (df_corr[i][j] > 0.4 or df_corr[i][j] < -0.3) and i != j:
-                Plot(df, cols[i], cols[j])
+                Plot(df, cols[i], cols[j], df_corr[i][j])
 
 
 #  in RUSS_CHINA_USA
@@ -128,8 +171,10 @@ def Continent_VS(df, label):
 # Tarbot bizbuz west VS east
 def Big_spender(df):
     # https://stackabuse.com/seaborn-scatter-plot-tutorial-and-examples/
-    WEST = ["Europe", "North America", "South America"]
-    EAST = ["Asia", "Oceania"]
+    # EU/ASIA -> minus russia
+    WEST = ["Europe", "North America", "Central America", "Oceania"]
+    EAST = ["Asia"]
+    USELESS = ["Africa", "South America"]
     # grid = sns.FacetGrid(df, col="Continent", hue="Continent", col_wrap=2)
     ## East VS West
     # grid.map(
@@ -185,6 +230,7 @@ def pop_show(df):
 
 def Cont_expectancy(df, cont):
     ocan_list = df[df["Continent"] == cont]["Country"].unique()
+
     for indx, c in enumerate(ocan_list):
         plt.plot(
             YEARS,
@@ -196,35 +242,164 @@ def Cont_expectancy(df, cont):
             plt.ylabel("Life expectancy")
             plt.legend()
             plt.show()
+    plt.xlabel("Year")
+    plt.ylabel("Life expectancy")
     plt.legend()
     plt.show()
+
+
+def Ussr(df, label):
+    country_list = df[df["Country"].isin(USSR_list)]["Country"].unique()
+    for c in country_list:
+        plt.plot(
+            YEARS,
+            df[df["Country"] == c][label],
+            label=c,
+        )
+
+    plt.xlabel("Year")
+    plt.ylabel(label)
+    plt.legend()
+    plt.show()
+
+
+def Genocide(df, label):
+    country_list = df[df["Country"].isin(GENOCIDE_list)]["Country"].unique()
+    for i, c in enumerate(country_list):
+        plt.plot(
+            YEARS,
+            df[df["Country"] == c][label],
+            label=c,
+        )
+        if i % 5 == 0:
+            plt.xlabel("Year")
+            plt.ylabel(label)
+            plt.legend()
+            plt.show()
+
+    plt.xlabel("Year")
+    plt.ylabel(label)
+    plt.legend()
+    plt.show()
+
+
+def comp(df_full, df_scrap):
+    """Function to compare columns from df_full and df_scrape and create correlations between them
+       Args:
+           df_full (Data Frame): Data Frame with the csv data
+           df_scrap (Data Frame): Data Frame with the scraping data
+       Returns:
+           None (Open CSV in Excel)
+       """
+
+
+
+    ##create lists of columns to go compare between
+
+    col_full = list(
+        df_full.columns[
+            (df_full.columns != "Country")
+            & (df_full.columns != "Year")
+            & (df_full.columns != "Continent")
+        ]
+    )
+
+    col_scrap = list(
+        df_scrap.columns[
+            (df_scrap.columns != "Country")
+            & (df_scrap.columns != "Year")
+            & (df_scrap.columns != "Continent")
+        ]
+    )
+
+    for i in col_full:
+        for j in col_scrap:
+
+            ##get countries from df_scrap
+            countries_scrap = df_scrap["Country"].unique()
+
+
+
+            ##get countries from df_full that are also in df_scrap
+            ser1_countries = df_full[
+                (df_full["Year"] >= 2009)
+                & (df_full["Year"] <= 2020)
+                & (df_full["Country"].isin(countries_scrap))
+            ]["Country"]
+
+            ##create Data Frame out of df_full with column i
+            ser1 = df_full[
+                (df_full["Year"] >= 2009)
+                & (df_full["Year"] <= 2020)
+                & (df_full["Country"].isin(countries_scrap))
+            ][i]
+
+            ##create Data Frame out of df_scrap with column j
+            ser2 = df_scrap[
+                (df_scrap["Year"] >= 2009)
+                & (df_scrap["Year"] <= 2020)
+                & (df_scrap["Country"].isin(ser1_countries.unique()))
+            ][j]
+
+            ##create dictionary with details about the new Data Frame
+            details = {
+                "Country": list(ser1_countries.values),
+                i: list(ser1.values),
+                j: list(ser2.values),
+            }
+
+            ##create Data Frame with selected data,create correlations and create scatter plot
+            new_df = pd.DataFrame(details)
+            Correlations(new_df)
+
 
 
 df_full = pd.read_csv(FULL_DB_PATH)
 df_scrap = pd.read_csv(SCRAP_DB_PATH)
 
 labels = df_full.columns
+
+comp(df_full, df_scrap)
+
+
 ## USA Russ China code:
 # for label in labels:
 #     USA_RUSS_CHINA(df_full,label
 
 ## Continent mean values:
-for label in labels:
-    if label in [
-        "Country",
-        "Year",
-        "Continent",
-        "GDP Growth",
-        "Government expenditure (% of GDP)",
-        "Total government Expenses (% of GDP)",
-        "Military expenditure (% of GDP)",
-        "Population Growth pace",
-    ]:
-        continue
-    Continent_VS(df_full, label)
+# for label in labels:
+#     if label in [
+#         "Country",
+#         "Year",
+#         "Continent",
+#         "GDP Growth",
+#         "Government expenditure (% of GDP)",
+#         "Total government Expenses (% of GDP)",
+#         "Military expenditure (% of GDP)",
+#         "Population Growth pace",
+#     ]:
+#         continue
+#     Continent_VS(df_full, label)
 
 ## LIFE expectancy
-# Cont_expectancy(df_full, "North America")
+# Cont_expectancy(df_full, "Europe")
+
+# USSR | Genocide
+# for label in labels:
+#     if label in [
+#         "Country",
+#         "Education Ranking",
+#         "Year",
+#         "Continent",
+#         "Government expenditure (% of GDP)",
+#         "Total government Expenses (% of GDP)",
+#         "Total consumption ($)",
+#         "Least Developed Country",
+#         "Third World",
+#     ]:
+#         continue
+#     #Ussr(df_full, label)
+#     Genocide(df_full, label)
 
 ## Pop show
 # pop_show(df_full)
@@ -252,8 +427,8 @@ for label in labels:
 #         continue
 #     world_leaders(df_full, label, leaders_list)
 
-## TODO: Spikes in aaaaaa asia and oceania
-## TODO: Idea: show country at war in years | Genocide
+
+##
+
+
 ## TODO: Comparison between strong contries and WEST vs EAST
-## ! life expectancy does problems in and north america (Israel got 3 years fucked upp)
-## !North america is Shady with the numbers, must check her

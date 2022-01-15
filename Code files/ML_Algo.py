@@ -1,14 +1,35 @@
 from imports import *
 
-CANT_BE_NEG = [
+CANT_BE_NEG_FULL = [
     "Education Ranking",
+    "GDP Total",
     "Government expenditure (% of GDP)",
     "Total government Expenses (% of GDP)",
     "Total consumption ($)",
-    "Life expectancy at birth",
-    "Health Care Index",
-    "Health CareExp. Index",
+    "Life expectancy at birth"
 ]
+
+CANT_BE_NEG_SCRAP=[
+    "Health Care Index",
+    "High Tech Exports(% of total)",
+    "High Tech Exports(total)",
+    "Price To Income Ratio",
+    "Gross Rental Yield City Centre",
+    "Gross Rental Yield Outside of Centre",
+    "Price To Rent Ratio City Centre",
+    "Price To Rent Ratio Outside Of City Centre",
+    "Mortgage As A Percentage Of Income",
+    "Affordability Index",
+    "Cost of Living Index",
+    "Rent Index",
+    "Groceries Index",
+    "Restaurant Price Index",
+    "Local Purchasing Power Index",
+
+
+]
+
+
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
 
@@ -101,11 +122,22 @@ def find_and_regres(PATH, Type):
         None (Open CSV in Excel)
     """
 
+    if Type=="full":
+        CANT_BE_NEG=CANT_BE_NEG_FULL
+    elif Type=="scrape":
+        CANT_BE_NEG = CANT_BE_NEG_SCRAP
+
     # Loading the dataset
     dataset = pd.read_csv(PATH)
 
     dataset_columns = list(dataset.columns)
-    columns_to_remove = ["Country", "Year", "Continent", "Third World", "Least Developed Country"]
+    columns_to_remove = [
+        "Country",
+        "Year",
+        "Continent",
+        "Third World",
+        "Least Developed Country",
+    ]
 
     dataset_columns = [c for c in dataset_columns if c not in columns_to_remove]
 

@@ -2,26 +2,26 @@ from imports import *
 
 
 CSV_FILES = [
-    "Education RankingREFORMAT",
-    "Final consumption expenditureREFORMAT",
-    "GDP GrowthREFORMAT",
-    "GDP TotalREFORMAT",
-    "Government ExpenditureREFORMAT",
-    "Government Expense(of total GDP)REFORMAT",
-    "Life expectancy at birthREFORMAT",
-    "Population Growth paceREFORMAT",
-    "Population TotalREFORMAT",
-    "Military Expenditure totalREFORMAT",
-    "Military Expenditure(% of GDP)REFORMAT",
-    "df_Continent",
+    "REFORMAT\Education RankingREFORMAT",
+    "REFORMAT\Final consumption expenditureREFORMAT",
+    "REFORMAT\GDP GrowthREFORMAT",
+    "REFORMAT\GDP TotalREFORMAT",
+    "REFORMAT\Government ExpenditureREFORMAT",
+    "REFORMAT\Government Expense(of total GDP)REFORMAT",
+    "REFORMAT\Life expectancy at birthREFORMAT",
+    "REFORMAT\Population Growth paceREFORMAT",
+    "REFORMAT\Population TotalREFORMAT",
+    "REFORMAT\Military Expenditure totalREFORMAT",
+    "REFORMAT\Military Expenditure(% of GDP)REFORMAT",
+    "REFORMAT\df_Continent",
 ]
 SCRAP_CSV_FILES = [
-    "High Tech Exports(% of total)REFORMAT",
-    "High Tech Exports(total)REFORMAT",
+    "REFORMAT\High Tech Exports(% of total)REFORMAT",
+    "REFORMAT\High Tech Exports(total)REFORMAT",
     "Scraping CSV\df2",
     "Scraping CSV\df3",
     "Scraping CSV\df4",
-    "df_Continent",
+    "REFORMAT\df_Continent",
 ]
 # Deleted:
 # "Marshall Islands", #"Palau", #"Nauru", #"Tuvalu", #"Dominica",
@@ -250,7 +250,9 @@ def reformatCSV(CSV_location, CSV_name, Start_year, End_year):
             newrow.append([row[1]["Country"].lstrip(), i, row[1][str(i)]])
 
     reformated = pd.DataFrame(newrow, columns=columns)
-    reformated.to_csv(r"..\CSV files\\" + CSV_name + "REFORMAT.csv", index=False)
+    reformated.to_csv(
+        r"..\CSV files\REFORMAT\\" + CSV_name + "REFORMAT.csv", index=False
+    )
 
 
 def weird_names(arr_df):
@@ -419,19 +421,19 @@ def merge_and_clean(arr_df, Name):
     else:
 
         df = df[df["Year"] >= 1960]
-        df["Final consumption expenditure"] = (
-            df["Final consumption expenditure"] / 1000000
-        )
-        df["GDP Total"] = df["GDP Total"] / 1000000
-        df["Population Total"] = df["Population Total"] / 1000000
-        df[
-            "Military expenditure (1914-2007, real prices) (Correlates of War: National Material Capabilities (v4.0))"
-        ] = (
-            df[
-                "Military expenditure (1914-2007, real prices) (Correlates of War: National Material Capabilities (v4.0))"
-            ]
-            / 1000000
-        )
+        # df["Final consumption expenditure"] = (
+        #     df["Final consumption expenditure"] / 1000000
+        # )
+        # df["GDP Total"] = df["GDP Total"] / 1000000
+        # df["Population Total"] = df["Population Total"] / 1000000
+        # df[
+        #     "Military expenditure (1914-2007, real prices) (Correlates of War: National Material Capabilities (v4.0))"
+        # ] = (
+        #     df[
+        #         "Military expenditure (1914-2007, real prices) (Correlates of War: National Material Capabilities (v4.0))"
+        #     ]
+        #     / 1000000
+        # )
         df = df.rename(
             columns={
                 "Final consumption expenditure": "Total consumption ($)",
