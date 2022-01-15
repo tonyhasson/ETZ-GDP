@@ -1,11 +1,12 @@
 from imports import *
 
+
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
-REMOVE_COLUMN = ["Continent","Country","Year"]
+REMOVE_COLUMN = ["Continent" ,"Country" ,"Year"]
 
 def get_best_num_of_clusters_for_k_means(
-    dataset, num_cluster_options, init_val="k-means++", n_init_val=10, rand_state=None
+        dataset, num_cluster_options, init_val="k-means++", n_init_val=10, rand_state=None
 ):
     """Check and return the best number of clusters for k-means clustering
 
@@ -86,10 +87,16 @@ def get_best_params_for_dbscan(dataset, eps_options, min_samples_options):
     for eps in eps_options:
         for min_samples in min_samples_options:
             model, pred = perform_density_based_clustering(dataset, eps, min_samples)
-            if best_score < silhouette_score(dataset, pred):
-                best_score = silhouette_score(dataset, pred)
-                best_eps = eps
-                best_min_samples = min_samples
+            try:
+                if best_score < silhouette_score(dataset, pred):
+                    # print("success -> eps:%f min_samp:%f"%(eps,min_samples))
+                    best_score = silhouette_score(dataset, pred)
+                    best_eps = eps
+                    best_min_samples = min_samples
+            except Exception as e:
+                pass
+                # print("fail ->  eps:%f min_samp:%f"%(eps,min_samples))
+
 
     return best_score, best_eps, best_min_samples
 
@@ -124,13 +131,14 @@ def Cluster_Graphs(name):
         data = pd.read_csv(SCRAP_DB_PATH)
         columns = columnsSCRAP
 
-    """Main For loop"""
+    """Main For loop """
     for column in columns:
-        #Prepate the data to cluster
+
+        # Prepate the data to cluster
         data = data[data["Year"] == 2020]
         data1 = data[column].copy()
 
-        #Get the best number of clusters for k-means
+        # Get the best number of clusters for k-means
         score, num_clusters = get_best_num_of_clusters_for_k_means(
             data1.loc[:, data1.columns != "Continent"],
             [
@@ -147,13 +155,14 @@ def Cluster_Graphs(name):
             5
         )
 
-        #Perform k-means clustering
+        # Perform k-means clustering
         model, datanew = perform_k_means(data1[column], num_clusters)
-        #Add the cluster column to the dataframe
+        # Add the cluster column to the dataframe
         data1["Cluster"] = datanew
 
         fig, axes = plt.subplots(1, 2, figsize=(20, 5))
-        axes[0].set_title("World Clusters - " + str(num_clusters)+ "-" + str(score))
+        fig.suptitle("k_means")
+        axes[0].set_title("World Clusters -  num_clusters:" + str(num_clusters )+ "- score:" + str(score))
         axes[0].scatter(
             data1[column[0]], data1[column[1]], c=data1["Cluster"], s=50, cmap="plasma"
         )
@@ -161,7 +170,7 @@ def Cluster_Graphs(name):
         axes[0].set_ylabel(column[1])
         axes[1].set_title("World Continents")
 
-        #Create the Continents graph
+        # Create the Continents graph
         for con in data["Continent"].unique():
             axes[1].scatter(
                 data1[data["Continent"] == con][column[0]],
@@ -170,7 +179,55 @@ def Cluster_Graphs(name):
                 cmap="plasma",
             )
         axes[1].legend()
+
         plt.show()
+
+
+
+        ##dbscan
+
+        # Prepate the data to cluster
+        data = data[data["Year"] == 2020]
+        data1 = data[column].copy()
+
+        try:
+            # Get the best number of clusters for DBSCAN
+            best_score, best_eps, best_min_samples = get_best_params_for_dbscan(
+                data1.loc[:, data1.columns != "Continent"] ,[d for d in np.arange(0.1, 10, 0.1)],  [2 ,3 ,4 ,5 ,6 ,7 ,8 ,9 ,10])
+
+            # Perform DBSCAN
+
+            model, DBSCANData = perform_density_based_clustering( data1.loc[:, data1.columns != "Continent"] ,best_eps
+                                                                 ,best_min_samples)
+            # Add the cluster column to the dataframe
+            data1["Cluster"] = DBSCANData
+
+            fig, axes = plt.subplots(1, 2, figsize=(20, 5))
+            fig.suptitle("DBSCAN")
+            axes[0].set_title("World Clusters -  epsilon" + str(best_eps )+ "- score:" + str(best_score))
+            axes[0].scatter(
+                data1[column[0]], data1[column[1]], c=data1["Cluster"], s=50, cmap="plasma"
+            )
+            axes[0].set_xlabel(column[0])
+            axes[0].set_ylabel(column[1])
+            axes[1].set_title("World Continents")
+
+            # Create the Continents graph
+            for con in data["Continent"].unique():
+                axes[1].scatter(
+                    data1[data["Continent"] == con][column[0]],
+                    data1[data["Continent"] == con][column[1]],
+                    label=con,
+                    cmap="plasma",
+                )
+            axes[1].legend()
+
+
+            plt.show()
+        except:
+            pass
+
+
 
 
 
@@ -183,7 +240,7 @@ def PCA_Total_graph(data):
     Returns:
         data - dataframe with PCA
     """
-    #Data Preparation
+    # Data Preparation
     data = data[data["Year"] == 2020]
     dataPCA = data.copy()
     features = list(data.columns)
@@ -191,7 +248,7 @@ def PCA_Total_graph(data):
     for column in REMOVE_COLUMN:
         features.remove(column)
 
-    #PCA-ing
+    # PCA-ing
     dataPCA = dataPCA.loc[:, features].values
     dataPCA = StandardScaler().fit_transform(dataPCA)
     pca = PCA(n_components=2)  # 2-dimensional PCA
@@ -237,27 +294,29 @@ def PCA_Cluster_Graph(data):
         5,
     )
     best_score, best_eps, best_min_samples = get_best_params_for_dbscan(
-        data[["principal component 1", "principal component 2"]], [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],  [5, 5,5,5,5,5,5,5,5,5])
+        data[["principal component 1", "principal component 2"]] ,[d for d in np.arange(0.05, 1, 0.01)],  [2 ,3 ,4 ,5 ,6 ,7 ,8 ,9 ,10])
     model, KmeansData = perform_k_means(
         data[["principal component 1", "principal component 2"]], num_clusters
     )
-    model, DBSCANData = perform_density_based_clustering(data[["principal component 1", "principal component 2"]],best_eps,best_min_samples)
+    model, DBSCANData = perform_density_based_clustering(data[["principal component 1", "principal component 2"]]
+                                                         ,best_eps ,best_min_samples)
 
     data["kmean-cluster"] = KmeansData
     data["dbscan-cluster"] = DBSCANData
 
+    # Kmean scatter plot
+    ComparePlot(data ,num_clusters ,score ,"kmean-cluster")
 
-    #Kmean scatter plot
-    ComparePlot(data,num_clusters,score,"kmean-cluster")
-
-    #DBScan scatter plot
-    ComparePlot(data, best_eps,best_score,"dbscan-cluster")
+    # DBScan scatter plot
+    ComparePlot(data, best_eps ,best_score ,"dbscan-cluster")
 
     return data
 
 
-def ComparePlot(data,num_clusters, score, label):
+def ComparePlot(data ,num_clusters, score, label):
+
     fig, axes = plt.subplots(1, 2, figsize=(20, 5))
+    fig.suptitle(label)
     axes[0].set_title("World Clusters -" + str(num_clusters) + " - " + str(score))
     axes[0].scatter(
         data["principal component 1"],
@@ -275,10 +334,30 @@ def ComparePlot(data,num_clusters, score, label):
             cmap="plasma",
         )
     axes[1].legend()
+
     plt.show()
 
-# Cluster_Graphs("full")
-# Cluster_Graphs("scrape")
+
+##send DataFrame here and max amount of neighbors to find best epsilon for DBscan
+def best_epsilon(data ,max_neighbors):
+    dat a =FULL_data.copy()
+    dat a =data.drop(columns=REMOVE_COLUMN)
+
+    for n in range(2 ,max_neighbor s +1):
+        neigh = NearestNeighbors(n_neighbors=n)
+        nbrs = neigh.fit(data)
+        distances, indices = nbrs.kneighbors(data)
+
+        distances = np.sort(distances, axis=0)
+        distances = distances[: ,1]
+        plt.plot(distances)
+        plt.title("n_neighbors :%d " %n)
+        plt.show()
+
+
+Cluster_Graphs("full")
+Cluster_Graphs("scrape")
+
 
 FULL_data = pd.read_csv(FULL_DB_PATH)
 SCRAP_data = pd.read_csv(SCRAP_DB_PATH)
@@ -286,8 +365,10 @@ SCRAP_data = pd.read_csv(SCRAP_DB_PATH)
 FULL_data = PCA_Total_graph(FULL_data)
 SCRAP_data = PCA_Total_graph(SCRAP_data)
 
+
 FULL_data = PCA_Cluster_Graph(FULL_data)
 SCRAP_data = PCA_Cluster_Graph(SCRAP_data)
+
 
 for data in [SCRAP_data]:
     item = []

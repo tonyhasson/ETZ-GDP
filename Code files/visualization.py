@@ -85,6 +85,7 @@ def mix_plot(df):
 
 
     plt.pie([(dict["Asia"]/total)*100,(dict["Europe"]/total)*100,(dict["Oceania"]/total)*100,(dict["Africa"]/total)*100,(dict["Central America"]/total)*100,(dict["North America"]/total)*100,(dict["South America"]/total)*100],labels=["Asia","Europe","Oceania","Africa","Central America","North America","South America"], autopct='%1.1f%%')
+    plt.title("Countries distribution between continents")
     plt.show()
 
 
