@@ -284,6 +284,18 @@ def Genocide(df, label):
 
 
 def comp(df_full, df_scrap):
+    """Function to compare columns from df_full and df_scrape and create correlations between them
+       Args:
+           df_full (Data Frame): Data Frame with the csv data
+           df_scrap (Data Frame): Data Frame with the scraping data
+       Returns:
+           None (Open CSV in Excel)
+       """
+
+
+
+    ##create lists of columns to go compare between
+
     col_full = list(
         df_full.columns[
             (df_full.columns != "Country")
@@ -302,38 +314,44 @@ def comp(df_full, df_scrap):
 
     for i in col_full:
         for j in col_scrap:
+
+            ##get countries from df_scrap
             countries_scrap = df_scrap["Country"].unique()
 
+
+
+            ##get countries from df_full that are also in df_scrap
             ser1_countries = df_full[
                 (df_full["Year"] >= 2009)
                 & (df_full["Year"] <= 2020)
                 & (df_full["Country"].isin(countries_scrap))
             ]["Country"]
 
+            ##create Data Frame out of df_full with column i
             ser1 = df_full[
                 (df_full["Year"] >= 2009)
                 & (df_full["Year"] <= 2020)
                 & (df_full["Country"].isin(countries_scrap))
             ][i]
+
+            ##create Data Frame out of df_scrap with column j
             ser2 = df_scrap[
                 (df_scrap["Year"] >= 2009)
                 & (df_scrap["Year"] <= 2020)
                 & (df_scrap["Country"].isin(ser1_countries.unique()))
             ][j]
 
+            ##create dictionary with details about the new Data Frame
             details = {
                 "Country": list(ser1_countries.values),
                 i: list(ser1.values),
                 j: list(ser2.values),
             }
 
+            ##create Data Frame with selected data,create correlations and create scatter plot
             new_df = pd.DataFrame(details)
             Correlations(new_df)
 
-        # plt.scatter(ser1, ser2)
-        # plt.xlabel(col1)
-        # plt.ylabel(col2)
-        # plt.show()
 
 
 df_full = pd.read_csv(FULL_DB_PATH)
