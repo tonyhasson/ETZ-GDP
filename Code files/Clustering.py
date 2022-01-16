@@ -389,12 +389,12 @@ SCRAP_data = PCA_Total_graph(SCRAP_data)
 FULL_data = PCA_Cluster_Graph(FULL_data)
 SCRAP_data = PCA_Cluster_Graph(SCRAP_data)
 
-
 for data in [SCRAP_data]:
     item = []
     for clu in data["kmean-cluster"].unique():
         item.append(data[data["kmean-cluster"] == clu]["Country"].unique())
     dp = pd.DataFrame(item)
 
+
 print(dp.transpose())
-dp.to_csv("cluster_data.csv")
+dp.to_csv(r"../CSV files/cluster_data.csv")

@@ -37,3 +37,4 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans, DBSCAN
 from sklearn.decomposition import PCA
+from sklearn.neighbors import NearestNeighbors
