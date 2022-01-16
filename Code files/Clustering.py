@@ -307,6 +307,7 @@ def PCA_Cluster_Graph(data):
         15,
         5,
     )
+
     best_score, best_eps, best_min_samples = get_best_params_for_dbscan(
         data[["principal component 1", "principal component 2"]],
         [d for d in np.arange(0.05, 1, 0.01)],
@@ -358,10 +359,13 @@ def ComparePlot(data, num_clusters, score, label):
     plt.show()
 
 
+
 # send DataFrame here and max amount of neighbors to find best epsilon for DBscan
-def best_epsilon(FULL_data, max_neighbors):
+def best_epsilon(FULL_data,col , max_neighbors):
     data = FULL_data.copy()
-    data = data.drop(columns=REMOVE_COLUMN)
+    #Check tony
+    # for col in REMOVE_COLUMN:
+    #     data = data.drop(col)
 
     for n in range(2, max_neighbors + 1):
         neigh = NearestNeighbors(n_neighbors=n)
@@ -371,30 +375,75 @@ def best_epsilon(FULL_data, max_neighbors):
         distances = np.sort(distances, axis=0)
         distances = distances[:, 1]
         plt.plot(distances)
-        plt.title("n_neighbors :%d " % n)
+        plt.title("n_neighbors :%d , %s" % (n,col))
         plt.show()
 
 
-Cluster_Graphs("full")
-Cluster_Graphs("scrape")
+def find_best_epsilon(name):
+    """Create Graphs for the clustering results
+
+    Args:
+        name - name of the database
+
+    Returns:
+        [None] - creates graphs
+    """
+    """Columns to check correlation on, for each database, maybe add function to take high correlation columns"""
+    columnsFULL = [
+        ["Population Total", "GDP Total"],
+        ["Population Total", "Life expectancy at birth"],
+        ["Education Ranking", "GDP Total"],
+        ["Total consumption ($)", "GDP Total"],
+        ["Military Spendings ($)", "GDP Total"],
+        ["Government expenditure (% of GDP)", "Education Ranking"],
+    ]
+    columnsSCRAP = [
+        ["Cost of Living Index", "Affordability Index"],
+    ]
+
+    """Assign the correct database to the correct columns"""
+    if name == "full":
+        data = pd.read_csv(FULL_DB_PATH)
+        columns = columnsFULL
+    elif name == "scrape":
+        data = pd.read_csv(SCRAP_DB_PATH)
+        columns = columnsSCRAP
+
+    """Main For loop """
+    for column in columns:
+        # Prepate the data to cluster
+        data = data[data["Year"] == 2020]
+        data1 = data[column].copy()
+
+        best_epsilon(data1, column, 10)
 
 
-FULL_data = pd.read_csv(FULL_DB_PATH)
-SCRAP_data = pd.read_csv(SCRAP_DB_PATH)
-
-FULL_data = PCA_Total_graph(FULL_data)
-SCRAP_data = PCA_Total_graph(SCRAP_data)
+find_best_epsilon("full")
+find_best_epsilon("scrape")
 
 
-FULL_data = PCA_Cluster_Graph(FULL_data)
-SCRAP_data = PCA_Cluster_Graph(SCRAP_data)
-
-for data in [SCRAP_data]:
-    item = []
-    for clu in data["kmean-cluster"].unique():
-        item.append(data[data["kmean-cluster"] == clu]["Country"].unique())
-    dp = pd.DataFrame(item)
+# Cluster_Graphs("full")
+# Cluster_Graphs("scrape")
 
 
-print(dp.transpose())
-dp.to_csv(r"../CSV files/cluster_data.csv")
+# FULL_data = pd.read_csv(FULL_DB_PATH)
+# SCRAP_data = pd.read_csv(SCRAP_DB_PATH)
+#
+# FULL_data = PCA_Total_graph(FULL_data)
+# SCRAP_data = PCA_Total_graph(SCRAP_data)
+
+# FULL_data = PCA_Cluster_Graph(FULL_data)
+# SCRAP_data = PCA_Cluster_Graph(SCRAP_data)
+
+
+
+
+# for data in [SCRAP_data]:
+#     item = []
+#     for clu in data["kmean-cluster"].unique():
+#         item.append(data[data["kmean-cluster"] == clu]["Country"].unique())
+#     dp = pd.DataFrame(item)
+
+
+# print(dp.transpose())
+# dp.to_csv(r"../CSV files/cluster_data.csv")

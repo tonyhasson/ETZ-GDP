@@ -29,6 +29,16 @@ def line_plot(df):
     plt.show()
 
 
+def GDP_pie_plot(df):
+    df = df[df["Year"]==2020]
+
+    plt.pie(df[df["GDP Total"]>=300000]["GDP Total"], labels=df[df["GDP Total"]>=300000]["Country"], shadow=True, startangle=90, autopct='%1.1f%%')
+    plt.legend(loc="best")
+
+    plt.show()
+
+
+
 ##pie chart
 def mix_plot(df):
 
@@ -161,5 +171,6 @@ if __name__ == "__main__":
 
     df = pd.read_csv(r"..\CSV files\df_Full_DataBase.csv")
     df = df.fillna(0)
-    line_plot(df)
-    mix_plot(df)
+    # line_plot(df)
+    # mix_plot(df)
+    GDP_pie_plot(df)
