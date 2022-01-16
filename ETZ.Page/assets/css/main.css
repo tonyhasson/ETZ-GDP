@@ -2357,9 +2357,9 @@ body.is-touch .main {
 
 #two {
   background: url("images/overlay.png"), url("../../images/two.jpg");
-  background-size: 256px 256px, cover;
+  background-size: 256px 256px, contain;
   background-attachment: fixed, fixed;
-  background-position: top left, center center;
+  background-position: top left, right center;
 }
 
 /* Contact */
