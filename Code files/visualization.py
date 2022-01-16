@@ -45,8 +45,6 @@ def mix_plot(df):
     # plt.pie([third_world,not_third_world],labels=["Third World","Other"])
     # plt.show()
 
-
-
     #
     # ##check third_world vs other
     #
@@ -62,7 +60,6 @@ def mix_plot(df):
     # plt.title("Least developed countries VS rest of the world")
     # plt.show()
 
-
     #
     #
     # ## bar plot check how much of third_world is least developed countries
@@ -73,24 +70,45 @@ def mix_plot(df):
     #
     #
 
+    # show continent pie
 
-    #show continent pie
-
-
-    dict={"Asia":0,"Europe":0,"Oceania":0,"Africa":0,"Central America":0,"North America":0,"South America":0}
-    total=0
+    dict = {
+        "Asia": 0,
+        "Europe": 0,
+        "Oceania": 0,
+        "Africa": 0,
+        "Central America": 0,
+        "North America": 0,
+        "South America": 0,
+    }
+    total = 0
     for c in df["Country"].unique():
-        dict[df[df["Country"]==c]["Continent"].unique()[0]]+=1
-        total+=1
+        dict[df[df["Country"] == c]["Continent"].unique()[0]] += 1
+        total += 1
 
-
-    plt.pie([(dict["Asia"]/total)*100,(dict["Europe"]/total)*100,(dict["Oceania"]/total)*100,(dict["Africa"]/total)*100,(dict["Central America"]/total)*100,(dict["North America"]/total)*100,(dict["South America"]/total)*100],labels=["Asia","Europe","Oceania","Africa","Central America","North America","South America"], autopct='%1.1f%%')
+    plt.pie(
+        [
+            (dict["Asia"] / total) * 100,
+            (dict["Europe"] / total) * 100,
+            (dict["Oceania"] / total) * 100,
+            (dict["Africa"] / total) * 100,
+            (dict["Central America"] / total) * 100,
+            (dict["North America"] / total) * 100,
+            (dict["South America"] / total) * 100,
+        ],
+        labels=[
+            "Asia",
+            "Europe",
+            "Oceania",
+            "Africa",
+            "Central America",
+            "North America",
+            "South America",
+        ],
+        autopct="%1.1f%%",
+    )
     plt.title("Countries distribution between continents")
     plt.show()
-
-
-
-
 
     # x = list(df[df["Year"] == 2020]["Population Total"])  ## Population
     # y = list(df[df["Year"] == 2020]["GDP Total"])  ## GDP
@@ -111,7 +129,6 @@ def mix_plot(df):
     # plt.ylabel("GDP")
     # plt.legend(df["Continent"].unique(), loc="upper left")
     # plt.show()
-
 
     #
     # i = 0
