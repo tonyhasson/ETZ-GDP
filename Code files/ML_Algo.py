@@ -6,10 +6,10 @@ CANT_BE_NEG_FULL = [
     "Government expenditure (% of GDP)",
     "Total government Expenses (% of GDP)",
     "Total consumption ($)",
-    "Life expectancy at birth"
+    "Life expectancy at birth",
 ]
 
-CANT_BE_NEG_SCRAP=[
+CANT_BE_NEG_SCRAP = [
     "Health Care Index",
     "High Tech Exports(% of total)",
     "High Tech Exports(total)",
@@ -25,8 +25,6 @@ CANT_BE_NEG_SCRAP=[
     "Groceries Index",
     "Restaurant Price Index",
     "Local Purchasing Power Index",
-
-
 ]
 
 
@@ -122,9 +120,9 @@ def find_and_regres(PATH, Type):
         None (Open CSV in Excel)
     """
 
-    if Type=="full":
-        CANT_BE_NEG=CANT_BE_NEG_FULL
-    elif Type=="scrape":
+    if Type == "full":
+        CANT_BE_NEG = CANT_BE_NEG_FULL
+    elif Type == "scrape":
         CANT_BE_NEG = CANT_BE_NEG_SCRAP
 
     # Loading the dataset

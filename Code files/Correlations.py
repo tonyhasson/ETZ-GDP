@@ -51,6 +51,14 @@ def Plot(df, col1, col2, data_title):
     plt.xlabel(col1)
     plt.ylabel(col2)
     plt.title("Correlations: %f" % data_title)
+    # add line
+    if data_title > 0.7:
+        axes = plt.gca()
+        x_vals = np.array(axes.get_xlim())
+        y_vals = 0 + data_title * x_vals
+
+        plt.plot(x_vals, y_vals, "--", color="Red")
+    #
     plt.show()
 
 
@@ -354,8 +362,9 @@ df_scrap = pd.read_csv(SCRAP_DB_PATH)
 
 labels = df_full.columns
 
-comp(df_full, df_scrap)
+# comp(df_full, df_scrap)
 
+Correlations(df_scrap)
 
 ## USA Russ China code:
 # for label in labels:
@@ -424,6 +433,3 @@ comp(df_full, df_scrap)
 
 
 ##
-
-
-## TODO: Comparison between strong contries and WEST vs EAST
