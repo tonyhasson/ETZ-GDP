@@ -1,0 +1,3 @@
+GDP_Total->  fix minus values
+avg_gdp_continent -> re-run + consider if neccesary
+millSpend_At_WAR -> re-run + zoom without iraq
