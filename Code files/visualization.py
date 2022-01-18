@@ -140,6 +140,26 @@ def mix_plot(df):
     # plt.legend(df["Continent"].unique(), loc="upper left")
     # plt.show()
 
+
+
+
+
+    ##create gdp vs continents bar
+
+    list_gdp=[]
+    for c in df["Continent"].unique():
+        list_gdp.append(df[df["Continent"]==c]["GDP Total"].mean())
+
+    plt.bar(df["Continent"].unique(),list_gdp,color=ARR_COLOR)
+    plt.xlabel("Continents")
+    plt.ylabel("GDP Total")
+    plt.title("Continents vs GDP")
+    plt.show()
+
+
+
+
+
     #
     # i = 0
     # for contint in df["Continent"].unique():
@@ -172,5 +192,5 @@ if __name__ == "__main__":
     df = pd.read_csv(r"..\CSV files\df_Full_DataBase.csv")
     df = df.fillna(0)
     # line_plot(df)
-    # mix_plot(df)
-    GDP_pie_plot(df)
+    mix_plot(df)
+    #GDP_pie_plot(df)
