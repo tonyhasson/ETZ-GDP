@@ -30,13 +30,18 @@ def line_plot(df):
 
 
 def GDP_pie_plot(df):
-    df = df[df["Year"]==2020]
+    df = df[df["Year"] == 2020]
 
-    plt.pie(df[df["GDP Total"]>=300000]["GDP Total"], labels=df[df["GDP Total"]>=300000]["Country"], shadow=True, startangle=90, autopct='%1.1f%%')
+    plt.pie(
+        df[df["GDP Total"] >= 300000]["GDP Total"],
+        labels=df[df["GDP Total"] >= 300000]["Country"],
+        shadow=True,
+        startangle=90,
+        autopct="%1.1f%%",
+    )
     plt.legend(loc="best")
 
     plt.show()
-
 
 
 ##pie chart

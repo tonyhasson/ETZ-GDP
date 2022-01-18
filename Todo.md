@@ -8,16 +8,15 @@
 - ~~Check the values before inserting our default '0' | some may need negative value~~
 - lower the dimension for ML and clusters
 - ~~Delete Health CareEXp && Cost of living+rent~~
-  
+
 ## Visuals
 
 - ~~Visually show the Clusters~~
 - ~~Visually show the correlation between different variables | plots and so~~
 - ~~Add title to plot in corrs for better readability and info~~
+- ~~CORR: price to rent USA 2008-2009~~
 - Remove unused code (functions, comments, returns etc...)
 - Comparison between strong countries and WEST vs EAST
-
-- > CORR: price to rent USA 2008-2009
 
 ## ML
 
@@ -38,4 +37,5 @@
 - reduce run time for functions
 
 ## TLDR Legend:
+
 - Price to Rent Ratio: כלל שיותר גבוה רוצים להשכיר וככל שנמוך רוצים לקנות בית

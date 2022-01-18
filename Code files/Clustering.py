@@ -359,11 +359,9 @@ def ComparePlot(data, num_clusters, score, label):
     plt.show()
 
 
-
 # send DataFrame here and max amount of neighbors to find best epsilon for DBscan
-def best_epsilon(FULL_data,col , max_neighbors):
+def best_epsilon(FULL_data, col, max_neighbors):
     data = FULL_data.copy()
-    #Check tony
     # for col in REMOVE_COLUMN:
     #     data = data.drop(col)
 
@@ -375,7 +373,7 @@ def best_epsilon(FULL_data,col , max_neighbors):
         distances = np.sort(distances, axis=0)
         distances = distances[:, 1]
         plt.plot(distances)
-        plt.title("n_neighbors :%d , %s" % (n,col))
+        plt.title("n_neighbors :%d , %s" % (n, col))
         plt.show()
 
 
@@ -434,8 +432,6 @@ find_best_epsilon("scrape")
 
 # FULL_data = PCA_Cluster_Graph(FULL_data)
 # SCRAP_data = PCA_Cluster_Graph(SCRAP_data)
-
-
 
 
 # for data in [SCRAP_data]:

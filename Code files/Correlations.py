@@ -285,14 +285,12 @@ def Genocide(df, label):
 
 def comp(df_full, df_scrap):
     """Function to compare columns from df_full and df_scrape and create correlations between them
-       Args:
-           df_full (Data Frame): Data Frame with the csv data
-           df_scrap (Data Frame): Data Frame with the scraping data
-       Returns:
-           None (Open CSV in Excel)
-       """
-
-
+    Args:
+        df_full (Data Frame): Data Frame with the csv data
+        df_scrap (Data Frame): Data Frame with the scraping data
+    Returns:
+        None (Open CSV in Excel)
+    """
 
     ##create lists of columns to go compare between
 
@@ -317,8 +315,6 @@ def comp(df_full, df_scrap):
 
             ##get countries from df_scrap
             countries_scrap = df_scrap["Country"].unique()
-
-
 
             ##get countries from df_full that are also in df_scrap
             ser1_countries = df_full[
@@ -351,7 +347,6 @@ def comp(df_full, df_scrap):
             ##create Data Frame with selected data,create correlations and create scatter plot
             new_df = pd.DataFrame(details)
             Correlations(new_df)
-
 
 
 df_full = pd.read_csv(FULL_DB_PATH)
