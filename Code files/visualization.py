@@ -42,6 +42,8 @@ ARR_COLOR = [
     "darkgreen",
     "magenta",
     "tan",
+    "aqua",
+    "tomato",
     "chocolate",
     "olive",
     "gold",
@@ -49,9 +51,6 @@ ARR_COLOR = [
     "wheat",
     "lime",
 ]
-
-# TODO check life expectancy at 1960 and 2020 calc diff
-# TODO
 
 # def plot_frequent_elements(df, df_in_params):
 #     col_amount = df_in_params.shape[0]
