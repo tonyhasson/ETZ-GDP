@@ -7,7 +7,7 @@ Color_By_Country = {
     "United States": "b",
     "China": "r",
     "United Kingdom": "w",
-    "Germany": "b",
+    "Germany": "grey",
     "India": "orange",
     "France": "navy",
     "Japan": "firebrick",
@@ -15,8 +15,19 @@ Color_By_Country = {
     "Italy": "lime",
     "Australia": "indigo",
     "Sweden": "gold",
-    "Others": "royalblue",
+    "Others": "olive",
     "South Korea": "pink",
+    "Brazil": "cyan",
+    "South Sudan": "tan",
+    "Turkey": "chocolate",
+    "Mexico": "fuchsia",
+    "Spain": "yellow",
+    "Netherlands": "plum",
+    "Russia": "wheat",
+    "Indonesia": "darkgreen",
+    "Switzerland": "darkblue",
+    "Saudi Arabia": "darkred",
+
 
 }
 
@@ -50,13 +61,13 @@ def GDP_pie_plot(df):
     df_1960 = df[df["Year"] == 1960].sort_values(by=['GDP Total'], ascending=False)
     df_2020 = df[df["Year"] == 2020].sort_values(by=['GDP Total'], ascending=False)
 
-    GDP_1960= [c for c in df_1960.head(10)["GDP Total"]]
-    GDP_1960.append(df_1960["GDP Total"].sum()-df_1960.head(10)["GDP Total"].sum())
-    list_of_labels_1960 = [c for c in df_1960.head(10)["Country"]]
+    GDP_1960= [c for c in df_1960.head(15)["GDP Total"]]
+    GDP_1960.append(df_1960["GDP Total"].sum()-df_1960.head(15)["GDP Total"].sum())
+    list_of_labels_1960 = [c for c in df_1960.head(15)["Country"]]
     list_of_labels_1960.append("Others")
-    GDP_2020= [c for c in df_2020.head(10)["GDP Total"]]
-    GDP_2020.append(df_2020["GDP Total"].sum()-df_2020.head(10)["GDP Total"].sum())
-    list_of_labels_2020 = [c for c in df_2020.head(10)["Country"]]
+    GDP_2020= [c for c in df_2020.head(15)["GDP Total"]]
+    GDP_2020.append(df_2020["GDP Total"].sum()-df_2020.head(15)["GDP Total"].sum())
+    list_of_labels_2020 = [c for c in df_2020.head(15)["Country"]]
     list_of_labels_2020.append("Others")
 
 
@@ -83,6 +94,26 @@ def GDP_pie_plot(df):
     axes[1].set_title("GDP in 2020")
     fig.suptitle("GDP in 1960 and 2020")
     plt.show()
+
+
+    df_2020 = df_2020.tail(-15)
+    sum_of_gdp_2020= df_2020["GDP Total"].sum()
+    df_2020 = df_2020[df_2020["GDP Total"]>=300000]
+    others_gdp = [c for c in df_2020["GDP Total"]]
+    others_gdp_names = [c for c in df_2020["Country"]]
+    others_gdp.append(sum_of_gdp_2020-df_2020["GDP Total"].sum())
+    others_gdp_names.append("Others")
+    plt.pie(others_gdp,
+            labels=others_gdp_names,
+            shadow=True,
+            startangle=90,
+            autopct="%1.1f%%",
+            colors=ARR_COLOR
+            )
+    plt.legend(loc="best")
+    plt.title("GDP in 2020 (Others)")
+    plt.show()
+
 
 
 ##pie chart
@@ -301,6 +332,6 @@ if __name__ == "__main__":
     df = df.fillna(0)
     # line_plot(df)
     # mix_plot(df)
-    #GDP_pie_plot(df)
+    GDP_pie_plot(df)
     #sum_of_gdp_bar_graph(df)
-    GDP_total_world_graph(df)
+    #GDP_total_world_graph(df)
