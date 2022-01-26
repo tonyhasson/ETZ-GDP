@@ -1,13 +1,56 @@
-import matplotlib as mpl
-import matplotlib.pyplot as plt
-import pandas as pd
-import numpy as np
+from imports import *
 
+# Dictinary with countries and color (very pretty, much wow!)
+Color_By_Country = {
+    "United States": "b",
+    "China": "r",
+    "United Kingdom": "orchid",
+    "Germany": "grey",
+    "India": "orange",
+    "France": "navy",
+    "Japan": "firebrick",
+    "Canada": "bisque",
+    "Italy": "lime",
+    "Australia": "indigo",
+    "Sweden": "gold",
+    "Others": "olive",
+    "South Korea": "pink",
+    "Brazil": "cyan",
+    "South Sudan": "tan",
+    "Turkey": "chocolate",
+    "Mexico": "cyan",
+    "Spain": "yellow",
+    "Netherlands": "plum",
+    "Russia": "wheat",
+    "Indonesia": "darkgreen",
+    "Switzerland": "darkblue",
+    "Saudi Arabia": "darkred",
+}
 
-ARR_COLOR = ["red", "black", "orange", "grey", "green", "yellow", "blue"]
-
-# TODO check life expectancy at 1960 and 2020 calc diff
-# TODO
+ARR_COLOR = [
+    "red",
+    "teal",
+    "orange",
+    "grey",
+    "green",
+    "yellow",
+    "blue",
+    "purple",
+    "pink",
+    "brown",
+    "cyan",
+    "darkgreen",
+    "magenta",
+    "tan",
+    "aqua",
+    "tomato",
+    "chocolate",
+    "olive",
+    "gold",
+    "plum",
+    "wheat",
+    "lime",
+]
 
 # def plot_frequent_elements(df, df_in_params):
 #     col_amount = df_in_params.shape[0]
@@ -30,17 +73,79 @@ def line_plot(df):
 
 
 def GDP_pie_plot(df):
-    df = df[df["Year"] == 2020]
 
-    plt.pie(
-        df[df["GDP Total"] >= 300000]["GDP Total"],
-        labels=df[df["GDP Total"] >= 300000]["Country"],
+    # Create Subplot
+    fig, axes = plt.subplots(1, 2, figsize=(20, 5))
+
+    # Take relevant data and sort by gdp
+    df_1960 = df[df["Year"] == 1960].sort_values(by=["GDP Total"], ascending=False)
+    df_2020 = df[df["Year"] == 2020].sort_values(by=["GDP Total"], ascending=False)
+
+    GDP_1960, list_of_labels_1960, GDP_2020, list_of_labels_2020 = []
+
+    # Extract data from 15 top countries in 1960
+    for c in df_1960.head(15):
+        GDP_1960.append(c["GDP Total"])
+        list_of_labels_1960.append(c["Country"])
+    GDP_1960.append(df_1960["GDP Total"].sum() - df_1960.head(15)["GDP Total"].sum())
+    list_of_labels_1960.append("Others")
+
+    # Extract data from 15 top countries in 2020
+    for c in df_2020.head(15):
+        GDP_2020.append(c["GDP Total"])
+        list_of_labels_2020.append(c["Country"])
+    GDP_2020.append(df_2020["GDP Total"].sum() - df_2020.head(15)["GDP Total"].sum())
+    list_of_labels_2020.append("Others")
+
+    axes[0].pie(
+        GDP_1960,
+        labels=list_of_labels_1960,
         shadow=True,
         startangle=90,
         autopct="%1.1f%%",
+        colors=[Color_By_Country[key] for key in list_of_labels_1960],
+    )
+    axes[0].legend(loc="best")
+    axes[0].set_title("GDP in 1960")
+
+    axes[1].pie(
+        GDP_2020,
+        labels=list_of_labels_2020,
+        shadow=True,
+        startangle=90,
+        autopct="%1.1f%%",
+        colors=[Color_By_Country[key] for key in list_of_labels_2020],
+    )
+    axes[1].legend(loc="best")
+    axes[1].set_title("GDP in 2020")
+    fig.suptitle("GDP in 1960 and 2020")
+    plt.show()
+
+    # Pie chart containt all other countries (not top 15)
+    df_2020 = df_2020.tail(-15)
+    sum_of_gdp_2020 = df_2020["GDP Total"].sum()
+    df_2020 = df_2020[df_2020["GDP Total"] >= 300000]
+
+    others_gdp, others_gdp_names = []
+
+    # Extract data from 2020
+    for c in df_2020:
+        others_gdp.append(c["GDP Total"])
+        others_gdp_names.append(c["Contry"])
+
+    others_gdp.append(sum_of_gdp_2020 - df_2020["GDP Total"].sum())
+    others_gdp_names.append("Others")
+
+    plt.pie(
+        others_gdp,
+        labels=others_gdp_names,
+        shadow=True,
+        startangle=90,
+        autopct="%1.1f%%",
+        colors=ARR_COLOR,
     )
     plt.legend(loc="best")
-
+    plt.title("GDP in 2020 (Others)")
     plt.show()
 
 
@@ -145,25 +250,17 @@ def mix_plot(df):
     # plt.legend(df["Continent"].unique(), loc="upper left")
     # plt.show()
 
-
-
-
-
     ##create gdp vs continents bar
 
-    list_gdp=[]
+    list_gdp = []
     for c in df["Continent"].unique():
-        list_gdp.append(df[df["Continent"]==c]["GDP Total"].mean())
+        list_gdp.append(df[df["Continent"] == c]["GDP Total"].mean())
 
-    plt.bar(df["Continent"].unique(),list_gdp,color=ARR_COLOR)
+    plt.bar(df["Continent"].unique(), list_gdp, color=ARR_COLOR)
     plt.xlabel("Continents")
     plt.ylabel("GDP Total")
     plt.title("Continents vs GDP")
     plt.show()
-
-
-
-
 
     #
     # i = 0
@@ -192,10 +289,153 @@ def mix_plot(df):
     # plt.show()
 
 
+def sum_of_gdp_bar_graph(df):
+
+    labels = ["1960", "2020"]
+    fig, ax = plt.subplots(1, 2, figsize=(20, 5))
+
+    # 1960
+    df_1960 = df[df["Year"] == 1960].sort_values(by=["GDP Total"], ascending=False)
+    df_2020 = df[df["Year"] == 2020].sort_values(by=["GDP Total"], ascending=False)
+    gdp_sum_1960 = 0
+    gdp_sum_2020 = 0
+
+    # Sum up the top 10 countries in 1960 (According to GDP)
+    for c in df_1960["Country"].head(10).unique():
+        ax[0].bar(
+            labels[0],
+            df_1960[df_1960["Country"] == c]["GDP Total"],
+            width=0.1,
+            bottom=gdp_sum_1960,
+            color=Color_By_Country[c],
+            label=c,
+        )
+        # Add text to each stack
+        ax[0].text(
+            labels[0],
+            gdp_sum_1960 + 100,
+            "%.02f" % df_1960[df_1960["Country"] == c]["GDP Total"].sum(),
+            ha="center",
+            va="bottom",
+        )
+        gdp_sum_1960 += df_1960[df_1960["Country"] == c]["GDP Total"].sum()
+
+    # Sum up the other countries (not in top 10)
+    ax[0].bar(
+        labels[0],
+        df_1960["GDP Total"].sum() - gdp_sum_1960,
+        width=0.1,
+        bottom=gdp_sum_1960,
+        color=Color_By_Country["Others"],
+        label="Others",
+    )
+    ax[0].text(
+        labels[0],
+        gdp_sum_1960 + 100,
+        "%.02f" % (df_1960["GDP Total"].sum() - gdp_sum_1960),
+        ha="center",
+        va="bottom",
+    )
+
+    ax[0].set_ylabel("GDP")
+    ax[0].set_title("GDP in 1960\n%.02f$" % df_1960["GDP Total"].sum())
+    ax[0].legend()
+
+    # Sum up the top 10 countries in 2020 (According to GDP)
+    for c in df_2020["Country"].head(10).unique():
+        ax[1].bar(
+            labels[1],
+            df_2020[df_2020["Country"] == c]["GDP Total"],
+            width=0.1,
+            bottom=gdp_sum_2020,
+            color=Color_By_Country[c],
+            label=c,
+        )
+        ax[1].text(
+            labels[1],
+            gdp_sum_2020 + 100,
+            "%.02f" % (df_2020[df_2020["Country"] == c]["GDP Total"].sum()),
+            ha="center",
+            va="bottom",
+        )
+        gdp_sum_2020 += df_2020[df_2020["Country"] == c]["GDP Total"].sum()
+    # Sum up the other countries (not in top 10)
+    ax[1].bar(
+        labels[1],
+        df_2020["GDP Total"].sum() - gdp_sum_2020,
+        width=0.1,
+        bottom=gdp_sum_2020,
+        color=Color_By_Country["Others"],
+        label="Others",
+    )
+    ax[1].text(
+        labels[1],
+        gdp_sum_2020 + 100,
+        "%.02f" % (df_2020["GDP Total"].sum() - gdp_sum_2020),
+        ha="center",
+        va="bottom",
+    )
+
+    ax[1].set_ylabel("GDP")
+    ax[1].set_title("GDP in 2020\n%.02f$" % df_2020["GDP Total"].sum())
+    ax[1].legend()
+    plt.show()
+
+
+def GDP_total_world_graph(df):
+    """Display Graph Showing the total GDP of the world per year(line graph)
+
+    Args:
+        df
+    Returns:
+        displays graph
+    """
+    # Variable initialization
+    arr, country_list = []
+    i = 0
+
+    # Summing up each year total GDP
+    GDP_total_world = [
+        df[df["Year"] == c]["GDP Total"].sum() for c in df["Year"].unique()
+    ]
+
+    # Extract year 2020 and sort by GDP
+    df_2020 = df[df["Year"] == 2020].sort_values(by=["GDP Total"], ascending=False)
+
+    # Extract the top 10 coutries
+    for c in df_2020["Country"].head(10).unique():
+        arr.append(
+            [
+                df[(df["Country"] == c) & (df["Year"] == year)]["GDP Total"].sum()
+                for year in df["Year"].unique()
+            ]
+        )
+        country_list.append(c)
+
+    plt.plot(df["Year"].unique(), GDP_total_world, label="World")
+
+    # Add the top countries in 2020 to graph
+    for j in arr:
+        plt.plot(
+            df["Year"].unique(),
+            j,
+            label=df_2020.head(10)["Country"].unique()[i],
+            color=Color_By_Country[country_list[i]],
+        )
+        i += 1
+    plt.xlabel("Year")
+    plt.ylabel("World GDP Total")
+    plt.title("World GDP Growth")
+    plt.legend()
+    plt.show()
+
+
 if __name__ == "__main__":
 
     df = pd.read_csv(r"..\CSV files\df_Full_DataBase.csv")
     df = df.fillna(0)
     # line_plot(df)
-    mix_plot(df)
-    #GDP_pie_plot(df)
+    # mix_plot(df)
+    GDP_pie_plot(df)
+    sum_of_gdp_bar_graph(df)
+    GDP_total_world_graph(df)
