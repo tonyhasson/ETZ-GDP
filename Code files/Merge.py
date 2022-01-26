@@ -364,6 +364,31 @@ def weird_names(arr_df):
         ] = "Micronesia"
 
 
+def change_cont_to_numerical(df):
+    """Change continent to numerical values
+
+       Args:
+           df : the dataframe which you want to change
+
+       """
+
+
+    dict = {
+        "Asia": 0,
+        "Europe": 1,
+        "Oceania": 5,
+        "Africa": 6,
+        "Central America": 2,
+        "North America": 3,
+        "South America": 4,
+    }
+
+    df['Continent'].replace(dict,inplace=True)
+
+
+
+
+
 def merge_and_clean(arr_df, Name):
     """Merge all dataframes into one and clean it a bit.
 
@@ -404,6 +429,10 @@ def merge_and_clean(arr_df, Name):
 
     ## remove all unknown and irrelevant countries
     df = df[df["Country"].isin(List_Of_Countries)]
+
+    ##change continent to numerical values
+    change_cont_to_numerical(df)
+
 
     # Keep only the relevant data according to DF
     if Name == "df_scrape":
