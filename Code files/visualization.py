@@ -1,6 +1,6 @@
 from imports import *
 
-# Dictinary with countries and color (very pretty, much wow!)
+# Dictionary with countries and color (very pretty, much wow!)
 Color_By_Country = {
     "United States": "b",
     "China": "r",
@@ -61,7 +61,7 @@ ARR_COLOR = [
 #         one_dim_plot(sr,df_in_params['plot_type'][i],axes[i])
 
 
-##line plot
+# line plot
 def line_plot(df):
     # fig, axes = plt.subplots(1, 1, figsize=(20, 5))
 
@@ -78,8 +78,10 @@ def GDP_pie_plot(df):
     fig, axes = plt.subplots(1, 2, figsize=(20, 5))
 
     # Take relevant data and sort by gdp
-    df_1960 = df[df["Year"] == 1960].sort_values(by=["GDP Total"], ascending=False)
-    df_2020 = df[df["Year"] == 2020].sort_values(by=["GDP Total"], ascending=False)
+    df_1960 = df[df["Year"] == 1960].sort_values(
+        by=["GDP Total"], ascending=False)
+    df_2020 = df[df["Year"] == 2020].sort_values(
+        by=["GDP Total"], ascending=False)
 
     GDP_1960, list_of_labels_1960, GDP_2020, list_of_labels_2020 = []
 
@@ -87,14 +89,16 @@ def GDP_pie_plot(df):
     for c in df_1960.head(15):
         GDP_1960.append(c["GDP Total"])
         list_of_labels_1960.append(c["Country"])
-    GDP_1960.append(df_1960["GDP Total"].sum() - df_1960.head(15)["GDP Total"].sum())
+    GDP_1960.append(df_1960["GDP Total"].sum() -
+                    df_1960.head(15)["GDP Total"].sum())
     list_of_labels_1960.append("Others")
 
     # Extract data from 15 top countries in 2020
     for c in df_2020.head(15):
         GDP_2020.append(c["GDP Total"])
         list_of_labels_2020.append(c["Country"])
-    GDP_2020.append(df_2020["GDP Total"].sum() - df_2020.head(15)["GDP Total"].sum())
+    GDP_2020.append(df_2020["GDP Total"].sum() -
+                    df_2020.head(15)["GDP Total"].sum())
     list_of_labels_2020.append("Others")
 
     axes[0].pie(
@@ -162,11 +166,13 @@ def pie_plot_2030(df):
 
         lr = linear_model.LinearRegression()
 
-        x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+        x_train, x_test, y_train, y_test = train_test_split(
+            X, y, test_size=0.2, random_state=0)
 
         lr.fit(x_train.values, y_train)
 
-        tonyCalc = abs(df_a[df_a["Year"] == 1960]["GDP Total"] - lr.predict(X.values)[0])
+        tonyCalc = abs(df_a[df_a["Year"] == 1960]
+                       ["GDP Total"] - lr.predict(X.values)[0])
         arr_data.append(lr.predict([[2030]])[0])
 
     df_3030 = pd.DataFrame(data={"Country": df["Country"].unique(), "GDP Prediction": arr_data},
@@ -179,7 +185,8 @@ def pie_plot_2030(df):
     for c in df_3030.head(15).values:
         GDP_2030.append(c[1])
         list_of_labels_2030.append(c[0])
-    GDP_2030.append(df_3030["GDP Prediction"].sum() - df_3030.head(15)["GDP Prediction"].sum())
+    GDP_2030.append(df_3030["GDP Prediction"].sum() -
+                    df_3030.head(15)["GDP Prediction"].sum())
     list_of_labels_2030.append("Others")
 
     plt.pie(
@@ -195,10 +202,7 @@ def pie_plot_2030(df):
     plt.show()
 
 
-
-
-
-##pie chart
+# pie chart
 def mix_plot(df):
 
     # ##check third_world vs other
@@ -343,8 +347,10 @@ def sum_of_gdp_bar_graph(df):
     fig, ax = plt.subplots(1, 2, figsize=(20, 5))
 
     # 1960
-    df_1960 = df[df["Year"] == 1960].sort_values(by=["GDP Total"], ascending=False)
-    df_2020 = df[df["Year"] == 2020].sort_values(by=["GDP Total"], ascending=False)
+    df_1960 = df[df["Year"] == 1960].sort_values(
+        by=["GDP Total"], ascending=False)
+    df_2020 = df[df["Year"] == 2020].sort_values(
+        by=["GDP Total"], ascending=False)
     gdp_sum_1960 = 0
     gdp_sum_2020 = 0
 
@@ -448,7 +454,8 @@ def GDP_total_world_graph(df):
     ]
 
     # Extract year 2020 and sort by GDP
-    df_2020 = df[df["Year"] == 2020].sort_values(by=["GDP Total"], ascending=False)
+    df_2020 = df[df["Year"] == 2020].sort_values(
+        by=["GDP Total"], ascending=False)
 
     # Extract the top 10 coutries
     for c in df_2020["Country"].head(10).unique():
@@ -487,4 +494,4 @@ if __name__ == "__main__":
     GDP_pie_plot(df)
     sum_of_gdp_bar_graph(df)
     GDP_total_world_graph(df)
-    pie_plot_2030(df)  ##added by tony
+    pie_plot_2030(df)  # added by tony
