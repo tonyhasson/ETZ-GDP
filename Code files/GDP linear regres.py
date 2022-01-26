@@ -92,9 +92,8 @@ def GDP_estimated(df,R):
 
         X,y = load_dataset(df_a,"GDP Total")
 
-        lr = linear_model.LinearRegression()
-
-        # lr.fit(X.values,y)
+        #lr = linear_model.LinearRegression()
+        lr = make_pipeline(PolynomialFeatures(degree={2,5}), LinearRegression())
 
         x_train, x_test, y_train, y_test = train_test_split(X,y,test_size=0.2,random_state=0)
 
@@ -117,7 +116,7 @@ def GDP_estimated(df,R):
         # plt.scatter(x=df_a['Year'], y=df_a['GDP Total'], c='k', marker='*', label='Digital')
         plt.plot(df_a['Year'], df_a['GDP Total'])
         plt.plot(total_year,total_values,'k' , color='red', linewidth=3)
-        plt.title("Country: %s   Coef: %f"%(country,lr.coef_))
+        plt.title("Country: %s   Coef: %f"%(country, 0))#lr.coef_))
         plt.xlabel('Year')
         plt.ylabel('GDP Total')
         plt.show()
