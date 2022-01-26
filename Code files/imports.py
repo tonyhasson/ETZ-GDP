@@ -28,6 +28,7 @@ from tqdm import tqdm
 
 # ML ## probably should delete LogisticRegression
 import sklearn
+from sklearn.model_selection import train_test_split
 from sklearn import linear_model, metrics, preprocessing
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.linear_model import LogisticRegression, LinearRegression

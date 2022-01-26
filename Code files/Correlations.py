@@ -363,7 +363,7 @@ df_scrap = pd.read_csv(SCRAP_DB_PATH)
 labels = df_full.columns
 
 # comp(df_full, df_scrap)
-
+Correlations(df_full)
 Correlations(df_scrap)
 
 ## USA Russ China code:

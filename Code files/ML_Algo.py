@@ -223,6 +223,11 @@ def find_and_regres(PATH, Type):
     # Popen(PATH, shell=True)
 
 
+
+
+
+
+
 def Run():
     find_and_regres(FULL_DB_PATH, "full")
     find_and_regres(SCRAP_DB_PATH, "scrape")
