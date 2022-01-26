@@ -19,7 +19,7 @@
 - ~~Add Comments~~
 - > Presentation
 - > Remove unused code (functions, comments, returns etc...) | (Merge L: 448-460) (Visualization L: 55-60 | L: 153-193 | L: 233-251 | L: 264-288)
-
+- > Prediction on which countries has positive growth and which negative one
 ## Clustering
 
 - > plot and list of countries in each cluster
