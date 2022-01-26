@@ -4,6 +4,7 @@ FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
 YEARS = [i for i in range(1960, 2021)]
 
+# List of all countries that were in USSR
 USSR_list = [
     "Armenia",
     "Azerbaijan",
@@ -22,6 +23,7 @@ USSR_list = [
     "Uzbekistan",
 ]
 
+# List of all countries that had genocide
 GENOCIDE_list = [
     "Democratic Republic of the Congo",
     "Vietnam",
@@ -45,8 +47,15 @@ GENOCIDE_list = [
 ]
 
 
-# function to print plot 2 columns
 def Plot(df, col1, col2, data_title):
+    """Function to print plot 2 columns
+
+    Args:
+        df (dataframe): Our dataframe containing the data.
+        col1 (string): Target column to plot with.
+        col2 (string): Target column to plot with.
+        data_title (string): Data title for the plot.
+    """
     plt.scatter(df[col1], df[col2])
     plt.xlabel(col1)
     plt.ylabel(col2)
@@ -62,8 +71,12 @@ def Plot(df, col1, col2, data_title):
     plt.show()
 
 
-# function to check which columns are correlated
 def Correlations(df):
+    """Check which columns are correlated
+
+    Args:
+        df (dataframe): Our dataframe containing the data
+    """
     # df.drop(["Country", "Year", "Continent"], axis=1, inplace=True)
     df.drop("Country", axis=1, inplace=True)
     cols = df.columns
@@ -99,7 +112,13 @@ def USA_RUSS_CHINA(df, label):
 
 
 def Continent_VS(df, label):
+    """Plot the giving label for each continent.
 
+    Args:
+        df (dataframe): dataframe containing our data.
+        label (string): The target label.
+    """
+    # Calculate data for each continent.
     year_Asia = [
         df[(df["Continent"] == "Asia") & (df["Year"] == i)][label].values.mean()
         for i in range(1960, 2021)
@@ -135,6 +154,7 @@ def Continent_VS(df, label):
         for i in range(1960, 2021)
     ]
 
+    # Adding each continent to the plot
     plt.plot(
         YEARS,
         year_Asia,
@@ -237,6 +257,12 @@ def pop_show(df):
 
 
 def Cont_expectancy(df, cont):
+    """Plot continent life expectancy per year
+
+    Args:
+        df (dataframe): Dataframe containing our data.
+        cont (string): The target continent.
+    """
     ocan_list = df[df["Continent"] == cont]["Country"].unique()
 
     for indx, c in enumerate(ocan_list):
@@ -257,6 +283,12 @@ def Cont_expectancy(df, cont):
 
 
 def Ussr(df, label):
+    """plot Ussr data using the list declared above.
+
+    Args:
+        df (dataframe): Dataframe containing our data.
+        label (string): The target label.
+    """
     country_list = df[df["Country"].isin(USSR_list)]["Country"].unique()
     for c in country_list:
         plt.plot(
@@ -272,6 +304,12 @@ def Ussr(df, label):
 
 
 def Genocide(df, label):
+    """Plotting countries from the Genocide list.
+
+    Args:
+        df (DataFrame): Dataframe containing our data.
+        label (string): The target label.
+    """
     country_list = df[df["Country"].isin(GENOCIDE_list)]["Country"].unique()
     for i, c in enumerate(country_list):
         plt.plot(
@@ -301,7 +339,6 @@ def comp(df_full, df_scrap):
     """
 
     ##create lists of columns to go compare between
-
     col_full = list(
         df_full.columns[
             (df_full.columns != "Country")
@@ -361,6 +398,8 @@ df_full = pd.read_csv(FULL_DB_PATH)
 df_scrap = pd.read_csv(SCRAP_DB_PATH)
 
 labels = df_full.columns
+
+## > Driver Code for the functions above:
 
 # comp(df_full, df_scrap)
 Correlations(df_full)

@@ -12,15 +12,12 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import seaborn as sns
 
-# General ## probably should delete scipy, sys, math
-import scipy as sc
-import sys
+# General ## probably should delete time
 import re
 from re import sub
 from typing import Pattern
 from collections import Counter
 import numpy as np
-import math
 import os
 import time
 from subprocess import Popen

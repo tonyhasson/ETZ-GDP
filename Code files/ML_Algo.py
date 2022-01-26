@@ -1,5 +1,6 @@
 from imports import *
 
+# Columns that cant be negative
 CANT_BE_NEG_FULL = [
     "Education Ranking",
     "GDP Total",
@@ -137,6 +138,7 @@ def find_and_regres(PATH, Type):
         "Least Developed Country",
     ]
 
+    # Getting the relevant columns
     dataset_columns = [c for c in dataset_columns if c not in columns_to_remove]
 
     for label_column in dataset_columns:
@@ -168,10 +170,12 @@ def find_and_regres(PATH, Type):
             1.We Have Data on all the years
             2.We Have Data on some years
             3.We Don't have any data."""
-            # 3
+
+            # Case: 3
             if all(x == 0 for x in Dataframe):
                 NO_INFO_countries.append(country)
-            # 2
+
+            # Case: 2
             elif 0 in Dataframe:
                 arr_year = check_year_lr(dataset, country, label_column)
 
@@ -202,7 +206,8 @@ def find_and_regres(PATH, Type):
                     & (dataset["Year"] <= LastYear),
                     label_column,
                 ] += arr_data
-            # 1
+
+            # Case: 1
             else:
                 continue
 
@@ -221,11 +226,6 @@ def find_and_regres(PATH, Type):
     dataset.to_csv(PATH, index=False)
     # Automated CSV opener for faster validation
     # Popen(PATH, shell=True)
-
-
-
-
-
 
 
 def Run():

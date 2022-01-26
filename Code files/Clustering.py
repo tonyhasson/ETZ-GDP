@@ -125,7 +125,7 @@ def Cluster_Graphs(name):
         ["Cost of Living Index", "Affordability Index"],
     ]
 
-    """Assign the correct database to the correct columns"""
+    # Assign the correct database to the correct columns
     if name == "full":
         data = pd.read_csv(FULL_DB_PATH)
         columns = columnsFULL
@@ -133,9 +133,9 @@ def Cluster_Graphs(name):
         data = pd.read_csv(SCRAP_DB_PATH)
         columns = columnsSCRAP
 
-    """Main For loop """
+    # Main For loop
     for column in columns:
-
+        ## KMeans clustering ##
         # Prepate the data to cluster
         data = data[data["Year"] == 2020]
         data1 = data[column].copy()
@@ -189,8 +189,7 @@ def Cluster_Graphs(name):
 
         plt.show()
 
-        # dbscan
-
+        ## DBscan clustering ##
         # Prepate the data to cluster
         data = data[data["Year"] == 2020]
         data1 = data[column].copy()
@@ -335,7 +334,14 @@ def PCA_Cluster_Graph(data):
 
 
 def ComparePlot(data, num_clusters, score, label):
+    """Function to compare 2 different labels for world clustering.
 
+    Args:
+        data (dataframe): Dataframe with all our data.
+        num_clusters (int): Number of clusters used to cluster with.
+        score (float): The score for each cluster.
+        label (string): The target label used to cluster with.
+    """
     fig, axes = plt.subplots(1, 2, figsize=(20, 5))
     fig.suptitle(label)
     axes[0].set_title("World Clusters -" + str(num_clusters) + " - " + str(score))
@@ -359,8 +365,15 @@ def ComparePlot(data, num_clusters, score, label):
     plt.show()
 
 
-# send DataFrame here and max amount of neighbors to find best epsilon for DBscan
+# Send DataFrame here and max amount of neighbors to find best epsilon for DBscan
 def best_epsilon(FULL_data, col, max_neighbors):
+    """Find the best epsilon in giving data for the given column
+
+    Args:
+        FULL_data (DataFrame): Dataframe with all our data.
+        col (string): The target label used to cluster with.
+        max_neighbors (int): max value of neighbors to find epsilon for.
+    """
     data = FULL_data.copy()
     # for col in REMOVE_COLUMN:
     #     data = data.drop(col)
@@ -386,7 +399,7 @@ def find_best_epsilon(name):
     Returns:
         [None] - creates graphs
     """
-    """Columns to check correlation on, for each database, maybe add function to take high correlation columns"""
+    # Columns to check correlation on, for each database, maybe add function to take high correlation columns
     columnsFULL = [
         ["Population Total", "GDP Total"],
         ["Population Total", "Life expectancy at birth"],
@@ -399,7 +412,7 @@ def find_best_epsilon(name):
         ["Cost of Living Index", "Affordability Index"],
     ]
 
-    """Assign the correct database to the correct columns"""
+    # Assign the correct database to the correct columns
     if name == "full":
         data = pd.read_csv(FULL_DB_PATH)
         columns = columnsFULL
@@ -407,7 +420,7 @@ def find_best_epsilon(name):
         data = pd.read_csv(SCRAP_DB_PATH)
         columns = columnsSCRAP
 
-    """Main For loop """
+    # Main For loop
     for column in columns:
         # Prepate the data to cluster
         data = data[data["Year"] == 2020]

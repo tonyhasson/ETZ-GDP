@@ -5,7 +5,14 @@ arr_countries = scrap_country()
 
 
 def return_cont(country_name):
+    """Extract country's continent name from list
 
+    Args:
+        country_name (list): list of country names
+
+    Returns:
+        String: Country's continent name
+    """
     key_list = list(arr_countries.keys())
     val_list = list(arr_countries.values())
 

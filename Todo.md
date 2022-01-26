@@ -8,7 +8,7 @@
 - ~~Check the values before inserting our default '0' | some may need negative value~~
 - ~~lower the dimension for ML and clusters~~
 - ~~Delete Health CareEXp && Cost of living+rent~~
-- check life expectancy at 1960 and 2020 calc diff ?
+- Check life expectancy at 1960 and 2020 calc diff ?
 
 ## Visuals
 
@@ -16,9 +16,9 @@
 - ~~Visually show the correlation between different variables | plots and so~~
 - ~~Add title to plot in corrs for better readability and info~~
 - ~~CORR: price to rent USA 2008-2009~~
+- ~~Add Comments~~
 - > Presentation
-- > Add Comments
-- Remove unused code (functions, comments, returns etc...)
+- > Remove unused code (functions, comments, returns etc...) | (Merge L: 448-460) (Visualization L: 55-60 | L: 153-193 | L: 233-251 | L: 264-288)
 
 ## Clustering
 
@@ -26,6 +26,7 @@
 - > Compare clusters of scrape_DB With full_DB
 - > Comparison between different algorithms Kmeans DBscan
 - Comparison between strong countries and WEST vs EAST ?
+- Clustering file > KMeans and DBscan got duplicated code, do we rework it? (137-325)
 
 ## ML
 

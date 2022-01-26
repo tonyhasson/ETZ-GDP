@@ -23,9 +23,9 @@ SCRAP_CSV_FILES = [
     "Scraping CSV\df4",
     "REFORMAT\df_Continent",
 ]
-# Deleted:
-# "Marshall Islands", #"Palau", #"Nauru", #"Tuvalu", #"Dominica",
-# North Korea
+
+# Deleted Countries:
+# "Marshall Islands", #"Palau", #"Nauru", #"Tuvalu", #"Dominica", "North Korea"
 List_Of_Countries = [
     "Republic of the Congo",
     "Democratic Republic of the Congo",
@@ -367,11 +367,10 @@ def weird_names(arr_df):
 def change_cont_to_numerical(df):
     """Change continent to numerical values
 
-       Args:
-           df : the dataframe which you want to change
+    Args:
+        df : the dataframe which you want to change
 
-       """
-
+    """
 
     dict = {
         "Asia": 0,
@@ -383,10 +382,7 @@ def change_cont_to_numerical(df):
         "South America": 4,
     }
 
-    df['Continent'].replace(dict,inplace=True)
-
-
-
+    df["Continent"].replace(dict, inplace=True)
 
 
 def merge_and_clean(arr_df, Name):
@@ -399,16 +395,16 @@ def merge_and_clean(arr_df, Name):
     Returns:
         Dataframe: Merged dataframe of all the dataframes from the given array.
     """
-    ## change name of weird countries
+    # Change name of weird countries
     weird_names(arr_df)
 
-    ## merge
+    # Merge
     for i in range(len(arr_df) - 1):
         if i < len(arr_df) - 2:
             arr_df[i + 1] = arr_df[i].merge(
                 arr_df[i + 1], on=["Year", "Country"], how="outer"
             )
-        else:  ##merge with the Continent CSV
+        else:  ## Merge with the Continent CSV
             arr_df[i + 1] = arr_df[i].merge(arr_df[i + 1], on=["Country"], how="outer")
 
     # Assign the last position of arr_df to df (the merged dataframe)
@@ -417,7 +413,7 @@ def merge_and_clean(arr_df, Name):
     # Sort The DF (for the sake of the visualization)
     df.sort_values(["Country", "Year"], axis=0, ascending=True, inplace=True)
 
-    ## Add third world column to df
+    # Add third world column to df
     df = merge_extra_df(
         df, "Third World", r"..\CSV files\Scraping CSV\third_world_countries.csv"
     )
@@ -427,12 +423,11 @@ def merge_and_clean(arr_df, Name):
         r"..\CSV files\Scraping CSV\df_least_developed_countries.csv",
     )
 
-    ## remove all unknown and irrelevant countries
+    # Remove all unknown and irrelevant countries
     df = df[df["Country"].isin(List_Of_Countries)]
 
-    ##change continent to numerical values
+    # Change continent to numerical values
     change_cont_to_numerical(df)
-
 
     # Keep only the relevant data according to DF
     if Name == "df_scrape":
@@ -440,13 +435,13 @@ def merge_and_clean(arr_df, Name):
         # Keep year 2009 onward
         df = df[df["Year"] >= 2009]
 
-        # load df to take countries from
+        # Load df to take countries from
         SCRAP_Countries = pd.read_csv("..\CSV files\Scraping CSV\df3.csv")
 
         # Keep only the countries that are in the df
         df = df[df["Country"].isin(SCRAP_Countries["Country"].unique())]
 
-    # Nirmul Arahim High & Change Columns names for full database
+    # Values Normalization | High & Change Columns names for full database
     else:
 
         df = df[df["Year"] >= 1960]
@@ -472,7 +467,7 @@ def merge_and_clean(arr_df, Name):
             }
         )
 
-    ## To CSV:
+    # Export to CSV:
     df.to_csv(r"..\CSV files\\" + Name + ".csv", index=False)
 
 
@@ -493,6 +488,7 @@ def arr_df_builder(CSV_FILES):
     return arr_df
 
 
+# Driver Code:
 # reformatCSV(r"..\CSV files\OLD","Education Ranking",1990,2019)
 # reformatCSV(r"..\CSV files\OLD","GDP Growth",1960,2020)
 # reformatCSV(r"..\CSV files\OLD","GDP Total",1960,2020)

@@ -61,7 +61,7 @@ def scrap_country():
         if cnt == 8:
             break  # Wiki start giving info we don't need after that
 
-    # remove irrelevant continent
+    # remove irrelevant data - not real continents or not helpful for us.
     continents.remove("Eurasia")
     continents.remove("Americas")
 

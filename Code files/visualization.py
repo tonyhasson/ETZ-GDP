@@ -250,8 +250,7 @@ def mix_plot(df):
     # plt.legend(df["Continent"].unique(), loc="upper left")
     # plt.show()
 
-    ##create gdp vs continents bar
-
+    # Create GDP vs continents bar
     list_gdp = []
     for c in df["Continent"].unique():
         list_gdp.append(df[df["Continent"] == c]["GDP Total"].mean())
@@ -430,8 +429,8 @@ def GDP_total_world_graph(df):
     plt.show()
 
 
+# Driver Code:
 if __name__ == "__main__":
-
     df = pd.read_csv(r"..\CSV files\df_Full_DataBase.csv")
     df = df.fillna(0)
     # line_plot(df)
