@@ -199,30 +199,43 @@ def pie_plot_2030(df):
     df = df[["Year", "Country", "GDP Total"]]
 
     arr_data = []
+    arr_data_a=[]
     for country in df["Country"].unique():
         df_a = df[df["Country"] == country].copy()
         df_a.drop(columns=["Country"], inplace=True)
 
         X, y = load_dataset(df_a, "GDP Total")
-
-        lr = linear_model.LinearRegression()
+        lr=[]
+        lr.append(linear_model.LinearRegression())
+        lr.append(make_pipeline(PolynomialFeatures(degree={2, 5}), LinearRegression()))
 
         x_train, x_test, y_train, y_test = train_test_split(
             X, y, test_size=0.2, random_state=0
         )
 
-        lr.fit(x_train.values, y_train)
+        lr[0].fit(x_train.values, y_train)
+        lr[1].fit(x_train.values, y_train)
 
         # year 2030
-        arr_data.append(lr.predict([[2030]])[0])
+        arr_data.append(lr[0].predict([[2030]])[0])
+        arr_data_a.append(lr[1].predict([[2030]])[0])
+
 
     df_2030 = pd.DataFrame(
         data={"Country": df["Country"].unique(), "GDP Prediction": arr_data},
         columns=["Country", "GDP Prediction"],
     )
+    df_2030_a= pd.DataFrame(
+        data={"Country": df["Country"].unique(), "GDP Prediction": arr_data_a},
+        columns=["Country", "GDP Prediction"],
+    )
+
+
+
+
     GDP_2030 = []
     list_of_labels_2030 = []
-    df_2030 = df_2030.sort_values(by=["GDP Prediction"], ascending=False)
+    df_2030 = df_2030_a.sort_values(by=["GDP Prediction"], ascending=False)
     print(df_2030)
     # Extract data from 15 top countries in 2030
     for c in df_2030.head(15).values:
@@ -533,7 +546,6 @@ if __name__ == "__main__":
     df = df.fillna(0)
     # line_plot(df)
     # mix_plot(df)
-    #GDP_pie_plot(df)
+    GDP_pie_plot(df)
     #sum_of_gdp_bar_graph(df)
     # GDP_total_world_graph(df)
-    #pie_plot_2030(df)  # added by tony
