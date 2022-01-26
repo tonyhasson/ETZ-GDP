@@ -3,3 +3,4 @@ avg_gdp_continent -> re-run + consider if neccesary
 millSpend_At_WAR -> re-run + zoom without iraq
 price_city_vs_outside_city -> add linear line
 USSR_GDP_Growth -> change to 1985 because of linear noise
+Sudan Fuckes -> WTF>? did we just predited all the years? check that shit - prob delete 
