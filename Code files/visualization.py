@@ -149,6 +149,55 @@ def GDP_pie_plot(df):
     plt.show()
 
 
+def pie_plot_2030(df):
+    df.drop(columns=["Third World", "Least Developed Country"], inplace=True)
+    df = df[["Year", "Country", "GDP Total"]]
+
+    arr_data = []
+    for country in df["Country"].unique():
+        df_a = df[df["Country"] == country].copy()
+        df_a.drop(columns=["Country"], inplace=True)
+
+        X, y = load_dataset(df_a, "GDP Total")
+
+        lr = linear_model.LinearRegression()
+
+        x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+
+        lr.fit(x_train.values, y_train)
+
+        tonyCalc = abs(df_a[df_a["Year"] == 1960]["GDP Total"] - lr.predict(X.values)[0])
+        arr_data.append(lr.predict([[2030]])[0])
+
+    df_3030 = pd.DataFrame(data={"Country": df["Country"].unique(), "GDP Prediction": arr_data},
+                           columns=['Country', 'GDP Prediction'])
+    GDP_2030 = []
+    list_of_labels_2030 = []
+    df_3030 = df_3030.sort_values(by=["GDP Prediction"], ascending=False)
+    print(df_3030)
+    # Extract data from 15 top countries in 2030
+    for c in df_3030.head(15).values:
+        GDP_2030.append(c[1])
+        list_of_labels_2030.append(c[0])
+    GDP_2030.append(df_3030["GDP Prediction"].sum() - df_3030.head(15)["GDP Prediction"].sum())
+    list_of_labels_2030.append("Others")
+
+    plt.pie(
+        GDP_2030,
+        labels=list_of_labels_2030,
+        shadow=True,
+        startangle=90,
+        autopct="%1.1f%%",
+        colors=[Color_By_Country[key] for key in list_of_labels_2030],
+    )
+    plt.legend(loc="best")
+    plt.title("GDP in 2030")
+    plt.show()
+
+
+
+
+
 ##pie chart
 def mix_plot(df):
 
@@ -438,3 +487,4 @@ if __name__ == "__main__":
     GDP_pie_plot(df)
     sum_of_gdp_bar_graph(df)
     GDP_total_world_graph(df)
+    pie_plot_2030(df)  ##added by tony
