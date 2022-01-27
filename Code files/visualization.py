@@ -171,7 +171,7 @@ def mix_plot(df):
     # plt.show()
 
     #
-    # ##check third_world vs other
+    # ##check Least Developed vs other
     #
     # countries_name = df["Country"].unique()
     # least_dev = not_least_dev = 0
