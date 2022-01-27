@@ -1,6 +1,6 @@
 ##
 
-| 3           | 0                            | 1                    | 2             |
+| _3_         | _0_                          | _1_                  | _2_           |
 | ----------- | ---------------------------- | -------------------- | ------------- |
 | Afghanistan | Albania, Lithuania           | Australia            | China         |
 | Algeria     | Argentina, Malaysia          | Austria              | United States |
