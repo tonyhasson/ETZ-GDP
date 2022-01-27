@@ -17,10 +17,10 @@
 - ~~Add title to plot in corrs for better readability and info~~
 - ~~CORR: price to rent USA 2008-2009~~
 - ~~Add Comments~~
+- ~~Prediction on which countries has positive growth and which negative one~~
+- ~~Remove unused code (functions, comments, returns etc...)~~
 - > Presentation
-- Remove unused code (functions, comments, returns etc...)
 - > property_price_scrape (add comments)
-- > Prediction on which countries has positive growth and which negative one
 - > Find top leading countries in each label for each DB
 
 ## Clustering
