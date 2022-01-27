@@ -102,3 +102,25 @@
 - https://www.genocidewatch.com
 - https://wikipedia.org & https://en.wikipedia.org/wiki/Genocide
 - https://worldwithoutgenocide.org
+
+### Genocide & Wars Countries List
+
+- Afghanistan
+- Angola
+- Bangladesh
+- Bosnia and Herzegovina
+- Cambodia
+- Democratic Republic of the Congo
+- Eritrea
+- Ethiopia
+- Guatemala
+- Iraq
+- Lebanon
+- Myanmar
+- Nigeria
+- Sierra Leone
+- Sudan
+- Timor-Leste
+- Uganda
+- Vietnam
+- Yemen
