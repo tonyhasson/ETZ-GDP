@@ -315,7 +315,7 @@ def Stack_GDP(ax, df):
         ax.text(
             df["Year"].unique(),
             gdp_sum + 100,
-            "%.02f" % df[df["Country"] == c]["GDP Total"].sum(),
+            "%ldm" % (df[df["Country"] == c]["GDP Total"].sum()/1000000),
             ha="center",
             va="bottom",
         )
@@ -333,13 +333,13 @@ def Stack_GDP(ax, df):
     ax.text(
         df["Year"].unique(),
         gdp_sum + 100,
-        "%.02f" % (df["GDP Total"].sum() - gdp_sum),
+        "%ldm" % ((df["GDP Total"].sum() - gdp_sum)/1000000),
         ha="center",
         va="bottom",
     )
 
     ax.set_ylabel("GDP")
-    ax.set_title("GDP in 1960\n%.02f$" % df["GDP Total"].sum())
+    ax.set_title("GDP in %d\n%ldB$" %(df["Year"].unique(),(df["GDP Total"].sum()/1000000000)))
     ax.legend()
     return ax
 
@@ -422,7 +422,7 @@ def GDP_total_world_graph():
 
 # Driver Code:
 if __name__ == "__main__":
-    df = df.fillna(0)
+    # df = df.fillna(0) WHY?
     # line_plot(df)
     # mix_plot(df)
     GDP_pie_plot()
