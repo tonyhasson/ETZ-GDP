@@ -445,19 +445,6 @@ def merge_and_clean(arr_df, Name):
     else:
 
         df = df[df["Year"] >= 1960]
-        # df["Final consumption expenditure"] = (
-        #     df["Final consumption expenditure"] / 1000000
-        # )
-        # df["GDP Total"] = df["GDP Total"] / 1000000
-        # df["Population Total"] = df["Population Total"] / 1000000
-        # df[
-        #     "Military expenditure (1914-2007, real prices) (Correlates of War: National Material Capabilities (v4.0))"
-        # ] = (
-        #     df[
-        #         "Military expenditure (1914-2007, real prices) (Correlates of War: National Material Capabilities (v4.0))"
-        #     ]
-        #     / 1000000
-        # )
         df = df.rename(
             columns={
                 "Final consumption expenditure": "Total consumption ($)",

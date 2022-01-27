@@ -1,5 +1,6 @@
-from GDPlinearregres import GDP_estimated
 from imports import *
+from GDPlinearregres import GDP_estimated
+from Correlations import GENOCIDE_list as G_list
 
 df = pd.read_csv(r"..\CSV files\df_Full_DataBase.csv")
 GDP_est = pd.read_csv(r"..\CSV files\GDP est.csv")
@@ -106,7 +107,7 @@ def GDP_pie_plot():
     Args:
         None
     Returns:
-        None ()
+        None
     """
     # Create Subplot
     fig, ax = plt.subplots(1, 3, figsize=(20, 5))
@@ -123,7 +124,7 @@ def GDP_pie_plot():
     fig.suptitle("GDP in 1960 VS 2020 VS 2030")
     plt.show()
 
-    # Pie chart containt all other countries (not top 15)
+    # Pie chart contains all other countries (not top 15)
     df_2020 = df[df["Year"] == 2020].sort_values(by="GDP Total", ascending=False)
     df_2020 = df_2020[["Country", "GDP Total"]]
     df_2020 = df_2020.tail(-15)
@@ -299,7 +300,7 @@ def Stack_GDP(ax, df):
         ax: ax of the plot
         df: dataframe
     Returns:
-        None
+        ax: ax of the plot
     """
     gdp_sum = 0
     for c in df["Country"].head(10).unique():
@@ -315,7 +316,7 @@ def Stack_GDP(ax, df):
         ax.text(
             df["Year"].unique(),
             gdp_sum + 100,
-            "%.02f" % df[df["Country"] == c]["GDP Total"].sum(),
+            "%ldm" % (df[df["Country"] == c]["GDP Total"].sum() / 1000000),
             ha="center",
             va="bottom",
         )
@@ -333,13 +334,15 @@ def Stack_GDP(ax, df):
     ax.text(
         df["Year"].unique(),
         gdp_sum + 100,
-        "%.02f" % (df["GDP Total"].sum() - gdp_sum),
+        "%ldm" % ((df["GDP Total"].sum() - gdp_sum) / 1000000),
         ha="center",
         va="bottom",
     )
 
     ax.set_ylabel("GDP")
-    ax.set_title("GDP in 1960\n%.02f$" % df["GDP Total"].sum())
+    ax.set_title(
+        "GDP in %d\n%ldB$" % (df["Year"].unique(), (df["GDP Total"].sum() / 1000000000))
+    )
     ax.legend()
     return ax
 
@@ -349,10 +352,10 @@ def sum_of_gdp_bar_graph():
     Args:
         None
     Returns:
-        None
+        None  - displays graph
     """
 
-    labels = ["1960", "2020", "2030"]
+    labels = ["1960", "2020", "2030"]  # ? we dont use it?
     fig, ax = plt.subplots(1, 3, figsize=(20, 5))
 
     index = 0
@@ -374,9 +377,9 @@ def GDP_total_world_graph():
     """Display Graph Showing the total GDP of the world per year(line graph)
 
     Args:
-        df
+        None
     Returns:
-        displays graph
+        None - displays graph
     """
     # Variable initialization
     arr = []
@@ -420,11 +423,59 @@ def GDP_total_world_graph():
     plt.show()
 
 
+def Genocide_Plots(label):
+    """Display Graph Showing the total GDP of the 'Genocide List' countries per year (line graph)
+
+    Args:
+        None
+    Returns:
+        None - displays graph
+    """
+
+    i = 0
+    for country in G_list:
+        x = []
+        y = []
+        for year in range(1960, 2021):
+            x.append(
+                (
+                    df[(df["Country"] == country) & (df["Year"] == year)][label]
+                )
+            )
+            y.append(year)
+        plt.plot(y, x, color=ARR_COLOR[i])
+        i += 1
+
+    plt.xlabel("Year")
+    plt.ylabel(label)
+    plt.legend(G_list, loc="upper left")
+    plt.title(f"{label} per Genocide & Wars List along 1960-2020")
+    plt.show()
+
+
 # Driver Code:
 if __name__ == "__main__":
-    df = df.fillna(0)
+    # df = df.fillna(0) # WHY?
     # line_plot(df)
     # mix_plot(df)
-    GDP_pie_plot()
-    sum_of_gdp_bar_graph()
-    GDP_total_world_graph()
+    # GDP_pie_plot()
+    # sum_of_gdp_bar_graph()
+    # GDP_total_world_graph()
+
+    # Driver Code: Genocide & Wars List
+    # FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
+    # df_full = pd.read_csv(FULL_DB_PATH)
+    # labels = df_full.columns
+    # for label in labels:
+    #     if label in [
+    #         "Country",
+    #         "Year",
+    #         "Continent",
+    #         "Government expenditure (% of GDP)",
+    #         "Total government Expenses (% of GDP)",
+    #         "Total consumption ($)",
+    #         "Least Developed Country",
+    #         "Third World",
+    #     ]:
+    #         continue
+    #     Genocide_Plots(label)
