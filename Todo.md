@@ -33,6 +33,7 @@
 - Elaborate on building the models | Page 24
 - Work on Page 25 and 27
 - Consider adding Pie plot | Page 39
+- Expenditure vs expenses? what the differences ?
 
 ## Clustering
 
