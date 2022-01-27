@@ -1,9 +1,25 @@
 from imports import *
 
+dict = {
+    0:"Asia",
+    1:"Europe",
+    5:"Oceania",
+    6:"Africa",
+    2:"Central America" ,
+    3:"North America",
+    4:"South America"
+}
 
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
-REMOVE_COLUMN = ["Continent", "Country", "Year"]
+REMOVE_COLUMN = ["Continent","Least Developed Country", "Third World"]
+
+df = pd.read_csv(FULL_DB_PATH)
+df_scrape = pd.read_csv(SCRAP_DB_PATH)
+Country_list = df["Country"].tolist()
+
+df_temp = df.drop(REMOVE_COLUMN, axis=1)
+df_total = df_temp[(df_temp["Country"] == Country_list) & (df["Year"]>=2009)].merge(df_scrape, on=["Country", "Year"])
 
 
 def get_best_num_of_clusters_for_k_means(
@@ -244,7 +260,7 @@ def Cluster_Graphs(name):
             pass
 
 
-def PCA_Total_graph(data):
+def PCA_Total_graph(data, num_components):
     """Convert the data to PCA
 
     Args:
@@ -258,16 +274,16 @@ def PCA_Total_graph(data):
     dataPCA = data.copy()
     features = list(data.columns)
 
-    for column in REMOVE_COLUMN:
+    for column in ["Continent", "Country", "Year"]:
         features.remove(column)
 
     # PCA-ing
     dataPCA = dataPCA.loc[:, features].values
     dataPCA = StandardScaler().fit_transform(dataPCA)
-    pca = PCA(n_components=2)  # 2-dimensional PCA
+    pca = PCA(n_components=num_components)  # num_components-dimensional PCA
     principalComponents = pca.fit_transform(dataPCA)
 
-    # Plot the PCA(for testing purposes)
+    #####################################Plot the PCA(for testing purposes)
     # fig = plt.figure(figsize=(8, 8))
     # ax = fig.add_subplot(1, 1, 1)
     # ax.set_xlabel("Principal Component 1", fontsize=15)
@@ -275,65 +291,67 @@ def PCA_Total_graph(data):
     # ax.set_title("2 component PCA", fontsize=20)
     # plt.scatter(dataPCA[:,0], dataPCA[:,1],  cmap="plasma")
     # plt.show()
-
     data["principal component 1"] = principalComponents[:, 0]
-    data["principal component 2"] = principalComponents[:, 1]
+    if num_components == 2:
+        data["principal component 2"] = principalComponents[:, 1]
+
 
     return data
 
 
-def PCA_Cluster_Graph(data):
+def PCA_Cluster_Graph():
     """Perform Clutsering on PCA data
 
     Args:
-        data -
 
     Returns:
         data - dataframe with PCA
     """
-    score, num_clusters = get_best_num_of_clusters_for_k_means(
-        data[["principal component 1", "principal component 2"]],
-        [
-            4,
+    for data,name in zip([df,df_scrape,df_total],("df","df_scrape","df_total")):
+        data = PCA_Total_graph(data, 2)
+        score, num_clusters = get_best_num_of_clusters_for_k_means(
+            data[["principal component 1", "principal component 2"]],
+            [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+            ],
+            "k-means++",
+            15,
             5,
-            6,
-            7,
-            8,
-            9,
-            10,
-        ],
-        "k-means++",
-        15,
-        5,
-    )
+        )
 
-    best_score, best_eps, best_min_samples = get_best_params_for_dbscan(
-        data[["principal component 1", "principal component 2"]],
-        [d for d in np.arange(0.05, 1, 0.01)],
-        [2, 3, 4, 5, 6, 7, 8, 9, 10],
-    )
-    model, KmeansData = perform_k_means(
-        data[["principal component 1", "principal component 2"]], num_clusters
-    )
-    model, DBSCANData = perform_density_based_clustering(
-        data[["principal component 1", "principal component 2"]],
-        best_eps,
-        best_min_samples,
-    )
+        best_score, best_eps, best_min_samples = get_best_params_for_dbscan(
+            data[["principal component 1", "principal component 2"]],
+            [d for d in np.arange(0.05, 1, 0.01)],
+            [2, 3, 4, 5, 6, 7, 8, 9, 10],
+        )
+        model, KmeansData = perform_k_means(
+            data[["principal component 1", "principal component 2"]], num_clusters
+        )
+        model, DBSCANData = perform_density_based_clustering(
+            data[["principal component 1", "principal component 2"]],
+            best_eps,
+            best_min_samples,
+        )
 
-    data["kmean-cluster"] = KmeansData
-    data["dbscan-cluster"] = DBSCANData
+        data["kmean-cluster"] = KmeansData.copy()
+        data["dbscan-cluster"] = DBSCANData.copy()
 
-    # Kmean scatter plot
-    ComparePlot(data, num_clusters, score, "kmean-cluster")
+        # Kmean scatter plot
+        ComparePlot(data, num_clusters, score, "kmean-cluster",name)
 
-    # DBScan scatter plot
-    ComparePlot(data, best_eps, best_score, "dbscan-cluster")
+        # DBScan scatter plot
+        ComparePlot(data, best_eps, best_score, "dbscan-cluster", name)
 
-    return data
+    # return data
 
 
-def ComparePlot(data, num_clusters, score, label):
+def ComparePlot(data, num_clusters, score, label, name):
     """Function to compare 2 different labels for world clustering.
 
     Args:
@@ -343,8 +361,8 @@ def ComparePlot(data, num_clusters, score, label):
         label (string): The target label used to cluster with.
     """
     fig, axes = plt.subplots(1, 2, figsize=(20, 5))
-    fig.suptitle(label)
-    axes[0].set_title("World Clusters -" + str(num_clusters) + " - " + str(score))
+    fig.suptitle(name + "\n " + label, fontsize=20)
+    axes[0].set_title("Clusters:" + str(num_clusters) + ", Score: " + str(score))
     axes[0].scatter(
         data["principal component 1"],
         data["principal component 2"],
@@ -352,15 +370,20 @@ def ComparePlot(data, num_clusters, score, label):
         s=50,
         cmap="plasma",
     )
+    # axes[0].legend()
+
     axes[1].set_title("World Continents")
     for con in data["Continent"].unique():
         axes[1].scatter(
             data[data["Continent"] == con]["principal component 1"],
             data[data["Continent"] == con]["principal component 2"],
-            label=con,
+            label=dict[con],
             cmap="plasma",
         )
     axes[1].legend()
+
+
+
 
     plt.show()
 
@@ -429,22 +452,18 @@ def find_best_epsilon(name):
         best_epsilon(data1, column, 10)
 
 
-find_best_epsilon("full")
-find_best_epsilon("scrape")
+# find_best_epsilon("full")
+# find_best_epsilon("scrape") #?
 
 
 # Cluster_Graphs("full")
 # Cluster_Graphs("scrape")
 
 
-# FULL_data = pd.read_csv(FULL_DB_PATH)
-# SCRAP_data = pd.read_csv(SCRAP_DB_PATH)
-#
-# FULL_data = PCA_Total_graph(FULL_data)
-# SCRAP_data = PCA_Total_graph(SCRAP_data)
 
-# FULL_data = PCA_Cluster_Graph(FULL_data)
-# SCRAP_data = PCA_Cluster_Graph(SCRAP_data)
+
+PCA_Cluster_Graph()
+
 
 
 # for data in [SCRAP_data]:
