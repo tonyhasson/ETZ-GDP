@@ -17,7 +17,7 @@
 - ~~Add title to plot in corrs for better readability and info~~
 - ~~CORR: price to rent USA 2008-2009~~
 - ~~Add Comments~~
-- Presentation
+- > Presentation
 - Remove unused code (functions, comments, returns etc...)
 - > property_price_scrape (add comments)
 - > Prediction on which countries has positive growth and which negative one
