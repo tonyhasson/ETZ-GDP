@@ -19,17 +19,18 @@
 - ~~Add Comments~~
 - ~~Prediction on which countries has positive growth and which negative one~~
 - ~~Remove unused code (functions, comments, returns etc...)~~
-- > Presentation
+- ~~Find top leading countries in each label for each DB~~
 - > property_price_scrape (add comments)
-- > Find top leading countries in each label for each DB
+- > Presentation
+- > Rephrase the Questions
 
 ## Clustering
 
 - ~~Comparison between different algorithms Kmeans DBscan~~
 - ~~Comparison between strong countries and WEST vs EAST ?~~
 - ~~Clustering file > KMeans and DBscan got duplicated code, do we rework it? (137-325)~~
-- > plot and list of countries in each cluster
-- > clusters of scrape_DB With full_DB
+- ~~plot and list of countries in each cluster~~
+- ~~clusters of scrape_DB With full_DB~~
 
 ## ML
 
