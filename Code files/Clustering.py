@@ -274,7 +274,7 @@ def PCA_Total_graph(data, num_components):
     dataPCA = data.copy()
     features = list(data.columns)
 
-    for column in ["Continent", "Country", "Year"]:
+    for column in ["Country", "Year"]:
         features.remove(column)
 
     # PCA-ing
@@ -291,9 +291,10 @@ def PCA_Total_graph(data, num_components):
     # ax.set_title("2 component PCA", fontsize=20)
     # plt.scatter(dataPCA[:,0], dataPCA[:,1],  cmap="plasma")
     # plt.show()
-    data["principal component 1"] = principalComponents[:, 0]
+    data.insert(len(data.columns) , "principal component 1", principalComponents[:, 0])
     if num_components == 2:
-        data["principal component 2"] = principalComponents[:, 1]
+        data.insert(len(data.columns) , "principal component 2", principalComponents[:, 1])
+
 
 
     return data
@@ -338,9 +339,8 @@ def PCA_Cluster_Graph():
             best_eps,
             best_min_samples,
         )
-
-        data["kmean-cluster"] = KmeansData.copy()
-        data["dbscan-cluster"] = DBSCANData.copy()
+        data.insert(len(data.columns), "kmean-cluster", KmeansData)
+        data.insert(len(data.columns), "dbscan-cluster", DBSCANData)
 
         # Kmean scatter plot
         ComparePlot(data, num_clusters, score, "kmean-cluster",name)
