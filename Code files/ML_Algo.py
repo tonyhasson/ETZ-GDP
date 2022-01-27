@@ -8,6 +8,12 @@ CANT_BE_NEG_FULL = [
     "Total government Expenses (% of GDP)",
     "Total consumption ($)",
     "Life expectancy at birth",
+    "Population Total",
+    "Military Spendings ($)",
+    "Military expenditure (% of GDP)",
+
+
+
 ]
 
 CANT_BE_NEG_SCRAP = [
