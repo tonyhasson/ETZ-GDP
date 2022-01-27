@@ -402,8 +402,8 @@ labels = df_full.columns
 ## > Driver Code for the functions above:
 
 # comp(df_full, df_scrap)
-Correlations(df_full)
-Correlations(df_scrap)
+# Correlations(df_full)
+# Correlations(df_scrap)
 
 ## USA Russ China code:
 # for label in labels:
@@ -472,3 +472,5 @@ Correlations(df_scrap)
 
 
 ##
+if __name__ == "__main__":
+    pass

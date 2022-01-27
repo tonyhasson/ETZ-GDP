@@ -3,6 +3,7 @@ from GDPlinearregres import GDP_estimated
 from Correlations import GENOCIDE_list as G_list
 
 df = pd.read_csv(r"..\CSV files\df_Full_DataBase.csv")
+df_total = pd.read_csv(r"..\CSV files\df_total.csv")
 GDP_est = pd.read_csv(r"..\CSV files\GDP est.csv")
 
 # Dictionary with countries and color (very pretty, much wow!)
@@ -30,6 +31,60 @@ Color_By_Country = {
     "Indonesia": "darkgreen",
     "Switzerland": "darkblue",
     "Saudi Arabia": "darkred",
+    "Zimbabwe": "darkorange",
+    "Zambia": "darkgreen",
+    "Kenya": "darkcyan",
+    "Thailand": "darkgoldenrod",
+    "Philippines": "darkkhaki",
+    "South Africa": "darkolivegreen",
+    "Argentina": "darkseagreen",
+    "Yemen": "black",
+    "Nigeria": "darkorchid",
+    "Vietnam": "darkviolet",
+    "Venezuela": "lightyellow",
+    "Finland": "lightblue",
+    "Denmark": "lightgreen",
+    "Belgium": "lightpink",
+    "Norway": "lightgrey",
+    "Poland": "lightcyan",
+    "Ireland" : "orange",
+    "Ivory Coast": "darkorange",
+    "Tanzania": "teal",
+    "Somalia": "darkturquoise",
+    "Ethiopia": "darkseagreen",
+    "Egypt": "darkkhaki",
+    "Uganda": "gold",
+    "Belarus": "red",
+    "Hungary": "darkred",
+    "Malta":"purple",
+    "Kuwait":"darkblue",
+    "Greece": "brown",
+    "Cyprus": "pink",
+    "Singapore": "darkgreen",
+    "Bahrain": "lightpink",
+    "Mozambique": "fuchsia",
+    "Cameroon": "darkcyan",
+    "Oman": "aqua",
+    "Qatar": "darkcyan",
+    "Lebanon": "aquamarine",
+    "Malaysia": "azure",
+    "Sri Lanka": "darkgoldenrod",
+    "Syria":"ivory",
+    "Cambodia":"coral",
+    "Laos":"orangered",
+    "Ghana":"olive",
+    "Fiji":"lavender",
+    "Mauritius":"magenta",
+    "Guinea":"salmon",
+    "Libya":"lime",
+    "Belize":"red",
+    "Mali":"darkgreen",
+    "United Arab Emirates":"green",
+    "Iceland":"darkblue",
+    "Luxembourg":"darkgreen",
+
+
+
 }
 
 ARR_COLOR = [
@@ -452,16 +507,57 @@ def Genocide_Plots(label):
     plt.title(f"{label} per Genocide & Wars List along 1960-2020")
     plt.show()
 
+def top5bottom5countries():
+
+
+    Column_list = list(df_total.columns)
+    Column_list.remove("Year")
+    Column_list.remove("Country")
+    Column_list.remove("Third World")
+    Column_list.remove("Least Developed Country")
+    Column_list.remove("Continent")
+
+
+    for column in Column_list:
+        fig, ax = plt.subplots(1, 1, figsize=(20, 5))
+        df = df_total[df_total["Year"]==2020].sort_values(by=column, ascending=False)
+        for country in df["Country"].head(5).unique():
+            ax.plot(
+                df_total[(df_total["Country"] == country) & (df_total["Year"]>=2009)]["Year"],
+                df_total[df_total["Country"] == country][column],
+                label=country,
+                color=Color_By_Country[country]
+            )
+
+        i = 0
+        for country in df["Country"].tail(5).unique():
+
+            ax.plot(
+                df_total[(df_total["Country"] == country) & (df_total["Year"]>=2009)]["Year"],
+                df_total[df_total["Country"] == country][column],
+                label=country,
+                color=ARR_COLOR[i],
+            )
+            i+=1
+        ax.set_title(f"Top 5 and last 5 Countries by {column}")
+        ax.set_ylabel(column)
+        ax.legend()
+        plt.show()
+
+
+
+
 
 # Driver Code:
 if __name__ == "__main__":
+
     # df = df.fillna(0) # WHY?
     # line_plot(df)
     # mix_plot(df)
     # GDP_pie_plot()
     # sum_of_gdp_bar_graph()
     # GDP_total_world_graph()
-
+    # top5bottom5countries()
     # Driver Code: Genocide & Wars List
     # FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
     # df_full = pd.read_csv(FULL_DB_PATH)

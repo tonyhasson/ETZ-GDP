@@ -69,5 +69,5 @@ def GDP_estimated():
     print("Avg R2 Score:",sumR2score/len(df["Country"].unique()))
     return GDP_est_df
 
-
-GDP_estimated()
+if __name__ == "__main__":
+    GDP_estimated()

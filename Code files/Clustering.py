@@ -20,6 +20,7 @@ Country_list = df["Country"].tolist()
 
 df_temp = df.drop(REMOVE_COLUMN, axis=1)
 df_total = df_temp[(df_temp["Country"] == Country_list) & (df["Year"]>=2009)].merge(df_scrape, on=["Country", "Year"])
+df_total.to_csv(r"../CSV files/df_total.csv", index=False)
 
 
 def get_best_num_of_clusters_for_k_means(
@@ -339,12 +340,23 @@ def PCA_Cluster_Graph():
             best_eps,
             best_min_samples,
         )
+
+        # Add the cluster column to the dataframe
         data.insert(len(data.columns), "kmean-cluster", KmeansData)
         data.insert(len(data.columns), "dbscan-cluster", DBSCANData)
 
+        a1,a2=create_cluster_list(data)
+
+        for i,cluster in enumerate(data["kmean-cluster"].unique()):
+            print(cluster)
+            print(a1[i])
         # Kmean scatter plot
         ComparePlot(data, num_clusters, score, "kmean-cluster",name)
 
+
+        for i,cluster in enumerate(data["dbscan-cluster"].unique()):
+            print(cluster)
+            print(a2[i])
         # DBScan scatter plot
         ComparePlot(data, best_eps, best_score, "dbscan-cluster", name)
 
@@ -362,15 +374,21 @@ def ComparePlot(data, num_clusters, score, label, name):
     """
     fig, axes = plt.subplots(1, 2, figsize=(20, 5))
     fig.suptitle(name + "\n " + label, fontsize=20)
-    axes[0].set_title("Clusters:" + str(num_clusters) + ", Score: " + str(score))
-    axes[0].scatter(
-        data["principal component 1"],
-        data["principal component 2"],
-        c=data[label],
+    if label=="kmean-cluster":
+        axes[0].set_title("Clusters:" + str(num_clusters) + ", Score: " + str(score))
+    else:
+        axes[0].set_title("Eps:" + str(num_clusters) + ", Score:" + str(score))
+
+    for cluster in data[label].unique():
+        axes[0].scatter(
+        data[data[label]==cluster]["principal component 1"],
+        data[data[label]==cluster]["principal component 2"],
+        label=cluster,
+        #c=data[label],
         s=50,
         cmap="plasma",
     )
-    # axes[0].legend()
+    axes[0].legend()
 
     axes[1].set_title("World Continents")
     for con in data["Continent"].unique():
@@ -450,6 +468,19 @@ def find_best_epsilon(name):
         data1 = data[column].copy()
 
         best_epsilon(data1, column, 10)
+
+
+def create_cluster_list(data):
+    arr1 = []
+    arr2 = []
+    for cluster_num in data["kmean-cluster"].unique():
+        arr1.append(data[data["kmean-cluster"] == cluster_num]["Country"].unique())
+
+    for cluster_num in data["dbscan-cluster"].unique():
+        arr2.append(data[data["dbscan-cluster"] == cluster_num]["Country"].unique())
+
+    return arr1,arr2
+
 
 
 # find_best_epsilon("full")
