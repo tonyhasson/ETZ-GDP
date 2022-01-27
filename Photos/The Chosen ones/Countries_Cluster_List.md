@@ -1,67 +1,40 @@
 ##
 
-| 3           | 0                  | 1                    | 2             |
-| ----------- | ------------------ | -------------------- | ------------- |
-| Afghanistan | Albania            | Australia            | China         |
-| Algeria     | Argentina          | Austria              | United States |
-| Bangladesh  | Armenia            | Belgium              |
-| Cambodia    | Azerbaijan         | Canada               |
-| Cameroon    | Bahrain            | Cyprus               |
-| Egypt       | Barbados           | Czech Republic       |
-| Ethiopia    | Belarus            | Denmark              |
-| Ghana       | Belize             | Estonia              |
-| Ivory Coast | Bolivia            | Finland              |
-| Kenya       | Botswana           | France               |
-| Libya       | Brazil             | Germany              |
-| Mongolia    | Bugaria            | Greece               |
-| Mozambique  | Chile              | Iceland              |
-| Myanmar     | Colombia           | Ireland              |
-| Nepal       | Costa Rica         | Israel               |
-| Nigeria     | Croatia            | Italy                |
-| Pakistan    | Cuba               | Japan                |
-| Rwanda      | Dominican Republic | Latvia               |
-| Somalia     | Ecuador            | Luxembourg           |
-| Tanzania    | El Salvador        | Malta                |
-| Uganda      | Fiji               | Netherlands          |
-| Uzbekistan  | Georgia            | New Zealand          |
-| Venezuela   | Guatemala          | Norway               |
-| Yemen       | Honduras           | Portugal             |
-| Zambia      | Hungary            | Qatar                |
-| Zimbabwe    | India              | Saudi Arabia         |
-|             | Indonesia          | Singapore            |
-|             | Iran               | Slovenia             |
-|             | Iraq               | South Korea          |
-|             | Jamaica            | Sweden               |
-|             | Jordan             | Spain                |
-|             | Kazakhstan         | Switzerland          |
-|             | Kuwait             | United Arab Emirates |
-|             | Lebanon            | United Kingdom       |
-|             | Lithuania          |
-|             | Malaysia           |
-|             | Mauritius          |
-|             | Mexico             |
-|             | Moldova            |
-|             | Montenegro         |
-|             | Morocco            |
-|             | Namibia            |
-|             | Oman               |
-|             | Panama             |
-|             | Paraguay           |
-|             | Peru               |
-|             | Philippines        |
-|             | Poland             |
-|             | Romania            |
-|             | Russia             |
-|             | Serbia             |
-|             | Slovakia           |
-|             | South Africa       |
-|             | Sri Lanka          |
-|             | Suriname           |
-|             | Thailand           |
-|             | Tunisia            |
-|             | Turkey             |
-|             | Ukraine            |
-|             | Uruguay            |
-|             | Vietnam            |
+| 3           | 0                            | 1                    | 2             |
+| ----------- | ---------------------------- | -------------------- | ------------- |
+| Afghanistan | Albania, Lithuania           | Australia            | China         |
+| Algeria     | Argentina, Malaysia          | Austria              | United States |
+| Bangladesh  | Armenia, Mauritius           | Belgium              |
+| Cambodia    | Azerbaijan, Mexico           | Canada               |
+| Cameroon    | Bahrain, Moldova             | Cyprus               |
+| Egypt       | Barbados, Montenegro         | Czech Republic       |
+| Ethiopia    | Belarus, Morocco             | Denmark              |
+| Ghana       | Belize, Namibia              | Estonia              |
+| Ivory Coast | Bolivia, Oman                | Finland              |
+| Kenya       | Botswana, Panama             | France               |
+| Libya       | Brazil, Paraguay             | Germany              |
+| Mongolia    | Bugaria, Peru                | Greece               |
+| Mozambique  | Chile, Philippines           | Iceland              |
+| Myanmar     | Colombia, Poland             | Ireland              |
+| Nepal       | Costa Rica, Romania          | Israel               |
+| Nigeria     | Croatia, Russia              | Italy                |
+| Pakistan    | Cuba, Serbia                 | Japan                |
+| Rwanda      | Dominican Republic, Slovakia | Latvia               |
+| Somalia     | Ecuador, South Africa        | Luxembourg           |
+| Tanzania    | El Salvador, Sri Lanka       | Malta                |
+| Uganda      | Fiji, Suriname               | Netherlands          |
+| Uzbekistan  | Georgia, Thailand            | New Zealand          |
+| Venezuela   | Guatemala, Tunisia           | Norway               |
+| Yemen       | Honduras, Turkey             | Portugal             |
+| Zambia      | Hungary, Ukraine             | Qatar                |
+| Zimbabwe    | India, Uruguay               | Saudi Arabia         |
+|             | Indonesia, Vietnam           | Singapore            |
+|             | Iran,                        | Slovenia             |
+|             | Iraq,                        | South Korea          |
+|             | Jamaica,                     | Sweden               |
+|             | Jordan,                      | Spain                |
+|             | Kazakhstan,                  | Switzerland          |
+|             | Kuwait,                      | United Arab Emirates |
+|             | Lebanon,                     | United Kingdom       |
 
 ##
