@@ -77,6 +77,8 @@
 
 ## Uganda
 
+- [Uganda Genocide](https://ugfacts.net/uganda-genocide/)
+
 ## Vietnam
 
 - [Vietnam War | Wiki | 1955 - 1975](https://en.wikipedia.org/wiki/Vietnam_War)

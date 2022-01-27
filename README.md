@@ -8,6 +8,8 @@ E.T.Z GDP Prediction is a project in Python using ML, aiming to predict the GDP 
 
 ## [Scarping List](/Scraping/Scraping_List.md)
 
+## [Genocides and Wars Lists](</Photos/The Chosen ones/life_drop_conflicts/References.md>)
+
 ## Python Libraries Used
 
 - numpy
