@@ -21,8 +21,18 @@
 - ~~Remove unused code (functions, comments, returns etc...)~~
 - ~~Find top leading countries in each label for each DB~~
 - > property_price_scrape (add comments)
+
+## Presentation
+
 - > Presentation
-- > Rephrase the Questions
+- > Rephrase the Questions and made them clearer in the start of the presentation
+- Fix Graph on | Page 11
+- look in the repair folder and if needed
+- Add the fact that we did correlations | Page 17
+- Maybe remove Page 19-21
+- Elaborate on building the models | Page 24
+- Work on Page 25 and 27
+- Consider adding Pie plot | Page 39
 
 ## Clustering
 
