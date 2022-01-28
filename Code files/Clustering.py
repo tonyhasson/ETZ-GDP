@@ -1,25 +1,27 @@
 from imports import *
 
 dict = {
-    0:"Asia",
-    1:"Europe",
-    5:"Oceania",
-    6:"Africa",
-    2:"Central America" ,
-    3:"North America",
-    4:"South America"
+    0: "Asia",
+    1: "Europe",
+    5: "Oceania",
+    6: "Africa",
+    2: "Central America",
+    3: "North America",
+    4: "South America",
 }
 
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
-REMOVE_COLUMN = ["Continent","Least Developed Country", "Third World"]
+REMOVE_COLUMN = ["Continent", "Least Developed Country", "Third World"]
 
 df = pd.read_csv(FULL_DB_PATH)
 df_scrape = pd.read_csv(SCRAP_DB_PATH)
 Country_list = df["Country"].tolist()
 
 df_temp = df.drop(REMOVE_COLUMN, axis=1)
-df_total = df_temp[(df_temp["Country"] == Country_list) & (df["Year"]>=2009)].merge(df_scrape, on=["Country", "Year"])
+df_total = df_temp[(df_temp["Country"] == Country_list) & (df["Year"] >= 2009)].merge(
+    df_scrape, on=["Country", "Year"]
+)
 df_total.to_csv(r"../CSV files/df_total.csv", index=False)
 
 
@@ -292,11 +294,11 @@ def PCA_Total_graph(data, num_components):
     # ax.set_title("2 component PCA", fontsize=20)
     # plt.scatter(dataPCA[:,0], dataPCA[:,1],  cmap="plasma")
     # plt.show()
-    data.insert(len(data.columns) , "principal component 1", principalComponents[:, 0])
+    data.insert(len(data.columns), "principal component 1", principalComponents[:, 0])
     if num_components == 2:
-        data.insert(len(data.columns) , "principal component 2", principalComponents[:, 1])
-
-
+        data.insert(
+            len(data.columns), "principal component 2", principalComponents[:, 1]
+        )
 
     return data
 
@@ -309,7 +311,7 @@ def PCA_Cluster_Graph():
     Returns:
         data - dataframe with PCA
     """
-    for data,name in zip([df,df_scrape,df_total],("df","df_scrape","df_total")):
+    for data, name in zip([df, df_scrape, df_total], ("df", "df_scrape", "df_total")):
         data = PCA_Total_graph(data, 2)
         score, num_clusters = get_best_num_of_clusters_for_k_means(
             data[["principal component 1", "principal component 2"]],
@@ -345,18 +347,18 @@ def PCA_Cluster_Graph():
         data.insert(len(data.columns), "kmean-cluster", KmeansData)
         data.insert(len(data.columns), "dbscan-cluster", DBSCANData)
 
-        a1,a2=create_cluster_list(data)
+        print("Now Printing the Graphs for " + name)
+        a1, a2 = create_cluster_list(data)
 
-        for i,cluster in enumerate(data["kmean-cluster"].unique()):
-            print(cluster)
-            print(a1[i])
+        # for i, cluster in enumerate(data["kmean-cluster"].unique()):
+        #     print(cluster)
+        #     print(a1[i])
         # Kmean scatter plot
-        ComparePlot(data, num_clusters, score, "kmean-cluster",name)
+        ComparePlot(data, num_clusters, score, "kmean-cluster", name)
 
-
-        for i,cluster in enumerate(data["dbscan-cluster"].unique()):
-            print(cluster)
-            print(a2[i])
+        # for i, cluster in enumerate(data["dbscan-cluster"].unique()):
+        #     print(cluster)
+        #     print(a2[i])
         # DBScan scatter plot
         ComparePlot(data, best_eps, best_score, "dbscan-cluster", name)
 
@@ -374,20 +376,20 @@ def ComparePlot(data, num_clusters, score, label, name):
     """
     fig, axes = plt.subplots(1, 2, figsize=(20, 5))
     fig.suptitle(name + "\n " + label, fontsize=20)
-    if label=="kmean-cluster":
+    if label == "kmean-cluster":
         axes[0].set_title("Clusters:" + str(num_clusters) + ", Score: " + str(score))
     else:
         axes[0].set_title("Eps:" + str(num_clusters) + ", Score:" + str(score))
 
     for cluster in data[label].unique():
         axes[0].scatter(
-        data[data[label]==cluster]["principal component 1"],
-        data[data[label]==cluster]["principal component 2"],
-        label=cluster,
-        #c=data[label],
-        s=50,
-        cmap="plasma",
-    )
+            data[data[label] == cluster]["principal component 1"],
+            data[data[label] == cluster]["principal component 2"],
+            label=cluster,
+            # c=data[label],
+            s=50,
+            cmap="plasma",
+        )
     axes[0].legend()
 
     axes[1].set_title("World Continents")
@@ -399,9 +401,6 @@ def ComparePlot(data, num_clusters, score, label, name):
             cmap="plasma",
         )
     axes[1].legend()
-
-
-
 
     plt.show()
 
@@ -463,7 +462,7 @@ def find_best_epsilon(name):
 
     # Main For loop
     for column in columns:
-        # Prepate the data to cluster
+        # Prepare the data to cluster
         data = data[data["Year"] == 2020]
         data1 = data[column].copy()
 
@@ -479,8 +478,35 @@ def create_cluster_list(data):
     for cluster_num in data["dbscan-cluster"].unique():
         arr2.append(data[data["dbscan-cluster"] == cluster_num]["Country"].unique())
 
+    print("kmean-cluster")
+    pie_plot_cluster_list(data,arr1,"kmean-cluster")
+    print("dbscan-cluster")
+    pie_plot_cluster_list(data,arr2,"dbscan-cluster")
     return arr1,arr2
 
+
+def pie_plot_cluster_list(df,arr,label):
+    fig, ax = plt.subplots(2, 2, figsize=(20, 5))
+
+    k=0
+    for i in range(2):
+        for j in range(2):
+            try:
+                arr_tmp=[1 for c in arr[k]]
+                ax[i][j].pie(
+                    arr_tmp,
+                    labels=arr[k],
+                    shadow=True,
+                    startangle=90,
+                    autopct="%1.1f%%",
+                )
+                ax[i][j].set_title(df[label].unique()[k])
+                k+=1
+            except:
+                break
+
+
+    plt.show()
 
 
 # find_best_epsilon("full")
@@ -491,10 +517,7 @@ def create_cluster_list(data):
 # Cluster_Graphs("scrape")
 
 
-
-
 PCA_Cluster_Graph()
-
 
 
 # for data in [SCRAP_data]:

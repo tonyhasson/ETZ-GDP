@@ -82,9 +82,6 @@ Color_By_Country = {
     "United Arab Emirates":"green",
     "Iceland":"darkblue",
     "Luxembourg":"darkgreen",
-
-
-
 }
 
 ARR_COLOR = [
@@ -526,13 +523,12 @@ def top5bottom5countries():
 
 # Driver Code:
 if __name__ == "__main__":
-
     # df = df.fillna(0) # WHY?
     # line_plot(df)
     # mix_plot(df)
     # GDP_pie_plot()
     # sum_of_gdp_bar_graph()
-     # GDP_total_world_graph()
+    # GDP_total_world_graph()
     # top5bottom5countries()
     # Driver Code: Genocide & Wars List
     # FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
@@ -551,3 +547,4 @@ if __name__ == "__main__":
     #     ]:
     #         continue
     #     Genocide_Plots(label)
+    

@@ -140,13 +140,27 @@ def Continent_VS(df, label):
 
     # Calculate data for each continent.
     for i in YEARS:
-        year_Asia.append(df[(df["Year"] == i)         & (df["Continent"] == 0)][label].values.mean())
-        year_Africa.append(df[(df["Year"] == i)       & (df["Continent"] == 6)][label].values.mean())
-        year_Europe.append(df[(df["Year"] == i)       & (df["Continent"] == 1 )][label].values.mean())
-        year_NorthAmerica.append(df[(df["Year"] == i) & (df["Continent"] == 3)][label].values.mean())
-        year_CentAmerica.append(df[(df["Year"] == i)  & (df["Continent"] == 2)][label].values.mean())
-        year_SouthAmerica.append(df[(df["Year"] == i) & (df["Continent"] == 4)][label].values.mean())
-        year_Oceania.append(df[(df["Year"] == i)      & (df["Continent"] == 5)][label].values.mean())
+        year_Asia.append(
+            df[(df["Year"] == i) & (df["Continent"] == 0)][label].values.mean()
+        )
+        year_Africa.append(
+            df[(df["Year"] == i) & (df["Continent"] == 6)][label].values.mean()
+        )
+        year_Europe.append(
+            df[(df["Year"] == i) & (df["Continent"] == 1)][label].values.mean()
+        )
+        year_NorthAmerica.append(
+            df[(df["Year"] == i) & (df["Continent"] == 3)][label].values.mean()
+        )
+        year_CentAmerica.append(
+            df[(df["Year"] == i) & (df["Continent"] == 2)][label].values.mean()
+        )
+        year_SouthAmerica.append(
+            df[(df["Year"] == i) & (df["Continent"] == 4)][label].values.mean()
+        )
+        year_Oceania.append(
+            df[(df["Year"] == i) & (df["Continent"] == 5)][label].values.mean()
+        )
 
     # Adding each continent to the plot
     plt.plot(
@@ -302,7 +316,7 @@ def comp(df_full, df_scrap):
         None (Open CSV in Excel)
     """
 
-    ##create lists of columns to go compare between
+    # Create lists of columns to go compare between
     col_full = list(
         df_full.columns[
             (df_full.columns != "Country")
@@ -322,38 +336,38 @@ def comp(df_full, df_scrap):
     for i in col_full:
         for j in col_scrap:
 
-            ##get countries from df_scrap
+            # Get countries from df_scrap
             countries_scrap = df_scrap["Country"].unique()
 
-            ##get countries from df_full that are also in df_scrap
+            # Get countries from df_full that are also in df_scrap
             ser1_countries = df_full[
                 (df_full["Year"] >= 2009)
                 & (df_full["Year"] <= 2020)
                 & (df_full["Country"].isin(countries_scrap))
             ]["Country"]
 
-            ##create Data Frame out of df_full with column i
+            # Create Data Frame out of df_full with column i
             ser1 = df_full[
                 (df_full["Year"] >= 2009)
                 & (df_full["Year"] <= 2020)
                 & (df_full["Country"].isin(countries_scrap))
             ][i]
 
-            ##create Data Frame out of df_scrap with column j
+            # Create Data Frame out of df_scrap with column j
             ser2 = df_scrap[
                 (df_scrap["Year"] >= 2009)
                 & (df_scrap["Year"] <= 2020)
                 & (df_scrap["Country"].isin(ser1_countries.unique()))
             ][j]
 
-            ##create dictionary with details about the new Data Frame
+            # Create dictionary with details about the new Data Frame
             details = {
                 "Country": list(ser1_countries.values),
                 i: list(ser1.values),
                 j: list(ser2.values),
             }
 
-            ##create Data Frame with selected data,create correlations and create scatter plot
+            # Create Data Frame with selected data,create correlations and create scatter plot
             new_df = pd.DataFrame(details)
             Correlations(new_df)
 
@@ -363,13 +377,13 @@ df_scrap = pd.read_csv(SCRAP_DB_PATH)
 
 labels = df_full.columns
 
-## > Driver Code for the functions above:
+# > Driver Code for the functions above:
 
 # comp(df_full, df_scrap)
 # Correlations(df_full)
 # Correlations(df_scrap)
 
-## USA Russ China code:
+# USA Russ China code:
 # for label in labels:
 #     USA_RUSS_CHINA(df_full,label
 
@@ -388,7 +402,7 @@ for label in labels:
         continue
     Continent_VS(df_full, label)
 
-## LIFE expectancy
+# LIFE expectancy
 # Cont_expectancy(df_full, "Europe")
 
 # USSR | Genocide

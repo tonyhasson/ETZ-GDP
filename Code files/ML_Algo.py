@@ -11,9 +11,6 @@ CANT_BE_NEG_FULL = [
     "Population Total",
     "Military Spendings ($)",
     "Military expenditure (% of GDP)",
-
-
-
 ]
 
 CANT_BE_NEG_SCRAP = [
