@@ -24,7 +24,6 @@
 
 ## Presentation
 
-- > Presentation
 - ~~Rephrase the Questions and made them clearer in the start of the presentation~~
 - ~~look in the repair folder and if needed~~
 - ~~Fix Graph on | Page 11~~
@@ -34,6 +33,7 @@
 - ~~Work on Page 25 and 27~~
 - ~~Expenditure vs expenses? what the differences ?~~
 - ~~Consider adding Pie plot | Page 39~~
+- > Presentation
 
 ## Clustering
 
