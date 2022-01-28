@@ -119,15 +119,15 @@ def Continent_VS(df, label):
         label (string): The target label.
     """
 
-    # Initalization
+    # Initialization
     # dict = {
     #     "Asia": 0,
     #     "Europe": 1,
-    #     "Oceania": 5,
-    #     "Africa": 6,
     #     "Central America": 2,
     #     "North America": 3,
     #     "South America": 4,
+    #     "Oceania": 5,
+    #     "Africa": 6,
     # }
 
     year_Asia = []
@@ -373,7 +373,7 @@ labels = df_full.columns
 # for label in labels:
 #     USA_RUSS_CHINA(df_full,label
 
-#Continent mean values:
+# Continent mean values:
 for label in labels:
     if label in [
         "Country",
