@@ -16,7 +16,7 @@ def GDP_estimated():
     total_year = [year for year in range(1960, 2031)]
     prediction_year = [[year] for year in range(2021, 2031)]
     GDP_est_data = []
-    sumR2score=0
+    sumR2score = 0
 
     # Drop all unnecessary columns
     df = df[["Year", "Country", "GDP Total"]]
@@ -35,7 +35,9 @@ def GDP_estimated():
         lr = make_pipeline(PolynomialFeatures(degree={2, 5}), LinearRegression())
 
         # Split the data
-        x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+        x_train, x_test, y_train, y_test = train_test_split(
+            X, y, test_size=0.2, random_state=0
+        )
 
         # Fit the model
         lr.fit(x_train.values, y_train)
@@ -52,7 +54,7 @@ def GDP_estimated():
 
         # Sum the R2 score
         y_pred = lr.predict(x_test.values)
-        sumR2score+=r2_score(y_test, y_pred)
+        sumR2score += r2_score(y_test, y_pred)
 
         ############################################# Plot the data
         # plt.plot(df_a['Year'], df_a['GDP Total'])
@@ -66,8 +68,9 @@ def GDP_estimated():
         columns=["Country", "Year", "GDP Total"],
     )
     GDP_est_df.to_csv(r"../CSV FILES/GDP est.csv", index=False)
-    print("Avg R2 Score:",sumR2score/len(df["Country"].unique()))
+    print("Avg R2 Score:", sumR2score / len(df["Country"].unique()))
     return GDP_est_df
+
 
 if __name__ == "__main__":
     GDP_estimated()

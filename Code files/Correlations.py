@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 from imports import *
 
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
@@ -85,6 +87,8 @@ def Correlations(df):
         for j in range(len(df_corr[i])):
             if (df_corr[i][j] > 0.4 or df_corr[i][j] < -0.3) and i != j:
                 Plot(df, cols[i], cols[j], df_corr[i][j])
+    # ax = sns.heatmap(df.corr(),linewidths=1)
+    # plt.show()
 
 
 #  in RUSS_CHINA_USA
@@ -118,41 +122,49 @@ def Continent_VS(df, label):
         df (dataframe): dataframe containing our data.
         label (string): The target label.
     """
+
+    # Initialization
+    # dict = {
+    #     "Asia": 0,
+    #     "Europe": 1,
+    #     "Central America": 2,
+    #     "North America": 3,
+    #     "South America": 4,
+    #     "Oceania": 5,
+    #     "Africa": 6,
+    # }
+
+    year_Asia = []
+    year_Europe = []
+    year_Africa = []
+    year_NorthAmerica = []
+    year_SouthAmerica = []
+    year_CentAmerica = []
+    year_Oceania = []
+
     # Calculate data for each continent.
-    year_Asia = [
-        df[(df["Continent"] == "Asia") & (df["Year"] == i)][label].values.mean()
-        for i in range(1960, 2021)
-    ]
-    year_Africa = [
-        df[(df["Continent"] == "Africa") & (df["Year"] == i)][label].values.mean()
-        for i in range(1960, 2021)
-    ]
-    year_Europe = [
-        df[(df["Continent"] == "Europe") & (df["Year"] == i)][label].values.mean()
-        for i in range(1960, 2021)
-    ]
-    year_NorthAmerica = [
-        df[(df["Continent"] == "North America") & (df["Year"] == i)][
-            label
-        ].values.mean()
-        for i in range(1960, 2021)
-    ]
-    year_CentAmerica = [
-        df[(df["Continent"] == "Central America") & (df["Year"] == i)][
-            label
-        ].values.mean()
-        for i in range(1960, 2021)
-    ]
-    year_SouthAmerica = [
-        df[(df["Continent"] == "South America") & (df["Year"] == i)][
-            label
-        ].values.mean()
-        for i in range(1960, 2021)
-    ]
-    year_Oceania = [
-        df[(df["Continent"] == "Oceania") & (df["Year"] == i)][label].values.mean()
-        for i in range(1960, 2021)
-    ]
+    for i in YEARS:
+        year_Asia.append(
+            df[(df["Year"] == i) & (df["Continent"] == 0)][label].values.mean()
+        )
+        year_Africa.append(
+            df[(df["Year"] == i) & (df["Continent"] == 6)][label].values.mean()
+        )
+        year_Europe.append(
+            df[(df["Year"] == i) & (df["Continent"] == 1)][label].values.mean()
+        )
+        year_NorthAmerica.append(
+            df[(df["Year"] == i) & (df["Continent"] == 3)][label].values.mean()
+        )
+        year_CentAmerica.append(
+            df[(df["Year"] == i) & (df["Continent"] == 2)][label].values.mean()
+        )
+        year_SouthAmerica.append(
+            df[(df["Year"] == i) & (df["Continent"] == 4)][label].values.mean()
+        )
+        year_Oceania.append(
+            df[(df["Year"] == i) & (df["Continent"] == 5)][label].values.mean()
+        )
 
     # Adding each continent to the plot
     plt.plot(
@@ -194,36 +206,6 @@ def Continent_VS(df, label):
     plt.ylabel(label)
     plt.legend()
     plt.show()
-
-
-# Tarbot bizbuz west VS east
-def Big_spender(df):
-    # https://stackabuse.com/seaborn-scatter-plot-tutorial-and-examples/
-    # EU/ASIA -> minus russia
-    WEST = ["Europe", "North America", "Central America", "Oceania"]
-    EAST = ["Asia"]
-    USELESS = ["Africa", "South America"]
-    # grid = sns.FacetGrid(df, col="Continent", hue="Continent", col_wrap=2)
-    ## East VS West
-    # grid.map(
-    #     sns.scatterplot,
-    #     df[(df["Continent"] in  WEST) & (df["Government expenditure (% of GDP)"].mean())],
-    #     df[(df["Continent"] ==  "Asia") & (df["Government expenditure (% of GDP)"].mean())],
-    # )
-    ## Year VS Population
-    # grid.map(
-    #     sns.scatterplot,
-    #     "Year",
-    #     "Population Total",
-    # )
-    ## Year VS Government expenses
-    # grid.map(
-    #     sns.scatterplot,
-    #     "Year", # X
-    #     "Government expenditure (% of GDP)",   # Y
-    # )
-    # grid.add_legend()
-    # ocan_list = df[df["Continent"] == "Oceania"]["Country"].unique()
 
 
 def world_leaders(df, label, country_list):
@@ -338,7 +320,7 @@ def comp(df_full, df_scrap):
         None (Open CSV in Excel)
     """
 
-    ##create lists of columns to go compare between
+    # Create lists of columns to go compare between
     col_full = list(
         df_full.columns[
             (df_full.columns != "Country")
@@ -358,38 +340,38 @@ def comp(df_full, df_scrap):
     for i in col_full:
         for j in col_scrap:
 
-            ##get countries from df_scrap
+            # Get countries from df_scrap
             countries_scrap = df_scrap["Country"].unique()
 
-            ##get countries from df_full that are also in df_scrap
+            # Get countries from df_full that are also in df_scrap
             ser1_countries = df_full[
                 (df_full["Year"] >= 2009)
                 & (df_full["Year"] <= 2020)
                 & (df_full["Country"].isin(countries_scrap))
             ]["Country"]
 
-            ##create Data Frame out of df_full with column i
+            # Create Data Frame out of df_full with column i
             ser1 = df_full[
                 (df_full["Year"] >= 2009)
                 & (df_full["Year"] <= 2020)
                 & (df_full["Country"].isin(countries_scrap))
             ][i]
 
-            ##create Data Frame out of df_scrap with column j
+            # Create Data Frame out of df_scrap with column j
             ser2 = df_scrap[
                 (df_scrap["Year"] >= 2009)
                 & (df_scrap["Year"] <= 2020)
                 & (df_scrap["Country"].isin(ser1_countries.unique()))
             ][j]
 
-            ##create dictionary with details about the new Data Frame
+            # Create dictionary with details about the new Data Frame
             details = {
                 "Country": list(ser1_countries.values),
                 i: list(ser1.values),
                 j: list(ser2.values),
             }
 
-            ##create Data Frame with selected data,create correlations and create scatter plot
+            # Create Data Frame with selected data,create correlations and create scatter plot
             new_df = pd.DataFrame(details)
             Correlations(new_df)
 
@@ -399,32 +381,32 @@ df_scrap = pd.read_csv(SCRAP_DB_PATH)
 
 labels = df_full.columns
 
-## > Driver Code for the functions above:
+# > Driver Code for the functions above:
 
 # comp(df_full, df_scrap)
 # Correlations(df_full)
 # Correlations(df_scrap)
 
-## USA Russ China code:
+# USA Russ China code:
 # for label in labels:
 #     USA_RUSS_CHINA(df_full,label
 
-## Continent mean values:
-# for label in labels:
-#     if label in [
-#         "Country",
-#         "Year",
-#         "Continent",
-#         "GDP Growth",
-#         "Government expenditure (% of GDP)",
-#         "Total government Expenses (% of GDP)",
-#         "Military expenditure (% of GDP)",
-#         "Population Growth pace",
-#     ]:
-#         continue
-#     Continent_VS(df_full, label)
+# Continent mean values:
+for label in labels:
+    if label in [
+        "Country",
+        "Year",
+        "Continent",
+        "GDP Growth",
+        "Government expenditure (% of GDP)",
+        "Total government Expenses (% of GDP)",
+        "Military expenditure (% of GDP)",
+        "Population Growth pace",
+    ]:
+        continue
+    Continent_VS(df_full, label)
 
-## LIFE expectancy
+# LIFE expectancy
 # Cont_expectancy(df_full, "Europe")
 
 # USSR | Genocide
@@ -473,4 +455,5 @@ labels = df_full.columns
 
 ##
 if __name__ == "__main__":
+    Correlations(df_full)
     pass

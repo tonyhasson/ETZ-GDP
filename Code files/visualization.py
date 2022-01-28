@@ -82,9 +82,6 @@ Color_By_Country = {
     "United Arab Emirates":"green",
     "Iceland":"darkblue",
     "Luxembourg":"darkgreen",
-
-
-
 }
 
 ARR_COLOR = [
@@ -263,6 +260,7 @@ def mix_plot(df):
         "South America": 0,
     }
     total = 0
+
     for c in df["Country"].unique():
         dict[df[df["Country"] == c]["Continent"].unique()[0]] += 1
         total += 1
@@ -322,31 +320,6 @@ def mix_plot(df):
     plt.title("Continents vs GDP")
     plt.show()
 
-    #
-    # i = 0
-    # for contint in df["Continent"].unique():
-    #     x = []
-    #     y = []
-    #     for year in range(
-    #         min(df[df["Continent"] == contint]["Year"]),
-    #         max(df[df["Continent"] == contint]["Year"]),
-    #     ):
-    #         x.append(
-    #             (
-    #                 df[(df["Continent"] == contint) & (df["Year"] == year)][
-    #                     "GDP Total"
-    #                 ].median()
-    #             )
-    #         )
-    #         y.append(year)
-    #     plt.plot(y, x, color=ARR_COLOR[i])
-    #     i += 1
-    #
-    # plt.xlabel("Year")
-    # plt.ylabel("GDP")
-    # plt.legend(df["Continent"].unique(), loc="upper left")
-    # plt.title("AVG GDP per continent along 1960-2020")
-    # plt.show()
 
 
 def Stack_GDP(ax, df):
@@ -548,9 +521,10 @@ def top5bottom5countries():
 
 
 
+
+
 # Driver Code:
 if __name__ == "__main__":
-
     # df = df.fillna(0) # WHY?
     # line_plot(df)
     # mix_plot(df)
@@ -575,3 +549,4 @@ if __name__ == "__main__":
     #     ]:
     #         continue
     #     Genocide_Plots(label)
+    
