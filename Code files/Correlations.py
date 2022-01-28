@@ -118,41 +118,35 @@ def Continent_VS(df, label):
         df (dataframe): dataframe containing our data.
         label (string): The target label.
     """
+
+    # Initalization
+    # dict = {
+    #     "Asia": 0,
+    #     "Europe": 1,
+    #     "Oceania": 5,
+    #     "Africa": 6,
+    #     "Central America": 2,
+    #     "North America": 3,
+    #     "South America": 4,
+    # }
+
+    year_Asia = []
+    year_Europe = []
+    year_Africa = []
+    year_NorthAmerica = []
+    year_SouthAmerica = []
+    year_CentAmerica = []
+    year_Oceania = []
+
     # Calculate data for each continent.
-    year_Asia = [
-        df[(df["Continent"] == "Asia") & (df["Year"] == i)][label].values.mean()
-        for i in range(1960, 2021)
-    ]
-    year_Africa = [
-        df[(df["Continent"] == "Africa") & (df["Year"] == i)][label].values.mean()
-        for i in range(1960, 2021)
-    ]
-    year_Europe = [
-        df[(df["Continent"] == "Europe") & (df["Year"] == i)][label].values.mean()
-        for i in range(1960, 2021)
-    ]
-    year_NorthAmerica = [
-        df[(df["Continent"] == "North America") & (df["Year"] == i)][
-            label
-        ].values.mean()
-        for i in range(1960, 2021)
-    ]
-    year_CentAmerica = [
-        df[(df["Continent"] == "Central America") & (df["Year"] == i)][
-            label
-        ].values.mean()
-        for i in range(1960, 2021)
-    ]
-    year_SouthAmerica = [
-        df[(df["Continent"] == "South America") & (df["Year"] == i)][
-            label
-        ].values.mean()
-        for i in range(1960, 2021)
-    ]
-    year_Oceania = [
-        df[(df["Continent"] == "Oceania") & (df["Year"] == i)][label].values.mean()
-        for i in range(1960, 2021)
-    ]
+    for i in YEARS:
+        year_Asia.append(df[(df["Year"] == i)         & (df["Continent"] == 0)][label].values.mean())
+        year_Africa.append(df[(df["Year"] == i)       & (df["Continent"] == 6)][label].values.mean())
+        year_Europe.append(df[(df["Year"] == i)       & (df["Continent"] == 1 )][label].values.mean())
+        year_NorthAmerica.append(df[(df["Year"] == i) & (df["Continent"] == 3)][label].values.mean())
+        year_CentAmerica.append(df[(df["Year"] == i)  & (df["Continent"] == 2)][label].values.mean())
+        year_SouthAmerica.append(df[(df["Year"] == i) & (df["Continent"] == 4)][label].values.mean())
+        year_Oceania.append(df[(df["Year"] == i)      & (df["Continent"] == 5)][label].values.mean())
 
     # Adding each continent to the plot
     plt.plot(
@@ -194,36 +188,6 @@ def Continent_VS(df, label):
     plt.ylabel(label)
     plt.legend()
     plt.show()
-
-
-# Tarbot bizbuz west VS east
-def Big_spender(df):
-    # https://stackabuse.com/seaborn-scatter-plot-tutorial-and-examples/
-    # EU/ASIA -> minus russia
-    WEST = ["Europe", "North America", "Central America", "Oceania"]
-    EAST = ["Asia"]
-    USELESS = ["Africa", "South America"]
-    # grid = sns.FacetGrid(df, col="Continent", hue="Continent", col_wrap=2)
-    ## East VS West
-    # grid.map(
-    #     sns.scatterplot,
-    #     df[(df["Continent"] in  WEST) & (df["Government expenditure (% of GDP)"].mean())],
-    #     df[(df["Continent"] ==  "Asia") & (df["Government expenditure (% of GDP)"].mean())],
-    # )
-    ## Year VS Population
-    # grid.map(
-    #     sns.scatterplot,
-    #     "Year",
-    #     "Population Total",
-    # )
-    ## Year VS Government expenses
-    # grid.map(
-    #     sns.scatterplot,
-    #     "Year", # X
-    #     "Government expenditure (% of GDP)",   # Y
-    # )
-    # grid.add_legend()
-    # ocan_list = df[df["Continent"] == "Oceania"]["Country"].unique()
 
 
 def world_leaders(df, label, country_list):
@@ -409,20 +373,20 @@ labels = df_full.columns
 # for label in labels:
 #     USA_RUSS_CHINA(df_full,label
 
-## Continent mean values:
-# for label in labels:
-#     if label in [
-#         "Country",
-#         "Year",
-#         "Continent",
-#         "GDP Growth",
-#         "Government expenditure (% of GDP)",
-#         "Total government Expenses (% of GDP)",
-#         "Military expenditure (% of GDP)",
-#         "Population Growth pace",
-#     ]:
-#         continue
-#     Continent_VS(df_full, label)
+#Continent mean values:
+for label in labels:
+    if label in [
+        "Country",
+        "Year",
+        "Continent",
+        "GDP Growth",
+        "Government expenditure (% of GDP)",
+        "Total government Expenses (% of GDP)",
+        "Military expenditure (% of GDP)",
+        "Population Growth pace",
+    ]:
+        continue
+    Continent_VS(df_full, label)
 
 ## LIFE expectancy
 # Cont_expectancy(df_full, "Europe")

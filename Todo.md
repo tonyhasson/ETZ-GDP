@@ -20,7 +20,7 @@
 - ~~Prediction on which countries has positive growth and which negative one~~
 - ~~Remove unused code (functions, comments, returns etc...)~~
 - ~~Find top leading countries in each label for each DB~~
-- > property_price_scrape (add comments)
+- property_price_scrape (add comments)
 
 ## Presentation
 

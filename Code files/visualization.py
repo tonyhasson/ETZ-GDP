@@ -263,6 +263,7 @@ def mix_plot(df):
         "South America": 0,
     }
     total = 0
+
     for c in df["Country"].unique():
         dict[df[df["Country"] == c]["Continent"].unique()[0]] += 1
         total += 1
@@ -322,31 +323,6 @@ def mix_plot(df):
     plt.title("Continents vs GDP")
     plt.show()
 
-    #
-    # i = 0
-    # for contint in df["Continent"].unique():
-    #     x = []
-    #     y = []
-    #     for year in range(
-    #         min(df[df["Continent"] == contint]["Year"]),
-    #         max(df[df["Continent"] == contint]["Year"]),
-    #     ):
-    #         x.append(
-    #             (
-    #                 df[(df["Continent"] == contint) & (df["Year"] == year)][
-    #                     "GDP Total"
-    #                 ].median()
-    #             )
-    #         )
-    #         y.append(year)
-    #     plt.plot(y, x, color=ARR_COLOR[i])
-    #     i += 1
-    #
-    # plt.xlabel("Year")
-    # plt.ylabel("GDP")
-    # plt.legend(df["Continent"].unique(), loc="upper left")
-    # plt.title("AVG GDP per continent along 1960-2020")
-    # plt.show()
 
 
 def Stack_GDP(ax, df):
@@ -556,7 +532,7 @@ if __name__ == "__main__":
     # mix_plot(df)
     # GDP_pie_plot()
     # sum_of_gdp_bar_graph()
-    # GDP_total_world_graph()
+     # GDP_total_world_graph()
     # top5bottom5countries()
     # Driver Code: Genocide & Wars List
     # FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
