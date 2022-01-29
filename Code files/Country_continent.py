@@ -8,7 +8,8 @@ from imports import *
 
 def load_soup_object():
     """load soup object from hardcoded url.
-
+    Args:
+        None
     Returns:
         soup: soup object for the hardcoded url.
     """
@@ -45,6 +46,9 @@ def beautiful_data(country):
 
 def scrap_country():
     """scrapper that gets each continent's country names.
+
+    Args:
+        None
 
     Returns:
         dictionary: dict containing country names and their corresponding continent.

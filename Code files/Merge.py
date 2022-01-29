@@ -25,7 +25,7 @@ SCRAP_CSV_FILES = [
 ]
 
 # Deleted Countries:
-# "Marshall Islands", #"Palau", #"Nauru", #"Tuvalu", #"Dominica", "North Korea"
+# "Marshall Islands", "Palau", "Nauru", "Tuvalu", "Dominica", "North Korea"
 List_Of_Countries = [
     "Republic of the Congo",
     "Democratic Republic of the Congo",

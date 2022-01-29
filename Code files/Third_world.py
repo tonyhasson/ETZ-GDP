@@ -4,6 +4,8 @@ from imports import *
 def load_soup_object():
     """load soup object from hardcoded url.
 
+    Args:
+        None
     Returns:
         soup: soup object for the hardcoded url.
     """
@@ -17,6 +19,8 @@ def load_soup_object():
 def scrap_third():
     """scrapper that gets all third world countries.
 
+    Args:
+        None
     Returns:
         list: list containing country names.
     """
@@ -38,6 +42,7 @@ def scrap_third():
     return names
 
 
+# Driver Code:
 country_list = scrap_third()
 
 third_world_countries = pd.DataFrame(country_list, columns=["Country"])

@@ -5,15 +5,13 @@ df = pd.read_csv(FULL_DB_PATH)
 
 
 def GDP_estimated():
-    """Regres and calcuate the GDP in the next decade
+    """Regress and calculate the GDP in the next decade
     Args:
-        df: dataframe (full_db)
-        R: testing purposes
+        None
     Returns:
-        None ()
+        None
     """
     global df
-    total_year = [year for year in range(1960, 2031)]
     prediction_year = [[year] for year in range(2021, 2031)]
     GDP_est_data = []
     sumR2score = 0
@@ -56,13 +54,15 @@ def GDP_estimated():
         y_pred = lr.predict(x_test.values)
         sumR2score += r2_score(y_test, y_pred)
 
-        ############################################# Plot the data
+        ## Plot the data
+        # total_year = [year for year in range(1960, 2031)]
         # plt.plot(df_a['Year'], df_a['GDP Total'])
         # plt.plot(total_year,total_values, color='red', linewidth=1)
         # plt.title("Country: %s   R2: %.02f"%(country, r2_score(y_test,y_pred)))
         # plt.xlabel('Year')
         # plt.ylabel('GDP Total')
         # plt.show()
+
     GDP_est_df = pd.DataFrame(
         GDP_est_data,
         columns=["Country", "Year", "GDP Total"],

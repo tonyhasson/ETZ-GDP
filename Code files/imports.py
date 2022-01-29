@@ -1,4 +1,4 @@
-# Usefull Paths
+# Useful Paths
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
 

@@ -4,6 +4,9 @@ from imports import *
 def load_soup_object(URL, year):
     """load soup object from givin url with specific year.
 
+    Args:
+        URL (string): URL to do scraping on.
+        year (int): year to start format from.
     Returns:
         soup: soup object for the url.
     """

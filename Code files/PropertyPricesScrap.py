@@ -13,6 +13,15 @@ def create_list(txt):
 
 
 def list_split(listA, n):
+    """Function to split a list into n parts
+
+    Args:
+        listA: list to be split
+        n: number of parts
+
+    Returns:
+        list: list of n parts
+    """
     # https://appdividend.com/2021/06/15/how-to-split-list-in-python/
     arr_save = []
     for x in range(0, len(listA), n):
@@ -26,6 +35,14 @@ def list_split(listA, n):
 
 
 def parse_page():
+    """Function to parse the page and prints the dataframe
+
+    Args:
+        None
+
+    Returns:
+        None
+    """
     # First time getting col_names:
     url = (
         "https://www.numbeo.com/property-investment/rankings_by_country.jsp?title=2009"

@@ -56,6 +56,9 @@ def Plot(df, col1, col2, data_title):
         col1 (string): Target column to plot with.
         col2 (string): Target column to plot with.
         data_title (string): Data title for the plot.
+
+    Returns:
+        None
     """
     plt.scatter(df[col1], df[col2])
     plt.xlabel(col1)
@@ -77,6 +80,9 @@ def Correlations(df):
 
     Args:
         df (dataframe): Our dataframe containing the data
+
+    Returns:
+        None
     """
     # df.drop(["Country", "Year", "Continent"], axis=1, inplace=True)
     df.drop("Country", axis=1, inplace=True)
@@ -90,9 +96,16 @@ def Correlations(df):
     # plt.show()
 
 
-#  in RUSS_CHINA_USA
-# Edu rank (1990+) | Total Consumption | GDP total | Life Expectancy | Population total |
 def USA_RUSS_CHINA(df, label):
+    """Function to print plot between USA, Russia and China with the given label
+
+    Args:
+        df (dataframe): Our dataframe containing the data.
+        col1 (string): Target column to plot with.
+
+    Returns:
+        None
+    """
     plt.plot(
         df[df["Country"] == "United States"]["Year"],
         df[df["Country"] == "United States"][label],
@@ -120,9 +133,12 @@ def Continent_VS(df, label):
     Args:
         df (dataframe): dataframe containing our data.
         label (string): The target label.
+
+    Returns:
+        None
     """
 
-    # Initialization
+    # Continents Initialized as:
     # dict = {
     #     "Asia": 0,
     #     "Europe": 1,
@@ -208,6 +224,16 @@ def Continent_VS(df, label):
 
 
 def world_leaders(df, label, country_list):
+    """Plot the giving label for each continent.
+
+    Args:
+        df (dataframe): dataframe containing our data.
+        label (string): The target label.
+        country_list (list): List of countries to plot.
+
+    Returns:
+        None
+    """
     for c in country_list:
         plt.plot(
             YEARS,
@@ -222,6 +248,14 @@ def world_leaders(df, label, country_list):
 
 
 def pop_show(df):
+    """Plot the population of each country.
+
+    Args:
+        df (dataframe): dataframe containing our data.
+
+    Returns:
+        None
+    """
     countries_name = df["Country"].unique()
     above_100 = below_100 = 0
     for c in countries_name:
@@ -243,6 +277,9 @@ def Cont_expectancy(df, cont):
     Args:
         df (dataframe): Dataframe containing our data.
         cont (string): The target continent.
+
+    Returns:
+        None
     """
     ocan_list = df[df["Continent"] == cont]["Country"].unique()
 
@@ -269,6 +306,9 @@ def Ussr(df, label):
     Args:
         df (dataframe): Dataframe containing our data.
         label (string): The target label.
+
+    Returns:
+        None
     """
     country_list = df[df["Country"].isin(USSR_list)]["Country"].unique()
     for c in country_list:
@@ -290,6 +330,9 @@ def Genocide(df, label):
     Args:
         df (DataFrame): Dataframe containing our data.
         label (string): The target label.
+
+    Returns:
+        None
     """
     country_list = df[df["Country"].isin(GENOCIDE_list)]["Country"].unique()
     for i, c in enumerate(country_list):
@@ -316,9 +359,8 @@ def comp(df_full, df_scrap):
         df_full (Data Frame): Data Frame with the csv data
         df_scrap (Data Frame): Data Frame with the scraping data
     Returns:
-        None (Open CSV in Excel)
+        None (*Optionally Opens the CSV)
     """
-
     # Create lists of columns to go compare between
     col_full = list(
         df_full.columns[
@@ -386,9 +428,11 @@ labels = df_full.columns
 # Correlations(df_full)
 # Correlations(df_scrap)
 
+
+# Edu rank (1990+) | Total Consumption | GDP total | Life Expectancy | Population total |
 # USA Russ China code:
 # for label in labels:
-#     USA_RUSS_CHINA(df_full,label
+#     USA_RUSS_CHINA(df_full,label)
 
 # Continent mean values:
 # TODO - this for loop starts automatically, maybe move to function?
