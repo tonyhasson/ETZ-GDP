@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
-
 from imports import *
-#from GDPlinearregres import GDP_estimated
 from Correlations import GENOCIDE_list
+
+# from GDPlinearregres import GDP_estimated
 
 df = pd.read_csv(FULL_DB_PATH)
 df_total = pd.read_csv(r"..\CSV files\df_total.csv")
@@ -111,6 +111,7 @@ ARR_COLOR = [
     "lime",
 ]
 
+
 def pie_per_year(ax, df, year):
     GDP = []
     labels = []
@@ -189,8 +190,6 @@ def GDP_pie_plot():
     plt.show()
 
 
-
-
 def country_cont_dist():
     # show continent pie
 
@@ -203,7 +202,6 @@ def country_cont_dist():
     #     3: "North America",
     #     4: "South America",
     # }
-
 
     dict = {
         "0": 0,
@@ -247,7 +245,6 @@ def country_cont_dist():
     plt.show()
 
 
-
 def scatter_gdp_conts():
 
     ##displays the countries according to gdp in scatter in year 2020
@@ -271,7 +268,6 @@ def scatter_gdp_conts():
     plt.ylabel("GDP")
     plt.legend(df["Continent"].unique(), loc="upper left")
     plt.show()
-
 
 
 def GDP_vs_Cont_Bar():
@@ -431,7 +427,7 @@ def Genocide_Plots():
             "Year",
             "Continent",
             "Government expenditure (% of GDP)",
-            "Military expenditure (% of GDP)"
+            "Military expenditure (% of GDP)",
             "Total government Expenses (% of GDP)",
             "Total consumption ($)",
             "Least Developed Country",
@@ -514,13 +510,11 @@ def Run():
             Genocide_Plots()
         elif int(UserInput) == 5:
             top5bottom5countries()
-        elif int(UserInput)==6:
+        elif int(UserInput) == 6:
             country_cont_dist()
-        elif int(UserInput)==7:
+        elif int(UserInput) == 7:
             scatter_gdp_conts()
-        elif int(UserInput)==8:
+        elif int(UserInput) == 8:
             GDP_vs_Cont_Bar()
         else:
             break
-
-Run()
