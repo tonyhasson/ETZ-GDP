@@ -477,20 +477,20 @@ def create_cluster_list(data):
         arr2.append(data[data["dbscan-cluster"] == cluster_num]["Country"].unique())
 
     print("kmean-cluster")
-    pie_plot_cluster_list(data,arr1,"kmean-cluster")
+    pie_plot_cluster_list(data, arr1, "kmean-cluster")
     print("dbscan-cluster")
-    pie_plot_cluster_list(data,arr2,"dbscan-cluster")
-    return arr1,arr2
+    pie_plot_cluster_list(data, arr2, "dbscan-cluster")
+    return arr1, arr2
 
 
-def pie_plot_cluster_list(df,arr,label):
+def pie_plot_cluster_list(df, arr, label):
     fig, ax = plt.subplots(2, 2, figsize=(20, 5))
 
-    k=0
+    k = 0
     for i in range(2):
         for j in range(2):
             try:
-                arr_tmp=[1 for c in arr[k]]
+                arr_tmp = [1 for c in arr[k]]
                 ax[i][j].pie(
                     arr_tmp,
                     labels=arr[k],
@@ -499,13 +499,11 @@ def pie_plot_cluster_list(df,arr,label):
                     autopct="%1.1f%%",
                 )
                 ax[i][j].set_title(df[label].unique()[k])
-                k+=1
+                k += 1
             except:
                 break
 
-
     plt.show()
-
 
 
 # TODO check what can we remove, delete old comments that are unneeded

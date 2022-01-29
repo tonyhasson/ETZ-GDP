@@ -1,6 +1,6 @@
 from imports import *
 from GDPlinearregres import GDP_estimated
-from Correlations import GENOCIDE_list as G_list
+from Correlations import GENOCIDE_list
 
 df = pd.read_csv(FULL_DB_PATH)
 df_total = pd.read_csv(r"..\CSV files\df_total.csv")
@@ -47,7 +47,7 @@ Color_By_Country = {
     "Belgium": "lightpink",
     "Norway": "lightgrey",
     "Poland": "lightcyan",
-    "Ireland" : "orange",
+    "Ireland": "orange",
     "Ivory Coast": "darkorange",
     "Tanzania": "teal",
     "Somalia": "darkturquoise",
@@ -56,8 +56,8 @@ Color_By_Country = {
     "Uganda": "gold",
     "Belarus": "red",
     "Hungary": "darkred",
-    "Malta":"purple",
-    "Kuwait":"darkblue",
+    "Malta": "purple",
+    "Kuwait": "darkblue",
     "Greece": "brown",
     "Cyprus": "pink",
     "Singapore": "darkgreen",
@@ -69,19 +69,19 @@ Color_By_Country = {
     "Lebanon": "aquamarine",
     "Malaysia": "azure",
     "Sri Lanka": "darkgoldenrod",
-    "Syria":"ivory",
-    "Cambodia":"coral",
-    "Laos":"orangered",
-    "Ghana":"olive",
-    "Fiji":"lavender",
-    "Mauritius":"magenta",
-    "Guinea":"salmon",
-    "Libya":"lime",
-    "Belize":"red",
-    "Mali":"darkgreen",
-    "United Arab Emirates":"green",
-    "Iceland":"darkblue",
-    "Luxembourg":"darkgreen",
+    "Syria": "ivory",
+    "Cambodia": "coral",
+    "Laos": "orangered",
+    "Ghana": "olive",
+    "Fiji": "lavender",
+    "Mauritius": "magenta",
+    "Guinea": "salmon",
+    "Libya": "lime",
+    "Belize": "red",
+    "Mali": "darkgreen",
+    "United Arab Emirates": "green",
+    "Iceland": "darkblue",
+    "Luxembourg": "darkgreen",
 }
 
 ARR_COLOR = [
@@ -321,7 +321,6 @@ def mix_plot(df):
     plt.show()
 
 
-
 def Stack_GDP(ax, df):
     """Stack GDP inorder to show stacked bar chart
     Args:
@@ -451,7 +450,7 @@ def GDP_total_world_graph():
     plt.show()
 
 
-def Genocide_Plots(label):
+def Genocide_Plots():
     """Display Graph Showing the total GDP of the 'Genocide List' countries per year (line graph)
 
     Args:
@@ -459,29 +458,38 @@ def Genocide_Plots(label):
     Returns:
         None - displays graph
     """
+    for label in df.columns:
+        if label in [  # label we don't want to see:
+            "Country",
+            "Year",
+            "Continent",
+            "Government expenditure (% of GDP)",
+            "Military expenditure (% of GDP)"
+            "Total government Expenses (% of GDP)",
+            "Total consumption ($)",
+            "Least Developed Country",
+            "Third World",
+        ]:
+            continue
+        # else:
+        i = 0
+        for country in GENOCIDE_list:
+            x = []
+            y = []
+            for year in range(1960, 2021):
+                x.append((df[(df["Country"] == country) & (df["Year"] == year)][label]))
+                y.append(year)
+            plt.plot(y, x, color=ARR_COLOR[i])
+            i += 1
 
-    i = 0
-    for country in G_list:
-        x = []
-        y = []
-        for year in range(1960, 2021):
-            x.append(
-                (
-                    df[(df["Country"] == country) & (df["Year"] == year)][label]
-                )
-            )
-            y.append(year)
-        plt.plot(y, x, color=ARR_COLOR[i])
-        i += 1
+        plt.xlabel("Year")
+        plt.ylabel(label)
+        plt.legend(GENOCIDE_list, loc="upper left")
+        plt.title(f"{label} per 'Genocide & Wars' List along 1960-2020")
+        plt.show()
 
-    plt.xlabel("Year")
-    plt.ylabel(label)
-    plt.legend(G_list, loc="upper left")
-    plt.title(f"{label} per Genocide & Wars List along 1960-2020")
-    plt.show()
 
 def top5bottom5countries():
-
 
     Column_list = list(df_total.columns)
     Column_list.remove("Year")
@@ -490,48 +498,49 @@ def top5bottom5countries():
     Column_list.remove("Least Developed Country")
     Column_list.remove("Continent")
 
-
     for column in Column_list:
         fig, ax = plt.subplots(1, 1, figsize=(20, 5))
-        df = df_total[df_total["Year"]==2020].sort_values(by=column, ascending=False)
+        df = df_total[df_total["Year"] == 2020].sort_values(by=column, ascending=False)
         for country in df["Country"].head(5).unique():
             ax.plot(
-                df_total[(df_total["Country"] == country) & (df_total["Year"]>=2009)]["Year"],
+                df_total[(df_total["Country"] == country) & (df_total["Year"] >= 2009)][
+                    "Year"
+                ],
                 df_total[df_total["Country"] == country][column],
                 label=country,
-                color=Color_By_Country[country]
+                color=Color_By_Country[country],
             )
 
         i = 0
         for country in df["Country"].tail(5).unique():
 
             ax.plot(
-                df_total[(df_total["Country"] == country) & (df_total["Year"]>=2009)]["Year"],
+                df_total[(df_total["Country"] == country) & (df_total["Year"] >= 2009)][
+                    "Year"
+                ],
                 df_total[df_total["Country"] == country][column],
                 label=country,
                 color=ARR_COLOR[i],
             )
-            i+=1
+            i += 1
         ax.set_title(f"Top 5 and last 5 Countries by {column}")
         ax.set_ylabel(column)
         ax.legend()
         plt.show()
 
 
-
-
-
-
-
 # Driver Code:
 def Run():
-    UserInput=1
-    while int(UserInput)>0 and int(UserInput)<=4:
-        UserInput = input(" Welcome to the visualization tool.\n please Enter a choice\nPress 1 for GDP pie plot\nPress 2 for GDP bar plot\nPress 3 for GDP total world graph\nPress 4 for Top 5 and worst 5 in each column\n")
+    UserInput = 1
+    while int(UserInput) > 0 and int(UserInput) <= 4:
+        UserInput = input(
+            "Welcome to the visualization tool.\n    Please enter a choice\n    Press 1 for GDP pie plot\n    Press 2 for GDP bar plot\n    Press 3 for GDP total world graph\n    Press 4 for 'Genocide & Wars' labels Graphs\n    Press 5 for Top 5 and worst 5 in each column\n    Press 0 for main menu\n-> "
+        )
 
-        #TODO - tony - What are do those?
+        # TODO - tony - What are do those?
         # line_plot(df)
         # mix_plot(df)
+        # bar_plot(df)
 
         if int(UserInput) == 1:
             GDP_pie_plot()
@@ -540,27 +549,8 @@ def Run():
         elif int(UserInput) == 3:
             GDP_total_world_graph()
         elif int(UserInput) == 4:
+            Genocide_Plots()
+        elif int(UserInput) == 5:
             top5bottom5countries()
-
-
-
-    # TODO - ziv - can u organize please?
-
-    # Driver Code: Genocide & Wars List
-    # FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
-    # df_full = pd.read_csv(FULL_DB_PATH)
-    # labels = df_full.columns
-    # for label in labels:
-    #     if label in [
-    #         "Country",
-    #         "Year",
-    #         "Continent",
-    #         "Government expenditure (% of GDP)",
-    #         "Total government Expenses (% of GDP)",
-    #         "Total consumption ($)",
-    #         "Least Developed Country",
-    #         "Third World",
-    #     ]:
-    #         continue
-    #     Genocide_Plots(label)
-    
+        else:
+            break

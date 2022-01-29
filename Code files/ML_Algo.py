@@ -31,9 +31,10 @@ CANT_BE_NEG_SCRAP = [
     "Local Purchasing Power Index",
 ]
 
-
+# TODO: should be removed if added to imports
 FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
 SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
+#
 
 
 def load_dataset(df, label_column):

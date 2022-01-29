@@ -19,12 +19,14 @@ if __name__ == "__main__":
 
     while int(UserInput) > 0 and int(UserInput) <= 4:
         UserInput = input(
-            "Hello And Welcome ETZ-GDP,\nPress 1 to Merge Data,\nPress 2 to ML,\nPress 3 for Graphs,\nPress 4 to Clusters,\nPress 5 to Exit,\n"
+            "Hello And Welcome ETZ-GDP!\n    Please enter a choice:\n    Press 1 to Merge Data\n    Press 2 to ML\n    Press 3 for Graphs\n    Press 4 to Clusters\n    Press 0 to Exit.\n-> "
         )
         if int(UserInput) == 1:
             Run_Merge()
+            print("Merge Completed!\n")
         elif int(UserInput) == 2:
             Run_ML()
+            print("ML Done!\n")
         elif int(UserInput) == 3:
             Run_Graphs()
         elif int(UserInput) == 4:
