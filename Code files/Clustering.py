@@ -1,5 +1,6 @@
 from imports import *
 
+# Continents and their respective number
 dict = {
     0: "Asia",
     1: "Europe",
@@ -10,6 +11,7 @@ dict = {
     4: "South America",
 }
 
+# Columns to be removed from the dataframe
 REMOVE_COLUMN = ["Continent", "Least Developed Country", "Third World"]
 
 df = pd.read_csv(FULL_DB_PATH)
@@ -29,14 +31,14 @@ def get_best_num_of_clusters_for_k_means(
     """Check and return the best number of clusters for k-means clustering
 
     Args:
-        dataset,
-        num_cluster_options,
-        init_val,
-        n_init_val,
-        rand_state - Tony please fill
+        dataset (DataFrame): Dataframe with all our data.
+        num_cluster_options (list): List of number of clusters to test.
+        init_val (str): Initialization method to test.
+        n_init_val (int): Number of times to run the algorithm.
+        rand_state
 
     Returns:
-        score, number of clusters
+        score(float): number of clusters
     """
     best_score = float("-inf")
     for k in num_cluster_options:
@@ -54,11 +56,11 @@ def perform_k_means(
     """Perform k-means clustering
 
     Args:
-        dataset,
-        num_cluster_options,
-        init_val,
-        n_init_val,
-        rand_state - Tony please fill
+        dataset (DataFrame): Dataframe with all our data.
+        num_cluster_options (int): Number of clusters to test.
+        init_val (str): Initialization method to test.
+        n_init_val (int): Number of times to run the algorithm.
+        rand_state - Tony please fil (str): name of the
 
     Returns:
         model, predicted_vals
@@ -78,9 +80,9 @@ def perform_density_based_clustering(dataset, epsilon_val=0.5, minimum_samples_v
     """Perform DBScan clustering
 
     Args:
-        dataset,
-        epsilon_val,
-        minimum_samples_val,
+        dataset (DataFrame): Dataframe with all our data.
+        epsilon_val (float): Epsilon value to test.
+        minimum_samples_val (int): Minimum samples value to test.
 
     Returns:
         model, predicted_vals
@@ -96,9 +98,9 @@ def get_best_params_for_dbscan(dataset, eps_options, min_samples_options):
     """Check and return the best number of clusters for DBScan clustering
 
     Args:
-        dataset,
-        eps_options,
-        min_samples_options,
+        dataset (DataFrame): Dataframe with all our data.
+        eps_options (list): List of epsilon values to test.
+        min_samples_options (list): List of minimum samples values to test.
 
     Returns:
         model, predicted_vals
@@ -124,7 +126,7 @@ def Cluster_Graphs(name):
     """Create Graphs for the clustering results
 
     Args:
-        name - name of the database
+        name (str): Name of the DB
 
     Returns:
         [None] - creates graphs
@@ -153,7 +155,7 @@ def Cluster_Graphs(name):
     # Main For loop
     for column in columns:
         ## KMeans clustering ##
-        # Prepate the data to cluster
+        # Prepare the data to cluster
         data = data[data["Year"] == 2020]
         data1 = data[column].copy()
 
@@ -207,7 +209,7 @@ def Cluster_Graphs(name):
         plt.show()
 
         ## DBscan clustering ##
-        # Prepate the data to cluster
+        # Prepare the data to cluster
         data = data[data["Year"] == 2020]
         data1 = data[column].copy()
 
@@ -220,10 +222,10 @@ def Cluster_Graphs(name):
             )
 
             # Perform DBSCAN
-
             model, DBSCANData = perform_density_based_clustering(
                 data1.loc[:, data1.columns != "Continent"], best_eps, best_min_samples
             )
+
             # Add the cluster column to the dataframe
             data1["Cluster"] = DBSCANData
 
@@ -265,10 +267,10 @@ def PCA_Total_graph(data, num_components):
     """Convert the data to PCA
 
     Args:
-        data
-
+        data (pandas.DataFrame): The data to convert
+        num_components (int): Number of components to keep
     Returns:
-        data - dataframe with PCA
+        data (pandas.DataFrame): The data after the PCA
     """
     # Data Preparation
     data = data[data["Year"] == 2020]
@@ -284,7 +286,7 @@ def PCA_Total_graph(data, num_components):
     pca = PCA(n_components=num_components)  # num_components-dimensional PCA
     principalComponents = pca.fit_transform(dataPCA)
 
-    #####################################Plot the PCA(for testing purposes)
+    ## Plot the PCA(for testing purposes)
     # fig = plt.figure(figsize=(8, 8))
     # ax = fig.add_subplot(1, 1, 1)
     # ax.set_xlabel("Principal Component 1", fontsize=15)
@@ -292,6 +294,7 @@ def PCA_Total_graph(data, num_components):
     # ax.set_title("2 component PCA", fontsize=20)
     # plt.scatter(dataPCA[:,0], dataPCA[:,1],  cmap="plasma")
     # plt.show()
+
     data.insert(len(data.columns), "principal component 1", principalComponents[:, 0])
     if num_components == 2:
         data.insert(
@@ -302,12 +305,12 @@ def PCA_Total_graph(data, num_components):
 
 
 def PCA_Cluster_Graph():
-    """Perform Clutsering on PCA data
+    """Perform Clustering on PCA data
 
     Args:
-
+        None
     Returns:
-        data - dataframe with PCA
+        data (pandas.DataFrame): The data after the PCA
     """
     for data, name in zip([df, df_scrape, df_total], ("df", "df_scrape", "df_total")):
         data = PCA_Total_graph(data, 2)
@@ -371,6 +374,10 @@ def ComparePlot(data, num_clusters, score, label, name):
         num_clusters (int): Number of clusters used to cluster with.
         score (float): The score for each cluster.
         label (string): The target label used to cluster with.
+        name (string): The name of the dataframe.
+
+    Returns:
+        None
     """
     fig, axes = plt.subplots(1, 2, figsize=(20, 5))
     fig.suptitle(name + "\n " + label, fontsize=20)
@@ -432,7 +439,7 @@ def find_best_epsilon(name):
     """Create Graphs for the clustering results
 
     Args:
-        name - name of the database
+        name (string): The name of the dataset.
 
     Returns:
         [None] - creates graphs
@@ -468,6 +475,15 @@ def find_best_epsilon(name):
 
 
 def create_cluster_list(data):
+    """Create a list of clusters for the given dataframe
+
+    Args:
+        data (DataFrame): Dataframe with all our data.
+
+    Returns:
+        arr1, arr2 (list): List of clusters for each model.
+    """
+
     arr1 = []
     arr2 = []
     for cluster_num in data["kmean-cluster"].unique():
@@ -484,6 +500,16 @@ def create_cluster_list(data):
 
 
 def pie_plot_cluster_list(df, arr, label):
+    """Create a pie plot for the given list of clusters
+
+    Args:
+            df (DataFrame): Dataframe with all our data.
+            arr (list): List of clusters for each model.
+            label (string): The label of the cluster.
+
+    Returns:
+            None - creates a pie plot
+    """
     fig, ax = plt.subplots(2, 2, figsize=(20, 5))
 
     k = 0
@@ -510,20 +536,7 @@ def pie_plot_cluster_list(df, arr, label):
 # find_best_epsilon("full")
 # find_best_epsilon("scrape") #?
 
-
 # Cluster_Graphs("full")
 # Cluster_Graphs("scrape")
 
-
 # PCA_Cluster_Graph() #Main Function
-
-# TODO - what dis?
-# for data in [SCRAP_data]:
-#     item = []
-#     for clu in data["kmean-cluster"].unique():
-#         item.append(data[data["kmean-cluster"] == clu]["Country"].unique())
-#     dp = pd.DataFrame(item)
-
-
-# print(dp.transpose())
-# dp.to_csv(r"../CSV files/cluster_data.csv")
