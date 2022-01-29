@@ -1,5 +1,7 @@
+import matplotlib.pyplot as plt
+
 from imports import *
-from GDPlinearregres import GDP_estimated
+#from GDPlinearregres import GDP_estimated
 from Correlations import GENOCIDE_list
 
 df = pd.read_csv(FULL_DB_PATH)
@@ -109,27 +111,6 @@ ARR_COLOR = [
     "lime",
 ]
 
-
-# def plot_frequent_elements(df, df_in_params):
-#     col_amount = df_in_params.shape[0]
-#     fig, axes = plt.subplots(1, col_amount, figsize=(20, 5))
-#
-#     for i in range(col_amount):
-#         sr = get_frequent_elements(df,df_in_params['col_name'][i],df_in_params['num_top_elements'][i])
-#         one_dim_plot(sr,df_in_params['plot_type'][i],axes[i])
-
-
-# line plot
-def line_plot(df):
-    # fig, axes = plt.subplots(1, 1, figsize=(20, 5))
-
-    x = df[df["Country"] == "Israel"]["GDP Total"]
-
-    arr = list(x)
-    plt.plot(arr, linestyle="dotted")
-    plt.show()
-
-
 def pie_per_year(ax, df, year):
     GDP = []
     labels = []
@@ -208,72 +189,47 @@ def GDP_pie_plot():
     plt.show()
 
 
-# pie chart
-def mix_plot(df):
-    # ##check third_world vs other
-    #
-    # countries_name=df["Country"].unique()
-    # third_world=not_third_world=0
-    # for c in countries_name:
-    #     if df[df["Country"]==c]["Third World"].unique()[0]:
-    #         third_world+=1
-    #     else:
-    #         not_third_world+=1
-    #
-    # plt.pie([third_world,not_third_world],labels=["Third World","Other"])
-    # plt.show()
 
-    #
-    # ##check Least Developed vs other
-    #
-    # countries_name = df["Country"].unique()
-    # least_dev = not_least_dev = 0
-    # for c in countries_name:
-    #     if df[df["Country"] == c]["Least Developed Country"].unique()[0]:
-    #         least_dev += 1
-    #     else:
-    #         not_least_dev += 1
-    #
-    # plt.pie([(least_dev/(least_dev+not_least_dev))*100, (not_least_dev/(least_dev+not_least_dev))*100], labels=["Least Developed Country", "Other"], autopct='%1.1f%%')
-    # plt.title("Least developed countries VS rest of the world")
-    # plt.show()
 
-    #
-    #
-    # ## bar plot check how much of third_world is least developed countries
-    # x=np.array([least_dev, third_world])
-    # plt.bar(["Least Developed Country", "Total Third World"],x)
-    # plt.show()
-    #
-    #
-    #
-
+def country_cont_dist():
     # show continent pie
 
+    # dict = {
+    #     0: "Asia",
+    #     1: "Europe",
+    #     5: "Oceania",
+    #     6: "Africa",
+    #     2: "Central America",
+    #     3: "North America",
+    #     4: "South America",
+    # }
+
+
     dict = {
-        "Asia": 0,
-        "Europe": 0,
-        "Oceania": 0,
-        "Africa": 0,
-        "Central America": 0,
-        "North America": 0,
-        "South America": 0,
+        "0": 0,
+        "1": 0,
+        "5": 0,
+        "6": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
     }
     total = 0
 
     for c in df["Country"].unique():
-        dict[df[df["Country"] == c]["Continent"].unique()[0]] += 1
+
+        dict[str(df[df["Country"] == c]["Continent"].unique()[0])] += 1
         total += 1
 
     plt.pie(
         [
-            (dict["Asia"] / total) * 100,
-            (dict["Europe"] / total) * 100,
-            (dict["Oceania"] / total) * 100,
-            (dict["Africa"] / total) * 100,
-            (dict["Central America"] / total) * 100,
-            (dict["North America"] / total) * 100,
-            (dict["South America"] / total) * 100,
+            (dict["0"] / total) * 100,
+            (dict["1"] / total) * 100,
+            (dict["5"] / total) * 100,
+            (dict["6"] / total) * 100,
+            (dict["2"] / total) * 100,
+            (dict["3"] / total) * 100,
+            (dict["4"] / total) * 100,
         ],
         labels=[
             "Asia",
@@ -287,27 +243,38 @@ def mix_plot(df):
         autopct="%1.1f%%",
     )
     plt.title("Countries distribution between continents")
+    plt.legend([dict[i] for i in dict], loc="upper left")
     plt.show()
 
-    # x = list(df[df["Year"] == 2020]["Population Total"])  ## Population
-    # y = list(df[df["Year"] == 2020]["GDP Total"])  ## GDP
-    #
-    # i = 0
-    # for continent in df["Continent"].unique():
-    #     x = list(
-    #         df[(df["Continent"] == continent) & (df["Year"] == 2020)][
-    #             "Population Total"
-    #         ]
-    #     )
-    #     y = list(df[(df["Continent"] == continent) & (df["Year"] == 2020)]["GDP Total"])
-    #     plt.scatter(x, y, color=ARR_COLOR[i])
-    #
-    #     i += 1
-    # plt.title("GDP/Population in 2020 With Continents")
-    # plt.xlabel("Population")
-    # plt.ylabel("GDP")
-    # plt.legend(df["Continent"].unique(), loc="upper left")
-    # plt.show()
+
+
+def scatter_gdp_conts():
+
+    ##displays the countries according to gdp in scatter in year 2020
+
+    x = list(df[df["Year"] == 2020]["Population Total"])  ## Population
+    y = list(df[df["Year"] == 2020]["GDP Total"])  ## GDP
+
+    i = 0
+    for continent in df["Continent"].unique():
+        x = list(
+            df[(df["Continent"] == continent) & (df["Year"] == 2020)][
+                "Population Total"
+            ]
+        )
+        y = list(df[(df["Continent"] == continent) & (df["Year"] == 2020)]["GDP Total"])
+        plt.scatter(x, y, color=ARR_COLOR[i])
+
+        i += 1
+    plt.title("GDP/Population in 2020 With Continents")
+    plt.xlabel("Population")
+    plt.ylabel("GDP")
+    plt.legend(df["Continent"].unique(), loc="upper left")
+    plt.show()
+
+
+
+def GDP_vs_Cont_Bar():
 
     # Create GDP vs continents bar
     list_gdp = []
@@ -534,13 +501,8 @@ def Run():
     UserInput = 1
     while int(UserInput) > 0 and int(UserInput) <= 4:
         UserInput = input(
-            "Welcome to the visualization tool.\n    Please enter a choice\n    Press 1 for GDP pie plot\n    Press 2 for GDP bar plot\n    Press 3 for GDP total world graph\n    Press 4 for 'Genocide & Wars' labels Graphs\n    Press 5 for Top 5 and worst 5 in each column\n    Press 0 for main menu\n-> "
+            "Welcome to the visualization tool.\n    Please enter a choice\n    Press 1 for GDP pie plot\n    Press 2 for GDP bar plot\n    Press 3 for GDP total world graph\n    Press 4 for 'Genocide & Wars' labels Graphs\n    Press 5 for Top 5 and worst 5 in each column\n    Press 6 for distribution of countries in each continent\n    Press 7 for scatter plot of the countries in 2020 according to GDP\n    Press 8 for bar plot of Continents and GDP\n    Press 0 for main menu\n-> "
         )
-
-        # TODO - tony - What are do those?
-        # line_plot(df)
-        # mix_plot(df)
-        # bar_plot(df)
 
         if int(UserInput) == 1:
             GDP_pie_plot()
@@ -552,5 +514,13 @@ def Run():
             Genocide_Plots()
         elif int(UserInput) == 5:
             top5bottom5countries()
+        elif int(UserInput)==6:
+            country_cont_dist()
+        elif int(UserInput)==7:
+            scatter_gdp_conts()
+        elif int(UserInput)==8:
+            GDP_vs_Cont_Bar()
         else:
             break
+
+Run()
