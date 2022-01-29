@@ -4,6 +4,9 @@ from imports import *
 def load_soup_object(URL, year):
     """load soup object from givin url with specific year.
 
+    Args:
+        URL (string): URL to do scraping on.
+        year (int): year to start format from.
     Returns:
         soup: soup object for the url.
     """
@@ -53,6 +56,7 @@ def create_dataframe(URL, yearStart, yearEnd, drop_columns, CSV_name):
     return df
 
 
+# Driver Code:
 df1 = create_dataframe(
     "https://www.numbeo.com/quality-of-life/rankings_by_country.jsp?title=",
     2014,

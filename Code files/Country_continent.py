@@ -8,7 +8,8 @@ from imports import *
 
 def load_soup_object():
     """load soup object from hardcoded url.
-
+    Args:
+        None
     Returns:
         soup: soup object for the hardcoded url.
     """
@@ -46,6 +47,9 @@ def beautiful_data(country):
 def scrap_country():
     """scrapper that gets each continent's country names.
 
+    Args:
+        None
+
     Returns:
         dictionary: dict containing country names and their corresponding continent.
     """
@@ -61,7 +65,7 @@ def scrap_country():
         if cnt == 8:
             break  # Wiki start giving info we don't need after that
 
-    # remove irrelevant continent
+    # remove irrelevant data - not real continents or not helpful for us.
     continents.remove("Eurasia")
     continents.remove("Americas")
 

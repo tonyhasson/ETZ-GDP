@@ -1,0 +1,5 @@
+Life_Expectancy_Cont  -> re-run and compare after we fixed values
+living_vs_groceries -> add linear line corresponding to the correlation
+Military_Spend_leaders -> USSR drop
+Military_spend_gdp_leaders -> israel high money
+population_above_100K -> used for proving we cleaned countries less then 100k
