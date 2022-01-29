@@ -10,8 +10,6 @@ dict = {
     4: "South America",
 }
 
-FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
-SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
 REMOVE_COLUMN = ["Continent", "Least Developed Country", "Third World"]
 
 df = pd.read_csv(FULL_DB_PATH)
@@ -509,6 +507,8 @@ def pie_plot_cluster_list(df,arr,label):
     plt.show()
 
 
+
+# TODO check what can we remove, delete old comments that are unneeded
 # find_best_epsilon("full")
 # find_best_epsilon("scrape") #?
 
@@ -517,9 +517,9 @@ def pie_plot_cluster_list(df,arr,label):
 # Cluster_Graphs("scrape")
 
 
-PCA_Cluster_Graph()
+# PCA_Cluster_Graph() #Main Function
 
-
+# TODO - what dis?
 # for data in [SCRAP_data]:
 #     item = []
 #     for clu in data["kmean-cluster"].unique():

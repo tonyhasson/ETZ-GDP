@@ -2,8 +2,7 @@ import matplotlib.pyplot as plt
 
 from imports import *
 
-FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
-SCRAP_DB_PATH = r"../CSV files/df_scrape.csv"
+
 YEARS = [i for i in range(1960, 2021)]
 
 # List of all countries that were in USSR
@@ -392,19 +391,20 @@ labels = df_full.columns
 #     USA_RUSS_CHINA(df_full,label
 
 # Continent mean values:
-for label in labels:
-    if label in [
-        "Country",
-        "Year",
-        "Continent",
-        "GDP Growth",
-        "Government expenditure (% of GDP)",
-        "Total government Expenses (% of GDP)",
-        "Military expenditure (% of GDP)",
-        "Population Growth pace",
-    ]:
-        continue
-    Continent_VS(df_full, label)
+# TODO - this for loop starts automatically, maybe move to function?
+# for label in labels:
+#     if label in [
+#         "Country",
+#         "Year",
+#         "Continent",
+#         "GDP Growth",
+#         "Government expenditure (% of GDP)",
+#         "Total government Expenses (% of GDP)",
+#         "Military expenditure (% of GDP)",
+#         "Population Growth pace",
+#     ]:
+#         continue
+#     Continent_VS(df_full, label)
 
 # LIFE expectancy
 # Cont_expectancy(df_full, "Europe")

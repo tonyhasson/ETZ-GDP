@@ -2,7 +2,7 @@ from imports import *
 from GDPlinearregres import GDP_estimated
 from Correlations import GENOCIDE_list as G_list
 
-df = pd.read_csv(r"..\CSV files\df_Full_DataBase.csv")
+df = pd.read_csv(FULL_DB_PATH)
 df_total = pd.read_csv(r"..\CSV files\df_total.csv")
 GDP_est = pd.read_csv(r"..\CSV files\GDP est.csv")
 
@@ -524,14 +524,28 @@ def top5bottom5countries():
 
 
 # Driver Code:
-if __name__ == "__main__":
-    # df = df.fillna(0) # WHY?
-    # line_plot(df)
-    # mix_plot(df)
-    # GDP_pie_plot()
-    # sum_of_gdp_bar_graph()
-    # GDP_total_world_graph()
-    # top5bottom5countries()
+def Run():
+    UserInput=1
+    while int(UserInput)>0 and int(UserInput)<=4:
+        UserInput = input(" Welcome to the visualization tool.\n please Enter a choice\nPress 1 for GDP pie plot\nPress 2 for GDP bar plot\nPress 3 for GDP total world graph\nPress 4 for Top 5 and worst 5 in each column\n")
+
+        #TODO - tony - What are do those?
+        # line_plot(df)
+        # mix_plot(df)
+
+        if int(UserInput) == 1:
+            GDP_pie_plot()
+        elif int(UserInput) == 2:
+            sum_of_gdp_bar_graph()
+        elif int(UserInput) == 3:
+            GDP_total_world_graph()
+        elif int(UserInput) == 4:
+            top5bottom5countries()
+
+
+
+    # TODO - ziv - can u organize please?
+
     # Driver Code: Genocide & Wars List
     # FULL_DB_PATH = r"../CSV files/df_Full_DataBase.csv"
     # df_full = pd.read_csv(FULL_DB_PATH)

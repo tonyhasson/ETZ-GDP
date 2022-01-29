@@ -1,7 +1,7 @@
 from imports import *
 from ML_Algo import load_dataset
 
-df = pd.read_csv(r"../CSV files/df_Full_DataBase.csv")
+df = pd.read_csv(FULL_DB_PATH)
 
 
 def GDP_estimated():

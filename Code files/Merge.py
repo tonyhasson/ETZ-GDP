@@ -224,12 +224,12 @@ def merge_extra_df(df, col_name, path):
     Returns:
         df with another columns of third world
     """
-
+    #TODO i get a warning when running this function please help
     df_extra = pd.read_csv(path)
     arr_c = df_extra["Country"].unique()  # [c for c in df_extra["Country"]]
     df[col_name] = 0
-    for c in arr_c:
-        df.loc[df["Country"] == c, col_name] = 1
+    for country in arr_c:
+        df.loc[df["Country"] == country, col_name] = 1
     return df
 
 
