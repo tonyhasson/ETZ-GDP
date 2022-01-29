@@ -33,7 +33,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import linear_model, metrics, preprocessing
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, PolynomialFeatures
 from sklearn.linear_model import LogisticRegression, LinearRegression
-from sklearn.metrics import confusion_matrix, silhouette_score,r2_score, f1_score
+from sklearn.metrics import confusion_matrix, silhouette_score, r2_score, f1_score
 from sklearn.pipeline import make_pipeline
 from sklearn.cluster import KMeans, DBSCAN
 from sklearn.decomposition import PCA
