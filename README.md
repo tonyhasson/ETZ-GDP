@@ -2,7 +2,7 @@
 
 ![Logo](.github/logo.png)
 
-E.T.Z GDP Prediction is a project in Python using ML, aiming to predict the GDP of counties using data about: Population number, life quality rank and more....
+E.T.Z GDP Prediction is a project in Python using ML, aiming to predict the GDP of countries using data about: Population number, life quality rank and more....
 
 ## [TO-DO List](/Todo.md)
 
