@@ -1,4 +1,4 @@
-# ETZ-GDP
+# ETZ Predictions
 
 ![Logo](.github/logo.png)
 
